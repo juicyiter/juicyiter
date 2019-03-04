@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 <meta name="google-site-verification" content="fdzt5cwPb3ZyCXTx-RDybhtFGGVcsFgBiCWn7xWrOzU">
-
+<meta name="baidu-site-verification" content="gccGr7k9sM">
 
   
   
@@ -140,18 +140,18 @@
 
 
 
-<meta name="description" content="https://www.patest.cn/contests/pat-a-practise/1028  结构体按列排序,我用了qsort的函数,主要就搞好三个comp函数就可以啦.这题还算简单辣,不知道为何通过率这么低. 代码如下：">
+<meta name="description" content="https://www.patest.cn/contests/pat-a-practise/1028  结构体按列排序,我用了qsort的函数,主要就搞好三个comp函数就可以啦.这题还算简单辣,不知道为何通过率这么低. 代码如下： &amp;lt;!-- more --&amp;gt;  1234567891011121314151617181920212223242526272829303132333435">
 <meta name="keywords" content="PAT-A">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PAT Advanced 1028 List Sorting In C.">
 <meta property="og:url" content="https://mengoreo.github.io/2018/05/06/pat1028a/index.html">
 <meta property="og:site_name" content="Mengoreo">
-<meta property="og:description" content="https://www.patest.cn/contests/pat-a-practise/1028  结构体按列排序,我用了qsort的函数,主要就搞好三个comp函数就可以啦.这题还算简单辣,不知道为何通过率这么低. 代码如下：">
+<meta property="og:description" content="https://www.patest.cn/contests/pat-a-practise/1028  结构体按列排序,我用了qsort的函数,主要就搞好三个comp函数就可以啦.这题还算简单辣,不知道为何通过率这么低. 代码如下： &amp;lt;!-- more --&amp;gt;  1234567891011121314151617181920212223242526272829303132333435">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2018-07-17T21:34:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PAT Advanced 1028 List Sorting In C.">
-<meta name="twitter:description" content="https://www.patest.cn/contests/pat-a-practise/1028  结构体按列排序,我用了qsort的函数,主要就搞好三个comp函数就可以啦.这题还算简单辣,不知道为何通过率这么低. 代码如下：">
+<meta name="twitter:description" content="https://www.patest.cn/contests/pat-a-practise/1028  结构体按列排序,我用了qsort的函数,主要就搞好三个comp函数就可以啦.这题还算简单辣,不知道为何通过率这么低. 代码如下： &amp;lt;!-- more --&amp;gt;  1234567891011121314151617181920212223242526272829303132333435">
 
 
 
@@ -426,7 +426,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  348
+                  308
                 </span>
               
 
@@ -442,7 +442,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  2
+                  1
                 </span>
               
             </div>
@@ -464,33 +464,15 @@
 
       
         <blockquote>
-<p><a href="https://www.patest.cn/contests/pat-a-practise/1028" target="_blank" rel="noopener">https://www.patest.cn/contests/pat-a-practise/1028</a></p>
+<p>https://www.patest.cn/contests/pat-a-practise/1028</p>
 </blockquote>
-<p>&#x7ED3;&#x6784;&#x4F53;&#x6309;&#x5217;&#x6392;&#x5E8F;,&#x6211;&#x7528;&#x4E86;qsort&#x7684;&#x51FD;&#x6570;,&#x4E3B;&#x8981;&#x5C31;&#x641E;&#x597D;&#x4E09;&#x4E2A;comp&#x51FD;&#x6570;&#x5C31;&#x53EF;&#x4EE5;&#x5566;.&#x8FD9;&#x9898;&#x8FD8;&#x7B97;&#x7B80;&#x5355;&#x8FA3;,&#x4E0D;&#x77E5;&#x9053;&#x4E3A;&#x4F55;&#x901A;&#x8FC7;&#x7387;&#x8FD9;&#x4E48;&#x4F4E;.</p>
-<p>&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
-<a id="more"></a>
+<p>结构体按列排序,我用了qsort的函数,主要就搞好三个comp函数就可以啦.这题还算简单辣,不知道为何通过率这么低.</p>
+<p>代码如下：</p>
+<p>&lt;!-- more --&gt;</p>
 <hr>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#define nLength 9</span><br><span class="line">typedef struct studentInfo{</span><br><span class="line">    int id,grade; //6 digits</span><br><span class="line">    char name[nLength];</span><br><span class="line"></span><br><span class="line">} *stuInfo,stuInfoNode;</span><br><span class="line">int compId(const void *a,const void *b)</span><br><span class="line">{</span><br><span class="line">    /*incrasing order*/</span><br><span class="line">    stuInfo m=(stuInfo)a,n=(stuInfo)b;</span><br><span class="line">    return m-&gt;id-n-&gt;id;</span><br><span class="line">}</span><br><span class="line">int compGrade(const void *a,const void *b)</span><br><span class="line">{</span><br><span class="line">    /*non-decrasing order*/</span><br><span class="line">    stuInfo m=(stuInfo)a,n=(stuInfo)b;</span><br><span class="line">    if(m-&gt;grade==n-&gt;grade) return m-&gt;id-n-&gt;id;</span><br><span class="line">    else return m-&gt;grade-n-&gt;grade; </span><br><span class="line">}</span><br><span class="line">int compName(const void *a,const void *b)</span><br><span class="line">{</span><br><span class="line">    /*non-decrasing order*/</span><br><span class="line">    stuInfo m=(stuInfo)a,n=(stuInfo)b;</span><br><span class="line">    if(strcmp(m-&gt;name,n-&gt;name)==0) return m-&gt;id-n-&gt;id;</span><br><span class="line">    else return strcmp(m-&gt;name,n-&gt;name);</span><br><span class="line">}</span><br><span class="line">int main()</span><br><span class="line">{</span><br><span class="line">    int n,i,c;</span><br><span class="line">    stuInfo s;</span><br><span class="line">    scanf(&quot;%d %d&quot;,&amp;n,&amp;c);</span><br><span class="line">    s=(stuInfo)malloc(sizeof(stuInfoNode)*n);</span><br><span class="line">    for(i=0;i&lt;n;i++)</span><br><span class="line">        scanf(&quot;%d %s %d&quot;,&amp;s[i].id,s[i].name,&amp;s[i].grade);</span><br><span class="line"></span><br><span class="line">    if(c==1) qsort(s,n,sizeof(stuInfoNode),compId);</span><br><span class="line">    else if(c==2) qsort(s,n,sizeof(stuInfoNode),compName);</span><br><span class="line">    else qsort(s,n,sizeof(stuInfoNode),compGrade);</span><br><span class="line"></span><br><span class="line">    for(i=0;i&lt;n;i++)</span><br><span class="line">        printf(&quot;%06d %s %d\n&quot;,s[i].id,s[i].name,s[i].grade);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#define nLength 9</span><br><span class="line">typedef struct studentInfo&#123;</span><br><span class="line">    int id,grade; //6 digits</span><br><span class="line">    char name[nLength];</span><br><span class="line"></span><br><span class="line">&#125; *stuInfo,stuInfoNode;</span><br><span class="line">int compId(const void *a,const void *b)</span><br><span class="line">&#123;</span><br><span class="line">    /*incrasing order*/</span><br><span class="line">    stuInfo m=(stuInfo)a,n=(stuInfo)b;</span><br><span class="line">    return m-&gt;id-n-&gt;id;</span><br><span class="line">&#125;</span><br><span class="line">int compGrade(const void *a,const void *b)</span><br><span class="line">&#123;</span><br><span class="line">    /*non-decrasing order*/</span><br><span class="line">    stuInfo m=(stuInfo)a,n=(stuInfo)b;</span><br><span class="line">    if(m-&gt;grade==n-&gt;grade) return m-&gt;id-n-&gt;id;</span><br><span class="line">    else return m-&gt;grade-n-&gt;grade; </span><br><span class="line">&#125;</span><br><span class="line">int compName(const void *a,const void *b)</span><br><span class="line">&#123;</span><br><span class="line">    /*non-decrasing order*/</span><br><span class="line">    stuInfo m=(stuInfo)a,n=(stuInfo)b;</span><br><span class="line">    if(strcmp(m-&gt;name,n-&gt;name)==0) return m-&gt;id-n-&gt;id;</span><br><span class="line">    else return strcmp(m-&gt;name,n-&gt;name);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n,i,c;</span><br><span class="line">    stuInfo s;</span><br><span class="line">    scanf(&quot;%d %d&quot;,&amp;n,&amp;c);</span><br><span class="line">    s=(stuInfo)malloc(sizeof(stuInfoNode)*n);</span><br><span class="line">    for(i=0;i&lt;n;i++)</span><br><span class="line">        scanf(&quot;%d %s %d&quot;,&amp;s[i].id,s[i].name,&amp;s[i].grade);</span><br><span class="line"></span><br><span class="line">    if(c==1) qsort(s,n,sizeof(stuInfoNode),compId);</span><br><span class="line">    else if(c==2) qsort(s,n,sizeof(stuInfoNode),compName);</span><br><span class="line">    else qsort(s,n,sizeof(stuInfoNode),compGrade);</span><br><span class="line"></span><br><span class="line">    for(i=0;i&lt;n;i++)</span><br><span class="line">        printf(&quot;%06d %s %d\n&quot;,s[i].id,s[i].name,s[i].grade);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <hr>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
       
     </div>
     
@@ -625,7 +607,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

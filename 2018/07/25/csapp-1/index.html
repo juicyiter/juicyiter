@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 <meta name="google-site-verification" content="fdzt5cwPb3ZyCXTx-RDybhtFGGVcsFgBiCWn7xWrOzU">
-
+<meta name="baidu-site-verification" content="gccGr7k9sM">
 
   
   
@@ -447,7 +447,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  12
+                  11
                 </span>
               
             </div>
@@ -494,15 +494,15 @@
 </li>
 </ul>
 <blockquote>
-<h3 id="the-gnu-project"><a class="markdownIt-Anchor" href="#the-gnu-project"></a> The GNU project</h3>
-<p><strong>GNU</strong>(short for GNU&#x2019;s Not Unix) environment includes the EMACS editor, GCC compiler, GDB debugger, assembler, linker, utilities for manipulating binaries, and other components.</p>
+<h3>The GNU project</h3>
+<p><strong>GNU</strong>(short for GNU's Not Unix) environment includes the EMACS editor, GCC compiler, GDB debugger, assembler, linker, utilities for manipulating binaries, and other components.</p>
 </blockquote>
 <p>If the <strong>first word</strong> of the command line does not correspond to built-in shell command, then the shell will take it <strong>as an executable file</strong> and assume it should be load and run.</p>
 <p><strong>Busses</strong> carries information back and forth between the components and are typically designed to transfer <strong>fixed-sized</strong> chunks of bytes known as <em>words</em>.</p>
 <blockquote>
 <p>Word size varies across systems. Most machines today have word sizes of either 4 bytes(32bits) or 8 bytes(64bits).</p>
 </blockquote>
-<p><strong>I/O devices</strong> are the system&#x2019;s connection to the external world. Each <strong>I/O device</strong> is connected to the I/O bus by either a <em>controller</em> or <em>adapter</em>. The main distinction between them is one of packaging. <em>Controllers</em> are chip sets in the device itself or on the system&#x2019;s motherboard. An <em>adapter</em> is a card that plugs into a slot on the motherboard.</p>
+<p><strong>I/O devices</strong> are the system's connection to the external world. Each <strong>I/O device</strong> is connected to the I/O bus by either a <em>controller</em> or <em>adapter</em>. The main distinction between them is one of packaging. <em>Controllers</em> are chip sets in the device itself or on the system's motherboard. An <em>adapter</em> is a card that plugs into a slot on the motherboard.</p>
 <p><strong>Main Memory</strong>, which physically consists of a series of DRAM(dynamic random access memory) chips, is a <em>temporary</em> storage device that holds both a program and the data it manipulates while the processor is executing the program.</p>
 <p>The central processing unit(<strong>CPU</strong>) or simply processor, is the engine that <strong>interprets instruction</strong> that stored in main memory. At its core is a <strong>word-sized storage device</strong> (or <strong>register</strong>) called the program counter(<strong>PC</strong>). While the system is running, the processor repeatedly interprets(or execute) instructions pointed by the PC and then updates PC to  point to new instructions.</p>
 <p>There are only a few operations, and they revolve around the main memory, the register file and the arithmetic/logic unit(ALU). The <em>register file</em> is a <strong>small storage device</strong> the consits of a collection of <strong>word-sized registers</strong>. each with its own unique name. The ALU computes new data and address values.</p>
@@ -513,8 +513,8 @@
 <li><em>Jump</em>: <strong>Extract</strong> a word from the instruction itself and <strong>copy</strong> that <strong>word into</strong> the program counter(<strong>PC</strong>), <strong>overwriting</strong> the previous value of the PC.</li>
 </ul>
 <p><strong>An important physical laws</strong>: large storage devices are slower than the small storage devices.</p>
-<img src="https://juicyiter.gitee.io/images/os-hierarchy.png" title="OS Hierarchy">
-<p>From the top of memory hierarchy table to the bottom, the storage devices become larger, slower, and less costly per byte. The L1, L2 and L3 cache are implemented with a hardware technology known as <em><strong>static random access memory</strong></em>. The idea behind caching is that a system can get the effect of both a very large memory and a very fast one by exploit <em>locality</em>, the tendency off programs to access data and code in localised regions.</p>
+<p><img src="https://juicyiter.gitee.io/images/os-hierarchy.png" title="OS Hierarchy"></p>
+<p>From the top of memory hierarchy table to the bottom, the storage devices become larger, slower, and less costly per byte. The L1, L2 and L3 cache are implemented with a hardware technology known as <strong><em>static random access memory</em></strong>. The idea behind caching is that a system can get the effect of both a very large memory and a very fast one by exploit <em>locality</em>, the tendency off programs to access data and code in localised regions.</p>
 <ul>
 <li>CPU registers hold <strong>words</strong> retrieved from L1 cache.</li>
 <li>L1 cache holds <strong>cache lines</strong> retrieved from L2 cache.</li>
@@ -524,35 +524,35 @@
 <li>Local disks hold <strong>files</strong> retrieved from disks on remote network server.</li>
 </ul>
 <p>Files are abstractions for I/O devices. A <strong>file</strong> is a sequence of bytes, <em>nothing more and nothing less</em>. Every I/O device, including disks, keyboards, displays, and even networks is modelled as a file. This elegant notation provides applications with a uniform view of all of the varied I/O devices. All input and output in the system is performed by reading and writing files, using a small set of systems calls known as <em>Unix I/O</em>.</p>
-<p>A process is the operating system&#x2019;s abstraction for a running program. Multiple processes can run <strong>concurrently</strong> on the same <a href="http://system.By" target="_blank" rel="noopener">system.By</a> <strong>concurrently</strong>, we mean that the instructions of one process is interleaved with instructions of another process.</p>
+<p>A process is the operating system's abstraction for a running program. Multiple processes can run <strong>concurrently</strong> on the same system.By <strong>concurrently</strong>, we mean that the instructions of one process is interleaved with instructions of another process.</p>
 <blockquote>
 <p>The operating system performs this interleaving with a mechanism known as <strong>context switching</strong> by <strong>saving the context</strong>, which includes information such as the current values of the PC, the register file and the contents of main memory, of the current process, <strong>restoring the context</strong> of the new process, and then <strong>passing control</strong> to the new process. The new process picks up exactly where it left off.</p>
 </blockquote>
 <p>Basically, in a modern system a process can actually consist of multiple execution units, called <strong>threads</strong>, each running in the context of the process and sharing the same code and global data.</p>
 <blockquote>
-<p>It&#x2019;s easier to share data between threads than processes and typically more efficient than processes. <strong>Multi-threading</strong> is one way to make program run faster when multiple processors are available.</p>
+<p>It's easier to share data between threads than processes and typically more efficient than processes. <strong>Multi-threading</strong> is one way to make program run faster when multiple processors are available.</p>
 </blockquote>
 <p>Virtual memory is an abstraction that provides each process with the <strong>illusion</strong> that it has exclusive use of the main memory.</p>
 <p><img src="https://juicyiter.gitee.io/images/virtual-space.png" alt="The virtual address space."></p>
-<p>In Linux, the <strong>topmost region</strong> of the address space is reserved for the code and data in the <strong>operating system</strong> that is common to all processes. The <strong>lower region</strong> of the address space holds the code and data <strong>defined by the user&#x2019;s process</strong>.</p>
+<p>In Linux, the <strong>topmost region</strong> of the address space is reserved for the code and data in the <strong>operating system</strong> that is common to all processes. The <strong>lower region</strong> of the address space holds the code and data <strong>defined by the user's process</strong>.</p>
 <blockquote>
 <p>Addresses in the figure  increase from the bottom to top.</p>
 </blockquote>
 <ul>
 <li>
-<p><em><strong>Program code and data.</strong></em> Code <strong>begins at the same fixed address</strong> for all processes, followed by data locations that correspond to <strong>global C variables</strong>. The code and data areas are initialised directly from the contents of an executable object file, in our case the <code>hello</code> executable.</p>
+<p><strong><em>Program code and data.</em></strong> Code <strong>begins at the same fixed address</strong> for all processes, followed by data locations that correspond to <strong>global C variables</strong>. The code and data areas are initialised directly from the contents of an executable object file, in our case the <code>hello</code> executable.</p>
 </li>
 <li>
-<p><em><strong>Heap.</strong></em> The code data areas are followed immediately by the <em>run-time</em> heap. Unlike the code and data areas which are fixed in size, the heap <strong>expands and contract dynamically</strong> at run time as a result of calls of C standard library routines such as <code>malloc</code> and free.</p>
+<p><strong><em>Heap.</em></strong> The code data areas are followed immediately by the <em>run-time</em> heap. Unlike the code and data areas which are fixed in size, the heap <strong>expands and contract dynamically</strong> at run time as a result of calls of C standard library routines such as <code>malloc</code> and free.</p>
 </li>
 <li>
-<p><em><strong>Shared libraries.</strong></em> Near the middle of the address space is an area that holds the code and data for <em>shared libraries</em> such as the C standard library and the math library.</p>
+<p><strong><em>Shared libraries.</em></strong> Near the middle of the address space is an area that holds the code and data for <em>shared libraries</em> such as the C standard library and the math library.</p>
 </li>
 <li>
-<p><em><strong>Stack.</strong></em> At the top of the virtual address space is the <em>user stack</em> that <strong>the compilers uses to implement functions calls</strong>. Like the heap, the user stack <strong>expands and contracts dynamically</strong>. In particular, it grows when we call a function and contracts when we return from a function.</p>
+<p><strong><em>Stack.</em></strong> At the top of the virtual address space is the <em>user stack</em> that <strong>the compilers uses to implement functions calls</strong>. Like the heap, the user stack <strong>expands and contracts dynamically</strong>. In particular, it grows when we call a function and contracts when we return from a function.</p>
 </li>
 <li>
-<p><em><strong>Kernel virtual memory.</strong></em> The kernel is the part of the operation system that is <strong>always resident in memory.</strong> The top region is <strong>reserved</strong> for the kernel. <strong>Applications are not allowed to read or write the contents of this area or directly call functions defined in the kernel code.</strong></p>
+<p><strong><em>Kernel virtual memory.</em></strong> The kernel is the part of the operation system that is <strong>always resident in memory.</strong> The top region is <strong>reserved</strong> for the kernel. <strong>Applications are not allowed to read or write the contents of this area or directly call functions defined in the kernel code.</strong></p>
 <blockquote>
 <p>The operating system kernel serves as an intermediary between the applications and the hardware. It provides three fundamental abstractions:</p>
 <p>(1) Files are abstractions for I/O devices.</p>
@@ -567,41 +567,27 @@
 <li>
 <p>Thread-level Concurrency</p>
 <p>With concurrency, multiple programs can be executed at the same time. But, traditionally, this can be only <strong>simulated</strong>, by having a single computer <em>rapidly</em> switch among its executing processes, much as a juggler keeps multiple balls flying through the air. Until recently, most actual computing was done by a configuration is known as a <em>uniprocessor system</em>. With the advent of the <em>multi-core processor</em> and <em>hyper-threading</em>.</p>
-<p>Multi-core processors have several CPUs (referred as &#x201C;cores&#x201D;) integrated onto a single integrated-circuit chip, <strong>each</strong> of which <strong>with its own L1 and L2 cache but sharing the higher levels of caches as well as the interface to main memory.</strong></p>
+<p>Multi-core processors have several CPUs (referred as &quot;cores&quot;) integrated onto a single integrated-circuit chip, <strong>each</strong> of which <strong>with its own L1 and L2 cache but sharing the higher levels of caches as well as the interface to main memory.</strong></p>
 <p>Hyper-threading, sometimes called <em>simultaneous multi-threading</em>, is a technique that allows a single CPU to execute multiple flows of control. It involves having <strong>multiple copies</strong> of some of the CPU hardware, such as <strong>program counters and register files</strong>, while having only <strong>single copies</strong> of other parts of the hardware, such as the <strong>units that perform floating-point arithmetic.</strong></p>
 <p>A hyper-threaded processor enables the CPU to make better advantage of its processing resources. The Intel Core i7 processor can have each cor executing to threads, and so a four-core system can actually execute eight threads in parallel.</p>
 <p>The use of multi-processing can improve system performance in <strong>two ways</strong>. First, it reduces the need to simulate concurrency when performing <strong>multiple</strong> tasks. Second, it can run a single application program <strong>faster</strong>.</p>
 </li>
+</ul>
+<ul>
 <li>
 <p>Instruction-Level Parallelism</p>
 <p>At a much lower level of abstraction, modern processors can execute multiple instructions at one time, a property known as <em>instruction-level parallelism</em>. In <strong>pipelining</strong>, the actions required to execute an instruction are <strong>partitioned into different steps</strong> and the processor hardware is organised as <strong>a series of stages</strong>, each performing one of these steps.</p>
 <p>Processors that can sustain execution rates faster than one instruction per clock cycle are known as <em>superscalar</em>.</p>
 </li>
+</ul>
+<ul>
 <li>
 <p>Single-Instruction, Multiple Data(SIMD) Parallelism</p>
 <p>At the lowest level, many modern processors have special hardware that allows a single instruction to cause multiple operations to be performed in parallel, which is known as SIMD parallelism. These SIMD instructions are provided mostly to speed up applications that process images, video and sound data.</p>
 </li>
 </ul>
 <p><img src="https://juicyiter.gitee.io/images/abstractions-of-computer.png" alt="Screen Shot 2018-07-24 at 20.18.43"></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
       
     </div>
     
@@ -745,7 +731,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -822,7 +808,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#the-gnu-project"><span class="nav-number">1.</span> <span class="nav-text"> The GNU project</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">The GNU project</span></a></li></ol></div>
             
 
           </div>

@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 <meta name="google-site-verification" content="fdzt5cwPb3ZyCXTx-RDybhtFGGVcsFgBiCWn7xWrOzU">
-
+<meta name="baidu-site-verification" content="gccGr7k9sM">
 
   
   
@@ -140,18 +140,18 @@
 
 
 
-<meta name="description" content="&amp;#x627E;&amp;#x51FA;&amp;#x6700;&amp;#x65E9;&amp;#x8FDB;&amp;#x53BB;&amp;#x7684;&amp;#x548C;&amp;#x6700;&amp;#x665A;&amp;#x51FA;&amp;#x6765;&amp;#x7684;&amp;#x3002; &amp;#x4EE3;&amp;#x7801;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A; 1234567891011121314151617181920212223242526272">
+<meta name="description" content="找出最早进去的和最晚出来的。 代码如下： 1234567891011121314151617181920212223242526272829303132333435363738394041#include &amp;lt;stdio.h&amp;gt;#define maxSize 17struct record&amp;#123;	char id[17];	int starthour;	int startmin;	in">
 <meta name="keywords" content="PAT-A">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PAT Advanced 1006 Sign In and Sign Out In C.">
 <meta property="og:url" content="https://mengoreo.github.io/2018/05/23/pat1006a/index.html">
 <meta property="og:site_name" content="Mengoreo">
-<meta property="og:description" content="&amp;#x627E;&amp;#x51FA;&amp;#x6700;&amp;#x65E9;&amp;#x8FDB;&amp;#x53BB;&amp;#x7684;&amp;#x548C;&amp;#x6700;&amp;#x665A;&amp;#x51FA;&amp;#x6765;&amp;#x7684;&amp;#x3002; &amp;#x4EE3;&amp;#x7801;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A; 1234567891011121314151617181920212223242526272">
+<meta property="og:description" content="找出最早进去的和最晚出来的。 代码如下： 1234567891011121314151617181920212223242526272829303132333435363738394041#include &amp;lt;stdio.h&amp;gt;#define maxSize 17struct record&amp;#123;	char id[17];	int starthour;	int startmin;	in">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2018-07-17T22:27:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PAT Advanced 1006 Sign In and Sign Out In C.">
-<meta name="twitter:description" content="&amp;#x627E;&amp;#x51FA;&amp;#x6700;&amp;#x65E9;&amp;#x8FDB;&amp;#x53BB;&amp;#x7684;&amp;#x548C;&amp;#x6700;&amp;#x665A;&amp;#x51FA;&amp;#x6765;&amp;#x7684;&amp;#x3002; &amp;#x4EE3;&amp;#x7801;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A; 1234567891011121314151617181920212223242526272">
+<meta name="twitter:description" content="找出最早进去的和最晚出来的。 代码如下： 1234567891011121314151617181920212223242526272829303132333435363738394041#include &amp;lt;stdio.h&amp;gt;#define maxSize 17struct record&amp;#123;	char id[17];	int starthour;	int startmin;	in">
 
 
 
@@ -426,7 +426,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  323
+                  269
                 </span>
               
 
@@ -442,7 +442,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  2
+                  1
                 </span>
               
             </div>
@@ -463,29 +463,11 @@
       
 
       
-        <p>&#x627E;&#x51FA;&#x6700;&#x65E9;&#x8FDB;&#x53BB;&#x7684;&#x548C;&#x6700;&#x665A;&#x51FA;&#x6765;&#x7684;&#x3002;</p>
-<p>&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> maxSize 17</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">record</span>{</span></span><br><span class="line">	<span class="keyword">char</span> id[<span class="number">17</span>];</span><br><span class="line">	<span class="keyword">int</span> starthour;</span><br><span class="line">	<span class="keyword">int</span> startmin;</span><br><span class="line">	<span class="keyword">int</span> startsec;</span><br><span class="line">	<span class="keyword">int</span> endhour;</span><br><span class="line">	<span class="keyword">int</span> endmin;</span><br><span class="line">	<span class="keyword">int</span> endsec;</span><br><span class="line">};</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isEarly</span><span class="params">(struct record a,struct record b)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">if</span>(a.starthour&lt;b.starthour) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a.starthour==b.starthour&amp;&amp;a.startmin&lt;b.startmin) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a.starthour==b.starthour&amp;&amp;a.startmin==b.startmin&amp;&amp;a.startsec&lt;b.startsec) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isLate</span><span class="params">(struct record a,struct record b)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">if</span>(a.endhour&gt;b.endhour) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a.endhour==b.endhour&amp;&amp;a.endmin&gt;b.endmin) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a.endhour==b.endhour&amp;&amp;a.endmin==b.endmin&amp;&amp;a.endsec&gt;b.endsec) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">record</span> <span class="title">a</span>[100];</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">record</span> <span class="title">earliest</span>={</span><span class="string">&quot;&quot;</span>,<span class="number">24</span>,<span class="number">60</span>,<span class="number">60</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>},latest={<span class="string">&quot;&quot;</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>};</span><br><span class="line">	<span class="comment">//freopen(&quot;d:\\input.txt&quot;,&quot;r&quot;,stdin);</span></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++){</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%s %d:%d:%d %d:%d:%d&quot;</span>,a[i].id,&amp;a[i].starthour,&amp;a[i].startmin,&amp;a[i].startsec,&amp;a[i].endhour,&amp;a[i].endmin,&amp;a[i].endsec);</span><br><span class="line">		<span class="keyword">if</span>(isEarly(a[i],earliest)) earliest=a[i];</span><br><span class="line">		<span class="keyword">if</span>(isLate(a[i],latest)) latest=a[i];</span><br><span class="line">	}</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%s %s&quot;</span>,earliest.id,latest.id);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+        <p>找出最早进去的和最晚出来的。</p>
+<p>代码如下：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> maxSize 17</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">record</span>&#123;</span></span><br><span class="line">	<span class="keyword">char</span> id[<span class="number">17</span>];</span><br><span class="line">	<span class="keyword">int</span> starthour;</span><br><span class="line">	<span class="keyword">int</span> startmin;</span><br><span class="line">	<span class="keyword">int</span> startsec;</span><br><span class="line">	<span class="keyword">int</span> endhour;</span><br><span class="line">	<span class="keyword">int</span> endmin;</span><br><span class="line">	<span class="keyword">int</span> endsec;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isEarly</span><span class="params">(struct record a,struct record b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a.starthour&lt;b.starthour) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a.starthour==b.starthour&amp;&amp;a.startmin&lt;b.startmin) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a.starthour==b.starthour&amp;&amp;a.startmin==b.startmin&amp;&amp;a.startsec&lt;b.startsec) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isLate</span><span class="params">(struct record a,struct record b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a.endhour&gt;b.endhour) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a.endhour==b.endhour&amp;&amp;a.endmin&gt;b.endmin) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a.endhour==b.endhour&amp;&amp;a.endmin==b.endmin&amp;&amp;a.endsec&gt;b.endsec) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">record</span> <span class="title">a</span>[100];</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">record</span> <span class="title">earliest</span>=&#123;</span><span class="string">""</span>,<span class="number">24</span>,<span class="number">60</span>,<span class="number">60</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,latest=&#123;<span class="string">""</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="comment">//freopen("d:\\input.txt","r",stdin);</span></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s %d:%d:%d %d:%d:%d"</span>,a[i].id,&amp;a[i].starthour,&amp;a[i].startmin,&amp;a[i].startsec,&amp;a[i].endhour,&amp;a[i].endmin,&amp;a[i].endsec);</span><br><span class="line">		<span class="keyword">if</span>(isEarly(a[i],earliest)) earliest=a[i];</span><br><span class="line">		<span class="keyword">if</span>(isLate(a[i],latest)) latest=a[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%s %s"</span>,earliest.id,latest.id);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <hr>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
       
     </div>
     
@@ -620,7 +602,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

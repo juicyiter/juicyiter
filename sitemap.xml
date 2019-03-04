@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://mengoreo.github.io/2019/02/23/EPI-Python-4/</loc>
+    
+    <lastmod>2019-03-04T01:25:57.073Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://mengoreo.github.io/2019/02/27/Probability-Theory/</loc>
+    
+    <lastmod>2019-02-28T07:28:58.566Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://mengoreo.github.io/2019/02/28/Numerical-Computations/</loc>
+    
+    <lastmod>2019-02-28T06:26:01.602Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://mengoreo.github.io/voices/index.html</loc>
     
     <lastmod>2019-02-27T14:27:42.583Z</lastmod>
@@ -26,13 +47,6 @@
     <loc>https://mengoreo.github.io/tags/index.html</loc>
     
     <lastmod>2019-02-27T14:25:49.967Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/2019/02/23/EPI-Python-4-1/</loc>
-    
-    <lastmod>2019-02-26T01:32:52.831Z</lastmod>
     
   </url>
   
