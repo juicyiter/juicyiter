@@ -1,0 +1,2 @@
+#!/bin/bash
+/Applications/MacPorts/EmacsMac.app/Contents/MacOS/Emacs -u "$(id -un)" --batch --eval '(load user-init-file)' $1 -f org-html-export-to-html

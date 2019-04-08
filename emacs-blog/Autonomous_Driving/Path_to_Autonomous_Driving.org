@@ -1,0 +1,35 @@
+#+TITLE:    Path to Auto-driving
+#+AUTHOR:   Ethan Mengoreo
+#+EMAIL:    mengoreo@163.com
+#+STARTUP:  indent
+#+LANGUAGE: en
+#+OPTIONS:  toc:t num:0
+# #+SETUPFILE: https://juicyiter.gitee.io/assets/mengoreo.setup
+
+* [[https://www.quora.com/How-can-one-learn-to-be-a-self-driving-car-engineer][Quora]]
+** TODO PolySync
+** TODO ROS
+** TODO Autoware to integrate pre-mature kears model
+** TODO Converting many sensors dataset to =h5df= files
+** TODO Vehicle networks
+** TODO Flashing ECUs
+** TODO fast RNN
+** TODO Inceptions
+** TODO Understanding CANBus nodes
+
+* TODO Practice
+** TODO [[https://www.youtube.com/playlist?list=PLQVvvaa0QuDeETZEOy4VdocT7TOjfSA8a][Sentdex's tutorials]]
+* TODO Basic
+** TODO 2D Histogram Filter in Python
+** TODO Planning an Optimal Path
+** TODO Trajectory Visualiser
+Use some of the Python's most popular visualisation libraries
+** TODO Image Classifier From Scratch
+* TODO Computer Vision
+** TODO Find Lane Lines on The Road
+** TODO Advanced Lane Finding
+* TODO Deep Learning
+** TODO Traffic Sing Classifier
+** TODO Behavioural Cloning
+* TODO Sensor Fusion
+** TODO Extended Kalman Filters

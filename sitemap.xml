@@ -2,44 +2,128 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://mengoreo.github.io/2019/03/05/DL-Notes/</loc>
+    <loc>https://mengoreo.github.io/emacs-blog/Machine_Learning/TensorFlow.html</loc>
     
-    <lastmod>2019-03-05T13:19:49.901Z</lastmod>
+    <lastmod>2019-04-08T05:40:16.415Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/2019/02/23/EPI-Python-4/</loc>
+    <loc>https://mengoreo.github.io/emacs-blog/Machine_Learning/Deep_Learning_Book.html</loc>
     
-    <lastmod>2019-03-04T05:09:54.930Z</lastmod>
+    <lastmod>2019-04-08T05:40:08.903Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://mengoreo.github.io/emacs-blog/Fundamental/Computer_System.html</loc>
+    
+    <lastmod>2019-04-08T05:39:01.025Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://mengoreo.github.io/emacs-blog/Autonomous_Driving/Path_to_Autonomous_Driving.html</loc>
+    
+    <lastmod>2019-04-08T05:38:42.479Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://mengoreo.github.io/emacs-blog/Algorithms/Elements_of_Programming_Interviews_in_Python.html</loc>
+    
+    <lastmod>2019-04-08T05:38:24.470Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://mengoreo.github.io/emacs-blog/Uncategorised/Phonetic_Signs.html</loc>
+    
+    <lastmod>2019-04-08T04:38:08.967Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://mengoreo.github.io/emacs-blog/Uncategorised/index.html</loc>
+    
+    <lastmod>2019-04-08T04:38:05.273Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://mengoreo.github.io/emacs-blog/Autonomous_Driving/index.html</loc>
+    
+    <lastmod>2019-04-08T04:37:58.465Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://mengoreo.github.io/emacs-blog/Fundamental/index.html</loc>
+    
+    <lastmod>2019-04-08T04:37:50.588Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://mengoreo.github.io/emacs-blog/Algorithms/index.html</loc>
+    
+    <lastmod>2019-04-08T04:37:46.987Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://mengoreo.github.io/emacs-blog/Machine_Learning/index.html</loc>
+    
+    <lastmod>2019-04-08T04:37:30.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://mengoreo.github.io/emacs-blog/index.html</loc>
+    
+    <lastmod>2019-04-08T04:37:27.190Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://mengoreo.github.io/404.html</loc>
+    
+    <lastmod>2019-04-06T12:10:47.411Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://mengoreo.github.io/2018/05/23/pat1005a/</loc>
+    
+    <lastmod>2019-03-21T13:30:47.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://mengoreo.github.io/voices/index.html</loc>
     
-    <lastmod>2019-02-27T14:27:42.583Z</lastmod>
+    <lastmod>2019-02-27T14:27:42.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://mengoreo.github.io/about/index.html</loc>
     
-    <lastmod>2019-02-27T14:26:53.115Z</lastmod>
+    <lastmod>2019-02-27T14:26:53.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://mengoreo.github.io/categories/index.html</loc>
     
-    <lastmod>2019-02-27T14:26:11.715Z</lastmod>
+    <lastmod>2019-02-27T14:26:11.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://mengoreo.github.io/tags/index.html</loc>
     
-    <lastmod>2019-02-27T14:25:49.967Z</lastmod>
+    <lastmod>2019-02-27T14:25:49.000Z</lastmod>
     
   </url>
   
@@ -47,27 +131,6 @@
     <loc>https://mengoreo.github.io/2018/10/05/phonetic-signs/</loc>
     
     <lastmod>2018-11-03T07:14:18.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/2018/08/19/csapp-3/</loc>
-    
-    <lastmod>2018-08-19T14:34:52.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/2018/07/25/csapp-1/</loc>
-    
-    <lastmod>2018-08-08T01:45:38.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/2018/07/26/csapp-2/</loc>
-    
-    <lastmod>2018-08-08T01:43:40.000Z</lastmod>
     
   </url>
   
@@ -156,13 +219,6 @@
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/2018/05/23/pat1005a/</loc>
-    
-    <lastmod>2018-07-17T21:32:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://mengoreo.github.io/2018/05/04/pat1004b/</loc>
     
     <lastmod>2018-07-17T21:32:28.000Z</lastmod>
@@ -222,13 +278,6 @@
     <loc>https://mengoreo.github.io/2018/05/08/Hexo-pure/</loc>
     
     <lastmod>2018-07-17T21:30:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/404.html</loc>
-    
-    <lastmod>2018-07-02T13:43:06.000Z</lastmod>
     
   </url>
   
