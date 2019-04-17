@@ -1,6 +1,20 @@
-.gt-header a, .gt-comments a, .gt-popup a {
-	border-bottom: none;
+
+.bg-llight, .slideout-panel{
+    background-color: #ffffff00;
 }
-.gt-container .gt-popup .gt-action.is--active:before {
-	top: 0.7em;
+/*header {
+    background: black;
+}
+.html {
+    background: #ecedef url(https://themes.gohugo.io/theme/aether/img/ignasi_pattern_s.png) repeat;
+}*/
+body {
+        background: #ecedef url(https://themes.gohugo.io/theme/aether/img/ignasi_pattern_s.png) repeat;
+}
+.bg-white {
+    background-color: #ebebeb94;
+}
+
+.post .post-toc {
+    background: #e8e8e8;
 }

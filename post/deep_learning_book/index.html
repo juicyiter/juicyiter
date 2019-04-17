@@ -1868,6 +1868,25 @@ Consider a set of examples \(\{x^{(1)}, \dots, x^{(m)} \}\) that are i.i.d accor
           </a>
       </nav>
     </footer>
+    
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: 'https:\/\/github.com\/mengoreo\/mengoreo.github.io',
+    owner: '',
+    admin: [''],
+    id: location.pathname, 
+    distractionFreeMode:  true  
+  });
+  gitalk.render('gitalk-container');
+
+</script>
+
+
   </article>
 
   
@@ -1887,26 +1906,6 @@ Consider a set of examples \(\{x^{(1)}, \dots, x^{(m)} \}\) that are i.i.d accor
 
     
 
-
-
-
-  
-<div id="gitalk-container"></div>
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script>
-  const gitalk = new Gitalk({
-    clientID: '',
-    clientSecret: '',
-    repo: 'mengoreo.github.com',
-    owner: '',
-    admin: [''],
-    id: location.pathname, 
-    distractionFreeMode:  true  
-  });
-  gitalk.render('gitalk-container');
-
-</script>
 
 
         </div>
