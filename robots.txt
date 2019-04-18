@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://mengoreo.github.io/sitemap.xml

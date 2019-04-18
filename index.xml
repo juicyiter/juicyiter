@@ -1,0 +1,2788 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mengoreo</title>
+    <link>https://mengoreo.github.io/</link>
+    <description>Recent content on Mengoreo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 17 Apr 2019 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://mengoreo.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Notes of Deep Learning Book</title>
+      <link>https://mengoreo.github.io/deep_learning_book/</link>
+      <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://mengoreo.github.io/deep_learning_book/</guid>
+      
+        <description>&lt;h1 id=&#34;linear-algebra&#34;&gt;Linear Algebra&lt;/h1&gt;
+
+&lt;h2 id=&#34;basic-types&#34;&gt;Basic Types&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;/Scalars/: A scalar is just a single number, usually in lower-case&lt;/li&gt;
+   variable names.
+&lt;/ul&gt;
+
+&lt;ul&gt;
+&lt;li&gt;/Vectors/: An array of numbers, with lower case names written in bold&lt;/li&gt;
+   typeface. 
+     $$
+     \boldsymbol{x} = [ x_1, x_2, \cdots, x_n ]^\top .
+     $$
+&lt;/ul&gt;
+
+&lt;ul&gt;
+&lt;li&gt;/Matrices/: A 2-D array of numbers, usually given in upper-case&lt;/li&gt;
+   variable names with bold typeface, Such as $\boldsymbol{M}$.
+&lt;/ul&gt;
+
+&lt;ul&gt;
+&lt;li&gt;/Tensors/: An array with more than two axes, denoted by this&lt;/li&gt;
+   typeface: $\boldsymbol{\mathsf{A}}$ (in latex:
+   \boldsymbol{\mathsf{A}}).
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;linear-dependence-and-span&#34;&gt;Linear Dependence and Span&lt;/h2&gt;
+
+&lt;p&gt;If a vector $\boldsymbol{m}$ is linear dependent with a vector
+$\boldsymbol{n}$, then $\boldsymbol{m}​$ can be represented by
+$\boldsymbol{n}$ with $\lambda$ multiplied with it, viz.
+$\boldsymbol{m} = \lambda \boldsymbol{n}$, where
+$\lambda\in \mathbb{R}, \lambda \neq 0​$.&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;span&lt;/em&gt; of a set of vectors is the set of all points obtainable by
+linear combination of the original vectors. For example, the span of
+$\boldsymbol{v_1}$,$\boldsymbol{v_2}$ and $\boldsymbol{v_3}$ is
+$\{ \boldsymbol{v_1} + \boldsymbol{v_2} + \boldsymbol{v_3}, \boldsymbol{v_1} + 2\boldsymbol{v_2} + 3\boldsymbol{v_3}, \dots, m \boldsymbol{v_1}+ n\boldsymbol{v_2} + k\boldsymbol{v_3} \}$,
+where $m$, $n$ and $k$ all can be any real numbers but zero.&lt;/p&gt;
+
+&lt;h2 id=&#34;celebrities-norm&#34;&gt;Celebrities&#39; Norm&lt;/h2&gt;
+
+&lt;h3 id=&#34;euclidean-norm&#34;&gt;Euclidean norm&lt;/h3&gt;
+
+&lt;p&gt;When the $p$ is equal to $2$, the &lt;em&gt;Euclidean norm,&lt;/em&gt; $L^2$ came in. It is
+simply the euclidean distance from the origin to the point identified by
+$x$. The Euclidean norm is used so frequently in machine learning that
+it is often denoted as $||x||$ with subscript $2$ omitted. The /squared/
+$L^2$ can also be used to calculate the size of a vector, simply as
+$x^{\top}x$.&lt;/p&gt;
+
+&lt;h3 id=&#34;l-1-norm&#34;&gt;$L^1$ norm&lt;/h3&gt;
+
+&lt;p&gt;In several machine learning applications, it is important discriminate
+between elements that are exactly zero and elements that are very small
+and close to zero. In these cases, we turn to a function that grows at
+the same rate in all locations, but retains mathematical simplicity:
+/the $L^1$ norm/.&lt;/p&gt;
+
+&lt;p&gt;$$||x||_1 = \displaystyle \sum_i|x_i| \tag{1} .$$&lt;/p&gt;
+
+&lt;p&gt;The $L^1$ is commonly used in machine learning when the difference
+between zero and nonzero elements is very important.&lt;/p&gt;
+
+&lt;h3 id=&#34;max-norm&#34;&gt;Max norm&lt;/h3&gt;
+
+&lt;p&gt;Another norm that commonly arises in machine learning applications is
+the $L^{\infty}$, A.K.A the &lt;em&gt;max norm&lt;/em&gt;. This norm implies to the
+absolute value of the elements with largest magnitude in the vector:&lt;/p&gt;
+
+&lt;p&gt;$$||x||_\infty = \displaystyle \text{max}_i|x_i| \tag{2}.$$&lt;/p&gt;
+
+&lt;p&gt;&lt;&lt;Frobenius&gt;&gt; &lt;strong&gt;Frobenius norm&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Sometimes, we may also want to evaluate the size of a matrix. In the
+context of deep learning, the most common way is using the obscure
+/Frobenius norm/:&lt;/p&gt;
+
+&lt;p&gt;$$||A||_F = \displaystyle \sqrt {\sum_{i, j} A_{i, j}^2}, \tag{3}$$&lt;/p&gt;
+
+&lt;p&gt;which is analogous to the Euclidean norm.&lt;/p&gt;
+
+&lt;h2 id=&#34;orthogonal-matrix&#34;&gt;Orthogonal Matrix&lt;/h2&gt;
+
+&lt;p&gt;An &lt;em&gt;orthogonal matrix&lt;/em&gt; is a square matrix whose rows are mutually
+orthonormal and whose columns are mutually /orthonormal/: $$
+\boldsymbol{A^{\top} A} = \boldsymbol{A A^{\top}} = \boldsymbol{I} .\tag{4}
+$$&lt;/p&gt;
+
+&lt;p&gt;This implies that $\boldsymbol{A^{-1}} = \boldsymbol{A^{\top}}$,so
+orthogonal matrices are of interest because their inverse is very cheap
+to compute.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+Pay careful attention to the definition of the orthogonal matrices.
+&lt;/p&gt;
+&lt;p&gt;
+Counterintuitively, their rows are note merely orthogonal but &lt;em&gt;fully
+&lt;/p&gt;
+&lt;p&gt;
+orthonormal&lt;/em&gt;.
+&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;eigendecomposition&#34;&gt;Eigendecomposition&lt;/h2&gt;
+
+&lt;p&gt;&lt;&lt;eigen&gt;&gt;&lt;/p&gt;
+
+&lt;p&gt;In this loooong eigendecomposition, we decompose a matrix into a set of
+/eigenvectors/ and &lt;em&gt;eigenvalues&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;An eigenvectors of a square matrix $\boldsymbol{A}$ is a non-zero vector
+$\boldsymbol{v}$ such that multiplication by $\boldsymbol{A}$ alters
+only the scale of $\boldsymbol{v}$:
+$\boldsymbol{Av} = \lambda \boldsymbol{v}$. The scalar $\lambda$ is
+known as eigenvalue corresponding to this eigenvector.&lt;/p&gt;
+
+&lt;p&gt;If $\boldsymbol{v}$ is an eigenvector of $\boldsymbol{A}$, then so is
+any rescaled vector $s\boldsymbol{v}$ for $s \in \mathbb{R}, s \neq 0$.
+Moreover, $s \boldsymbol{v}$ still has the same eigenvalue. For this
+reason, we only look for &lt;em&gt;unit eigenvectors&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Suppose a matrix $\boldsymbol{A}$ has $n$ linear independent
+eigenvectors, and we use these eigenvectors to form a matrix
+$\boldsymbol{V}$ with one eigenvector per column. Likewise, we
+concatenate the eigenvalues to form a vector $\boldsymbol{\lambda}$. The
+/eigendecomposition/ of $\boldsymbol{A}$ is then given by $$
+\boldsymbol{A} = \boldsymbol{V} \text{diag}(\boldsymbol{\lambda}) \boldsymbol{V^{-1}} .
+$$ Specifically, every &lt;em&gt;real symmetric&lt;/em&gt; matrix can be decomposed into an
+expression using only real-valued eigenvectors and eigenvalues:&lt;/p&gt;
+
+&lt;p&gt;$$
+\boldsymbol{A} = \boldsymbol{Q} \boldsymbol{\Lambda} \boldsymbol{Q^{-1}} .\tag{5}
+$$&lt;/p&gt;
+
+&lt;p&gt;where $\boldsymbol{Q}$ is an orthogonal matrix composed of eigenvectors
+of $\boldsymbol{A}$, and $\boldsymbol{\Lambda}$ is a diagonal matrix.
+The eigenvalue $\Lambda_{i, j}$ is associated with the eigenvectors in
+column $i$ of $\boldsymbol{Q}$, denoted as $\boldsymbol{Q}_{:, i}$.
+Because $\boldsymbol{Q}$ is an orthogonal matrix, we can think of
+$\boldsymbol{A}$ as scaling space by $\lambda_i$ in direction
+$\boldsymbol{v^{(i)}}$ .&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190305161308681.png&#34; title=&#34;https://juicyiter.gitee.io/images/image-20190305161308681.png&#34;&gt;https://juicyiter.gitee.io/images/image-20190305161308681.png&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The eigendecomposition of a matrix tells us many useful facts about the
+matrix.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The matrix is &lt;em&gt;singular&lt;/em&gt; if and only if &lt;em&gt;any of the eigenvalues are&lt;/li&gt;
+   zero&lt;/em&gt;.
+&lt;li&gt;The eigendecomposition of a real symmetric matrix can also be used to&lt;/li&gt;
+   optimise quadratic expression of the form
+   $f(\boldsymbol{x}) = \boldsymbol{x^{\top}Ax}$ subject to
+   $||\boldsymbol{x}||_2 = 1$. Whenever $\boldsymbol{x}$ is equal to an
+   eigenvector of $\boldsymbol{A}$, $f$ takes on the value of the
+   corresponding eigenvalue. The maximum value of $f$ within the
+   constraint region is the maximum value of eigenvalue and its minimum
+   value within the constraint region is the minimum eigenvalue.
+&lt;/ul&gt;
+
+&lt;p&gt;A matrix whose eigenvalues are all positive is called &lt;em&gt;positive
+definite&lt;/em&gt;. A matrix whose eigenvalues are all &lt;em&gt;non-negative&lt;/em&gt; is called
+positive &lt;strong&gt;semidefinite&lt;/strong&gt;. Likewise, so are the negative definite and
+negative semidefinite.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+Positive semidefinite matrices are interesting because &lt;em&gt;they guarantee
+&lt;/p&gt;
+&lt;p&gt;
+that $\forall \boldsymbol{x}, \boldsymbol{x^{\top}Ax} \ge 0$&lt;/em&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+Positive definite matrices additionally guarantee that
+&lt;/p&gt;
+&lt;p&gt;
+$\boldsymbol{x^{\top}Ax} = 0 \implies \boldsymbol{x} = \boldsymbol{0}$
+&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;singular-value-decomposition-svd&#34;&gt;Singular Value Decomposition (SVD)&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Every matrix has a singular value decomposition&lt;/em&gt;, but the same is not
+true for the eigenvalue decomposition. The singular decomposition is
+similar to &lt;a href=&#34;eigen&#34; title=&#34;eigendecomposition&#34;&gt;eigendecomposition&lt;/a&gt;, except this time we will write
+$\boldsymbol{A}$ as a product of three matrices:&lt;/p&gt;
+
+&lt;p&gt;$$ \boldsymbol{A} = \boldsymbol{UDV^{\top}}. \tag{6}$$&lt;/p&gt;
+
+&lt;p&gt;Suppose that $\boldsymbol{A}$ is an $m \times n$ matrix. Then
+$\boldsymbol{U}$ is defined to be an $m \times m$ matrix,
+$\boldsymbol{D}$ to be an $m \times n$ matrix, and $\boldsymbol{V}$ to
+be an $n \times n$ matrix. The matrix $\boldsymbol{U}$ and
+$\boldsymbol{V}$ are both defined to be &lt;em&gt;orthogonal&lt;/em&gt; matrices. The
+matrix $\boldsymbol{D}$ is defined to &lt;em&gt;diagonal&lt;/em&gt; matrix.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+Note that $\boldsymbol{D}$ is &lt;em&gt;not necessary square&lt;/em&gt;.
+&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The elements along the diagonal of $\boldsymbol{D}$ are &lt;em&gt;singular
+values&lt;/em&gt;. The columns of $\boldsymbol{U}$ and $\boldsymbol{V}$ are
+/left-singular vectors/ and &lt;em&gt;right-singular vectors&lt;/em&gt; respectively.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+The left-singular vectors of $\boldsymbol{A}$ are the eigenvectors of
+&lt;/p&gt;
+&lt;p&gt;
+$\boldsymbol{AA^{\top}}$. And the right-singular vectors of
+&lt;/p&gt;
+&lt;p&gt;
+$\boldsymbol{A}$ are the eigenvectors of $\boldsymbol{A^{\top}A}$.
+&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Moore--Penrose\_inverse#Examples&#34; title=&#34;The Moore-Penrose Pseudoinverse&#34;&gt;The Moore-Penrose Pseudoinverse&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The pseudoinverse of $\boldsymbol{A}$ is defined as a matrix $$
+\boldsymbol{A^{&lt;del&gt;}} = \displaystyle \lim_{\alpha \to 0}(\boldsymbol{A^{\top}A} &lt;/del&gt; \alpha\boldsymbol{I})^{-1}\boldsymbol{A^{\top}} .\tag{7}
+$$ Practical algorithms for computing the pseudoinverse are not based on
+this definition, but rather the formula $$
+\boldsymbol{A^{&lt;del&gt;}} = \boldsymbol{VD^+U^{\top}} .\tag{8}
+$$ where $\boldsymbol{V}$, $\boldsymbol{D}$ and $\boldsymbol{U}$ are the
+singular value decomposition of $\boldsymbol{A}$, and the pseudoinverse
+$\boldsymbol{D^&lt;/del&gt;}$ of a diagonal matrix $\boldsymbol{D}$ is &lt;em&gt;obtained by taking the resiprocal of its non-zero elements then taking the transpose of the resulting matrix.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;When $\boldsymbol{A}$ has more columns than its rows, it provides the
+solution $\boldsymbol{x} = \boldsymbol{A^+y}$ with &lt;em&gt;minimal Euclidean
+norm&lt;/em&gt; $||\boldsymbol{x}||_2$ &lt;em&gt;among all possible solutions&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;When $\boldsymbol{A}$ has more rows than its columns, it provides the
+$\boldsymbol{x}$ which $\boldsymbol{Ax}$ is as close as possible to
+$\boldsymbol{y}$ in terms of Euclidean norm
+$||\boldsymbol{Ax}-\boldsymbol{y}||_2$&lt;/p&gt;
+
+&lt;h2 id=&#34;the-trace-operator&#34;&gt;The Trace Operator&lt;/h2&gt;
+
+&lt;p&gt;$$
+\text{Tr}(\boldsymbol{A}) = \displaystyle \sum_i \boldsymbol{A}_{i,i} .\tag{9}
+$$&lt;/p&gt;
+
+&lt;p&gt;Then we can re-write the &lt;a href=&#34;Frobenius&#34; title=&#34;Frobenius norm&#34;&gt;Frobenius norm&lt;/a&gt; of a matrix&lt;/p&gt;
+
+&lt;p&gt;$$||A||_F = \sqrt{\text{Tr}(\boldsymbol{AA^{\top}})} .\tag{10}$$&lt;/p&gt;
+
+&lt;p&gt;The trace operator is invariant to transpose operator and cyclic
+permutations.&lt;/p&gt;
+
+&lt;p&gt;$$
+\text{Tr}(\boldsymbol{A}) = \text{Tr}(\boldsymbol{A^{\top}}) .\tag{11}
+$$&lt;/p&gt;
+
+&lt;p&gt;$$
+\text{Tr}(\boldsymbol{ABC}) = \text{Tr}(\boldsymbol{BCA})=\text{Tr}(\boldsymbol{CAB}) .\tag{12}
+$$&lt;/p&gt;
+
+&lt;p&gt;$$
+\text{Tr}(\displaystyle \prod_{i=1}^{n} \boldsymbol{F^{(i)}}) = \text{Tr}(\boldsymbol{F^{(n)}}\displaystyle \prod_{i=1}^{n-1} \boldsymbol{F^{(i)}}) .\tag{13}
+$$&lt;/p&gt;
+
+&lt;p&gt;Even if the resulting product has a different shape. For instance, for
+$\boldsymbol{A} \in \mathbb{R}^{m \times n}$ and
+$\boldsymbol{B} \in \mathbb{R}^{n \times m}$ $$
+\text{Tr}(\boldsymbol{AB}) = \text{Tr}(\boldsymbol{BA}) .\tag{14}
+$$&lt;/p&gt;
+
+&lt;h2 id=&#34;the-determinant&#34;&gt;The Determinant&lt;/h2&gt;
+
+&lt;p&gt;The determinant of a &lt;em&gt;square matrix&lt;/em&gt;, denoted as
+$\text{det}(\boldsymbol{A})$ is a function that maps the matrices to
+real scalars. The determinant is equal to the product of all the
+eigenvalues of the matrix. The absolute value of it can be thought of as
+a measure of how much multiplications by the matrix expands or
+contracts space.&lt;/p&gt;
+
+&lt;h1 id=&#34;probability&#34;&gt;Probability&lt;/h1&gt;
+
+&lt;p&gt;Three possible source of uncertainty:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Inherent stochasticity&lt;/em&gt; in the system being modeled. For example, we&lt;/li&gt;
+   can crate a theoretical scenarios that we postulate to have random
+   dynamics, such as a hypothetical card game, where we assume the cards
+   are truly shuffled into a random order.
+&lt;li&gt;&lt;em&gt;Incomplete observations&lt;/em&gt;. Even deterministic systems can appear&lt;/li&gt;
+   stochastic when we cannot observe all variables that drive the
+   behaviour of the system.
+&lt;li&gt;&lt;em&gt;Incomlete modeling&lt;/em&gt;. When we use a model that must discard some of&lt;/li&gt;
+   the information we have observed, the discarded information might
+   result in uncertainty in the model&#39;s predictions.
+&lt;/ul&gt;
+
+&lt;p&gt;In many cases, it is more practical to use a &lt;em&gt;simple but uncertain
+rule&lt;/em&gt;, rather than a complex but certain one.&lt;/p&gt;
+
+&lt;h2 id=&#34;frequentist-probability-v-s-bayesian-probability&#34;&gt;Frequentist probability V.S. Bayesian probability&lt;/h2&gt;
+
+&lt;p&gt;The &lt;em&gt;frequentist&lt;/em&gt; sees the probability as the &lt;em&gt;long-run&lt;/em&gt; expected
+frequency of occurrence. $P(A) = n/N$, where $n$ is the number of times
+even $A$ occurs in the $N$ opportunities.&lt;/p&gt;
+
+&lt;p&gt;The Bayesian view of probability is related to &lt;em&gt;degree of belief&lt;/em&gt;. It is
+a measure of the &lt;em&gt;plausibility&lt;/em&gt; of an event given /incomplete/
+knowledge.&lt;/p&gt;
+
+&lt;h2 id=&#34;basic-concepts&#34;&gt;Basic Concepts&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Expectation $$&lt;/li&gt;
+     \mathbb{E}_{\mathtt{x} \sim P}[f(x)] = \displaystyle \sum_x P(x) f(x) .\tag{15}
+     $$
+&lt;/ul&gt;
+
+&lt;p&gt;$$
+   \mathbb{E}_{\mathtt{x} \sim p}[f(x)] = \int p(x)f(x) .\tag{16}
+   $$&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Variance &lt;/li&gt;
+     $$
+     \text{Var}(f(x)) = \mathbb{E}\left[(f(x) - \mathbb{E}[f(x)])^2 \right] .\tag{17}
+     $$
+&lt;/ul&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Standard deviation: the square root of the variance.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Covariance $$&lt;/li&gt;
+     \text{Cov}(f(x), g(y)) = \mathbb{E}[(f(x) - \mathbb{E}[f(x)])(g(y)-\mathbb{E}[g(y)])] .\tag{18}
+     $$ The covariance matrix $$
+     \text{Cov}(\mathbf{x})_{i, j} = \text{Cov}(\mathtt{x}_i, \mathtt{x}_j) .\tag{19}
+     $$
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;common-probability-distribution&#34;&gt;Common Probability Distribution&lt;/h2&gt;
+
+&lt;h3 id=&#34;bernoulli-distribution&#34;&gt;Bernoulli Distribution&lt;/h3&gt;
+
+&lt;p&gt;The Bernoulli distribution is a distribution over a &lt;em&gt;binary&lt;/em&gt; random
+variable. It has the following properties:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$P(\mathrm{x}=1) = \phi$&lt;/li&gt;
+&lt;li&gt;$P(\mathrm{x}=0) = 1- \phi$&lt;/li&gt;
+&lt;li&gt;$P(\mathrm{x}=x) = \phi^x(1-\phi)^{1-x}$&lt;/li&gt;
+&lt;li&gt;$\mathbb{E}_{\mathrm{x}}[\mathrm{x}] = \phi$&lt;/li&gt;
+&lt;li&gt;$\text{Var}_x(\text{x}) = \phi(1 - \phi)$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;multinoulli-distribution&#34;&gt;Multinoulli Distribution&lt;/h3&gt;
+
+&lt;p&gt;The multinoulli distribution or &lt;em&gt;categorical&lt;/em&gt; distribution is a
+distribution over &lt;em&gt;a single discrete variable with $k$ different states,
+where $k$ is finite&lt;/em&gt;. The $x$ th state with probability :
+$C_n^x p^x(1-p)^{k-x}$, where $p \in [0, 1]$.&lt;/p&gt;
+
+&lt;h3 id=&#34;gaussian-distribution&#34;&gt;Gaussian Distribution&lt;/h3&gt;
+
+&lt;p&gt;The most commonly used distribution over real numbers is the &lt;em&gt;normal
+distribution&lt;/em&gt;, also known as /Gaussian distribution/: $$
+\mathcal{N}(x;\mu, \sigma^2) = \sqrt{ \frac{1}{2\pi\sigma^2} } \text{exp} \left( - \frac{1}{2\sigma^2}(x-\mu)^2\right) .\tag{20}
+$$&lt;/p&gt;
+
+&lt;p&gt;The two parameters $\mu \in \mathbb{R}$ and $\sigma \in (0, \infty)$
+control the normal distribution. The parameter $\mu$ gives the
+coordinate of the central peak. This is also the &lt;em&gt;mean&lt;/em&gt; of the
+distribution: $\mathbb{E}[\text{x}] = \mu$. The &lt;em&gt;standard deviation&lt;/em&gt; of
+the distribution is given by the $\sigma$, and the &lt;em&gt;variance&lt;/em&gt; by
+$\sigma^2$.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://juicyiter.gitee.io/images/IMG_5F8D12450695-1.jpeg&#34; title=&#34;https://juicyiter.gitee.io/images/IMG_5F8D12450695-1.jpeg&#34;&gt;https://juicyiter.gitee.io/images/IMG_5F8D12450695-1.jpeg&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Many distributions we wish to model are truly close to being normal
+distributions. The &lt;em&gt;central limit theorem&lt;/em&gt; shows that the sum of many
+independent random variables is &lt;em&gt;approximately&lt;/em&gt; normally distributed.&lt;/p&gt;
+
+&lt;p&gt;The normal distribution encodes the maximum amount of the uncertainty
+over the real numbers.&lt;/p&gt;
+
+&lt;p&gt;The normal distribution generalises to $\mathbb{R}^n$, in which case it
+is known as the &lt;em&gt;multivariate normal distribution&lt;/em&gt;. It may parametrised
+with a &lt;em&gt;positive definite&lt;/em&gt; (with all positive $\lambda$, A.K.A,
+eigenvalues) symmetric matrix $\boldsymbol{\Sigma}$: $$
+\mathcal{N}(\boldsymbol{x}; \boldsymbol{\mu}, \boldsymbol{\Sigma}) = \sqrt{\frac{1}{(2\pi)^n \text{det}(\boldsymbol{\Sigma)}}} \text{exp} \left( - \frac{1}{2}(\boldsymbol{x} - \boldsymbol{\mu})^\top \boldsymbol{\Sigma}^{-1}( \boldsymbol{x} - \boldsymbol{\mu})\right) .\tag{21}
+$$&lt;/p&gt;
+
+&lt;p&gt;The parameter $\boldsymbol{\mu}$ still gives the mean of the
+distribution, even it is now vectorised. The parameter
+$\boldsymbol{\Sigma}$ gives the &lt;em&gt;covariance matrix&lt;/em&gt; of the distribution.
+As in invariance case, when we wish to evaluate the PDF (probability
+density function) several times for many different values of the
+parameters, the covariance is &lt;em&gt;not a computationally efficient way&lt;/em&gt; to
+parametrise the distribution, since we need to &lt;em&gt;invert
+$\boldsymbol{\Sigma}$&lt;/em&gt; to evaluate the PDF. We can instead use a
+precise matrix $\boldsymbol{\beta}$: $$
+\mathcal{N} (\boldsymbol{x}; \boldsymbol{\mu}, \boldsymbol{\beta^{-1}}) = \sqrt{\frac{\text{det}({\boldsymbol{\beta}})}{(2\pi)^n}} \text{exp} \left(-\frac{1}{2}(\boldsymbol{x} - \boldsymbol{\mu})^{\top} \boldsymbol{\beta}(\boldsymbol{x} - \boldsymbol{\mu}) \right) .\tag{22}
+$$&lt;/p&gt;
+
+&lt;h3 id=&#34;exponential-and-laplace-distributions&#34;&gt;Exponential and Laplace Distributions&lt;/h3&gt;
+
+&lt;p&gt;In deep learning, we often want to have a probability distribution with
+a &lt;em&gt;sharp point at $x=0​$&lt;/em&gt;. To accomplish this, we can use the
+/exponential distribution/. $$
+p(x;\lambda) = \lambda \boldsymbol{1}_{x \ge 0} \text{exp}(-\lambda x) .\tag{23}
+$$&lt;/p&gt;
+
+&lt;p&gt;The exponential distribution uses the /indicator function/
+$\boldsymbol{1}_{x \ge 0}$ to assign the probability zero to all
+negative values of $x$.&lt;/p&gt;
+
+&lt;p&gt;A close related distribution that allows us to place a sharp peak of
+probability mass at an &lt;em&gt;arbitrary&lt;/em&gt; point $\mu$  is the Laplace
+distribution. $$
+\text{Laplace}(x;\mu, \gamma) = \frac{1}{2 \gamma} \text{exp} \left( - \frac{|x-\mu|}{\gamma} \right) .\tag{24}
+$$&lt;/p&gt;
+
+&lt;h3 id=&#34;dirac-distribution-and-empirical-distribution&#34;&gt;Dirac Distribution and Empirical Distribution&lt;/h3&gt;
+
+&lt;p&gt;In some case, we wish to specify all of the mass in a probability
+distribution &lt;em&gt;clusters around a single point&lt;/em&gt;. This can be accomplished
+with &lt;em&gt;Dirac delta function&lt;/em&gt;, $\delta(x)$: $$
+p(x) = \delta(x-\mu) .\tag{25}
+$$&lt;/p&gt;
+
+&lt;p&gt;The Dirac delta function is defined such that &lt;em&gt;it is zero-valued
+everywhere except 0, yet integers to 1&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The common use of Dirac delta distribution is as a &lt;em&gt;component&lt;/em&gt; of
+/empirical distribution/, $$
+\hat{p}(\boldsymbol{x}) = \frac{1}{m} \displaystyle \sum_{i=1}^{m} \delta( \boldsymbol{x} - \boldsymbol{x}^{(i)}) .\tag{26}
+$$&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+&lt;em&gt;prior probability&lt;/em&gt; $a_i = P(c=i)$: expresses the model&#39;s beliefs about $c$ &lt;em&gt;before&lt;/em&gt; it has observed $\text{x}$.
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;em&gt;posterior probability&lt;/em&gt; $P(c|\boldsymbol{x})$: is computed &lt;em&gt;after&lt;/em&gt; the observation of $\text{x}$.
+&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;useful-properties-of-common-functions&#34;&gt;Useful Properties of Common Functions&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Logistic sigmoid&lt;/em&gt; $$&lt;/li&gt;
+     \sigma(x) = \frac{1}{1 + \exp(-x)} .\tag{27}
+     $$ The logistic sigmoid is commonly used to produce the $\phi$
+   parameter of a Bernoulli distribution because its range is $(0, 1)$,
+   which lies within the valid range of values for the $\phi$ parameter.
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190306165322428.png&#34; title=&#34;https://juicyiter.gitee.io/images/image-20190306165322428.png&#34;&gt;https://juicyiter.gitee.io/images/image-20190306165322428.png&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Softplus function&lt;/em&gt;&lt;/li&gt;
+$$
+   \zeta(x) = \log(1 + \exp(x)) .\tag{28}
+$$
+&lt;/ul&gt;
+
+&lt;p&gt;The soft plus function can be useful for producing the $\beta$ or
+$\sigma$ parameter of a normal distribution because its range is
+$(0, \infty)$. The name of the softplus function comes from the fact
+that it is a smoothed or &#34;softened&#34; version of $x^+ = \max(0, x)$.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190306170340292.png&#34; title=&#34;https://juicyiter.gitee.io/images/image-20190306170340292.png&#34;&gt;https://juicyiter.gitee.io/images/image-20190306170340292.png&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;*Useful properties*: $$
+   \sigma(x) = \frac{\exp(x)}{\exp(x) + \exp(0)} .\tag{29}
+   $$&lt;/p&gt;
+
+&lt;p&gt;$$
+   \frac{d}{dx} \sigma(x) = \sigma(x)(1 - \sigma(x)) .\tag{30}
+   $$&lt;/p&gt;
+
+&lt;p&gt;$$
+   1 - \sigma(x) = \sigma (x) .\tag{31}
+   $$&lt;/p&gt;
+
+&lt;p&gt;$$
+   \log \sigma(x) = - \zeta(-x) .\tag{32}
+   $$&lt;/p&gt;
+
+&lt;p&gt;$$
+   \frac{d}{dx} \zeta(x) = \sigma(x) .\tag{33}
+   $$&lt;/p&gt;
+
+&lt;p&gt;$$
+   \forall x \in (0, 1), \sigma ^{-1}(x) = \log(\frac{x}{1-x}) .\tag{34}
+   $$&lt;/p&gt;
+
+&lt;p&gt;$$
+   \forall x &gt; 0, \zeta ^{-1}(x) = \log(\exp(x) - 1) .\tag{35}
+   $$&lt;/p&gt;
+
+&lt;p&gt;$$
+   \zeta(x) = \int_{- \infty}^{x} = \sigma(y)dy .\tag{36}
+   $$&lt;/p&gt;
+
+&lt;p&gt;$$
+   \zeta(x) - \zeta(-x) = x.\tag{37}
+   $$&lt;/p&gt;
+
+&lt;h2 id=&#34;bayes-rule&#34;&gt;Bayes&#39; Rule&lt;/h2&gt;
+
+&lt;p&gt;$$
+P(\text{x }|\text{ y}) = \frac{P(\text{x})P(\text{y } | \text{ x})}{P(\text{y})} \tag{38}
+$$&lt;/p&gt;
+
+&lt;p&gt;where $P(\text{y})$ can be computed using $P(\text{x})$:
+$P(\text{y}) = \sum_x P(x)P(\text{y } | \; x)$.&lt;/p&gt;
+
+&lt;h1 id=&#34;information-theory&#34;&gt;Information Theory&lt;/h1&gt;
+
+&lt;p&gt;We define the &lt;em&gt;self-information&lt;/em&gt; of an event $\text{x}=x$ to be $$
+I(x) = -\log P(x) .\tag{39}
+$$&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+&lt;p&gt;
+In deep learning, we always use $\log$ to mean the natural logarithm,
+&lt;/p&gt;
+&lt;p&gt;
+with base $e$. The definition of $I(x)$ is therefore written in units of
+&lt;/p&gt;
+&lt;p&gt;
+&lt;em&gt;nats&lt;/em&gt;. One nat is the amount of information gained by observing an
+&lt;/p&gt;
+&lt;p&gt;
+event of probability $\frac{1}{e}$.
+&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Self-information deals only with single outcome. We can quantified the
+amount of the uncertainty in an entire probability distribution using
+the /Shannon entropy/: $$
+H(x) = \mathbb{E}_{\text{x} \sim P}[I(\text{x})] = -\mathbb{E}_{\text{x} \sim P}[\log P(x)] .\tag{40}
+$$ also denoted as $H(P)$.&lt;/p&gt;
+
+&lt;p&gt;Shannon entropy of distribution describes the expected amount of
+information in an event drawn from that distribution. &lt;em&gt;It gives the
+lower bound on the number of bits&lt;/em&gt; (if the logarithm is based on $2$,
+otherwise the units are different) &lt;em&gt;needed on average to encode symbols
+drawn from a distribution&lt;/em&gt; $P$. Distributions that are nearly
+deterministic (where the outcome is nearly certain) have low entropy;
+distributions that are closer to uniform have high entropy. When
+$\text{x}$ is continuous, the Shannon entropy is known as the
+/differential entropy/.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+Information measured in bits is just a rescaling of information measured
+&lt;/p&gt;
+&lt;p&gt;
+in nats.
+&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190307153359462.png&#34; title=&#34;https://juicyiter.gitee.io/images/image-20190307153359462.png&#34;&gt;https://juicyiter.gitee.io/images/image-20190307153359462.png&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;If you have two separate probability distribution $P(\text{x})$ and
+$Q(\text{x})$ over the same variable $\text{x}$, then you can measure
+how different these two distributions are using &lt;em&gt;Kullback Leibler (KL)
+divergence/: $$
+D_{KL}(P \; || \; Q) = \mathbb{E}_{\text{x} \sim P}\bigg[ \log \frac{P(x)}{Q(x)} \bigg] = \mathbb{E}_{\text{x} \sim P}\big[ \log P(x) - \log Q(x)\big] .\tag{41}
+$$ The $KL$ divergence has many useful properties, most notably that it
+is /non-negative&lt;/em&gt;. The $KL$ divergence is $0$ if and only if $P$ and $Q$
+are the &lt;em&gt;same distribution&lt;/em&gt; in the case of &lt;em&gt;discrete&lt;/em&gt; variables, or
+equal &#34;almost everywhere&#34; in the case of continuous variables.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+It&#39;s not a true distance measure between these two distributions,
+&lt;/p&gt;
+&lt;p&gt;
+because it is /NOT SYMMETRIC/:
+&lt;/p&gt;
+&lt;p&gt;
+\(D_{KL}(P \; || \; Q) \neq D_{KL}(Q \; || \; P)\) for some $P$ and $Q$.
+&lt;/p&gt;
+&lt;p&gt;
+The asymmetry means that there are important consequences to the choice
+&lt;/p&gt;
+&lt;p&gt;
+of whether to use $D_{KL}(P \; || \; Q)$ or $D_{KL}(Q \; || \; P)$.
+&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190307162021179.png&#34; title=&#34;https://juicyiter.gitee.io/images/image-20190307162021179.png&#34;&gt;https://juicyiter.gitee.io/images/image-20190307162021179.png&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Cross-entropy&lt;/em&gt; is closely related with $KL$ divergence:
+$H(P, Q) = H(P) + D_{KL}(P \; || \; Q)$, which is similar to the $KL$
+divergence but lacking the term on the left: $$
+H(P, Q) = - \mathbb{E}_{\text{x} \sim P} \log Q(x) .\tag{42}
+$$ Minimising the cross-entropy with respect to $Q$ is equal to
+minimising the $KL$ divergence, as $Q$ does not participate in the
+omitted term.&lt;/p&gt;
+
+&lt;h2 id=&#34;structured-probabilistic-models&#34;&gt;Structured Probabilistic Models&lt;/h2&gt;
+
+&lt;p&gt;Suppose we have three random variables: $a, b$ and $c$. Suppose that $a$
+influences the value of $b$ and $b$ influences the value of $c$, but
+that $a$ and $c$ are independent given $b$. We can represent the
+probability distribution of three variables as product of probability
+distributions over two variables: $$
+p(a, b, c) = p(a)p(b \; | \; a)p(c \; | \; b) .\tag{43}
+$$ We describe these kinds of factorisations using graphs: a set of
+vertices that may be connected to each other with edges, which we call a
+/structured probabilistic model/ or &lt;em&gt;graphical model&lt;/em&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Directed&lt;/em&gt; models contain one factor for every random variable in&lt;/li&gt;
+   $\text{x}_i$ in the distribution, and that factor consists of the
+   conditional distribution over $\text{x}_i$ given the parents of
+   $\text{x}_i$, denoted as $Pa_{\mathcal{G}}(\text{x}_i)$: $$
+     p(\text{x}) = \displaystyle \prod_i p(\text{x}_iPa_\mathcal{G}(\text{x}_i)) .\tag{44}
+     $$
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190307202344293.png&#34; title=&#34;https://juicyiter.gitee.io/images/image-20190307202344293.png&#34;&gt;https://juicyiter.gitee.io/images/image-20190307202344293.png&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;A directed graphical model over random variables $a, b, c, d$ and $e$.
+This graph corresponds to the probability distributions that can be
+factored as $$
+   p(a, b, c, d, e) = p(a)p(b \; | \; a)p(c \; | \;a, b)p(d\;|\;b)p(e\;|\;c) .\tag{45}
+   $$&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Undirected&lt;/em&gt; models, instead, represent factorisations into a set of&lt;/li&gt;
+   functions, which are usually not probability distributions of any
+   kind. Any set of nodes that are all connected to each other is
+   $\mathcal{G}$ is called a &lt;em&gt;clique&lt;/em&gt;. Each clique $\mathcal{C}^{(i)}$
+   in an undirected model is associated with a factor
+   $\phi^{(i)}(\mathcal{C}^{(i)})$. These factors are &lt;em&gt;just functions&lt;/em&gt;,
+   not probability distributions. The output of each factor must be
+   &lt;em&gt;non-negative&lt;/em&gt;, but there is no constraint that the factor must sum
+   or integrate to $1$ like a probability distribution. $$
+     p(\mathbf{x}) = \frac{1}{Z} \displaystyle \prod_i \phi^{(i)}(\mathcal{C}^{(i)}) .\tag{46}
+     $$ where $Z$ is defined to be the sum of integral over all states
+   of the product of the $\phi$ functions, in order to obtain a
+   normalised probability distribution.
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190307205320081.png&#34; title=&#34;https://juicyiter.gitee.io/images/image-20190307205320081.png&#34;&gt;https://juicyiter.gitee.io/images/image-20190307205320081.png&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The graph above corresponds to probability distributions that can be
+factored as $$
+   p(a, b, c, d, e) = \frac{1}{Z} \phi^{(1)}(a, b, c)\phi^{(2)}(b, d)\phi^{(3)}(c, e) .\tag{47}
+   $$&lt;/p&gt;
+
+&lt;h1 id=&#34;numerical-computation&#34;&gt;Numerical Computation&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Underflow&lt;/em&gt; occurs when numbers near $0$ are rounded to zero.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Overflow&lt;/em&gt; occurs when numbers with large magnitude are approximated&lt;/li&gt;
+   as $\infty$ or $-\infty$.
+&lt;/ul&gt;
+
+&lt;p&gt;One example of a function that must be stabilised against underflow and
+overflow is the &lt;em&gt;softmax&lt;/em&gt; function, which is often used to predict the
+probabilities associated with multinoulli distribution. $$
+\text{softmax}(\boldsymbol{x})_i = \frac{\exp({x_i})}{\sum_{j=1}^{n} \exp(x_j)} .\tag{48}
+$$ If all of the $x_j$ are equal to some constant $c$, analytically, all
+the output of the function should be $\frac{1}{n}$. However, this may
+not occur if $c$ has a very large magnitude. If $c$ is very negative,
+then $\exp(c)$ will underflow, which means the denominator will become
+$0$, so the final result is undefined. When $c$ is very large and
+negative, the $\exp(c)$ will overflow, again resulting in the expression
+as whole being undefined. **Both of these difficulties can be resolved
+by evaluating $\text{softmax}(\boldsymbol{z})$ where
+$\boldsymbol{z} = \boldsymbol{x} - \max_i x_i$.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Poor Conditioning&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Consider a function
+$f(\boldsymbol{x}) = \boldsymbol{A}^{-1}\boldsymbol{x}$. When
+$\boldsymbol{A} \in \mathbb{R}^{n \times n}$ has an eigenvalue
+decomposition, the &lt;em&gt;conditional number&lt;/em&gt; is $$
+   \displaystyle \max\limits_{i, j}= \Bigg| \frac{\lambda_i}{\lambda_j} \Bigg| .\tag{49}
+   $$ When this number is large, matrix inversion is particularly
+sensitive to error in the input.&lt;/p&gt;
+
+&lt;h2 id=&#34;gradient-based-optimisation&#34;&gt;Gradient-Based Optimisation&lt;/h2&gt;
+
+&lt;p&gt;The following terms are all the same thing: &lt;em&gt;objective function&lt;/em&gt;,
+/criterion/, &lt;em&gt;cost function&lt;/em&gt;, &lt;em&gt;loss function&lt;/em&gt; and &lt;em&gt;error function&lt;/em&gt;. We
+often denote the value that minimise or maximise a function with
+superscript $*$, like $\boldsymbol{x}^* = \arg \min f(\boldsymbol{x})$&lt;/p&gt;
+
+&lt;p&gt;If we know that $f(x - \epsilon \text{ sign} (f&#39;(x))) &lt; f(x)$ for small
+enough $\epsilon$. We can thus reduce $f(x)$ by moving $x$ in small
+steps with &lt;em&gt;opposite&lt;/em&gt; sign of the derivative. This technique is called
+/gradient descent/.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190308102253178.png&#34; title=&#34;https://juicyiter.gitee.io/images/image-20190308102253178.png&#34;&gt;https://juicyiter.gitee.io/images/image-20190308102253178.png&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Points where $f&#39;(x)=0$ are known as &lt;em&gt;critical points&lt;/em&gt; or &lt;em&gt;stationary
+points&lt;/em&gt;. That&#39;s where the local minima or maxima could lie. For those
+critical points that are neither maxima or minima, we call them &lt;em&gt;saddle
+points&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;For functions that contains multiple inputs, we must use the concept of
+/partial derivatives/. The gradient of $f​$ is the &lt;em&gt;vector&lt;/em&gt; containing
+all of the partial derivatives, denoted
+$\nabla_{\boldsymbol{x}} f(\boldsymbol{x})​$. Element $i​$ of the
+gradient is the partial derivative of $f​$ with respect to $x_i​$,
+$\frac{\partial}{\partial x_i}f(\boldsymbol{x})​$. In multi-dimension,
+the critical points are where every elements of the gradient is equal to
+zero.&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;directional derivative&lt;/em&gt; in direction $\boldsymbol{u}$ (a unit
+vector) is the derivative of the function
+$f(\boldsymbol{x} + \alpha \boldsymbol{u})$ with respect to $\alpha$,
+evaluated at $\alpha = 0$, which evaluates to
+$\boldsymbol{u}^{\top}f(\boldsymbol{x})$. To find the direction in which
+$f$ decreases the fastest, we can use the directional derivative: $$
+\min\limits_{\boldsymbol{u}, \boldsymbol{u^{\top}u} = 1}\boldsymbol{u^{\top}} \nabla_\boldsymbol{x} f(\boldsymbol{x}) .
+$$&lt;/p&gt;
+
+&lt;p&gt;$$
+= \min\limits_{\boldsymbol{u}, \boldsymbol{u^{\top}u}=1}|| \boldsymbol{u}||_2 ||\nabla_\boldsymbol{x}f(\boldsymbol{x})||_2 \cos \theta .\tag{50}
+$$&lt;/p&gt;
+
+&lt;p&gt;This is known as the &lt;em&gt;method of steepest descent&lt;/em&gt; or &lt;em&gt;gradient descent&lt;/em&gt;,
+which proposes a new point $$
+\boldsymbol{x}&#39; = \boldsymbol{x} - \epsilon \nabla_\boldsymbol{x}f(\boldsymbol{x}) .\tag{51}
+$$ where $\epsilon$ is the learning rate, a positive scalar determining
+the size of the step.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;/Jacobian matrix/: containing all the partial derivatives. ---&lt;/li&gt;
+   First-order optimisation.
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;hessian-matrix-second-order-optimisation&#34;&gt;Hessian matrix --- Second-order optimisation&lt;/h2&gt;
+
+&lt;p&gt;$\boldsymbol{H}(f)(\boldsymbol{x})$ the Jacobian matrix of the gradient.
+Anywhere that the second partial derivatives are continuous, the
+differential operators are commutative, which implies that
+$H_{i, j} = H_{j, i}$, so the Hessian matrix is symmetric at this point.
+$$
+\frac{\partial^2}{\partial x_i \partial x_j}f(\boldsymbol{x}) = \frac{\partial^2}{\partial x_j \partial x_i}f(\boldsymbol{x})\tag{52}
+$$ Because the Hessian matrix is real and symmetric, we can decompose it
+into a set of real eigenvalues and an orthogonal basis of eigenvectors.
+The second derivative in a &lt;em&gt;specific direction&lt;/em&gt; represented by a unit
+vector $\boldsymbol{d}​$ is given by $\boldsymbol{d^{\top}Hd}​$. When
+$d​$ is an eigenvector of $\boldsymbol{H}​$, the second derivative in
+that directions &lt;em&gt;is given by the corresponding eigenvalue&lt;/em&gt;. For other
+directions of $\boldsymbol{d}​$, the directional second derivative is a
+/weighted average of all the eigenvalues/, with weights between $0​$ and
+$1​$, and &lt;em&gt;eigenvectors that have smaller angle with $\boldsymbol{d}​$
+receiving more weight&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The second-order Taylor series approximation to the function
+$f(\boldsymbol{x})$ around the current point $\boldsymbol{x}^{(0)}​$: $$
+f(\boldsymbol{x}) \approx f(\boldsymbol{x}^{(0)}) + (\boldsymbol{x}-\boldsymbol{x}^{(0)})^{\top}\boldsymbol{g} + \frac{1}{2}(\boldsymbol{x}- \boldsymbol{x}^{(0)})^{\top} \boldsymbol{H}(\boldsymbol{x}-\boldsymbol{x}^{(0)})\tag{53}
+$$ where $\boldsymbol{g}​$ is the gradient and $\boldsymbol{H}​$ is the
+Hessian at $\boldsymbol{x}^{(0)}​$. If we use a learning rate
+$\epsilon​$, then the new point $\boldsymbol{x}​$ will be given by
+$\boldsymbol{x}^{(0)}-\epsilon\boldsymbol{g}​$. Substituting this into
+the equation above, we obtain $$
+f(\boldsymbol{x}^{(0)}-\epsilon\boldsymbol{g}) \approx f(\boldsymbol{x}^{(0)}) - \epsilon \boldsymbol{g^{\top}g}+\frac{1}{2} \epsilon^2 \boldsymbol{g^\top} \boldsymbol{H}\boldsymbol{g} \tag{54}
+$$ There are three therms here in the equation: $\bullet​$ the original
+value of the function, $\bullet​$ the expected improvement due to the
+slope of the function, and $\bullet​$ the correction we must apply to
+account for the curvature of the function. When the
+$\boldsymbol{g^{\top}Hg}​$ is &lt;em&gt;positive&lt;/em&gt;, solving for the optimal step
+size that decrease the Taylor series approximation of the function the
+most yields $$
+\epsilon^* = \frac{\boldsymbol{g^{\top}Hg}}{\boldsymbol{g^{\top}g}}\tag{55}
+$$ At a critical point, the eigenvalue of Hessian matrix can be examined
+to determine whether the critical point is a local minimum, local
+maximum or saddle point.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;When the Hessian is positive definite, the point is a local minimum.&lt;/li&gt;
+   Like wise, when the Hessian is negative definite, the point is a
+   local maximum.
+&lt;/ul&gt;
+
+&lt;ul&gt;
+&lt;li&gt;When at least one eigenvalue is positive and at least one eigenvalue&lt;/li&gt;
+   is negative, we know that $\boldsymbol{x}$ is a local minimum on one
+   cross section of $f$ but a local maximum on another cross section.
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190308191237380.png&#34; title=&#34;https://juicyiter.gitee.io/images/image-20190308191237380.png&#34;&gt;https://juicyiter.gitee.io/images/image-20190308191237380.png&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;When the Hessian has a poor condition number, gradient descent performs
+poorly.This is because in one direction, the derivative increases
+rapidly, while in another direction, it increases slowly. Gradient
+descent does not know this change in the derivative so it does not know
+that it needs to explore preferentially in the directions where the
+derivative remains negative for longer, making it difficult to choose a
+good step size.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://juicyiter.gitee.io/images/IMG_CEEDB9114259-1.jpeg&#34; title=&#34;https://juicyiter.gitee.io/images/IMG_CEEDB9114259-1.jpeg&#34;&gt;https://juicyiter.gitee.io/images/IMG_CEEDB9114259-1.jpeg&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Here the condition number of Hessian is $5$, which means the direction
+($[1,1]^{\top}$) of most curvature have five times more curvature than
+the direction ($[-1, 1]^{\top}$) of the least curvature.&lt;/p&gt;
+
+&lt;p&gt;The problem can be resolve by &lt;em&gt;Newton&#39;s method&lt;/em&gt;, which is based on using second-order Taylor series expansion to approximate &lt;&lt;newton&gt;&gt;
+$f(\boldsymbol{x})$ near some point $\boldsymbol{x}^{(0)}$: $$
+f(\boldsymbol{x}) \approx f(\boldsymbol{x}^{(0)}) + (\boldsymbol{x}-\boldsymbol{x}^{(0)})^{\top} \nabla_\boldsymbol{x}f(\boldsymbol{x}^{(0)})+ \frac{1}{2} (\boldsymbol{x}-\boldsymbol{x}^{(0)})^{\top} \boldsymbol{H}(f)(\boldsymbol{x^{(0)}})(\boldsymbol{x}-\boldsymbol{x}^{(0)})\tag{56}
+$$ Solving the critical point, we obtain: $$
+\boldsymbol{x}^* = \boldsymbol{x}^{(0)} - {\boldsymbol{H}(f)f(\boldsymbol{x}^{(0)})}^{-1} \nabla_\boldsymbol{x}f(\boldsymbol{x}^{(0)})\tag{57}
+$$&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+When $f$ is a &lt;em&gt;positive define quadratic&lt;/em&gt; function, Newton&#39;s method
+&lt;/p&gt;
+&lt;p&gt;
+consists of applying &lt;a href=&#34;newton&#34; title=&#34;function&#34;&gt;function&lt;/a&gt; &lt;em&gt;once&lt;/em&gt; to jump to the minimum
+&lt;/p&gt;
+&lt;p&gt;
+of the function directly. When $f$ is not truly quadratic but can be
+&lt;/p&gt;
+&lt;p&gt;
+&lt;em&gt;locally approximated&lt;/em&gt; as a positive define quadratic function, Newton&#39;s
+&lt;/p&gt;
+&lt;p&gt;
+method consists of applying &lt;a href=&#34;newton&#34; title=&#34;function&#34;&gt;function&lt;/a&gt; multiple times.
+&lt;/p&gt;
+
+&lt;p&gt;
+Newton&#39;s method is only &lt;em&gt;approximate&lt;/em&gt; when the &lt;em&gt;nearby critical point is a minimum&lt;/em&gt;, which will be detailedly noted later on.
+&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;A &lt;em&gt;Lipschitz continuous&lt;/em&gt; function is a function $f$ whose rate of change
+is bounded by a &lt;em&gt;Lipschitz constant&lt;/em&gt; $\mathcal{L}$:&lt;/p&gt;
+
+&lt;p&gt;$$
+\forall \boldsymbol{x}, \forall \boldsymbol{y}, |f(\boldsymbol{x})-f(\boldsymbol{y})| \le \mathcal{L}||\boldsymbol{x}-\boldsymbol{y}||_2\tag{58}
+$$&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Convex optimisation&lt;/em&gt; algorithms are applicable only to convex
+functions--- functions for which the Hessian is &lt;em&gt;positive semidefinite
+everywhere, which lack saddle points&lt;/em&gt; and &lt;em&gt;all their local minima are
+necessarily global minima&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;Karush-Kuhn-Tucker&lt;/em&gt; (KKT) approach provides a very general solution
+to constrained optimisation. With the KKT approach, we introduce a new
+function called the &lt;em&gt;generalised Lagrangian&lt;/em&gt; or &lt;em&gt;generalised Lagrange
+function&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;To define the Lagrangian, we first need to describe $\mathbb{S}$ in
+terms of equations and inequalities. $\mathbb{s} = \{ \boldsymbol{x} \; | \; \forall i, g^{(i)}(\boldsymbol{x}) = 0 \text{ and } \forall j, h^{(j)} (\boldsymbol{x}) \le 0 \}$.&lt;/p&gt;
+
+&lt;p&gt;The equations involving $g^{(i)}$ are called the &lt;em&gt;equality constraints/
+and the ineuqalities involving $h^{(i)}$ are called /inequality
+constraints&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;We introduce new variables $\lambda_i$ and $\alpha_i$ for each
+constraint, these are called the &lt;em&gt;KKT multipliers&lt;/em&gt;. The generalised
+Lagrangian is then defined as&lt;/p&gt;
+
+&lt;p&gt;$$ L(\boldsymbol{x}, \boldsymbol{\lambda}, \boldsymbol{\alpha}) = f(\boldsymbol{x}) + \displaystyle \sum_i \lambda_i g^{(i)}(\boldsymbol{x}) + \sum_i \alpha_i h^{(j)}(\boldsymbol{x}) \tag{59}$$&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;So long as at least one feasible point exists and $f(\boldsymbol{ x})$
+is not permitted to have value $\infty$&lt;/em&gt;, then
+$$ \min \limits_{\boldsymbol{x}} \max \limits_{\boldsymbol{\lambda}} \max \limits_{\boldsymbol{\alpha, \alpha} \ge 0} L( \boldsymbol{ x}, \boldsymbol{ \lambda}, \boldsymbol{ \alpha}) .\tag{60}$$&lt;/p&gt;
+
+&lt;p&gt;has the same optimal objective function value and set of optimal points
+$\boldsymbol{ x}$ as
+$$ \min \limits_{\boldsymbol{ x} \in \mathbb{S}} f(\boldsymbol{ x}) .\tag{61}$$&lt;/p&gt;
+
+&lt;p&gt;This follows because any time the constraints are satisfied,&lt;/p&gt;
+
+&lt;p&gt;$$ \max \limits_{\boldsymbol{\lambda}} \max \limits_{\boldsymbol{\alpha, \alpha \ge} 0} L(\boldsymbol{ x, \lambda, \alpha}) = f(\boldsymbol{x}), \tag{62}$$&lt;/p&gt;
+
+&lt;p&gt;while any time a constraint is violated,&lt;/p&gt;
+
+&lt;p&gt;$$ \max \limits_{\boldsymbol{\lambda}} \max \limits_{\boldsymbol{\alpha, \alpha \ge} 0} L(\boldsymbol{ x, \lambda, \alpha}) = \infty . \tag{63}$$&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;These properties guarantee that no infeasible point can be optimal, and
+that the optimum within the feasible points is unchanged.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Karush-Kuhn-Tucker&lt;/em&gt; (KKT) /conditions/: - The gradient of the
+generalised Lagrangian is zero. - All constraints on both
+$\boldsymbol{x}$ and the KKT multipliers are satisfied. - The inequality
+constraints exhibit &#34;complementary slackness&#34;.
+$\boldsymbol{\alpha} \odot \boldsymbol{h}(\boldsymbol{x}) = \boldsymbol{0}$.&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+&lt;p&gt;
+They are necessary conditions, but not always sufficient conditions, for
+&lt;/p&gt;
+&lt;p&gt;
+a point to be optimal.
+&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Most machine learning algorithms have settings called &lt;strong&gt;hyperparameters&lt;/strong&gt; that must be determined external to the learning algorithm itself. Two central approaches to statistics are &lt;strong&gt;frequentist estimators and Bayesian inference&lt;/strong&gt;. Most deep learning algorithms are based on an optimisation algorithm called &lt;strong&gt;stochastic gradient descent&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h1 id=&#34;learning-algorithms&#34;&gt;Learning Algorithms&lt;/h1&gt;
+
+&lt;h2 id=&#34;the-task-t&#34;&gt;The Task, $T$&lt;/h2&gt;
+
+&lt;ul&gt;
+What do we mean by learning? A computer program is said to learn from &lt;strong&gt;experience&lt;/strong&gt; $E$ with respect to some class of &lt;strong&gt;tasks&lt;/strong&gt; $T$ and &lt;strong&gt;performance&lt;/strong&gt; measure $P$, if its performance at task $T$, as measured by $P$, improves with experience $E$.
+&lt;li&gt;&lt;strong&gt;Classification*: To solve this task, the learning algorithm is often asked to produce a function $f: \mathbb{R} \to \{ 1, \dots, k \}$. When $y =  f(\boldsymbol{x})$, the model assigns an input described by vector $\boldsymbol{x}$ to a category identified by a numeric code $y$. $f$ *outputs a probability distribution over classes&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Classification with missing inputs*: To solve this task, instead of mapping from a vector a categorical output, the learning algorithm must learn a *set&lt;/strong&gt; of functions. One way to define such a large set of functions is &lt;strong&gt;to learn a probability distribution over all of the relevant variables&lt;/strong&gt;, then solve the classification task by marginalising out the missing variables. With $n$ input variables, we can obtain $2^n$ different classification functions needed for each possible set of missing inputs, but we &lt;strong&gt;only need to learn a single function describing the &lt;em&gt;joint distribution&lt;/em&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+&lt;li&gt;*Regression*: This type of task is similar to classification, except that the out is different this time: $f:\mathbb{R} \to \mathbb{R}$.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Transcription*: In this type of task, the machine learning system is asked to observe a *relatively unstructured&lt;/strong&gt; representation of some kind of data and &lt;strong&gt;transcript it into discrete, textual form&lt;/strong&gt;. For example, in optical character recognition, the computer program is shown a photograph containing an image of text, the computer program is asked to return its text form of a sequence of characters.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+&lt;li&gt;*Machine translation*: The computer program is asked to convert a sequence of symbols in some language into a sequence of another language.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+&lt;li&gt;*Structured output*: One example is parsing--mapping a natural language sentence into a tree that describes its grammatical structure and tagging nodes of the trees as being verbs, nouns, or adverbs, and so on. The reason the task is called structured output is that the program must output several values that are all tightly inter-related. For example, the words produced by an image captioning program must be a valid sentence.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+&lt;li&gt;*Anomaly detection*: An example is credit card fraud detection for uncharacteristic purchases.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+&lt;li&gt;*Synthesis and sampling*: In this type of task, the machine learning algorithm is asked to generate new examples that are similar to those in the training data. Synthesis via machine learning can be very useful for media applications where it can be expensive or boring for an artist to generate large volumes of content by hand.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+&lt;li&gt;*Imputation of missing values*: Given a new example of $\boldsymbol{x} \in \mathbb{R}^n$, but with some entries $x_i$ of $\boldsymbol{x}$ missing, the algorithm must provide a prediction of the values of the missing entries.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+&lt;li&gt;*Denoising*: The learning algorithm must predict the clean example $\boldsymbol{x}$ from its corrupted version $\tilde{\boldsymbol{x}}$, or more generally predict the conditional probability distribution $p(\boldsymbol{x} \; | \; \tilde{\boldsymbol{x}})$.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Density estimation&lt;/strong&gt; or *probability mass function estimation*: In this type of task, the algorithm is asked to learn a function $p_{model} : \mathbb{R}^n \to \mathbb{R}$ where $p_{model}(\boldsymbol{x})$ can be interpreted as a probability density function (if $\mathbf{x}$ is continuous) or a probability mass function (if $\mathbf{x}$ is discrete). To do this task well, the algorithm must learn the structure of the data and where the examples cluster tightly and where they unlikely to occur.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;the-performance-measure-p&#34;&gt;The Performance Measure, $P$&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;*Accuracy*: the proportion of examples for which model produces the correct output.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Error rate*: the proportion of examples for which model produces the wrong output, which is often referred as $0-1$ loss for discrete inputs. But it doesn&#39;t make any sense for continuous inputs. The most common approach for those continuous inputs is to report the *average log-probability&lt;/strong&gt; the model assigns to some examples.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;the-experience-e&#34;&gt;The Experience, $E$&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Unsupervised learning algorithms&lt;/strong&gt; experience a dataset containing many features, then learn useful properties of the structure of this dataset, attempting to implicitly or explicitly learn the probability distribution $p(\mathbf{x})$.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Supervised Learning algorithms&lt;/strong&gt; experience a dataset containing features, but each feature is also associated with a &lt;strong&gt;label&lt;/strong&gt; or &lt;strong&gt;target&lt;/strong&gt;. Supervised learning involves observing several examples of a random vector $\mathbf{x}$ and an associated value or vector $\mathbf{y}$, and leaning to predict $\mathbf{y}$ from $\mathbf{x}$, usually by estimating $p(\mathbf{y} \; | \; \mathbf{x})$. Alternatively, we can solve the supervised learning problem of learning $p(y \; | \; \mathbf{x})$ by using traditional unsupervised learning technologies to learn the joint distributions $p(\mathbf{x}, y)$ and inferring&lt;/li&gt;
+$$ p(y \; | \; \mathbf{x}) = \frac{p(\mathbf{x}, y)}{\sum_{y&#39;} p(\mathbf{x}, y&#39;)}.\tag{64} $$
+&lt;/ul&gt;
+
+&lt;p&gt;Traditionally, people refer to &lt;strong&gt;regression&lt;/strong&gt;, &lt;strong&gt;classification&lt;/strong&gt;, and &lt;strong&gt;structured output&lt;/strong&gt; as supervised learning. &lt;strong&gt;Density estimation&lt;/strong&gt; in support of other tasks is usually considered as unsupervised learning.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+&lt;strong&gt;Reinforced learning&lt;/strong&gt; algorithms interacts with an environment, so there is a &lt;strong&gt;feedback loop&lt;/strong&gt; between the learning system and its experience.
+&lt;/p&gt;
+
+&lt;p&gt;
+#+ATTR_HTML: :target _blank
+&lt;/p&gt;
+&lt;p&gt;
+Check &lt;a href=&#34;http://incompleteideas.net/book/bookdraft2017nov5.pdf&#34; title=&#34;Sutton and Barto&#39;s book&#34;&gt;Sutton and Barto&#39;s book&lt;/a&gt; or &lt;a href=&#34;https://www.researchgate.net/publication/216722122_Neuro-Dynamic_Programming&#34; title=&#34;Bertsekas and Tsitsiklis (1996)&#34;&gt;Bertsekas and Tsitsiklis (1996)&lt;/a&gt; for information about reinforced learning, and &lt;a href=&#34;https://arxiv.org/pdf/1312.5602.pdf&#34; title=&#34;Mnih et al. (2013)&#34;&gt;Mnih et al. (2013)&lt;/a&gt; for the deep learning approach to reinforced learning.
+&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Most machine learning algorithms simply experience a dataset, which is commonly described with a &lt;strong&gt;design matrix&lt;/strong&gt;, whose columns correspond to different features.&lt;/p&gt;
+
+&lt;h2 id=&#34;example-linear-regression&#34;&gt;Example: Linear Regression&lt;/h2&gt;
+
+&lt;p&gt;The goal of the linear regression is to build a system that can take a vector $\boldsymbol{x} \in \mathbb{R}^n$ as input and predict the value of a scalar $y \in \mathbb{R}$ as its output, which is defined to be
+$$ \hat{y} = \boldsymbol{w^{\top}x} \tag{65}$$ where $\boldsymbol{w} \in \mathbb{R}^n$ is a vector of &lt;strong&gt;parameters&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;&lt;mse&gt;&gt;
+One way of measuring the performance of the model is to compute the &lt;strong&gt;mean squared error&lt;/strong&gt; of the model on the &lt;strong&gt;test set&lt;/strong&gt;. if $\hat{\boldsymbol{y}}^{(test)}$ gives the predictions of the model on the test set, then the mean squared error is given by
+$$ \mathrm{MSE}_{\mathrm{test}} = \frac{1}{m} \sum \limits_{i} (\hat{\boldsymbol{y}}^{(\mathrm{test})} - \boldsymbol{y}^{(\mathrm{test})})^2_i = \frac{1}{m} || \hat{\boldsymbol{y}}^{(\mathrm{test})} - \boldsymbol{y}^{(\mathrm{test})} ||_2^2.\tag{66}$$&lt;/p&gt;
+
+&lt;p&gt;To make a machine learning algorithm, we need to design an algorithm that will improve the weights $\boldsymbol{w}$ in a way that reduces $\mathrm{MSE}_{\mathrm{test}}$ when the algorithm is allowed to gain experience by observing a training set $(\mathbf{X}^{(\mathrm{train})}, \boldsymbol{y}^{(\mathrm{train})})$. One intuitive way of doing this is (which will justify&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://fa2png.io/media/icons/font-awesome/4-7-0/exclamation-circle/15/0/ff0101_none.png&#34; alt=&#34;http://fa2png.io/media/icons/font-awesome/4-7-0/exclamation-circle/15/0/ff0101_none.png&#34; title=&#34;http://fa2png.io/media/icons/font-awesome/4-7-0/exclamation-circle/15/0/ff0101_none.png&#34; /&gt; is just to minimise the mean squared error on the training set, $\mathrm{MSE}_{\mathrm{train}}$.&lt;/p&gt;
+
+&lt;p&gt;To minimise it, we simply solve for where its gradient is $\boldsymbol{0}$:&lt;/p&gt;
+
+&lt;p&gt;$$ \nabla_{\boldsymbol{w}} \mathrm{MSE}_{\mathrm{train}} = 0$$&lt;/p&gt;
+
+&lt;p&gt;$$\implies \nabla_{\boldsymbol{w}} \big( \mathbf{X}^{(\mathrm{train})}\boldsymbol{w} - \boldsymbol{y}^{(\mathrm{train})} \big)^{\top} \big( \mathbf{X}^{(\mathrm{train})}\boldsymbol{w} - \boldsymbol{y}^{(\mathrm{train})} \big) = 0$$&lt;/p&gt;
+
+&lt;p&gt;&lt;&lt;eq_norm&gt;&gt;
+$$ \implies \boldsymbol{w} = \bigg( {\mathbf{X}^{(\mathrm{train})}}^{\top} \mathbf{X}^{(\mathrm{train})} \bigg)^{-1} {\mathbf{X}^{(\mathrm{train})}}^{\top} \boldsymbol{y}^{(\mathrm{train})} \tag{67}$$&lt;/p&gt;
+
+&lt;p&gt;The system of equations whose solution is given by equation &lt;a href=&#34;eq_norm&#34; title=&#34;67&#34;&gt;67&lt;/a&gt; is known as the &lt;strong&gt;normal equations&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h1 id=&#34;capacity-overfitting-and-underfitting&#34;&gt;Capacity, Overfitting and Underfitting&lt;/h1&gt;
+
+&lt;p&gt;The ability to perform well on previously unobserved inputs is called &lt;strong&gt;generalisation&lt;/strong&gt;. What separates machine learning from optimisation is that we want the &lt;strong&gt;generalisation error&lt;/strong&gt;, also called the &lt;strong&gt;test error&lt;/strong&gt;, to be low as well. We typically estimate the generalisation error of a machine learning model by measuring its performance on a &lt;strong&gt;test set&lt;/strong&gt; of examples that were &lt;strong&gt;collected separately&lt;/strong&gt; from the training set.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;How can we affect performance on the test set when we get to observe only the training set?&lt;/strong&gt; The field of &lt;strong&gt;statistical learning theory&lt;/strong&gt; provides some answers. If we are allowed to make some assumptions about &lt;strong&gt;how the training and test set are collected&lt;/strong&gt;, then we can make some progress.&lt;/p&gt;
+
+&lt;p&gt;The train and test data are generated by a probability distribution over datasets called the &lt;strong&gt;data generating progress&lt;/strong&gt;. We call that &lt;em&gt;shared underlying distribution&lt;/em&gt; the &lt;strong&gt;data generating distribution&lt;/strong&gt;, denoted as $p_{\mathrm{data}}$. This probabilistic framework and the i.i.d. assumptions allow us to mathematically study the relationship between training error and the test error.&lt;/p&gt;
+
+&lt;p&gt;The expected training error of a randomly selected model is equal to the expected test error of that model, because both expectations are formed using the same dataset sampling progress. But practically the test error is greater or equal to the training error, because we don&#39;t fix the parameters ahead of time.&lt;/p&gt;
+
+&lt;p&gt;The factors determining how well a machine learning algorithm will perform are its ability to:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Make the training error small.&lt;/li&gt;
+&lt;li&gt;Make the gap between the training and test error small.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;That brought the two central challenges in machine learning: &lt;strong&gt;underfitting&lt;/strong&gt; and &lt;strong&gt;overfitting&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Underfitting occurs when the model is not able to obtain a sufficient low error value on the training set.&lt;/li&gt;
+&lt;li&gt;Overfitting occurs when the gap between training and test error is too large.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We can control whether a model is more likely to overfit or underfit by altering its &lt;strong&gt;capacity&lt;/strong&gt;. One way to do this is by choosing its &lt;strong&gt;hypothesis space&lt;/strong&gt;, the set of function that the learning algorithm is allowed to select as being the solution. That is changing the number of inputs features it has, and simultaneously adding new parameters associated with those features.&lt;/p&gt;
+
+&lt;p&gt;Another kind of capacity is called &lt;strong&gt;representational capacity&lt;/strong&gt;, which specifies which family of function the learning algorithms can choose from when varying the parameters in order to reduce a training objective.
+In practice, because of the imperfection of the optimisation algorithm and so on, the learning algorithm&#39;s &lt;strong&gt;effective capacity&lt;/strong&gt; may be less than the representational capacity of the model family.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+An interesting principle of parsimony is &lt;strong&gt;Occam&#39;s razor&lt;/strong&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+This principle states that among competing hypotheses that explain known observation equally well, one should choose the &#34;simplest&#34; one.
+&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;A well-known way of quantifying model capacity is the &lt;strong&gt;Vapnik-Chervonenkis dimension&lt;/strong&gt;, or VC dimension, which measures the capacity of a &lt;em&gt;binary classifier&lt;/em&gt;. The VC dimension is defined as being the largest possible value of $m$ for which there exists a training set of $m$ different $\boldsymbol{x}$ points that the classifier can label arbitrarily.&lt;/p&gt;
+
+&lt;p&gt;The most important results in statistical learning theory shows that &lt;strong&gt;the discrepancy&lt;/strong&gt; between training error and the generalisation error &lt;strong&gt;grows as the model capacity grows&lt;/strong&gt; but &lt;strong&gt;shrinks as the number of training examples increases&lt;/strong&gt;. While simpler functions are more likely to generalise (to have small gap between training and test error) we must still choose a &lt;strong&gt;sufficiently complex hypothesis&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Typically, &lt;strong&gt;training error decrease&lt;/strong&gt; until it asymptotes to the minimum possible error value as model capacity increases (assuming the error value has a minimum value) and &lt;strong&gt;generalisation error has a U-shaped curve&lt;/strong&gt; as a function of model capacity.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190311211352759.png&#34; title=&#34;https://juicyiter.gitee.io/images/image-20190311211352759.png&#34;&gt;https://juicyiter.gitee.io/images/image-20190311211352759.png&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Parametric model learn a function described by a parameter vector whose size is finite and fixed before any data is observed. &lt;strong&gt;Non-parametric&lt;/strong&gt; models have no such limitation.&lt;/p&gt;
+
+&lt;p&gt;One example of such an algorithm is &lt;strong&gt;nearest neighbour regression&lt;/strong&gt;, which simply stores the $\mathbf{X}$ and $\boldsymbol{y}$ from the training set. When asked to classify a test point $\boldsymbol{x}$, the model looks up the nearest entry in the training set and returns the associated regression target. In other words, $\hat{y} = y_i$ where $i = \arg \min ||\mathbf{X}_{i, :} -\boldsymbol{x}||^2_2$. &lt;strong&gt;If the algorithm is allowed to break ties by averaging the $y_i$ values of all $\mathbf{X}_{i, :}$ that are tied for nearest, then this algorithm is able to achieve the minimum possible training error&lt;/strong&gt; (which might be greater than zero, if two identical inputs are associated with different outputs) on any regression dataset.&lt;/p&gt;
+
+&lt;p&gt;The error incurred by &lt;strong&gt;an oracle&lt;/strong&gt; making predictions from the &lt;strong&gt;true distribution&lt;/strong&gt; $p(\boldsymbol{x}, y)$ is called the &lt;strong&gt;Bayes error&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Expected generalisation error can &lt;strong&gt;never increase&lt;/strong&gt; as the number of training examples increases. Any fixed &lt;strong&gt;parametric model with less than optimal capacity&lt;/strong&gt; will &lt;strong&gt;asymptote&lt;/strong&gt; to an error value that exceeds the Bayes error.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190311213831415.png&#34; title=&#34;https://juicyiter.gitee.io/images/image-20190311213831415.png&#34;&gt;https://juicyiter.gitee.io/images/image-20190311213831415.png&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;the-no-free-lunch-theorem&#34;&gt;The No Free Lunch Theorem&lt;/h2&gt;
+
+&lt;p&gt;The &lt;strong&gt;no free lunch theorem&lt;/strong&gt; states that averaged over all possible data generating distributions, every classification algorithm has the same error rate when classifying previously unobserved points. In other words, in some sense, no machine learning algorithm is universally better than any other.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+Fortunately, these results holds only when we average over &lt;em&gt;all&lt;/em&gt; possible data generating distribution.
+&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;regularisation&#34;&gt;Regularisation&lt;/h2&gt;
+
+&lt;p&gt;To understanding the regularisation, consider the following example. We can modify the training criterion for linear regression to include &lt;strong&gt;weight decay&lt;/strong&gt;. To perform linear regression with weight decay, we minimise a sum comprising both the &lt;strong&gt;mean squared error&lt;/strong&gt; on the training and &lt;strong&gt;a criterion&lt;/strong&gt; $J(\boldsymbol{w})$ that expresses a &lt;strong&gt;preference&lt;/strong&gt; for the weights to have smaller squared $L^2$ norm. Specifically,&lt;/p&gt;
+
+&lt;p&gt;$$ J(\boldsymbol{w}) = \mathrm{MSE}_{\mathrm{train}} + \lambda \boldsymbol{w^{\top}w}, \tag{68}$$&lt;/p&gt;
+
+&lt;p&gt;where $\lambda$ is a value that chosen ahead of time that &lt;strong&gt;controls the strength of the preference for &lt;em&gt;smaller weights&lt;/em&gt;&lt;/strong&gt;. When $\lambda = 0$, we impose no preference, and &lt;strong&gt;large $\lambda$ forces the weights to become smaller&lt;/strong&gt;. &lt;em&gt;Minimising $J(\boldsymbol{w})$ results in a choice of weights that make a trade-off between fitting the training data and being small&lt;/em&gt;. This gives us solutions that have a smaller slope, or put weight on fewer of the features. ($\lambda$ is fixed. To minimise $J(\boldsymbol{w})$, either minimise MSE or minimise $\boldsymbol{w^{\top}w}$.)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190311221517798.png&#34; title=&#34;https://juicyiter.gitee.io/images/image-20190311221517798.png&#34;&gt;https://juicyiter.gitee.io/images/image-20190311221517798.png&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;More generally, we can regularise a model that learns a function $f(\boldsymbol{x};\boldsymbol{\theta})$ by adding &lt;strong&gt;a penalty&lt;/strong&gt; called a &lt;strong&gt;regulariser&lt;/strong&gt; to the cost function. In the case of weight decay, the regulariser is $\Omega(\boldsymbol{w}) = \boldsymbol{w^{\top}w}$.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Expressing preferences&lt;/strong&gt; for on function is a more general way of controlling a model&#39;s capacity than including or excluding members from the hypothesis space.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+&lt;em&gt;Regularisation is &lt;strong&gt;any modification&lt;/strong&gt; we make to a learning algorithm that is intended &lt;strong&gt;to reduce its generalisation&lt;/strong&gt; error but not it training error&lt;/em&gt;.
+&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;hyperparameters-and-validation-sets&#34;&gt;Hyperparameters and Validation Sets&lt;/h2&gt;
+
+&lt;p&gt;Hyperparameters are those settings of machine learning algorithms to control the behaviour of the learning algorithm. The degree of polynomial and $\lambda$ mentioned above are both hyperparameters.&lt;/p&gt;
+
+&lt;p&gt;Sometimes a setting is chosen to be a hyperparameters that the learning algorithms does not learn because &lt;strong&gt;it is difficult to optimise&lt;/strong&gt;. This applies to all hyperparameters that control model capacity.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+If learned on the training set, such hyperparameters would always chose the maximum possible model capacity, resulting in overfitting.
+&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;cross-validation&#34;&gt;Cross-Validation&lt;/h3&gt;
+
+&lt;p&gt;To solve this problem, we need a &lt;strong&gt;validation set&lt;/strong&gt; of examples that the training algorithm does not observe. &lt;strong&gt;It&#39;s important that the test example are not used in any way to make choice about the model, including its hyperparameters&lt;/strong&gt;. Therefore we &lt;strong&gt;always&lt;/strong&gt; construct the validation set from the &lt;em&gt;training&lt;/em&gt; data. Specifically, we split the training data into two disjoint subsets. One of these subsets is used to learn the parameters (typically $80\%$). The other is the validation set (typically $20\%$), used to &lt;strong&gt;estimate the generalisation error&lt;/strong&gt; during or after training, &lt;strong&gt;allowing for the hyperparameters to be updated accordingly&lt;/strong&gt;. Since the validation set is used to &#34;train&#34; the hyperparameters, the validation set error will &lt;strong&gt;underestimate&lt;/strong&gt; the generalisation error.
+The most common of doing this is the $k$ -fold cross-validation procedure, shown below, in which a partition of the dataset is formed by splitting it into $k$ non-overlapping subsets.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190312093553594.png&#34; title=&#34;https://juicyiter.gitee.io/images/image-20190312093553594.png&#34;&gt;https://juicyiter.gitee.io/images/image-20190312093553594.png&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+One problem is that there exist no unbiased estimators of the variance of such average error estimators (&lt;a href=&#34;http://120.52.51.13/www.jmlr.org/papers/volume5/grandvalet04a/grandvalet04a.pdf&#34; title=&#34;Bengio and Grandvalet, 2004&#34;&gt;Bengio and Grandvalet, 2004&lt;/a&gt;), but approximations are typically used.
+&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;estimators-bias-and-variance&#34;&gt;Estimators, Bias and Variance&lt;/h2&gt;
+
+&lt;h3 id=&#34;point-estimation&#34;&gt;Point Estimation&lt;/h3&gt;
+
+&lt;p&gt;Point estimation is the attempt to provide the &lt;strong&gt;single &#34;best&#34;&lt;/strong&gt; prediction of some quantity of interest. Let $\{\boldsymbol{x}^{(1)}, \dots, \boldsymbol{x}^{(m)} \}$ be a set of $m$ independent and identically distributed (i.i.d.) data points. A &lt;strong&gt;point estimator&lt;/strong&gt; or &lt;strong&gt;statistic&lt;/strong&gt; is &lt;em&gt;any&lt;/em&gt; function of the data:&lt;/p&gt;
+
+&lt;p&gt;$$ \hat{\boldsymbol{\theta}} = g(\boldsymbol{x}^{(1)}, \dots, \boldsymbol{x}^{(m)}). \tag{69} $$&lt;/p&gt;
+
+&lt;p&gt;While almost any function thus qualifies as an estimator, a &lt;strong&gt;good estimator&lt;/strong&gt; is a function whose output is close to the true underlying $\boldsymbol{\theta}$ (which is &lt;strong&gt;fix but unknown&lt;/strong&gt; and a random variable) that generated the training data. (&lt;strong&gt;Any is fine, but good is one.&lt;/strong&gt;)&lt;/p&gt;
+
+&lt;h3 id=&#34;function-estimation&#34;&gt;Function Estimation&lt;/h3&gt;
+
+&lt;p&gt;We assume that there is a function $f(\boldsymbol{x})$ that describes the approximate relationship between $\boldsymbol{y}$ and $\boldsymbol{x}$. For example we may assume that $\boldsymbol{y} = f(\boldsymbol{x}) + \boldsymbol{\epsilon}$, where $\boldsymbol{\epsilon}$ stands for the part of $\boldsymbol{y}$ that is not predictable from $\boldsymbol{x}$. Function estimation is really just the same as estimating a parameter $\boldsymbol{\theta}$; the function estimator $\hat{f}$ is simply a point estimator in function space.&lt;/p&gt;
+
+&lt;h3 id=&#34;bias&#34;&gt;Bias&lt;/h3&gt;
+
+&lt;p&gt;The bias of an estimator is defined as:&lt;/p&gt;
+
+&lt;p&gt;$$ \mathrm{bias}(\hat{\boldsymbol{\theta}}_m) = \mathbb{E}(\hat{\boldsymbol{\theta}}_m) - \boldsymbol{\theta} \tag{70} $$&lt;/p&gt;
+
+&lt;p&gt;An estimator $\hat{\boldsymbol{\theta}}_m$ is said to be &lt;strong&gt;unbiased&lt;/strong&gt; if bias($\hat{\boldsymbol{\theta}}_m$) = $\boldsymbol{0}$, which implies that $\mathbb{E}(\hat{\boldsymbol{\theta}}_m) = \boldsymbol{\theta}$. An estimator $\hat{\boldsymbol{\theta}}_m$ is said to be &lt;strong&gt;asymptotically unbiased&lt;/strong&gt; if $\lim_{m \to \infty} \mathrm{bias}(\hat{\boldsymbol{\theta}}_m) = \boldsymbol{0}$, which implies that $\lim_{m \to \infty} \mathbb{E}(\hat{\boldsymbol{\theta}}_m) = \boldsymbol{\theta}$.&lt;/p&gt;
+
+&lt;h3 id=&#34;example-bernoulli-distribution&#34;&gt;Example: Bernoulli Distribution&lt;/h3&gt;
+
+&lt;p&gt;&lt;&lt;Bernoulli&gt;&gt;
+Consider a set of examples $\{x^{(1)}, \dots, x^{(m)} \}$ that are i.i.d according to Bernoulli distribution with mean $\theta$:&lt;/p&gt;
+
+&lt;p&gt;$$ P(x^{(i)}; \theta) = \theta^{x^{(i)}} (1 - \theta)^{1 - x^{(i)}}.\tag{71} $$&lt;/p&gt;
+
+&lt;p&gt;To determine whether the estimator $\hat{\theta}_m = \frac{1}{m} \displaystyle \sum_{i=1}^{m} x^{(i)}$ is biased, we can do the following calculation:&lt;/p&gt;
+
+&lt;p&gt;$$ \begin{align*} \mathrm{bias}(\hat{\theta}_m) &amp;= \mathbb{E}[\hat{\theta}_m] - \theta \\
+&amp;= \mathbb{E} \Bigg[ \frac{1}{m} \displaystyle \sum_{i=1}^{m} x^{(i)} \Bigg] - \theta \\
+&amp;= \frac{1}{m} \displaystyle \sum_{i=1}^{m} \sum_{x^{(i)}=0}^{1} \big(x^{(i)} \theta^{x^{(i)}} (1 - \theta)^{1 - x^{(i)}} \big) - \theta \\
+&amp;= \frac{1}{m} \displaystyle \sum_{i=1}^{m} (\theta) - \theta \\
+&amp;= \theta - \theta = 0  \tag{72} \end{align*}$$&lt;/p&gt;
+
+&lt;p&gt;Since $\mathrm{bias}(\hat{\theta}) = 0$, we say that the estimator $\hat{\theta}$ is unbiased.&lt;/p&gt;
+
+&lt;h3 id=&#34;example-gaussian-distribution-estimator-of-the-mean&#34;&gt;Example: Gaussian Distribution Estimator of the Mean&lt;/h3&gt;
+
+&lt;p&gt;Recall that the Gaussian probability density function is given by&lt;/p&gt;
+
+&lt;p&gt;$$ p(x^{(i)}; \mu, \sigma^2) = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp \Bigg( - \frac{1}{2} \frac{(x^{(i)} - \mu)^2}{\sigma^2} \Bigg).\tag{73} $$&lt;/p&gt;
+
+&lt;p&gt;Consider a set of examples $\{x^{(1)}, \dots, x^{(m)} \}$ that are i.i.d according to Gaussian distribution with *sample mean*:&lt;/p&gt;
+
+&lt;p&gt;$$ \hat{\mu}_m = \frac{1}{m} \displaystyle \sum_{i=1}^{m} x^{(i)} \tag{74}$$&lt;/p&gt;
+
+&lt;p&gt;The bias of the sample mean is:&lt;/p&gt;
+
+&lt;p&gt;$$ \begin{align*}
+\mathrm{bias}(\hat{\mu}_m) &amp;= \mathbb{E}[\hat{\mu}_m] - \mu \\
+&amp;= \mathbb{E} \Bigg[ \frac{1}{m} \displaystyle \sum_{i=1}^{m} x^{(i)} \Bigg] - \mu \\
+&amp;= \Bigg( \frac{1}{m} \displaystyle \sum_{i=1}^{m} \mathbb{E} \big[ x^{(i)} \big] \Bigg) - \mu \\
+&amp;= \Bigg( \frac{1}{m} \displaystyle \sum_{i=1}^{m} \mu \Bigg) - \mu \\
+&amp;= \mu - \mu = 0 \tag{75}
+\end{align*}$$&lt;/p&gt;
+
+&lt;p&gt;Thus the sample mean is an unbiased estimator of Gaussian mean parameter.&lt;/p&gt;
+
+&lt;h3 id=&#34;example-estimators-of-the-variance-of-a-gaussian-distribution&#34;&gt;Example: Estimators of the Variance of a Gaussian Distribution&lt;/h3&gt;
+
+&lt;p&gt;The &lt;strong&gt;sample variance&lt;/strong&gt; $\hat{\sigma}^2_m = \frac{1}{m} \displaystyle \sum_{i=1}^{m} \big( x^{(i)} - \hat{\mu}_m \big)^2$ , where $\hat{\mu}_m$ is the sample mean, defined above. By evaluating:&lt;/p&gt;
+
+&lt;p&gt;\begin{align*} \mathbb{E}[\hat{\sigma}^2_m]
+&amp;= \mathbb{E} \Bigg[ \frac{1}{m} \displaystyle \sum_{i=1}^{m} \big( x^{(i)} - \hat{\mu}_m \big)^2 \Bigg] \\
+&amp;= \frac{m-1}{m} \sigma^2 \tag{76}
+\end{align*}&lt;/p&gt;
+
+&lt;p&gt;we can therefore conclude that the &lt;strong&gt;sample variance is a biased estimator&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The &lt;strong&gt;unbiased sample variance&lt;/strong&gt; estimator is:&lt;/p&gt;
+
+&lt;p&gt;$$
+\tilde{\sigma}_m^2 = \frac{1}{m-1} \displaystyle \sum_{i=1}^{m} \big( x^{(i)} - \hat{\mu}_m \big)^2.\tag{77}
+$$&lt;/p&gt;
+
+&lt;h3 id=&#34;variance-and-standard-error&#34;&gt;Variance and Standard Error&lt;/h3&gt;
+
+&lt;p&gt;The &lt;strong&gt;variance&lt;/strong&gt; is denoted as $\mathrm{Var}(\hat{\theta})$, and the squared root of the variance is called the &lt;strong&gt;standard error&lt;/strong&gt;, denoted as $\mathrm{SE}(\hat{\theta})$.&lt;/p&gt;
+
+&lt;p&gt;The standard error of the mean is given by&lt;/p&gt;
+
+&lt;p&gt;$$
+\mathrm{SE}(\hat{\mu}_m) = \sqrt{ \mathrm{Var} \Bigg[ \frac{1}{m} \displaystyle \sum_{i=1}^{m} x^{(i)} \Bigg]} = \frac{\sigma}{\sqrt{m}}\tag{78}
+$$&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, neither the squared root of the sample variance of the squared root of the unbiased estimator of the variance provide an unbiased estimate of the standard deviation. Both approaches tend to &lt;strong&gt;underestimate&lt;/strong&gt; the true standard deviation, but still used in practice.&lt;/p&gt;
+
+&lt;p&gt;We often estimate the generalisation error by computing the sample mean of the error on the test set. The number of examples in the test set determines the accuracy of this estimate. Taking advantage of &lt;strong&gt;central limit theorem&lt;/strong&gt;, which tells us that the mean will approximately distributed with normal distribution, we can use the standard error to compute the probability that the &lt;strong&gt;true expectation falls in any chosen interval&lt;/strong&gt;. For example, the $95\%$ confidence interval centred on the mean $\hat{\mu}_m$ is $(\hat{\mu}_m - 1.96\mathrm{SE}(\hat{\mu}_m), \hat{\mu}_m + 1.96\mathrm{SE}(\hat{\mu}_m))$, under the normal distribution with mean $\hat{\mu}_m$ and variance $\mathrm{SE}(\hat{\mu}_m)^2$.&lt;/p&gt;
+
+&lt;p&gt;In machine learning experiments, it&#39;s common to say that algorithm $A$ is better than algorithm $B$ if the &lt;strong&gt;upper bound&lt;/strong&gt; of the $95\%$ confidence interval for the error of algorithm $A$ is less than the &lt;strong&gt;lower bound&lt;/strong&gt; of the $95\%$ confidence interval for the error of algorithm $B$.&lt;/p&gt;
+
+&lt;h3 id=&#34;example-bernoulli-distribution-1&#34;&gt;Example: Bernoulli Distribution&lt;/h3&gt;
+
+&lt;p&gt;Consider the same example mentioned &lt;a href=&#34;Bernoulli&#34; title=&#34;here&#34;&gt;here&lt;/a&gt;. This time we are interested in computing the variance of the estimator $\hat{\theta}_m = \frac{1}{m} \sum_{i=1}^{m} x^{(i)}$.&lt;/p&gt;
+
+&lt;p&gt;\begin{align*} \mathrm{Var}\big( \hat{\theta}_m \big)
+&amp;= \mathrm{Var} \Bigg( \frac{1}{m} \displaystyle \sum_{i=1}^{m} x^{(i)} \Bigg) \\
+&amp;= \frac{1}{m^2} \sum_{i=1}^{m} \mathrm{Var} \big( x^{(i)} \big) \\
+&amp;= \frac{1}{m^2} \sum_{i=1}^{m} \theta (1 - \theta) \\
+&amp;= \frac{1}{m^2} m \theta (1 - \theta) \\
+&amp;= \frac{1}{m} \theta (1 - \theta) \tag{79}
+\end{align*}&lt;/p&gt;
+
+&lt;h3 id=&#34;trading-off-bias-and-variance-to-minimise-mean-squared-error&#34;&gt;Trading off Bias and Variance to Minimise Mean Squared Error&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Bias&lt;/strong&gt; measures the expected deviation from the true value of the function or parameter. &lt;strong&gt;Variance&lt;/strong&gt; on the other hand, provides a measure of the deviation from the expected estimator value that any particular sampling of the data is likely to cause.&lt;/p&gt;
+
+&lt;p&gt;The most common way to negotiate this trade-off is to use &lt;strong&gt;cross-validation&lt;/strong&gt;. Empirically, cross-validation is highly successful on many real-world tasks. Alternatively, we can also compare the &lt;a href=&#34;mse&#34; title=&#34;mean squared error&#34;&gt;mean squared error&lt;/a&gt; (MSE) of the estimates:&lt;/p&gt;
+
+&lt;p&gt;\begin{align*}
+\mathrm{MSE} &amp;= \mathbb{E}[(\hat{\theta}_m - \theta)^2] \\
+&amp;= \mathrm{Bias}(\hat{\theta}_m)^2 + \mathrm{Var}(\hat{\theta}_m) \tag{80}
+\end{align*}&lt;/p&gt;
+
+&lt;p&gt;The MSE measures the &lt;strong&gt;overall expected deviation&lt;/strong&gt; --in a squared error sense -- between the estimator and the true value of the parameter $\theta$. Desirable estimators are those with small MSE and these are estimators that manage to keep both their bias and variance somewhat in check.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190312135148020.png&#34; title=&#34;https://juicyiter.gitee.io/images/image-20190312135148020.png&#34;&gt;https://juicyiter.gitee.io/images/image-20190312135148020.png&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;consistency&#34;&gt;Consistency&lt;/h3&gt;
+
+&lt;p&gt;$$ \mathrm{plim}_{m \to \infty} \hat{\theta}_m = \theta \tag{81}$$&lt;/p&gt;
+
+&lt;p&gt;The symbol $\mathrm{plim}$ indicates that convergence in probability, meaning that for any $\epsilon &gt; 0$, $P(|\hat{\theta}_m - \theta| &gt; \epsilon) \to 0$ as $m \to \infty$. The condition described above is known as &lt;strong&gt;consistency&lt;/strong&gt;, which is sometimes referred to as weak consistency. While strong consistency refers to the &lt;strong&gt;almost sure&lt;/strong&gt; convergence of $\hat{\theta}$ to $\theta$. Almost sure convergence occurs when $p(\lim_{m \to \infty} \mathbf{x}^{(m)} = \boldsymbol{x}) = 1$.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+Consider estimating consisting of $m$ samples: $\{ x^{(1)}, \dots, x^{(m)} \}$. &lt;em&gt;We could use the first sample $x^{(1)}$ of the dataset as an unbiased estimator: $\hat{\theta} = x^{(1)}$.&lt;/em&gt; In that case, $\mathbb{E}(\hat{\theta}_m) = \theta$ so the estimator is unbiased no matter how many data points are seen. This, of course, implies that &lt;strong&gt;the estimate is asymptotically unbiased&lt;/strong&gt;. However, this is not a consistent estimator as it is &lt;em&gt;not&lt;/em&gt; the case that $\hat{\theta}_m \to \theta$ as $m \to \infty$.
+&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;maximum-likelihood-estimation&#34;&gt;Maximum Likelihood Estimation&lt;/h2&gt;
+
+&lt;p&gt;Consider a set of $m$ examples $\mathbb{X} = \{ \boldsymbol{x}^{(1)}, \dots, \boldsymbol{x}^{(m)} \}$ drawn independently from the &lt;strong&gt;true but unknown&lt;/strong&gt; data generating distribution $p_{\mathrm{data}} (\mathbf{x})$. Let $p_{\mathrm{model}}(\mathbf{x}; \boldsymbol{\theta})$ be a parametric family of probability distributions over the same space indexed by $\boldsymbol{\theta}$. In other words, $p_{\mathrm{model}}(\mathbf{x}; \boldsymbol{\theta})$ maps any configuration $\boldsymbol{x}$ to a real number estimating the true probability $p_{\mathrm{data}}(\boldsymbol{x})$.&lt;/p&gt;
+
+&lt;p&gt;The maximum likelihood estimator for $\boldsymbol{\theta}$ is then defined as&lt;/p&gt;
+
+&lt;p&gt;&lt;&lt;max_here&gt;&gt;
+\begin{align*}
+\boldsymbol{\theta}_{\mathrm{ML}}
+&amp;= \underset{\boldsymbol{\theta}}{\arg \max} p_{\mathrm{model}} (\mathbb{X}; \boldsymbol{\theta}) \\
+&amp;= \underset{\boldsymbol{\theta}}{\arg \max} \displaystyle \prod_{i=1}^{m} p_{\mathrm{data}} (\boldsymbol{x}^{(i)}; \boldsymbol{\theta}) \\
+&amp;= \underset{\boldsymbol{\theta}}{\arg \max} \sum_{i=1}^{m} \log p_{\mathrm{data}} (\boldsymbol{x}^{(i)}; \boldsymbol{\theta}) \\
+&amp;= \underset{\boldsymbol{\theta}}{\arg \max} \mathbb{E}_{\mathbf{x} \sim \hat{p}_{\mathrm{data}}} \log p_{\mathrm{model}} (\boldsymbol{x}; \boldsymbol{\theta}). \tag{82}
+\end{align*}&lt;/p&gt;
+
+&lt;p&gt;One way to interpret maximum likelihood estimation is to view it as &lt;strong&gt;minimising the dissimilarity&lt;/strong&gt; between the empirical distribution $\hat{p}_{\mathrm{data}}$ defined by the training set and the model distribution, &lt;strong&gt;with the degree of dissimilarity the degree of dissimilarity between the two measured by the KL divergence&lt;/strong&gt;. The KL divergence is given by&lt;/p&gt;
+
+&lt;p&gt;$$ D_{\mathrm{KL}} (\hat{p}_{\mathrm{data}} || p_{\mathrm{model}}) = \mathbb{E}_{\mathbf{x} \sim \hat{p}_{\mathrm{data}}} [\log \hat{p}_{\mathrm{data}} (\boldsymbol{x}) - \log p_{\mathrm{model}} (\boldsymbol{x})]. \tag{83} $$&lt;/p&gt;
+
+&lt;p&gt;The term on the left is a function only of the data generating process, not the model. This means when we train the model to minimise the KL divergence, we only need to minimise $-\mathbb{E}_{\mathrm{x} \sim \hat{p}_{\mathrm{data}}} [\log p_{\mathrm{model}} (\boldsymbol{x})]$, which is of course the same as the maximisation in &lt;a href=&#34;max_here&#34; title=&#34;this&#34;&gt;this&lt;/a&gt; equation.&lt;/p&gt;
+
+&lt;p&gt;Minimising this KL divergence corresponds exactly to minimising the &lt;strong&gt;cross-entropy&lt;/strong&gt; between the distributions.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+Any loss consisting of a &lt;strong&gt;negative&lt;/strong&gt; log-likelihood is a cross-entropy between the empirical distribution defined by the training set and probability distribution defined by model.
+&lt;/p&gt;
+
+&lt;p&gt;
+For example, MSE is the cross-entropy between the empirical distribution and a Gaussian model.
+&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;We can see maximum likelihood as an *attempt to make the model distribution match the empirical distribution $\hat{p}_{\mathrm{data}}$ (we have no direct access to the true distribution $p_{\mathrm{data}}$.&lt;/p&gt;
+
+&lt;p&gt;While the optimal $\boldsymbol{\theta}$ is the same regardless of whether we are maximising the likelihood or minimising the KL divergence, &lt;strong&gt;the values of the object function are different&lt;/strong&gt;. In software, we often phrase both as &lt;strong&gt;minimising a cost function&lt;/strong&gt;. Maximum likelihood thus become minimisation of &lt;strong&gt;negative log-likelihood&lt;/strong&gt; (NLL), or equivalently, minimisation of the cross-entropy.&lt;/p&gt;
+
+&lt;h3 id=&#34;conditional-log-likelihood-and-mean-squared-error&#34;&gt;Conditional Log-Likelihood and Mean Squared Error&lt;/h3&gt;
+
+&lt;p&gt;The conditional maximum likelihood estimator is&lt;/p&gt;
+
+&lt;p&gt;$$ \boldsymbol{\theta}_{\mathrm{ML}} = \underset{\boldsymbol{\theta}}{\arg \max} P(\boldsymbol{Y} \; | \; \boldsymbol{X} ; \boldsymbol{\theta}).\tag{84} $$&lt;/p&gt;
+
+&lt;p&gt;If the examples are assumed to be i.i.d., then this can be decomposed into
+&lt;&lt;nnl&gt;&gt;
+$$ \boldsymbol{\theta}_{\mathrm{ML}} = \underset{\boldsymbol{\theta}}{\arg \max} \displaystyle \sum_{i=1}^{m} \log P(\boldsymbol{y}^{(i)} \; | \; \boldsymbol{x}^{(i)} ; \boldsymbol{\theta}). \tag{85}$$&lt;/p&gt;
+
+&lt;h3 id=&#34;example-linear-regression-as-maximum-likelihood&#34;&gt;Example: Linear Regression as Maximum Likelihood&lt;/h3&gt;
+
+&lt;p&gt;Instead of producing a single prediction $\hat{y}$, we now think of the model as &lt;strong&gt;producing a conditional distribution&lt;/strong&gt; $p(y \; | \; \boldsymbol{x})$. The goal of the learning algorithm is now to fit the distribution $p(y \; | \; \boldsymbol{x})$ to all of those different $y$ values that all compatible with $\boldsymbol{x}$. We define $p(y \; | \; \boldsymbol{x}) = \mathcal{N} (y:\hat{y}(\boldsymbol{x};\boldsymbol{w}), \sigma^2)$, where the function $\hat{y}(\boldsymbol{x}; \boldsymbol{w})$ gives the prediction of the mean of the Gaussian. Since the examples are assumed to be i.i.d., the conditional &lt;a href=&#34;nnl&#34; title=&#34;log-likelihood&#34;&gt;log-likelihood&lt;/a&gt; is given by&lt;/p&gt;
+
+&lt;p&gt;$$\displaystyle \sum_{i=1}^{m} \log P(\boldsymbol{y}^{(i)} \; | \; \boldsymbol{x}^{(i)} ; \boldsymbol{\theta}) = -m \log \sigma - \frac{m}{2} \log(2 \pi) - \sum_{i=1}^{m} \frac{||\hat{y}^{(i)} - y^{(i)}||^2}{2 \sigma^2},\tag{86}$$&lt;/p&gt;
+
+&lt;p&gt;where $\hat{y}^{(i)}$ is the output of the linear regression on the $i$-th input $\boldsymbol{x}^{(i)}$ and $m$ is the number of the training examples. Compare to &lt;a href=&#34;mse&#34; title=&#34;MSE&#34;&gt;MSE&lt;/a&gt; we can see that maximising the log-likelihood with respect to $\boldsymbol{w}$ yields the same estimate of the parameters $\boldsymbol{w}$ as does minimising the mean squared error. The two criteria have different values but the same locations of the optimum.&lt;/p&gt;
+
+&lt;h3 id=&#34;properties-of-maximum-likelihood&#34;&gt;&lt;span class=&#34;todo TODO&#34;&gt;TODO&lt;/span&gt; Properties of Maximum Likelihood&lt;/h3&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Notes of Deep Learning Book</title>
+      <link>https://mengoreo.github.io/post/deep_learning_book/</link>
+      <pubDate>Wed, 17 Apr 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/deep_learning_book/</guid>
+      
+        <description>
+
+&lt;h2 id=&#34;linear-algebra&#34;&gt;Linear Algebra&lt;/h2&gt;
+
+&lt;h3 id=&#34;basic-types&#34;&gt;Basic Types&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Scalars&lt;/em&gt;: A scalar is just a single number, usually in lower-case
+variable names.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Vectors&lt;/em&gt;: An array of numbers, with lower case names written in bold
+typeface.
+  \[
+     \boldsymbol{x} = [ x_1, x_2, \cdots, x_n ]^\top .
+     \]&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Matrices&lt;/em&gt;: A 2-D array of numbers, usually given in upper-case
+variable names with bold typeface, Such as \(\boldsymbol{M}\).&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Tensors&lt;/em&gt;: An array with more than two axes, denoted by this
+typeface: \(\boldsymbol{\mathsf{A}}\) (in latex:
+\boldsymbol{\mathsf{A}}).&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;linear-dependence-and-span&#34;&gt;Linear Dependence and Span&lt;/h3&gt;
+
+&lt;p&gt;If a vector \(\boldsymbol{m}\) is linear dependent with a vector
+\(\boldsymbol{n}\), then \(\boldsymbol{m}​\) can be represented by
+\(\boldsymbol{n}\) with \(\lambda\) multiplied with it, viz.
+\(\boldsymbol{m} = \lambda \boldsymbol{n}\), where
+\(\lambda\in \mathbb{R}, \lambda \neq 0​\).&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;span&lt;/em&gt; of a set of vectors is the set of all points obtainable by
+linear combination of the original vectors. For example, the span of
+\(\boldsymbol{v_1}\),\(\boldsymbol{v_2}\) and \(\boldsymbol{v_3}\) is
+\(\{ \boldsymbol{v_1} + \boldsymbol{v_2} + \boldsymbol{v_3}, \boldsymbol{v_1} + 2\boldsymbol{v_2} + 3\boldsymbol{v_3}, \dots, m \boldsymbol{v_1}+ n\boldsymbol{v_2} + k\boldsymbol{v_3} \}\),
+where \(m\), \(n\) and \(k\) all can be any real numbers but zero.&lt;/p&gt;
+
+&lt;h3 id=&#34;celebrities-norm&#34;&gt;Celebrities&amp;rsquo; Norm&lt;/h3&gt;
+
+&lt;h4 id=&#34;euclidean-norm&#34;&gt;Euclidean norm&lt;/h4&gt;
+
+&lt;p&gt;When the \(p\) is equal to \(2\), the &lt;em&gt;Euclidean norm,&lt;/em&gt; \(L^2\) came in. It is
+simply the euclidean distance from the origin to the point identified by
+\(x\). The Euclidean norm is used so frequently in machine learning that
+it is often denoted as \(||x||\) with subscript \(2\) omitted. The &lt;em&gt;squared&lt;/em&gt;
+\(L^2\) can also be used to calculate the size of a vector, simply as
+\(x^{\top}x\).&lt;/p&gt;
+
+&lt;h4 id=&#34;l-1--norm&#34;&gt;\(L^1\) norm&lt;/h4&gt;
+
+&lt;p&gt;In several machine learning applications, it is important discriminate
+between elements that are exactly zero and elements that are very small
+and close to zero. In these cases, we turn to a function that grows at
+the same rate in all locations, but retains mathematical simplicity:
+&lt;em&gt;the \(L^1\) norm&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;\[||x||_1 = \displaystyle \sum_i|x_i| \tag{1} .\]&lt;/p&gt;
+
+&lt;p&gt;The \(L^1\) is commonly used in machine learning when the difference
+between zero and nonzero elements is very important.&lt;/p&gt;
+
+&lt;h4 id=&#34;max-norm&#34;&gt;Max norm&lt;/h4&gt;
+
+&lt;p&gt;Another norm that commonly arises in machine learning applications is
+the \(L^{\infty}\), A.K.A the &lt;em&gt;max norm&lt;/em&gt;. This norm implies to the
+absolute value of the elements with largest magnitude in the vector:&lt;/p&gt;
+
+&lt;p&gt;\[||x||_\infty = \displaystyle \text{max}_i|x_i| \tag{2}.\]&lt;/p&gt;
+
+&lt;p&gt;&lt;a id=&#34;org8242648&#34;&gt;&lt;/a&gt; &lt;strong&gt;Frobenius norm&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Sometimes, we may also want to evaluate the size of a matrix. In the
+context of deep learning, the most common way is using the obscure
+&lt;em&gt;Frobenius norm&lt;/em&gt;:&lt;/p&gt;
+
+&lt;p&gt;\[||A||_F = \displaystyle \sqrt {\sum_{i, j} A_{i, j}^2}, \tag{3}\]&lt;/p&gt;
+
+&lt;p&gt;which is analogous to the Euclidean norm.&lt;/p&gt;
+
+&lt;h3 id=&#34;orthogonal-matrix&#34;&gt;Orthogonal Matrix&lt;/h3&gt;
+
+&lt;p&gt;An &lt;em&gt;orthogonal matrix&lt;/em&gt; is a square matrix whose rows are mutually
+orthonormal and whose columns are mutually &lt;em&gt;orthonormal&lt;/em&gt;: \[
+\boldsymbol{A^{\top} A} = \boldsymbol{A A^{\top}} = \boldsymbol{I} .\tag{4}
+\]&lt;/p&gt;
+
+&lt;p&gt;This implies that \(\boldsymbol{A^{-1}} = \boldsymbol{A^{\top}}\),so
+orthogonal matrices are of interest because their inverse is very cheap
+to compute.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Pay careful attention to the definition of the orthogonal matrices.
+Counterintuitively, their rows are note merely orthogonal but &lt;em&gt;fully
+orthonormal&lt;/em&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a id=&#34;orga40bee3&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;eigendecomposition&#34;&gt;Eigendecomposition&lt;/h3&gt;
+
+&lt;p&gt;In this loooong eigendecomposition, we decompose a matrix into a set of
+&lt;em&gt;eigenvectors&lt;/em&gt; and &lt;em&gt;eigenvalues&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;An eigenvectors of a square matrix \(\boldsymbol{A}\) is a non-zero vector
+\(\boldsymbol{v}\) such that multiplication by \(\boldsymbol{A}\) alters
+only the scale of \(\boldsymbol{v}\):
+\(\boldsymbol{Av} = \lambda \boldsymbol{v}\). The scalar \(\lambda\) is
+known as eigenvalue corresponding to this eigenvector.&lt;/p&gt;
+
+&lt;p&gt;If \(\boldsymbol{v}\) is an eigenvector of \(\boldsymbol{A}\), then so is
+any rescaled vector \(s\boldsymbol{v}\) for \(s \in \mathbb{R}, s \neq 0\).
+Moreover, \(s \boldsymbol{v}\) still has the same eigenvalue. For this
+reason, we only look for &lt;em&gt;unit eigenvectors&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Suppose a matrix \(\boldsymbol{A}\) has \(n\) linear independent
+eigenvectors, and we use these eigenvectors to form a matrix
+\(\boldsymbol{V}\) with one eigenvector per column. Likewise, we
+concatenate the eigenvalues to form a vector \(\boldsymbol{\lambda}\). The
+&lt;em&gt;eigendecomposition&lt;/em&gt; of \(\boldsymbol{A}\) is then given by \[
+\boldsymbol{A} = \boldsymbol{V} \text{diag}(\boldsymbol{\lambda}) \boldsymbol{V^{-1}} .
+\] Specifically, every &lt;em&gt;real symmetric&lt;/em&gt; matrix can be decomposed into an
+expression using only real-valued eigenvectors and eigenvalues:&lt;/p&gt;
+
+&lt;p&gt;\[
+\boldsymbol{A} = \boldsymbol{Q} \boldsymbol{\Lambda} \boldsymbol{Q^{-1}} .\tag{5}
+\]&lt;/p&gt;
+
+&lt;p&gt;where \(\boldsymbol{Q}\) is an orthogonal matrix composed of eigenvectors
+of \(\boldsymbol{A}\), and \(\boldsymbol{\Lambda}\) is a diagonal matrix.
+The eigenvalue \(\Lambda_{i, j}\) is associated with the eigenvectors in
+column \(i\) of \(\boldsymbol{Q}\), denoted as \(\boldsymbol{Q}_{:, i}\).
+Because \(\boldsymbol{Q}\) is an orthogonal matrix, we can think of
+\(\boldsymbol{A}\) as scaling space by \(\lambda_i\) in direction
+\(\boldsymbol{v^{(i)}}\) .&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://juicyiter.gitee.io/images/image-20190305161308681.png&#34; alt=&#34;Figure 1: Eigendecomposition&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190305161308681.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 1: Eigendecomposition&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;The eigendecomposition of a matrix tells us many useful facts about the
+matrix.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The matrix is &lt;em&gt;singular&lt;/em&gt; if and only if &lt;em&gt;any of the eigenvalues are
+zero&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;The eigendecomposition of a real symmetric matrix can also be used to
+optimise quadratic expression of the form
+\(f(\boldsymbol{x}) = \boldsymbol{x^{\top}Ax}\) subject to
+\(||\boldsymbol{x}||_2 = 1\). Whenever \(\boldsymbol{x}\) is equal to an
+eigenvector of \(\boldsymbol{A}\), \(f\) takes on the value of the
+corresponding eigenvalue. The maximum value of \(f\) within the
+constraint region is the maximum value of eigenvalue and its minimum
+value within the constraint region is the minimum eigenvalue.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A matrix whose eigenvalues are all positive is called &lt;em&gt;positive
+definite&lt;/em&gt;. A matrix whose eigenvalues are all &lt;em&gt;non-negative&lt;/em&gt; is called
+positive &lt;strong&gt;semidefinite&lt;/strong&gt;. Likewise, so are the negative definite and
+negative semidefinite.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Positive semidefinite matrices are interesting because &lt;em&gt;they guarantee
+that \(\forall \boldsymbol{x}, \boldsymbol{x^{\top}Ax} \ge 0\)&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Positive definite matrices additionally guarantee that
+\(\boldsymbol{x^{\top}Ax} = 0 \implies \boldsymbol{x} = \boldsymbol{0}\)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;singular-value-decomposition--svd&#34;&gt;Singular Value Decomposition (SVD)&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Every matrix has a singular value decomposition&lt;/em&gt;, but the same is not
+true for the eigenvalue decomposition. The singular decomposition is
+similar to &lt;a href=&#34;#orga40bee3&#34;&gt;eigendecomposition&lt;/a&gt;, except this time we will write
+\(\boldsymbol{A}\) as a product of three matrices:&lt;/p&gt;
+
+&lt;p&gt;\[ \boldsymbol{A} = \boldsymbol{UDV^{\top}}. \tag{6}\]&lt;/p&gt;
+
+&lt;p&gt;Suppose that \(\boldsymbol{A}\) is an \(m \times n\) matrix. Then
+\(\boldsymbol{U}\) is defined to be an \(m \times m\) matrix,
+\(\boldsymbol{D}\) to be an \(m \times n\) matrix, and \(\boldsymbol{V}\) to
+be an \(n \times n\) matrix. The matrix \(\boldsymbol{U}\) and
+\(\boldsymbol{V}\) are both defined to be &lt;em&gt;orthogonal&lt;/em&gt; matrices. The
+matrix \(\boldsymbol{D}\) is defined to &lt;em&gt;diagonal&lt;/em&gt; matrix.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Note that \(\boldsymbol{D}\) is &lt;em&gt;not necessary square&lt;/em&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The elements along the diagonal of \(\boldsymbol{D}\) are &lt;em&gt;singular
+values&lt;/em&gt;. The columns of \(\boldsymbol{U}\) and \(\boldsymbol{V}\) are
+&lt;em&gt;left-singular vectors&lt;/em&gt; and &lt;em&gt;right-singular vectors&lt;/em&gt; respectively.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The left-singular vectors of \(\boldsymbol{A}\) are the eigenvectors of
+\(\boldsymbol{AA^{\top}}\). And the right-singular vectors of
+\(\boldsymbol{A}\) are the eigenvectors of \(\boldsymbol{A^{\top}A}\).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Moore--Penrose%5Finverse#Examples&#34;&gt;The Moore-Penrose Pseudoinverse&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The pseudoinverse of \(\boldsymbol{A}\) is defined as a matrix \[
+\boldsymbol{A^{+}} = \displaystyle \lim_{\alpha \to 0}(\boldsymbol{A^{\top}A} + \alpha\boldsymbol{I})^{-1}\boldsymbol{A^{\top}} .\tag{7}
+\] Practical algorithms for computing the pseudoinverse are not based on
+this definition, but rather the formula \[
+\boldsymbol{A^{+}} = \boldsymbol{VD^+U^{\top}} .\tag{8}
+\] where \(\boldsymbol{V}\), \(\boldsymbol{D}\) and \(\boldsymbol{U}\) are the
+singular value decomposition of \(\boldsymbol{A}\), and the pseudoinverse
+\(\boldsymbol{D^+}\) of a diagonal matrix \(\boldsymbol{D}\) is &lt;em&gt;obtained by taking the resiprocal of its non-zero elements then taking the transpose of the resulting matrix.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;When \(\boldsymbol{A}\) has more columns than its rows, it provides the
+solution \(\boldsymbol{x} = \boldsymbol{A^+y}\) with &lt;em&gt;minimal Euclidean
+norm&lt;/em&gt; \(||\boldsymbol{x}||_2\) &lt;em&gt;among all possible solutions&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;When \(\boldsymbol{A}\) has more rows than its columns, it provides the
+\(\boldsymbol{x}\) which \(\boldsymbol{Ax}\) is as close as possible to
+\(\boldsymbol{y}\) in terms of Euclidean norm
+\(||\boldsymbol{Ax}-\boldsymbol{y}||_2\)&lt;/p&gt;
+
+&lt;h3 id=&#34;the-trace-operator&#34;&gt;The Trace Operator&lt;/h3&gt;
+
+&lt;p&gt;\[
+\text{Tr}(\boldsymbol{A}) = \displaystyle \sum_i \boldsymbol{A}_{i,i} .\tag{9}
+\]&lt;/p&gt;
+
+&lt;p&gt;Then we can re-write the &lt;a href=&#34;#org8242648&#34;&gt;Frobenius norm&lt;/a&gt; of a matrix&lt;/p&gt;
+
+&lt;p&gt;\[||A||_F = \sqrt{\text{Tr}(\boldsymbol{AA^{\top}})} .\tag{10}\]&lt;/p&gt;
+
+&lt;p&gt;The trace operator is invariant to transpose operator and cyclic
+permutations.&lt;/p&gt;
+
+&lt;p&gt;\[
+\text{Tr}(\boldsymbol{A}) = \text{Tr}(\boldsymbol{A^{\top}}) .\tag{11}
+\]&lt;/p&gt;
+
+&lt;p&gt;\[
+\text{Tr}(\boldsymbol{ABC}) = \text{Tr}(\boldsymbol{BCA})=\text{Tr}(\boldsymbol{CAB}) .\tag{12}
+\]&lt;/p&gt;
+
+&lt;p&gt;\[
+\text{Tr}(\displaystyle \prod_{i=1}^{n} \boldsymbol{F^{(i)}}) = \text{Tr}(\boldsymbol{F^{(n)}}\displaystyle \prod_{i=1}^{n-1} \boldsymbol{F^{(i)}}) .\tag{13}
+\]&lt;/p&gt;
+
+&lt;p&gt;Even if the resulting product has a different shape. For instance, for
+\(\boldsymbol{A} \in \mathbb{R}^{m \times n}\) and
+\(\boldsymbol{B} \in \mathbb{R}^{n \times m}\) \[
+\text{Tr}(\boldsymbol{AB}) = \text{Tr}(\boldsymbol{BA}) .\tag{14}
+\]&lt;/p&gt;
+
+&lt;h3 id=&#34;the-determinant&#34;&gt;The Determinant&lt;/h3&gt;
+
+&lt;p&gt;The determinant of a &lt;em&gt;square matrix&lt;/em&gt;, denoted as
+\(\text{det}(\boldsymbol{A})\) is a function that maps the matrices to
+real scalars. The determinant is equal to the product of all the
+eigenvalues of the matrix. The absolute value of it can be thought of as
+a measure of how much multiplications by the matrix expands or
+contracts space.&lt;/p&gt;
+
+&lt;h2 id=&#34;probability&#34;&gt;Probability&lt;/h2&gt;
+
+&lt;p&gt;Three possible source of uncertainty:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Inherent stochasticity&lt;/em&gt; in the system being modeled. For example, we
+can crate a theoretical scenarios that we postulate to have random
+dynamics, such as a hypothetical card game, where we assume the cards
+are truly shuffled into a random order.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Incomplete observations&lt;/em&gt;. Even deterministic systems can appear
+stochastic when we cannot observe all variables that drive the
+behaviour of the system.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Incomlete modeling&lt;/em&gt;. When we use a model that must discard some of
+the information we have observed, the discarded information might
+result in uncertainty in the model&amp;rsquo;s predictions.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In many cases, it is more practical to use a &lt;em&gt;simple but uncertain
+rule&lt;/em&gt;, rather than a complex but certain one.&lt;/p&gt;
+
+&lt;h3 id=&#34;frequentist-probability-v-dot-s-dot-bayesian-probability&#34;&gt;Frequentist probability V.S. Bayesian probability&lt;/h3&gt;
+
+&lt;p&gt;The &lt;em&gt;frequentist&lt;/em&gt; sees the probability as the &lt;em&gt;long-run&lt;/em&gt; expected
+frequency of occurrence. \(P(A) = n/N\), where \(n\) is the number of times
+even \(A\) occurs in the \(N\) opportunities.&lt;/p&gt;
+
+&lt;p&gt;The Bayesian view of probability is related to &lt;em&gt;degree of belief&lt;/em&gt;. It is
+a measure of the &lt;em&gt;plausibility&lt;/em&gt; of an event given &lt;em&gt;incomplete&lt;/em&gt;
+knowledge.&lt;/p&gt;
+
+&lt;h3 id=&#34;basic-concepts&#34;&gt;Basic Concepts&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Expectation \[
+     \mathbb{E}_{\mathtt{x} \sim P}[f(x)] = \displaystyle \sum_x P(x) f(x) .\tag{15}
+     \]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;\[
+   \mathbb{E}_{\mathtt{x} \sim p}[f(x)] = \int p(x)f(x) .\tag{16}
+   \]&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Variance
+\[
+     \text{Var}(f(x)) = \mathbb{E}\left[(f(x) - \mathbb{E}[f(x)])^2 \right] .\tag{17}
+     \]&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Standard deviation: the square root of the variance.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Covariance \[
+     \text{Cov}(f(x), g(y)) = \mathbb{E}[(f(x) - \mathbb{E}[f(x)])(g(y)-\mathbb{E}[g(y)])] .\tag{18}
+     \] The covariance matrix \[
+     \text{Cov}(\mathbf{x})_{i, j} = \text{Cov}(\mathtt{x}_i, \mathtt{x}_j) .\tag{19}
+     \]&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;common-probability-distribution&#34;&gt;Common Probability Distribution&lt;/h3&gt;
+
+&lt;h4 id=&#34;bernoulli-distribution&#34;&gt;Bernoulli Distribution&lt;/h4&gt;
+
+&lt;p&gt;The Bernoulli distribution is a distribution over a &lt;em&gt;binary&lt;/em&gt; random
+variable. It has the following properties:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;\(P(\mathrm{x}=1) = \phi\)&lt;/li&gt;
+&lt;li&gt;\(P(\mathrm{x}=0) = 1- \phi\)&lt;/li&gt;
+&lt;li&gt;\(P(\mathrm{x}=x) = \phi^x(1-\phi)^{1-x}\)&lt;/li&gt;
+&lt;li&gt;\(\mathbb{E}_{\mathrm{x}}[\mathrm{x}] = \phi\)&lt;/li&gt;
+&lt;li&gt;\(\text{Var}_x(\text{x}) = \phi(1 - \phi)\)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;multinoulli-distribution&#34;&gt;Multinoulli Distribution&lt;/h4&gt;
+
+&lt;p&gt;The multinoulli distribution or &lt;em&gt;categorical&lt;/em&gt; distribution is a
+distribution over &lt;em&gt;a single discrete variable with \(k\) different states,
+where \(k\) is finite&lt;/em&gt;. The \(x\) th state with probability :
+\(C_n^x p^x(1-p)^{k-x}\), where \(p \in [0, 1]\).&lt;/p&gt;
+
+&lt;h4 id=&#34;gaussian-distribution&#34;&gt;Gaussian Distribution&lt;/h4&gt;
+
+&lt;p&gt;The most commonly used distribution over real numbers is the &lt;em&gt;normal
+distribution&lt;/em&gt;, also known as &lt;em&gt;Gaussian distribution&lt;/em&gt;: \[
+\mathcal{N}(x;\mu, \sigma^2) = \sqrt{ \frac{1}{2\pi\sigma^2} } \text{exp} \left( - \frac{1}{2\sigma^2}(x-\mu)^2\right) .\tag{20}
+\]&lt;/p&gt;
+
+&lt;p&gt;The two parameters \(\mu \in \mathbb{R}\) and \(\sigma \in (0, \infty)\)
+control the normal distribution. The parameter \(\mu\) gives the
+coordinate of the central peak. This is also the &lt;em&gt;mean&lt;/em&gt; of the
+distribution: \(\mathbb{E}[\text{x}] = \mu\). The &lt;em&gt;standard deviation&lt;/em&gt; of
+the distribution is given by the \(\sigma\), and the &lt;em&gt;variance&lt;/em&gt; by
+\(\sigma^2\).&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://juicyiter.gitee.io/images/IMG%5F5F8D12450695-1.jpeg&#34; alt=&#34;Figure 2: Normal Distribution&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://juicyiter.gitee.io/images/IMG%5F5F8D12450695-1.jpeg&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 2: Normal Distribution&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Many distributions we wish to model are truly close to being normal
+distributions. The &lt;em&gt;central limit theorem&lt;/em&gt; shows that the sum of many
+independent random variables is &lt;em&gt;approximately&lt;/em&gt; normally distributed.&lt;/p&gt;
+
+&lt;p&gt;The normal distribution encodes the maximum amount of the uncertainty
+over the real numbers.&lt;/p&gt;
+
+&lt;p&gt;The normal distribution generalises to \(\mathbb{R}^n\), in which case it
+is known as the &lt;em&gt;multivariate normal distribution&lt;/em&gt;. It may parametrised
+with a &lt;em&gt;positive definite&lt;/em&gt; (with all positive \(\lambda\), A.K.A,
+eigenvalues) symmetric matrix \(\boldsymbol{\Sigma}\): \[
+\mathcal{N}(\boldsymbol{x}; \boldsymbol{\mu}, \boldsymbol{\Sigma}) = \sqrt{\frac{1}{(2\pi)^n \text{det}(\boldsymbol{\Sigma)}}} \text{exp} \left( - \frac{1}{2}(\boldsymbol{x} - \boldsymbol{\mu})^\top \boldsymbol{\Sigma}^{-1}( \boldsymbol{x} - \boldsymbol{\mu})\right) .\tag{21}
+\]&lt;/p&gt;
+
+&lt;p&gt;The parameter \(\boldsymbol{\mu}\) still gives the mean of the
+distribution, even it is now vectorised. The parameter
+\(\boldsymbol{\Sigma}\) gives the &lt;em&gt;covariance matrix&lt;/em&gt; of the distribution.
+As in invariance case, when we wish to evaluate the PDF (probability
+density function) several times for many different values of the
+parameters, the covariance is &lt;em&gt;not a computationally efficient way&lt;/em&gt; to
+parametrise the distribution, since we need to &lt;em&gt;invert
+\(\boldsymbol{\Sigma}\)&lt;/em&gt; to evaluate the PDF. We can instead use a
+precise matrix \(\boldsymbol{\beta}\): \[
+\mathcal{N} (\boldsymbol{x}; \boldsymbol{\mu}, \boldsymbol{\beta^{-1}}) = \sqrt{\frac{\text{det}({\boldsymbol{\beta}})}{(2\pi)^n}} \text{exp} \left(-\frac{1}{2}(\boldsymbol{x} - \boldsymbol{\mu})^{\top} \boldsymbol{\beta}(\boldsymbol{x} - \boldsymbol{\mu}) \right) .\tag{22}
+\]&lt;/p&gt;
+
+&lt;h4 id=&#34;exponential-and-laplace-distributions&#34;&gt;Exponential and Laplace Distributions&lt;/h4&gt;
+
+&lt;p&gt;In deep learning, we often want to have a probability distribution with
+a &lt;em&gt;sharp point at \(x=0​\)&lt;/em&gt;. To accomplish this, we can use the
+&lt;em&gt;exponential distribution&lt;/em&gt;. \[
+p(x;\lambda) = \lambda \boldsymbol{1}_{x \ge 0} \text{exp}(-\lambda x) .\tag{23}
+\]&lt;/p&gt;
+
+&lt;p&gt;The exponential distribution uses the &lt;em&gt;indicator function&lt;/em&gt;
+\(\boldsymbol{1}_{x \ge 0}\) to assign the probability zero to all
+negative values of \(x\).&lt;/p&gt;
+
+&lt;p&gt;A close related distribution that allows us to place a sharp peak of
+probability mass at an &lt;em&gt;arbitrary&lt;/em&gt; point \(\mu\)  is the Laplace
+distribution. \[
+\text{Laplace}(x;\mu, \gamma) = \frac{1}{2 \gamma} \text{exp} \left( - \frac{|x-\mu|}{\gamma} \right) .\tag{24}
+\]&lt;/p&gt;
+
+&lt;h4 id=&#34;dirac-distribution-and-empirical-distribution&#34;&gt;Dirac Distribution and Empirical Distribution&lt;/h4&gt;
+
+&lt;p&gt;In some case, we wish to specify all of the mass in a probability
+distribution &lt;em&gt;clusters around a single point&lt;/em&gt;. This can be accomplished
+with &lt;em&gt;Dirac delta function&lt;/em&gt;, \(\delta(x)\): \[
+p(x) = \delta(x-\mu) .\tag{25}
+\]&lt;/p&gt;
+
+&lt;p&gt;The Dirac delta function is defined such that &lt;em&gt;it is zero-valued
+everywhere except 0, yet integers to 1&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The common use of Dirac delta distribution is as a &lt;em&gt;component&lt;/em&gt; of
+&lt;em&gt;empirical distribution&lt;/em&gt;, \[
+\hat{p}(\boldsymbol{x}) = \frac{1}{m} \displaystyle \sum_{i=1}^{m} \delta( \boldsymbol{x} - \boldsymbol{x}^{(i)}) .\tag{26}
+\]&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;prior probability&lt;/em&gt; \(a_i = P(c=i)\): expresses the model&amp;rsquo;s beliefs about \(c\) &lt;em&gt;before&lt;/em&gt; it has observed \(\text{x}\).&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;posterior probability&lt;/em&gt; \(P(c|\boldsymbol{x})\): is computed &lt;em&gt;after&lt;/em&gt; the observation of \(\text{x}\).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;useful-properties-of-common-functions&#34;&gt;Useful Properties of Common Functions&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Logistic sigmoid&lt;/em&gt; \[
+     \sigma(x) = \frac{1}{1 + \exp(-x)} .\tag{27}
+     \] The logistic sigmoid is commonly used to produce the \(\phi\)
+parameter of a Bernoulli distribution because its range is \((0, 1)\),
+which lies within the valid range of values for the \(\phi\) parameter.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://juicyiter.gitee.io/images/image-20190306165322428.png&#34; alt=&#34;Figure 3: Logistic Sigmoid&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190306165322428.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 3: Logistic Sigmoid&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Softplus function&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;\[
+   \zeta(x) = \log(1 + \exp(x)) .\tag{28}
+\]&lt;/p&gt;
+
+&lt;p&gt;The soft plus function can be useful for producing the \(\beta\) or
+\(\sigma\) parameter of a normal distribution because its range is
+\((0, \infty)\). The name of the softplus function comes from the fact
+that it is a smoothed or &amp;ldquo;softened&amp;rdquo; version of \(x^+ = \max(0, x)\).&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://juicyiter.gitee.io/images/image-20190306170340292.png&#34; alt=&#34;Figure 4: Softplus Function&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190306170340292.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 4: Softplus Function&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Useful properties&lt;/strong&gt;: \[
+   \sigma(x) = \frac{\exp(x)}{\exp(x) + \exp(0)} .\tag{29}
+   \]&lt;/p&gt;
+
+&lt;p&gt;\[
+   \frac{d}{dx} \sigma(x) = \sigma(x)(1 - \sigma(x)) .\tag{30}
+   \]&lt;/p&gt;
+
+&lt;p&gt;\[
+   1 - \sigma(x) = \sigma (x) .\tag{31}
+   \]&lt;/p&gt;
+
+&lt;p&gt;\[
+   \log \sigma(x) = - \zeta(-x) .\tag{32}
+   \]&lt;/p&gt;
+
+&lt;p&gt;\[
+   \frac{d}{dx} \zeta(x) = \sigma(x) .\tag{33}
+   \]&lt;/p&gt;
+
+&lt;p&gt;\[
+   \forall x \in (0, 1), \sigma ^{-1}(x) = \log(\frac{x}{1-x}) .\tag{34}
+   \]&lt;/p&gt;
+
+&lt;p&gt;\[
+   \forall x &amp;gt; 0, \zeta ^{-1}(x) = \log(\exp(x) - 1) .\tag{35}
+   \]&lt;/p&gt;
+
+&lt;p&gt;\[
+   \zeta(x) = \int_{- \infty}^{x} = \sigma(y)dy .\tag{36}
+   \]&lt;/p&gt;
+
+&lt;p&gt;\[
+   \zeta(x) - \zeta(-x) = x.\tag{37}
+   \]&lt;/p&gt;
+
+&lt;h3 id=&#34;bayes-rule&#34;&gt;Bayes&amp;rsquo; Rule&lt;/h3&gt;
+
+&lt;p&gt;\[
+P(\text{x }|\text{ y}) = \frac{P(\text{x})P(\text{y } | \text{ x})}{P(\text{y})} \tag{38}
+\]&lt;/p&gt;
+
+&lt;p&gt;where \(P(\text{y})\) can be computed using \(P(\text{x})\):
+\(P(\text{y}) = \sum_x P(x)P(\text{y } | \; x)\).&lt;/p&gt;
+
+&lt;h2 id=&#34;information-theory&#34;&gt;Information Theory&lt;/h2&gt;
+
+&lt;p&gt;We define the &lt;em&gt;self-information&lt;/em&gt; of an event \(\text{x}=x\) to be \[
+I(x) = -\log P(x) .\tag{39}
+\]&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;In deep learning, we always use \(\log\) to mean the natural logarithm,
+with base \(e\). The definition of \(I(x)\) is therefore written in units of
+&lt;em&gt;nats&lt;/em&gt;. One nat is the amount of information gained by observing an
+event of probability \(\frac{1}{e}\).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Self-information deals only with single outcome. We can quantified the
+amount of the uncertainty in an entire probability distribution using
+the &lt;em&gt;Shannon entropy&lt;/em&gt;: \[
+H(x) = \mathbb{E}_{\text{x} \sim P}[I(\text{x})] = -\mathbb{E}_{\text{x} \sim P}[\log P(x)] .\tag{40}
+\] also denoted as \(H(P)\).&lt;/p&gt;
+
+&lt;p&gt;Shannon entropy of distribution describes the expected amount of
+information in an event drawn from that distribution. &lt;em&gt;It gives the
+lower bound on the number of bits&lt;/em&gt; (if the logarithm is based on \(2\),
+otherwise the units are different) &lt;em&gt;needed on average to encode symbols
+drawn from a distribution&lt;/em&gt; \(P\). Distributions that are nearly
+deterministic (where the outcome is nearly certain) have low entropy;
+distributions that are closer to uniform have high entropy. When
+\(\text{x}\) is continuous, the Shannon entropy is known as the
+&lt;em&gt;differential entropy&lt;/em&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Information measured in bits is just a rescaling of information measured
+in nats.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://juicyiter.gitee.io/images/image-20190307153359462.png&#34; alt=&#34;Figure 5: The \\(p\\), on the horizontal axis, is the probability of a binary random variable being equal to \\(1\\). The entropy is given by \\((p-1) \log (1-p) - p \log (p)\\). When the \\(p\\) is near \\(0\\), the distribution is almost deterministic, because the random variable is nearly always \\(0\\). When the \\(p\\) is near \\(1\\), the distribution is almost deterministic, because the random variable is nearly always \\(1\\). When \\(p = 0.5\\), the entropy is maximal, because the distribution is uniform over the two outcomes.&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190307153359462.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 5: The \\(p\\), on the horizontal axis, is the probability of a binary random variable being equal to \\(1\\). The entropy is given by \\((p-1) \log (1-p) - p \log (p)\\). When the \\(p\\) is near \\(0\\), the distribution is almost deterministic, because the random variable is nearly always \\(0\\). When the \\(p\\) is near \\(1\\), the distribution is almost deterministic, because the random variable is nearly always \\(1\\). When \\(p = 0.5\\), the entropy is maximal, because the distribution is uniform over the two outcomes.&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;If you have two separate probability distribution \(P(\text{x})\) and
+\(Q(\text{x})\) over the same variable \(\text{x}\), then you can measure
+how different these two distributions are using &lt;em&gt;Kullback Leibler (KL)
+divergence&lt;/em&gt;: \[
+D_{KL}(P \; || \; Q) = \mathbb{E}_{\text{x} \sim P}\bigg[ \log \frac{P(x)}{Q(x)} \bigg] = \mathbb{E}_{\text{x} \sim P}\big[ \log P(x) - \log Q(x)\big] .\tag{41}
+\] The \(KL\) divergence has many useful properties, most notably that it
+is &lt;em&gt;non-negative&lt;/em&gt;. The \(KL\) divergence is \(0\) if and only if \(P\) and \(Q\)
+are the &lt;em&gt;same distribution&lt;/em&gt; in the case of &lt;em&gt;discrete&lt;/em&gt; variables, or
+equal &amp;ldquo;almost everywhere&amp;rdquo; in the case of continuous variables.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;It&amp;rsquo;s not a true distance measure between these two distributions,
+because it is &lt;em&gt;NOT SYMMETRIC&lt;/em&gt;:
+\(D_{KL}(P \; || \; Q) \neq D_{KL}(Q \; || \; P)\) for some \(P\) and \(Q\).
+The asymmetry means that there are important consequences to the choice
+of whether to use \(D_{KL}(P \; || \; Q)\) or \(D_{KL}(Q \; || \; P)\).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://juicyiter.gitee.io/images/image-20190307162021179.png&#34; alt=&#34;Figure 6: Corss-entropy&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190307162021179.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 6: Corss-entropy&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;Cross-entropy&lt;/em&gt; is closely related with \(KL\) divergence:
+\(H(P, Q) = H(P) + D_{KL}(P \; || \; Q)\), which is similar to the \(KL\)
+divergence but lacking the term on the left: \[
+H(P, Q) = - \mathbb{E}_{\text{x} \sim P} \log Q(x) .\tag{42}
+\] Minimising the cross-entropy with respect to \(Q\) is equal to
+minimising the \(KL\) divergence, as \(Q\) does not participate in the
+omitted term.&lt;/p&gt;
+
+&lt;h3 id=&#34;structured-probabilistic-models&#34;&gt;Structured Probabilistic Models&lt;/h3&gt;
+
+&lt;p&gt;Suppose we have three random variables: \(a, b\) and \(c\). Suppose that \(a\)
+influences the value of \(b\) and \(b\) influences the value of \(c\), but
+that \(a\) and \(c\) are independent given \(b\). We can represent the
+probability distribution of three variables as product of probability
+distributions over two variables: \[
+p(a, b, c) = p(a)p(b \; | \; a)p(c \; | \; b) .\tag{43}
+\] We describe these kinds of factorisations using graphs: a set of
+vertices that may be connected to each other with edges, which we call a
+&lt;em&gt;structured probabilistic model&lt;/em&gt; or &lt;em&gt;graphical model&lt;/em&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Directed&lt;/em&gt; models contain one factor for every random variable in
+\(\text{x}_i\) in the distribution, and that factor consists of the
+conditional distribution over \(\text{x}_i\) given the parents of
+\(\text{x}_i\), denoted as \(Pa_{\mathcal{G}}(\text{x}_i)\): \[
+     p(\text{x}) = \displaystyle \prod_i p(\text{x}_iPa_\mathcal{G}(\text{x}_i)) .\tag{44}
+     \]&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://juicyiter.gitee.io/images/image-20190307202344293.png&#34; alt=&#34;Figure 7: Directed Graph&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190307202344293.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 7: Directed Graph&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;A directed graphical model over random variables \(a, b, c, d\) and \(e\).
+This graph corresponds to the probability distributions that can be
+factored as \[
+   p(a, b, c, d, e) = p(a)p(b \; | \; a)p(c \; | \;a, b)p(d\;|\;b)p(e\;|\;c) .\tag{45}
+   \]&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Undirected&lt;/em&gt; models, instead, represent factorisations into a set of
+functions, which are usually not probability distributions of any
+kind. Any set of nodes that are all connected to each other is
+\(\mathcal{G}\) is called a &lt;em&gt;clique&lt;/em&gt;. Each clique \(\mathcal{C}^{(i)}\)
+in an undirected model is associated with a factor
+\(\phi^{(i)}(\mathcal{C}^{(i)})\). These factors are &lt;em&gt;just functions&lt;/em&gt;,
+not probability distributions. The output of each factor must be
+&lt;em&gt;non-negative&lt;/em&gt;, but there is no constraint that the factor must sum
+or integrate to \(1\) like a probability distribution. \[
+     p(\mathbf{x}) = \frac{1}{Z} \displaystyle \prod_i \phi^{(i)}(\mathcal{C}^{(i)}) .\tag{46}
+     \] where \(Z\) is defined to be the sum of integral over all states
+of the product of the \(\phi\) functions, in order to obtain a
+normalised probability distribution.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://juicyiter.gitee.io/images/image-20190307205320081.png&#34; alt=&#34;Figure 8: Undirected Graph&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190307205320081.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 8: Undirected Graph&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;The graph above corresponds to probability distributions that can be
+factored as \[
+   p(a, b, c, d, e) = \frac{1}{Z} \phi^{(1)}(a, b, c)\phi^{(2)}(b, d)\phi^{(3)}(c, e) .\tag{47}
+   \]&lt;/p&gt;
+
+&lt;h2 id=&#34;numerical-computation&#34;&gt;Numerical Computation&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Underflow&lt;/em&gt; occurs when numbers near \(0\) are rounded to zero.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Overflow&lt;/em&gt; occurs when numbers with large magnitude are approximated
+as \(\infty\) or \(-\infty\).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;One example of a function that must be stabilised against underflow and
+overflow is the &lt;em&gt;softmax&lt;/em&gt; function, which is often used to predict the
+probabilities associated with multinoulli distribution. \[
+\text{softmax}(\boldsymbol{x})_i = \frac{\exp({x_i})}{\sum_{j=1}^{n} \exp(x_j)} .\tag{48}
+\] If all of the \(x_j\) are equal to some constant \(c\), analytically, all
+the output of the function should be \(\frac{1}{n}\). However, this may
+not occur if \(c\) has a very large magnitude. If \(c\) is very negative,
+then \(\exp( c)\) will underflow, which means the denominator will become
+\(0\), so the final result is undefined. When \(c\) is very large and
+negative, the \(\exp( c)\) will overflow, again resulting in the expression
+as whole being undefined. **Both of these difficulties can be resolved
+by evaluating \(\text{softmax}(\boldsymbol{z})\) where
+\(\boldsymbol{z} = \boldsymbol{x} - \max_i x_i\).&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Poor Conditioning&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Consider a function
+\(f(\boldsymbol{x}) = \boldsymbol{A}^{-1}\boldsymbol{x}\). When
+\(\boldsymbol{A} \in \mathbb{R}^{n \times n}\) has an eigenvalue
+decomposition, the &lt;em&gt;conditional number&lt;/em&gt; is \[
+   \displaystyle \max\limits_{i, j}= \Bigg| \frac{\lambda_i}{\lambda_j} \Bigg| .\tag{49}
+   \] When this number is large, matrix inversion is particularly
+sensitive to error in the input.&lt;/p&gt;
+
+&lt;h3 id=&#34;gradient-based-optimisation&#34;&gt;Gradient-Based Optimisation&lt;/h3&gt;
+
+&lt;p&gt;The following terms are all the same thing: &lt;em&gt;objective function&lt;/em&gt;,
+&lt;em&gt;criterion&lt;/em&gt;, &lt;em&gt;cost function&lt;/em&gt;, &lt;em&gt;loss function&lt;/em&gt; and &lt;em&gt;error function&lt;/em&gt;. We
+often denote the value that minimise or maximise a function with
+superscript \(*\), like \(\boldsymbol{x}^* = \arg \min f(\boldsymbol{x})\)&lt;/p&gt;
+
+&lt;p&gt;If we know that \(f(x - \epsilon \text{ sign} (f&amp;rsquo;(x))) &amp;lt; f(x)\) for small
+enough \(\epsilon\). We can thus reduce \(f(x)\) by moving \(x\) in small
+steps with &lt;em&gt;opposite&lt;/em&gt; sign of the derivative. This technique is called
+&lt;em&gt;gradient descent&lt;/em&gt;.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://juicyiter.gitee.io/images/image-20190308102253178.png&#34; alt=&#34;Figure 9: Gradient Descent&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190308102253178.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 9: Gradient Descent&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Points where \(f&amp;rsquo;(x)=0\) are known as &lt;em&gt;critical points&lt;/em&gt; or &lt;em&gt;stationary
+points&lt;/em&gt;. That&amp;rsquo;s where the local minima or maxima could lie. For those
+critical points that are neither maxima or minima, we call them &lt;em&gt;saddle
+points&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;For functions that contains multiple inputs, we must use the concept of
+&lt;em&gt;partial derivatives&lt;/em&gt;. The gradient of \(f​\) is the &lt;em&gt;vector&lt;/em&gt; containing
+all of the partial derivatives, denoted
+\(\nabla_{\boldsymbol{x}} f(\boldsymbol{x})​\). Element \(i​\) of the
+gradient is the partial derivative of \(f​\) with respect to \(x_i​\),
+\(\frac{\partial}{\partial x_i}f(\boldsymbol{x})​\). In multi-dimension,
+the critical points are where every elements of the gradient is equal to
+zero.&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;directional derivative&lt;/em&gt; in direction \(\boldsymbol{u}\) (a unit
+vector) is the derivative of the function
+\(f(\boldsymbol{x} + \alpha \boldsymbol{u})\) with respect to \(\alpha\),
+evaluated at \(\alpha = 0\), which evaluates to
+\(\boldsymbol{u}^{\top}f(\boldsymbol{x})\). To find the direction in which
+\(f\) decreases the fastest, we can use the directional derivative: \[
+\min\limits_{\boldsymbol{u}, \boldsymbol{u^{\top}u} = 1}\boldsymbol{u^{\top}} \nabla_\boldsymbol{x} f(\boldsymbol{x}) .
+\]&lt;/p&gt;
+
+&lt;p&gt;\[
+= \min\limits_{\boldsymbol{u}, \boldsymbol{u^{\top}u}=1}|| \boldsymbol{u}||_2 ||\nabla_\boldsymbol{x}f(\boldsymbol{x})||_2 \cos \theta .\tag{50}
+\]&lt;/p&gt;
+
+&lt;p&gt;This is known as the &lt;em&gt;method of steepest descent&lt;/em&gt; or &lt;em&gt;gradient descent&lt;/em&gt;,
+which proposes a new point \[
+\boldsymbol{x}&amp;rsquo; = \boldsymbol{x} - \epsilon \nabla_\boldsymbol{x}f(\boldsymbol{x}) .\tag{51}
+\] where \(\epsilon\) is the learning rate, a positive scalar determining
+the size of the step.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Jacobian matrix&lt;/em&gt;: containing all the partial derivatives. &amp;mdash;
+First-order optimisation.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;hessian-matrix-second-order-optimisation&#34;&gt;Hessian matrix &amp;mdash; Second-order optimisation&lt;/h3&gt;
+
+&lt;p&gt;\(\boldsymbol{H}(f)(\boldsymbol{x})\) the Jacobian matrix of the gradient.
+Anywhere that the second partial derivatives are continuous, the
+differential operators are commutative, which implies that
+\(H_{i, j} = H_{j, i}\), so the Hessian matrix is symmetric at this point.
+\[
+\frac{\partial^2}{\partial x_i \partial x_j}f(\boldsymbol{x}) = \frac{\partial^2}{\partial x_j \partial x_i}f(\boldsymbol{x})\tag{52}
+\] Because the Hessian matrix is real and symmetric, we can decompose it
+into a set of real eigenvalues and an orthogonal basis of eigenvectors.
+The second derivative in a &lt;em&gt;specific direction&lt;/em&gt; represented by a unit
+vector \(\boldsymbol{d}​\) is given by \(\boldsymbol{d^{\top}Hd}​\). When
+\(d​\) is an eigenvector of \(\boldsymbol{H}​\), the second derivative in
+that directions &lt;em&gt;is given by the corresponding eigenvalue&lt;/em&gt;. For other
+directions of \(\boldsymbol{d}​\), the directional second derivative is a
+&lt;em&gt;weighted average of all the eigenvalues&lt;/em&gt;, with weights between \(0​\) and
+\(1​\), and &lt;em&gt;eigenvectors that have smaller angle with \(\boldsymbol{d}​\)
+receiving more weight&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The second-order Taylor series approximation to the function
+\(f(\boldsymbol{x})\) around the current point \(\boldsymbol{x}^{(0)}​\): \[
+f(\boldsymbol{x}) \approx f(\boldsymbol{x}^{(0)}) + (\boldsymbol{x}-\boldsymbol{x}^{(0)})^{\top}\boldsymbol{g} + \frac{1}{2}(\boldsymbol{x}- \boldsymbol{x}^{(0)})^{\top} \boldsymbol{H}(\boldsymbol{x}-\boldsymbol{x}^{(0)})\tag{53}
+\] where \(\boldsymbol{g}​\) is the gradient and \(\boldsymbol{H}​\) is the
+Hessian at \(\boldsymbol{x}^{(0)}​\). If we use a learning rate
+\(\epsilon​\), then the new point \(\boldsymbol{x}​\) will be given by
+\(\boldsymbol{x}^{(0)}-\epsilon\boldsymbol{g}​\). Substituting this into
+the equation above, we obtain \[
+f(\boldsymbol{x}^{(0)}-\epsilon\boldsymbol{g}) \approx f(\boldsymbol{x}^{(0)}) - \epsilon \boldsymbol{g^{\top}g}+\frac{1}{2} \epsilon^2 \boldsymbol{g^\top} \boldsymbol{H}\boldsymbol{g} \tag{54}
+\] There are three therms here in the equation: \(\bullet​\) the original
+value of the function, \(\bullet​\) the expected improvement due to the
+slope of the function, and \(\bullet​\) the correction we must apply to
+account for the curvature of the function. When the
+\(\boldsymbol{g^{\top}Hg}​\) is &lt;em&gt;positive&lt;/em&gt;, solving for the optimal step
+size that decrease the Taylor series approximation of the function the
+most yields \[
+\epsilon^* = \frac{\boldsymbol{g^{\top}Hg}}{\boldsymbol{g^{\top}g}}\tag{55}
+\] At a critical point, the eigenvalue of Hessian matrix can be examined
+to determine whether the critical point is a local minimum, local
+maximum or saddle point.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;When the Hessian is positive definite, the point is a local minimum.
+Like wise, when the Hessian is negative definite, the point is a
+local maximum.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;When at least one eigenvalue is positive and at least one eigenvalue
+is negative, we know that \(\boldsymbol{x}\) is a local minimum on one
+cross section of \(f\) but a local maximum on another cross section.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://juicyiter.gitee.io/images/image-20190308191237380.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190308191237380.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;When the Hessian has a poor condition number, gradient descent performs
+poorly.This is because in one direction, the derivative increases
+rapidly, while in another direction, it increases slowly. Gradient
+descent does not know this change in the derivative so it does not know
+that it needs to explore preferentially in the directions where the
+derivative remains negative for longer, making it difficult to choose a
+good step size.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://juicyiter.gitee.io/images/IMG%5FCEEDB9114259-1.jpeg&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://juicyiter.gitee.io/images/IMG%5FCEEDB9114259-1.jpeg&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Here the condition number of Hessian is \(5\), which means the direction
+(\([1,1]^{\top}\)) of most curvature have five times more curvature than
+the direction (\([-1, 1]^{\top}\)) of the least curvature.&lt;/p&gt;
+
+&lt;p&gt;The problem can be resolve by &lt;em&gt;Newton&amp;rsquo;s method&lt;/em&gt;, which is based on using second-order Taylor series expansion to approximate &lt;a id=&#34;org882ad85&#34;&gt;&lt;/a&gt;
+\(f(\boldsymbol{x})\) near some point \(\boldsymbol{x}^{(0)}\): \[
+f(\boldsymbol{x}) \approx f(\boldsymbol{x}^{(0)}) + (\boldsymbol{x}-\boldsymbol{x}^{(0)})^{\top} \nabla_\boldsymbol{x}f(\boldsymbol{x}^{(0)})+ \frac{1}{2} (\boldsymbol{x}-\boldsymbol{x}^{(0)})^{\top} \boldsymbol{H}(f)(\boldsymbol{x^{(0)}})(\boldsymbol{x}-\boldsymbol{x}^{(0)})\tag{56}
+\] Solving the critical point, we obtain: \[
+\boldsymbol{x}^* = \boldsymbol{x}^{(0)} - {\boldsymbol{H}(f)f(\boldsymbol{x}^{(0)})}^{-1} \nabla_\boldsymbol{x}f(\boldsymbol{x}^{(0)})\tag{57}
+\]&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;When \(f\) is a &lt;em&gt;positive define quadratic&lt;/em&gt; function, Newton&amp;rsquo;s method
+consists of applying &lt;a href=&#34;#org882ad85&#34;&gt;function&lt;/a&gt; &lt;em&gt;once&lt;/em&gt; to jump to the minimum
+of the function directly. When \(f\) is not truly quadratic but can be
+&lt;em&gt;locally approximated&lt;/em&gt; as a positive define quadratic function, Newton&amp;rsquo;s
+method consists of applying &lt;a href=&#34;#org882ad85&#34;&gt;function&lt;/a&gt; multiple times.&lt;/p&gt;
+
+&lt;p&gt;Newton&amp;rsquo;s method is only &lt;em&gt;approximate&lt;/em&gt; when the &lt;em&gt;nearby critical point is a minimum&lt;/em&gt;, which will be detailedly noted later on.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;A &lt;em&gt;Lipschitz continuous&lt;/em&gt; function is a function \(f\) whose rate of change
+is bounded by a &lt;em&gt;Lipschitz constant&lt;/em&gt; \(\mathcal{L}\):&lt;/p&gt;
+
+&lt;p&gt;\[
+\forall \boldsymbol{x}, \forall \boldsymbol{y}, |f(\boldsymbol{x})-f(\boldsymbol{y})| \le \mathcal{L}||\boldsymbol{x}-\boldsymbol{y}||_2\tag{58}
+\]&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Convex optimisation&lt;/em&gt; algorithms are applicable only to convex
+functions&amp;mdash; functions for which the Hessian is &lt;em&gt;positive semidefinite
+everywhere, which lack saddle points&lt;/em&gt; and &lt;em&gt;all their local minima are
+necessarily global minima&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;Karush-Kuhn-Tucker&lt;/em&gt; (KKT) approach provides a very general solution
+to constrained optimisation. With the KKT approach, we introduce a new
+function called the &lt;em&gt;generalised Lagrangian&lt;/em&gt; or &lt;em&gt;generalised Lagrange
+function&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;To define the Lagrangian, we first need to describe \(\mathbb{S}\) in
+terms of equations and inequalities. \(\mathbb{s} = \{ \boldsymbol{x} \; | \; \forall i, g^{(i)}(\boldsymbol{x}) = 0 \text{ and } \forall j, h^{(j)} (\boldsymbol{x}) \le 0 \}\).&lt;/p&gt;
+
+&lt;p&gt;The equations involving \(g^{(i)}\) are called the &lt;em&gt;equality constraints&lt;/em&gt;
+and the ineuqalities involving \(h^{(i)}\) are called &lt;em&gt;inequality
+constraints&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;We introduce new variables \(\lambda_i\) and \(\alpha_i\) for each
+constraint, these are called the &lt;em&gt;KKT multipliers&lt;/em&gt;. The generalised
+Lagrangian is then defined as&lt;/p&gt;
+
+&lt;p&gt;\[ L(\boldsymbol{x}, \boldsymbol{\lambda}, \boldsymbol{\alpha}) = f(\boldsymbol{x}) + \displaystyle \sum_i \lambda_i g^{(i)}(\boldsymbol{x}) + \sum_i \alpha_i h^{(j)}(\boldsymbol{x}) \tag{59}\]&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;So long as at least one feasible point exists and \(f(\boldsymbol{ x})\)
+is not permitted to have value \(\infty\)&lt;/em&gt;, then
+\[ \min \limits_{\boldsymbol{x}} \max \limits_{\boldsymbol{\lambda}} \max \limits_{\boldsymbol{\alpha, \alpha} \ge 0} L( \boldsymbol{ x}, \boldsymbol{ \lambda}, \boldsymbol{ \alpha}) .\tag{60}\]&lt;/p&gt;
+
+&lt;p&gt;has the same optimal objective function value and set of optimal points
+\(\boldsymbol{ x}\) as
+\[ \min \limits_{\boldsymbol{ x} \in \mathbb{S}} f(\boldsymbol{ x}) .\tag{61}\]&lt;/p&gt;
+
+&lt;p&gt;This follows because any time the constraints are satisfied,&lt;/p&gt;
+
+&lt;p&gt;\[ \max \limits_{\boldsymbol{\lambda}} \max \limits_{\boldsymbol{\alpha, \alpha \ge} 0} L(\boldsymbol{ x, \lambda, \alpha}) = f(\boldsymbol{x}), \tag{62}\]&lt;/p&gt;
+
+&lt;p&gt;while any time a constraint is violated,&lt;/p&gt;
+
+&lt;p&gt;\[ \max \limits_{\boldsymbol{\lambda}} \max \limits_{\boldsymbol{\alpha, \alpha \ge} 0} L(\boldsymbol{ x, \lambda, \alpha}) = \infty . \tag{63}\]&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;These properties guarantee that no infeasible point can be optimal, and
+that the optimum within the feasible points is unchanged.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Karush-Kuhn-Tucker&lt;/em&gt; (KKT) &lt;em&gt;conditions&lt;/em&gt;: - The gradient of the
+generalised Lagrangian is zero. - All constraints on both
+\(\boldsymbol{x}\) and the KKT multipliers are satisfied. - The inequality
+constraints exhibit &amp;ldquo;complementary slackness&amp;rdquo;.
+\(\boldsymbol{\alpha} \odot \boldsymbol{h}(\boldsymbol{x}) = \boldsymbol{0}\).&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;They are necessary conditions, but not always sufficient conditions, for
+a point to be optimal.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Most machine learning algorithms have settings called &lt;strong&gt;hyperparameters&lt;/strong&gt; that must be determined external to the learning algorithm itself. Two central approaches to statistics are &lt;strong&gt;frequentist estimators and Bayesian inference&lt;/strong&gt;. Most deep learning algorithms are based on an optimisation algorithm called &lt;strong&gt;stochastic gradient descent&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;learning-algorithms&#34;&gt;Learning Algorithms&lt;/h2&gt;
+
+&lt;p&gt;What do we mean by learning? A computer program is said to learn from &lt;strong&gt;experience&lt;/strong&gt; \(E\) with respect to some class of &lt;strong&gt;tasks&lt;/strong&gt; \(T\) and &lt;strong&gt;performance&lt;/strong&gt; measure \(P\), if its performance at task \(T\), as measured by \(P\), improves with experience \(E\).&lt;/p&gt;
+
+&lt;h3 id=&#34;the-task--t&#34;&gt;The Task, \(T\)&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Classification&lt;/strong&gt;: To solve this task, the learning algorithm is often asked to produce a function \(f: \mathbb{R} \to \{ 1, \dots, k \}\). When \(y =  f(\boldsymbol{x})\), the model assigns an input described by vector \(\boldsymbol{x}\) to a category identified by a numeric code \(y\). \(f\) &lt;strong&gt;outputs a probability distribution over classes&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Classification with missing inputs&lt;/strong&gt;: To solve this task, instead of mapping from a vector a categorical output, the learning algorithm must learn a &lt;strong&gt;set&lt;/strong&gt; of functions. One way to define such a large set of functions is &lt;strong&gt;to learn a probability distribution over all of the relevant variables&lt;/strong&gt;, then solve the classification task by marginalising out the missing variables. With \(n\) input variables, we can obtain \(2^n\) different classification functions needed for each possible set of missing inputs, but we &lt;strong&gt;only need to learn a single function describing the &lt;em&gt;joint distribution&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Regression&lt;/strong&gt;: This type of task is similar to classification, except that the out is different this time: \(f:\mathbb{R} \to \mathbb{R}\).&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Transcription&lt;/strong&gt;: In this type of task, the machine learning system is asked to observe a &lt;strong&gt;relatively unstructured&lt;/strong&gt; representation of some kind of data and &lt;strong&gt;transcript it into discrete, textual form&lt;/strong&gt;. For example, in optical character recognition, the computer program is shown a photograph containing an image of text, the computer program is asked to return its text form of a sequence of characters.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Machine translation&lt;/strong&gt;: The computer program is asked to convert a sequence of symbols in some language into a sequence of another language.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Structured output&lt;/strong&gt;: One example is parsing&amp;ndash;mapping a natural language sentence into a tree that describes its grammatical structure and tagging nodes of the trees as being verbs, nouns, or adverbs, and so on. The reason the task is called structured output is that the program must output several values that are all tightly inter-related. For example, the words produced by an image captioning program must be a valid sentence.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Anomaly detection&lt;/strong&gt;: An example is credit card fraud detection for uncharacteristic purchases.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Synthesis and sampling&lt;/strong&gt;: In this type of task, the machine learning algorithm is asked to generate new examples that are similar to those in the training data. Synthesis via machine learning can be very useful for media applications where it can be expensive or boring for an artist to generate large volumes of content by hand.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Imputation of missing values&lt;/strong&gt;: Given a new example of \(\boldsymbol{x} \in \mathbb{R}^n\), but with some entries \(x_i\) of \(\boldsymbol{x}\) missing, the algorithm must provide a prediction of the values of the missing entries.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Denoising&lt;/strong&gt;: The learning algorithm must predict the clean example \(\boldsymbol{x}\) from its corrupted version \(\tilde{\boldsymbol{x}}\), or more generally predict the conditional probability distribution \(p(\boldsymbol{x} \; | \; \tilde{\boldsymbol{x}})\).&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Density estimation&lt;/strong&gt; or &lt;strong&gt;probability mass function estimation&lt;/strong&gt;: In this type of task, the algorithm is asked to learn a function \(p_{model} : \mathbb{R}^n \to \mathbb{R}\) where \(p_{model}(\boldsymbol{x})\) can be interpreted as a probability density function (if \(\mathbf{x}\) is continuous) or a probability mass function (if \(\mathbf{x}\) is discrete). To do this task well, the algorithm must learn the structure of the data and where the examples cluster tightly and where they unlikely to occur.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;the-performance-measure--p&#34;&gt;The Performance Measure, \(P\)&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Accuracy&lt;/strong&gt;: the proportion of examples for which model produces the correct output.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Error rate&lt;/strong&gt;: the proportion of examples for which model produces the wrong output, which is often referred as \(0-1\) loss for discrete inputs. But it doesn&amp;rsquo;t make any sense for continuous inputs. The most common approach for those continuous inputs is to report the &lt;strong&gt;average log-probability&lt;/strong&gt; the model assigns to some examples.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;the-experience--e&#34;&gt;The Experience, \(E\)&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Unsupervised learning algorithms&lt;/strong&gt; experience a dataset containing many features, then learn useful properties of the structure of this dataset, attempting to implicitly or explicitly learn the probability distribution \(p(\mathbf{x})\).&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Supervised Learning algorithms&lt;/strong&gt; experience a dataset containing features, but each feature is also associated with a &lt;strong&gt;label&lt;/strong&gt; or &lt;strong&gt;target&lt;/strong&gt;. Supervised learning involves observing several examples of a random vector \(\mathbf{x}\) and an associated value or vector \(\mathbf{y}\), and leaning to predict \(\mathbf{y}\) from \(\mathbf{x}\), usually by estimating \(p(\mathbf{y} \; | \; \mathbf{x})\). Alternatively, we can solve the supervised learning problem of learning \(p(y \; | \; \mathbf{x})\) by using traditional unsupervised learning technologies to learn the joint distributions \(p(\mathbf{x}, y)\) and inferring&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;\[ p(y \; | \; \mathbf{x}) = \frac{p(\mathbf{x}, y)}{\sum_{y&amp;rsquo;} p(\mathbf{x}, y&amp;rsquo;)}.\tag{64} \]&lt;/p&gt;
+
+&lt;p&gt;Traditionally, people refer to &lt;strong&gt;regression&lt;/strong&gt;, &lt;strong&gt;classification&lt;/strong&gt;, and &lt;strong&gt;structured output&lt;/strong&gt; as supervised learning. &lt;strong&gt;Density estimation&lt;/strong&gt; in support of other tasks is usually considered as unsupervised learning.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Reinforced learning&lt;/strong&gt; algorithms interacts with an environment, so there is a &lt;strong&gt;feedback loop&lt;/strong&gt; between the learning system and its experience.&lt;/p&gt;
+
+&lt;p&gt;Check &lt;a href=&#34;http://incompleteideas.net/book/bookdraft2017nov5.pdf&#34; target=&#34;_blank&#34;&gt;Sutton and Barto&amp;rsquo;s book&lt;/a&gt; or &lt;a href=&#34;https://www.researchgate.net/publication/216722122%5FNeuro-Dynamic%5FProgramming&#34;&gt;Bertsekas and Tsitsiklis (1996)&lt;/a&gt; for information about reinforced learning, and &lt;a href=&#34;https://arxiv.org/pdf/1312.5602.pdf&#34;&gt;Mnih et al. (2013)&lt;/a&gt; for the deep learning approach to reinforced learning.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Most machine learning algorithms simply experience a dataset, which is commonly described with a &lt;strong&gt;design matrix&lt;/strong&gt;, whose columns correspond to different features.&lt;/p&gt;
+
+&lt;h3 id=&#34;example-linear-regression&#34;&gt;Example: Linear Regression&lt;/h3&gt;
+
+&lt;p&gt;The goal of the linear regression is to build a system that can take a vector \(\boldsymbol{x} \in \mathbb{R}^n\) as input and predict the value of a scalar \(y \in \mathbb{R}\) as its output, which is defined to be
+\[ \hat{y} = \boldsymbol{w^{\top}x} \tag{65}\] where \(\boldsymbol{w} \in \mathbb{R}^n\) is a vector of &lt;strong&gt;parameters&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a id=&#34;orgb87a6b9&#34;&gt;&lt;/a&gt;
+One way of measuring the performance of the model is to compute the &lt;strong&gt;mean squared error&lt;/strong&gt; of the model on the &lt;strong&gt;test set&lt;/strong&gt;. if \(\hat{\boldsymbol{y}}^{(test)}\) gives the predictions of the model on the test set, then the mean squared error is given by
+\[ \mathrm{MSE}_{\mathrm{test}} = \frac{1}{m} \sum \limits_{i} (\hat{\boldsymbol{y}}^{(\mathrm{test})} - \boldsymbol{y}^{(\mathrm{test})})^2_i = \frac{1}{m} || \hat{\boldsymbol{y}}^{(\mathrm{test})} - \boldsymbol{y}^{(\mathrm{test})} ||_2^2.\tag{66}\]&lt;/p&gt;
+
+&lt;p&gt;To make a machine learning algorithm, we need to design an algorithm that will improve the weights \(\boldsymbol{w}\) in a way that reduces \(\mathrm{MSE}_{\mathrm{test}}\) when the algorithm is allowed to gain experience by observing a training set \((\mathbf{X}^{(\mathrm{train})}, \boldsymbol{y}^{(\mathrm{train})})\). One intuitive way of doing this is (which will justify&lt;/p&gt;
+
+&lt;div inlined=&#34;t&#34;&gt;
+  &lt;div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://fa2png.io/media/icons/font-awesome/4-7-0/exclamation-circle/15/0/ff0101_none.png&#34; alt=&#34;ff0101_none.png&#34; inlined=&#34;t&#34; /&gt; is just to minimise the mean squared error on the training set, \(\mathrm{MSE}_{\mathrm{train}}\).&lt;/p&gt;
+
+&lt;p&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;To minimise it, we simply solve for where its gradient is \(\boldsymbol{0}\):&lt;/p&gt;
+
+&lt;p&gt;\[ \nabla_{\boldsymbol{w}} \mathrm{MSE}_{\mathrm{train}} = 0\]&lt;/p&gt;
+
+&lt;p&gt;\[\implies \nabla_{\boldsymbol{w}} \big( \mathbf{X}^{(\mathrm{train})}\boldsymbol{w} - \boldsymbol{y}^{(\mathrm{train})} \big)^{\top} \big( \mathbf{X}^{(\mathrm{train})}\boldsymbol{w} - \boldsymbol{y}^{(\mathrm{train})} \big) = 0\]&lt;/p&gt;
+
+&lt;p&gt;&lt;a id=&#34;orga988da2&#34;&gt;&lt;/a&gt;
+\[ \implies \boldsymbol{w} = \bigg( {\mathbf{X}^{(\mathrm{train})}}^{\top} \mathbf{X}^{(\mathrm{train})} \bigg)^{-1} {\mathbf{X}^{(\mathrm{train})}}^{\top} \boldsymbol{y}^{(\mathrm{train})} \tag{67}\]&lt;/p&gt;
+
+&lt;p&gt;The system of equations whose solution is given by equation &lt;a href=&#34;#orga988da2&#34;&gt;67&lt;/a&gt; is known as the &lt;strong&gt;normal equations&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;capacity-overfitting-and-underfitting&#34;&gt;Capacity, Overfitting and Underfitting&lt;/h2&gt;
+
+&lt;p&gt;The ability to perform well on previously unobserved inputs is called &lt;strong&gt;generalisation&lt;/strong&gt;. What separates machine learning from optimisation is that we want the &lt;strong&gt;generalisation error&lt;/strong&gt;, also called the &lt;strong&gt;test error&lt;/strong&gt;, to be low as well. We typically estimate the generalisation error of a machine learning model by measuring its performance on a &lt;strong&gt;test set&lt;/strong&gt; of examples that were &lt;strong&gt;collected separately&lt;/strong&gt; from the training set.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;How can we affect performance on the test set when we get to observe only the training set?&lt;/strong&gt; The field of &lt;strong&gt;statistical learning theory&lt;/strong&gt; provides some answers. If we are allowed to make some assumptions about &lt;strong&gt;how the training and test set are collected&lt;/strong&gt;, then we can make some progress.&lt;/p&gt;
+
+&lt;p&gt;The train and test data are generated by a probability distribution over datasets called the &lt;strong&gt;data generating progress&lt;/strong&gt;. We call that &lt;em&gt;shared underlying distribution&lt;/em&gt; the &lt;strong&gt;data generating distribution&lt;/strong&gt;, denoted as \(p_{\mathrm{data}}\). This probabilistic framework and the i.i.d. assumptions allow us to mathematically study the relationship between training error and the test error.&lt;/p&gt;
+
+&lt;p&gt;The expected training error of a randomly selected model is equal to the expected test error of that model, because both expectations are formed using the same dataset sampling progress. But practically the test error is greater or equal to the training error, because we don&amp;rsquo;t fix the parameters ahead of time.&lt;/p&gt;
+
+&lt;p&gt;The factors determining how well a machine learning algorithm will perform are its ability to:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Make the training error small.&lt;/li&gt;
+&lt;li&gt;Make the gap between the training and test error small.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;That brought the two central challenges in machine learning: &lt;strong&gt;underfitting&lt;/strong&gt; and &lt;strong&gt;overfitting&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Underfitting occurs when the model is not able to obtain a sufficient low error value on the training set.&lt;/li&gt;
+&lt;li&gt;Overfitting occurs when the gap between training and test error is too large.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We can control whether a model is more likely to overfit or underfit by altering its &lt;strong&gt;capacity&lt;/strong&gt;. One way to do this is by choosing its &lt;strong&gt;hypothesis space&lt;/strong&gt;, the set of function that the learning algorithm is allowed to select as being the solution. That is changing the number of inputs features it has, and simultaneously adding new parameters associated with those features.&lt;/p&gt;
+
+&lt;p&gt;Another kind of capacity is called &lt;strong&gt;representational capacity&lt;/strong&gt;, which specifies which family of function the learning algorithms can choose from when varying the parameters in order to reduce a training objective.
+In practice, because of the imperfection of the optimisation algorithm and so on, the learning algorithm&amp;rsquo;s &lt;strong&gt;effective capacity&lt;/strong&gt; may be less than the representational capacity of the model family.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;An interesting principle of parsimony is &lt;strong&gt;Occam&amp;rsquo;s razor&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;This principle states that among competing hypotheses that explain known observation equally well, one should choose the &amp;ldquo;simplest&amp;rdquo; one.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;A well-known way of quantifying model capacity is the &lt;strong&gt;Vapnik-Chervonenkis dimension&lt;/strong&gt;, or VC dimension, which measures the capacity of a &lt;em&gt;binary classifier&lt;/em&gt;. The VC dimension is defined as being the largest possible value of \(m\) for which there exists a training set of \(m\) different \(\boldsymbol{x}\) points that the classifier can label arbitrarily.&lt;/p&gt;
+
+&lt;p&gt;The most important results in statistical learning theory shows that &lt;strong&gt;the discrepancy&lt;/strong&gt; between training error and the generalisation error &lt;strong&gt;grows as the model capacity grows&lt;/strong&gt; but &lt;strong&gt;shrinks as the number of training examples increases&lt;/strong&gt;. While simpler functions are more likely to generalise (to have small gap between training and test error) we must still choose a &lt;strong&gt;sufficiently complex hypothesis&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Typically, &lt;strong&gt;training error decrease&lt;/strong&gt; until it asymptotes to the minimum possible error value as model capacity increases (assuming the error value has a minimum value) and &lt;strong&gt;generalisation error has a U-shaped curve&lt;/strong&gt; as a function of model capacity.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://juicyiter.gitee.io/images/image-20190311211352759.png&#34; alt=&#34;Figure 11: At the left end of the graph, training error and generalisation error are both high. This is the **underfitting regime**. Eventually, the size of the gap outweights the decrease in training error, and we enter the **overfitting regime**, where the capacity is too large, above the **optimal capacity**.&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190311211352759.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 11: At the left end of the graph, training error and generalisation error are both high. This is the **underfitting regime**. Eventually, the size of the gap outweights the decrease in training error, and we enter the **overfitting regime**, where the capacity is too large, above the **optimal capacity**.&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Parametric model learn a function described by a parameter vector whose size is finite and fixed before any data is observed. &lt;strong&gt;Non-parametric&lt;/strong&gt; models have no such limitation.&lt;/p&gt;
+
+&lt;p&gt;One example of such an algorithm is &lt;strong&gt;nearest neighbour regression&lt;/strong&gt;, which simply stores the \(\mathbf{X}\) and \(\boldsymbol{y}\) from the training set. When asked to classify a test point \(\boldsymbol{x}\), the model looks up the nearest entry in the training set and returns the associated regression target. In other words, \(\hat{y} = y_i\) where \(i = \arg \min ||\mathbf{X}_{i, :} -\boldsymbol{x}||^2_2\). &lt;strong&gt;If the algorithm is allowed to break ties by averaging the \(y_i\) values of all \(\mathbf{X}_{i, :}\) that are tied for nearest, then this algorithm is able to achieve the minimum possible training error&lt;/strong&gt; (which might be greater than zero, if two identical inputs are associated with different outputs) on any regression dataset.&lt;/p&gt;
+
+&lt;p&gt;The error incurred by &lt;strong&gt;an oracle&lt;/strong&gt; making predictions from the &lt;strong&gt;true distribution&lt;/strong&gt; \(p(\boldsymbol{x}, y)\) is called the &lt;strong&gt;Bayes error&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Expected generalisation error can &lt;strong&gt;never increase&lt;/strong&gt; as the number of training examples increases. Any fixed &lt;strong&gt;parametric model with less than optimal capacity&lt;/strong&gt; will &lt;strong&gt;asymptote&lt;/strong&gt; to an error value that exceeds the Bayes error.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://juicyiter.gitee.io/images/image-20190311213831415.png&#34; alt=&#34;Figure 12: For each size, there are \\(40\\) (\\(40\\) times on each size) different training sets generated in order to plot error bars showing \\(95\\) percent confidence intervals. For quadratic model, the training error increase as the size of the training set increases (larger datesets harder to fit). Its test error asymptotes to a high value. The test error at **optimal capacity** asymptotes to the Bayes error. The training error can fall below the Bayes error, due to the ability of the training algorithm to **memorise** specific instances of the training set.&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190311213831415.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 12: For each size, there are \\(40\\) (\\(40\\) times on each size) different training sets generated in order to plot error bars showing \\(95\\) percent confidence intervals. For quadratic model, the training error increase as the size of the training set increases (larger datesets harder to fit). Its test error asymptotes to a high value. The test error at **optimal capacity** asymptotes to the Bayes error. The training error can fall below the Bayes error, due to the ability of the training algorithm to **memorise** specific instances of the training set.&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;h3 id=&#34;the-no-free-lunch-theorem&#34;&gt;The No Free Lunch Theorem&lt;/h3&gt;
+
+&lt;p&gt;The &lt;strong&gt;no free lunch theorem&lt;/strong&gt; states that averaged over all possible data generating distributions, every classification algorithm has the same error rate when classifying previously unobserved points. In other words, in some sense, no machine learning algorithm is universally better than any other.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Fortunately, these results holds only when we average over &lt;em&gt;all&lt;/em&gt; possible data generating distribution.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;regularisation&#34;&gt;Regularisation&lt;/h3&gt;
+
+&lt;p&gt;To understanding the regularisation, consider the following example. We can modify the training criterion for linear regression to include &lt;strong&gt;weight decay&lt;/strong&gt;. To perform linear regression with weight decay, we minimise a sum comprising both the &lt;strong&gt;mean squared error&lt;/strong&gt; on the training and &lt;strong&gt;a criterion&lt;/strong&gt; \(J(\boldsymbol{w})\) that expresses a &lt;strong&gt;preference&lt;/strong&gt; for the weights to have smaller squared \(L^2\) norm. Specifically,&lt;/p&gt;
+
+&lt;p&gt;\[ J(\boldsymbol{w}) = \mathrm{MSE}_{\mathrm{train}} + \lambda \boldsymbol{w^{\top}w}, \tag{68}\]&lt;/p&gt;
+
+&lt;p&gt;where \(\lambda\) is a value that chosen ahead of time that &lt;strong&gt;controls the strength of the preference for &lt;em&gt;smaller weights&lt;/em&gt;&lt;/strong&gt;. When \(\lambda = 0\), we impose no preference, and &lt;strong&gt;large \(\lambda\) forces the weights to become smaller&lt;/strong&gt;. &lt;em&gt;Minimising \(J(\boldsymbol{w})\) results in a choice of weights that make a trade-off between fitting the training data and being small&lt;/em&gt;. This gives us solutions that have a smaller slope, or put weight on fewer of the features. (\(\lambda\) is fixed. To minimise \(J(\boldsymbol{w})\), either minimise MSE or minimise \(\boldsymbol{w^{\top}w}\).)&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://juicyiter.gitee.io/images/image-20190311221517798.png&#34; alt=&#34;Figure 13: Here is a model with degree \\(9\\). (_Left_)With very large \\(\lambda\\), the model is forced to learn a function with no slope at all. (_Center_)With a medium value of \\(\lambda\\), the learning algorithm recovers a curve with the right general shape. Even though the model is capable of representing functions with much more complicated shape, **weight decay** has _encouraged_ it to use a _simpler_ function described by smaller coefficients. (_Right_)With weight decay approaching zero (i.e. using the Moore-Penrose pseudoinverse to solve the underdetermined problem with minimal regularisation), the degree-\\(9\\) polynomial overfits significantly.&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190311221517798.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 13: Here is a model with degree \\(9\\). (_Left_)With very large \\(\lambda\\), the model is forced to learn a function with no slope at all. (_Center_)With a medium value of \\(\lambda\\), the learning algorithm recovers a curve with the right general shape. Even though the model is capable of representing functions with much more complicated shape, **weight decay** has _encouraged_ it to use a _simpler_ function described by smaller coefficients. (_Right_)With weight decay approaching zero (i.e. using the Moore-Penrose pseudoinverse to solve the underdetermined problem with minimal regularisation), the degree-\\(9\\) polynomial overfits significantly.&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;More generally, we can regularise a model that learns a function \(f(\boldsymbol{x};\boldsymbol{\theta})\) by adding &lt;strong&gt;a penalty&lt;/strong&gt; called a &lt;strong&gt;regulariser&lt;/strong&gt; to the cost function. In the case of weight decay, the regulariser is \(\Omega(\boldsymbol{w}) = \boldsymbol{w^{\top}w}\).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Expressing preferences&lt;/strong&gt; for on function is a more general way of controlling a model&amp;rsquo;s capacity than including or excluding members from the hypothesis space.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Regularisation is &lt;strong&gt;any modification&lt;/strong&gt; we make to a learning algorithm that is intended &lt;strong&gt;to reduce its generalisation&lt;/strong&gt; error but not it training error&lt;/em&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;hyperparameters-and-validation-sets&#34;&gt;Hyperparameters and Validation Sets&lt;/h3&gt;
+
+&lt;p&gt;Hyperparameters are those settings of machine learning algorithms to control the behaviour of the learning algorithm. The degree of polynomial and \(\lambda\) mentioned above are both hyperparameters.&lt;/p&gt;
+
+&lt;p&gt;Sometimes a setting is chosen to be a hyperparameters that the learning algorithms does not learn because &lt;strong&gt;it is difficult to optimise&lt;/strong&gt;. This applies to all hyperparameters that control model capacity.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;If learned on the training set, such hyperparameters would always chose the maximum possible model capacity, resulting in overfitting.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;To solve this problem, we need a &lt;strong&gt;validation set&lt;/strong&gt; of examples that the training algorithm does not observe. &lt;strong&gt;It&amp;rsquo;s important that the test example are not used in any way to make choice about the model, including its hyperparameters&lt;/strong&gt;. Therefore we &lt;strong&gt;always&lt;/strong&gt; construct the validation set from the &lt;em&gt;training&lt;/em&gt; data. Specifically, we split the training data into two disjoint subsets. One of these subsets is used to learn the parameters (typically \(80\%\)). The other is the validation set (typically \(20\%\)), used to &lt;strong&gt;estimate the generalisation error&lt;/strong&gt; during or after training, &lt;strong&gt;allowing for the hyperparameters to be updated accordingly&lt;/strong&gt;. Since the validation set is used to &amp;ldquo;train&amp;rdquo; the hyperparameters, the validation set error will &lt;strong&gt;underestimate&lt;/strong&gt; the generalisation error.&lt;/p&gt;
+
+&lt;h4 id=&#34;cross-validation&#34;&gt;Cross-Validation&lt;/h4&gt;
+
+&lt;p&gt;The most common of doing this is the \(k\) -fold cross-validation procedure, shown below, in which a partition of the dataset is formed by splitting it into \(k\) non-overlapping subsets.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://juicyiter.gitee.io/images/image-20190312093553594.png&#34; alt=&#34;Figure 14: The test error may be estimated by taking the average test error across \\(k\\) trails. On trial \\(i\\), the $i$-th subset of the data is used as test set and rest of the data is used as the training set.&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190312093553594.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 14: The test error may be estimated by taking the average test error across \\(k\\) trails. On trial \\(i\\), the $i$-th subset of the data is used as test set and rest of the data is used as the training set.&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;One problem is that there exist no unbiased estimators of the variance of such average error estimators (&lt;a href=&#34;http://120.52.51.13/www.jmlr.org/papers/volume5/grandvalet04a/grandvalet04a.pdf&#34;&gt;Bengio and Grandvalet, 2004&lt;/a&gt;), but approximations are typically used.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;estimators-bias-and-variance&#34;&gt;Estimators, Bias and Variance&lt;/h3&gt;
+
+&lt;h4 id=&#34;point-estimation&#34;&gt;Point Estimation&lt;/h4&gt;
+
+&lt;p&gt;Point estimation is the attempt to provide the &lt;strong&gt;single &amp;ldquo;best&amp;rdquo;&lt;/strong&gt; prediction of some quantity of interest. Let \(\{\boldsymbol{x}^{(1)}, \dots, \boldsymbol{x}^{(m)} \}\) be a set of \(m\) independent and identically distributed (i.i.d.) data points. A &lt;strong&gt;point estimator&lt;/strong&gt; or &lt;strong&gt;statistic&lt;/strong&gt; is &lt;em&gt;any&lt;/em&gt; function of the data:&lt;/p&gt;
+
+&lt;p&gt;\[ \hat{\boldsymbol{\theta}} = g(\boldsymbol{x}^{(1)}, \dots, \boldsymbol{x}^{(m)}). \tag{69} \]&lt;/p&gt;
+
+&lt;p&gt;While almost any function thus qualifies as an estimator, a &lt;strong&gt;good estimator&lt;/strong&gt; is a function whose output is close to the true underlying \(\boldsymbol{\theta}\) (which is &lt;strong&gt;fix but unknown&lt;/strong&gt; and a random variable) that generated the training data. (&lt;strong&gt;Any is fine, but good is one.&lt;/strong&gt;)&lt;/p&gt;
+
+&lt;h4 id=&#34;function-estimation&#34;&gt;Function Estimation&lt;/h4&gt;
+
+&lt;p&gt;We assume that there is a function \(f(\boldsymbol{x})\) that describes the approximate relationship between \(\boldsymbol{y}\) and \(\boldsymbol{x}\). For example we may assume that \(\boldsymbol{y} = f(\boldsymbol{x}) + \boldsymbol{\epsilon}\), where \(\boldsymbol{\epsilon}\) stands for the part of \(\boldsymbol{y}\) that is not predictable from \(\boldsymbol{x}\). Function estimation is really just the same as estimating a parameter \(\boldsymbol{\theta}\); the function estimator \(\hat{f}\) is simply a point estimator in function space.&lt;/p&gt;
+
+&lt;h4 id=&#34;bias&#34;&gt;Bias&lt;/h4&gt;
+
+&lt;p&gt;The bias of an estimator is defined as:&lt;/p&gt;
+
+&lt;p&gt;\[ \mathrm{bias}(\hat{\boldsymbol{\theta}}_m) = \mathbb{E}(\hat{\boldsymbol{\theta}}_m) - \boldsymbol{\theta} \tag{70} \]&lt;/p&gt;
+
+&lt;p&gt;An estimator \(\hat{\boldsymbol{\theta}}_m\) is said to be &lt;strong&gt;unbiased&lt;/strong&gt; if bias(\(\hat{\boldsymbol{\theta}}_m\)) = \(\boldsymbol{0}\), which implies that \(\mathbb{E}(\hat{\boldsymbol{\theta}}_m) = \boldsymbol{\theta}\). An estimator \(\hat{\boldsymbol{\theta}}_m\) is said to be &lt;strong&gt;asymptotically unbiased&lt;/strong&gt; if \(\lim_{m \to \infty} \mathrm{bias}(\hat{\boldsymbol{\theta}}_m) = \boldsymbol{0}\), which implies that \(\lim_{m \to \infty} \mathbb{E}(\hat{\boldsymbol{\theta}}_m) = \boldsymbol{\theta}\).&lt;/p&gt;
+
+&lt;h4 id=&#34;example-bernoulli-distribution&#34;&gt;Example: Bernoulli Distribution&lt;/h4&gt;
+
+&lt;p&gt;&lt;a id=&#34;org44fd376&#34;&gt;&lt;/a&gt;
+Consider a set of examples \(\{x^{(1)}, \dots, x^{(m)} \}\) that are i.i.d according to Bernoulli distribution with mean \(\theta\):&lt;/p&gt;
+
+&lt;p&gt;\[ P(x^{(i)}; \theta) = \theta^{x^{(i)}} (1 - \theta)^{1 - x^{(i)}}.\tag{71} \]&lt;/p&gt;
+
+&lt;p&gt;To determine whether the estimator \(\hat{\theta}_m = \frac{1}{m} \displaystyle \sum_{i=1}^{m} x^{(i)}\) is biased, we can do the following calculation:&lt;/p&gt;
+
+&lt;p&gt;\[ \begin{align*} \mathrm{bias}(\hat{\theta}_m) &amp;amp;= \mathbb{E}[\hat{\theta}_m] - \theta \\&lt;br /&gt;
+&amp;amp;= \mathbb{E} \Bigg[ \frac{1}{m} \displaystyle \sum_{i=1}^{m} x^{(i)} \Bigg] - \theta \\&lt;br /&gt;
+&amp;amp;= \frac{1}{m} \displaystyle \sum_{i=1}^{m} \sum_{x^{(i)}=0}^{1} \big(x^{(i)} \theta^{x^{(i)}} (1 - \theta)^{1 - x^{(i)}} \big) - \theta \\&lt;br /&gt;
+&amp;amp;= \frac{1}{m} \displaystyle \sum_{i=1}^{m} (\theta) - \theta \\&lt;br /&gt;
+&amp;amp;= \theta - \theta = 0  \tag{72} \end{align*}\]&lt;/p&gt;
+
+&lt;p&gt;Since \(\mathrm{bias}(\hat{\theta}) = 0\), we say that the estimator \(\hat{\theta}\) is unbiased.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-gaussian-distribution-estimator-of-the-mean&#34;&gt;Example: Gaussian Distribution Estimator of the Mean&lt;/h4&gt;
+
+&lt;p&gt;Recall that the Gaussian probability density function is given by&lt;/p&gt;
+
+&lt;p&gt;\[ p(x^{(i)}; \mu, \sigma^2) = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp \Bigg( - \frac{1}{2} \frac{(x^{(i)} - \mu)^2}{\sigma^2} \Bigg).\tag{73} \]&lt;/p&gt;
+
+&lt;p&gt;Consider a set of examples \(\{x^{(1)}, \dots, x^{(m)} \}\) that are i.i.d according to Gaussian distribution with &lt;strong&gt;sample mean&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;\[ \hat{\mu}_m = \frac{1}{m} \displaystyle \sum_{i=1}^{m} x^{(i)} \tag{74}\]&lt;/p&gt;
+
+&lt;p&gt;The bias of the sample mean is:&lt;/p&gt;
+
+&lt;p&gt;\[ \begin{align*}
+\mathrm{bias}(\hat{\mu}_m) &amp;amp;= \mathbb{E}[\hat{\mu}_m] - \mu \\&lt;br /&gt;
+&amp;amp;= \mathbb{E} \Bigg[ \frac{1}{m} \displaystyle \sum_{i=1}^{m} x^{(i)} \Bigg] - \mu \\&lt;br /&gt;
+&amp;amp;= \Bigg( \frac{1}{m} \displaystyle \sum_{i=1}^{m} \mathbb{E} \big[ x^{(i)} \big] \Bigg) - \mu \\&lt;br /&gt;
+&amp;amp;= \Bigg( \frac{1}{m} \displaystyle \sum_{i=1}^{m} \mu \Bigg) - \mu \\&lt;br /&gt;
+&amp;amp;= \mu - \mu = 0 \tag{75}
+\end{align*}\]&lt;/p&gt;
+
+&lt;p&gt;Thus the sample mean is an unbiased estimator of Gaussian mean parameter.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-estimators-of-the-variance-of-a-gaussian-distribution&#34;&gt;Example: Estimators of the Variance of a Gaussian Distribution&lt;/h4&gt;
+
+&lt;p&gt;The &lt;strong&gt;sample variance&lt;/strong&gt; \(\hat{\sigma}^2_m = \frac{1}{m} \displaystyle \sum_{i=1}^{m} \big( x^{(i)} - \hat{\mu}_m \big)^2\) , where \(\hat{\mu}_m\) is the sample mean, defined above. By evaluating:&lt;/p&gt;
+
+&lt;p&gt;\begin{align*} \mathbb{E}[\hat{\sigma}^2_m]
+&amp;amp;= \mathbb{E} \Bigg[ \frac{1}{m} \displaystyle \sum_{i=1}^{m} \big( x^{(i)} - \hat{\mu}_m \big)^2 \Bigg] \\&lt;br /&gt;
+&amp;amp;= \frac{m-1}{m} \sigma^2 \tag{76}
+\end{align*}&lt;/p&gt;
+
+&lt;p&gt;we can therefore conclude that the &lt;strong&gt;sample variance is a biased estimator&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The &lt;strong&gt;unbiased sample variance&lt;/strong&gt; estimator is:&lt;/p&gt;
+
+&lt;p&gt;\[
+\tilde{\sigma}_m^2 = \frac{1}{m-1} \displaystyle \sum_{i=1}^{m} \big( x^{(i)} - \hat{\mu}_m \big)^2.\tag{77}
+\]&lt;/p&gt;
+
+&lt;h4 id=&#34;variance-and-standard-error&#34;&gt;Variance and Standard Error&lt;/h4&gt;
+
+&lt;p&gt;The &lt;strong&gt;variance&lt;/strong&gt; is denoted as \(\mathrm{Var}(\hat{\theta})\), and the squared root of the variance is called the &lt;strong&gt;standard error&lt;/strong&gt;, denoted as \(\mathrm{SE}(\hat{\theta})\).&lt;/p&gt;
+
+&lt;p&gt;The standard error of the mean is given by&lt;/p&gt;
+
+&lt;p&gt;\[
+\mathrm{SE}(\hat{\mu}_m) = \sqrt{ \mathrm{Var} \Bigg[ \frac{1}{m} \displaystyle \sum_{i=1}^{m} x^{(i)} \Bigg]} = \frac{\sigma}{\sqrt{m}}\tag{78}
+\]&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, neither the squared root of the sample variance of the squared root of the unbiased estimator of the variance provide an unbiased estimate of the standard deviation. Both approaches tend to &lt;strong&gt;underestimate&lt;/strong&gt; the true standard deviation, but still used in practice.&lt;/p&gt;
+
+&lt;p&gt;We often estimate the generalisation error by computing the sample mean of the error on the test set. The number of examples in the test set determines the accuracy of this estimate. Taking advantage of &lt;strong&gt;central limit theorem&lt;/strong&gt;, which tells us that the mean will approximately distributed with normal distribution, we can use the standard error to compute the probability that the &lt;strong&gt;true expectation falls in any chosen interval&lt;/strong&gt;. For example, the \(95\%\) confidence interval centred on the mean \(\hat{\mu}_m\) is \((\hat{\mu}_m - 1.96\mathrm{SE}(\hat{\mu}_m), \hat{\mu}_m + 1.96\mathrm{SE}(\hat{\mu}_m))\), under the normal distribution with mean \(\hat{\mu}_m\) and variance \(\mathrm{SE}(\hat{\mu}_m)^2\).&lt;/p&gt;
+
+&lt;p&gt;In machine learning experiments, it&amp;rsquo;s common to say that algorithm \(A\) is better than algorithm \(B\) if the &lt;strong&gt;upper bound&lt;/strong&gt; of the \(95\%\) confidence interval for the error of algorithm \(A\) is less than the &lt;strong&gt;lower bound&lt;/strong&gt; of the \(95\%\) confidence interval for the error of algorithm \(B\).&lt;/p&gt;
+
+&lt;h4 id=&#34;example-bernoulli-distribution-1&#34;&gt;Example: Bernoulli Distribution&lt;/h4&gt;
+
+&lt;p&gt;Consider the same example mentioned &lt;a href=&#34;#org44fd376&#34;&gt;here&lt;/a&gt;. This time we are interested in computing the variance of the estimator \(\hat{\theta}_m = \frac{1}{m} \sum_{i=1}^{m} x^{(i)}\).&lt;/p&gt;
+
+&lt;p&gt;\begin{align*} \mathrm{Var}\big( \hat{\theta}_m \big)
+&amp;amp;= \mathrm{Var} \Bigg( \frac{1}{m} \displaystyle \sum_{i=1}^{m} x^{(i)} \Bigg) \\&lt;br /&gt;
+&amp;amp;= \frac{1}{m^2} \sum_{i=1}^{m} \mathrm{Var} \big( x^{(i)} \big) \\&lt;br /&gt;
+&amp;amp;= \frac{1}{m^2} \sum_{i=1}^{m} \theta (1 - \theta) \\&lt;br /&gt;
+&amp;amp;= \frac{1}{m^2} m \theta (1 - \theta) \\&lt;br /&gt;
+&amp;amp;= \frac{1}{m} \theta (1 - \theta) \tag{79}
+\end{align*}&lt;/p&gt;
+
+&lt;h4 id=&#34;trading-off-bias-and-variance-to-minimise-mean-squared-error&#34;&gt;Trading off Bias and Variance to Minimise Mean Squared Error&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Bias&lt;/strong&gt; measures the expected deviation from the true value of the function or parameter. &lt;strong&gt;Variance&lt;/strong&gt; on the other hand, provides a measure of the deviation from the expected estimator value that any particular sampling of the data is likely to cause.&lt;/p&gt;
+
+&lt;p&gt;The most common way to negotiate this trade-off is to use &lt;strong&gt;cross-validation&lt;/strong&gt;. Empirically, cross-validation is highly successful on many real-world tasks. Alternatively, we can also compare the &lt;a href=&#34;#orgb87a6b9&#34;&gt;mean squared error&lt;/a&gt; (MSE) of the estimates:&lt;/p&gt;
+
+&lt;p&gt;\begin{align*}
+\mathrm{MSE} &amp;amp;= \mathbb{E}[(\hat{\theta}_m - \theta)^2] \\&lt;br /&gt;
+&amp;amp;= \mathrm{Bias}(\hat{\theta}_m)^2 + \mathrm{Var}(\hat{\theta}_m) \tag{80}
+\end{align*}&lt;/p&gt;
+
+&lt;p&gt;The MSE measures the &lt;strong&gt;overall expected deviation&lt;/strong&gt; &amp;ndash;in a squared error sense &amp;ndash; between the estimator and the true value of the parameter \(\theta\). Desirable estimators are those with small MSE and these are estimators that manage to keep both their bias and variance somewhat in check.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://juicyiter.gitee.io/images/image-20190312135148020.png&#34; alt=&#34;Figure 15: Increasing capacity tends to increase variance and decrease bias.&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://juicyiter.gitee.io/images/image-20190312135148020.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 15: Increasing capacity tends to increase variance and decrease bias.&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;h4 id=&#34;consistency&#34;&gt;Consistency&lt;/h4&gt;
+
+&lt;p&gt;\[ \mathrm{plim}_{m \to \infty} \hat{\theta}_m = \theta \tag{81}\]&lt;/p&gt;
+
+&lt;p&gt;The symbol \(\mathrm{plim}\) indicates that convergence in probability, meaning that for any \(\epsilon &amp;gt; 0\), \(P(|\hat{\theta}_m - \theta| &amp;gt; \epsilon) \to 0\) as \(m \to \infty\). The condition described above is known as &lt;strong&gt;consistency&lt;/strong&gt;, which is sometimes referred to as weak consistency. While strong consistency refers to the &lt;strong&gt;almost sure&lt;/strong&gt; convergence of \(\hat{\theta}\) to \(\theta\). Almost sure convergence occurs when \(p(\lim_{m \to \infty} \mathbf{x}^{(m)} = \boldsymbol{x}) = 1\).&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Consider estimating consisting of \(m\) samples: \(\{ x^{(1)}, \dots, x^{(m)} \}\). &lt;em&gt;We could use the first sample \(x^{(1)}\) of the dataset as an unbiased estimator: \(\hat{\theta} = x^{(1)}\).&lt;/em&gt; In that case, \(\mathbb{E}(\hat{\theta}_m) = \theta\) so the estimator is unbiased no matter how many data points are seen. This, of course, implies that &lt;strong&gt;the estimate is asymptotically unbiased&lt;/strong&gt;. However, this is not a consistent estimator as it is &lt;em&gt;not&lt;/em&gt; the case that \(\hat{\theta}_m \to \theta\) as \(m \to \infty\).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;maximum-likelihood-estimation&#34;&gt;Maximum Likelihood Estimation&lt;/h3&gt;
+
+&lt;p&gt;Consider a set of \(m\) examples \(\mathbb{X} = \{ \boldsymbol{x}^{(1)}, \dots, \boldsymbol{x}^{(m)} \}\) drawn independently from the &lt;strong&gt;true but unknown&lt;/strong&gt; data generating distribution \(p_{\mathrm{data}} (\mathbf{x})\). Let \(p_{\mathrm{model}}(\mathbf{x}; \boldsymbol{\theta})\) be a parametric family of probability distributions over the same space indexed by \(\boldsymbol{\theta}\). In other words, \(p_{\mathrm{model}}(\mathbf{x}; \boldsymbol{\theta})\) maps any configuration \(\boldsymbol{x}\) to a real number estimating the true probability \(p_{\mathrm{data}}(\boldsymbol{x})\).&lt;/p&gt;
+
+&lt;p&gt;The maximum likelihood estimator for \(\boldsymbol{\theta}\) is then defined as&lt;/p&gt;
+
+&lt;p&gt;&lt;a id=&#34;orgd49e7ce&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;\begin{align*}
+\boldsymbol{\theta}_{\mathrm{ML}}
+&amp;amp;= \underset{\boldsymbol{\theta}}{\arg \max} p_{\mathrm{model}} (\mathbb{X}; \boldsymbol{\theta}) \\&lt;br /&gt;
+&amp;amp;= \underset{\boldsymbol{\theta}}{\arg \max} \displaystyle \prod_{i=1}^{m} p_{\mathrm{data}} (\boldsymbol{x}^{(i)}; \boldsymbol{\theta}) \\&lt;br /&gt;
+&amp;amp;= \underset{\boldsymbol{\theta}}{\arg \max} \sum_{i=1}^{m} \log p_{\mathrm{data}} (\boldsymbol{x}^{(i)}; \boldsymbol{\theta}) \\&lt;br /&gt;
+&amp;amp;= \underset{\boldsymbol{\theta}}{\arg \max} \mathbb{E}_{\mathbf{x} \sim \hat{p}_{\mathrm{data}}} \log p_{\mathrm{model}} (\boldsymbol{x}; \boldsymbol{\theta}). \tag{82}
+\end{align*}&lt;/p&gt;
+
+&lt;p&gt;One way to interpret maximum likelihood estimation is to view it as &lt;strong&gt;minimising the dissimilarity&lt;/strong&gt; between the empirical distribution \(\hat{p}_{\mathrm{data}}\) defined by the training set and the model distribution, &lt;strong&gt;with the degree of dissimilarity the degree of dissimilarity between the two measured by the KL divergence&lt;/strong&gt;. The KL divergence is given by&lt;/p&gt;
+
+&lt;p&gt;\[ D_{\mathrm{KL}} (\hat{p}_{\mathrm{data}} || p_{\mathrm{model}}) = \mathbb{E}_{\mathbf{x} \sim \hat{p}_{\mathrm{data}}} [\log \hat{p}_{\mathrm{data}} (\boldsymbol{x}) - \log p_{\mathrm{model}} (\boldsymbol{x})]. \tag{83} \]&lt;/p&gt;
+
+&lt;p&gt;The term on the left is a function only of the data generating process, not the model. This means when we train the model to minimise the KL divergence, we only need to minimise \(-\mathbb{E}_{\mathrm{x} \sim \hat{p}_{\mathrm{data}}} [\log p_{\mathrm{model}} (\boldsymbol{x})]\), which is of course the same as the maximisation in &lt;a href=&#34;#orgd49e7ce&#34;&gt;this&lt;/a&gt; equation.&lt;/p&gt;
+
+&lt;p&gt;Minimising this KL divergence corresponds exactly to minimising the &lt;strong&gt;cross-entropy&lt;/strong&gt; between the distributions.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Any loss consisting of a &lt;strong&gt;negative&lt;/strong&gt; log-likelihood is a cross-entropy between the empirical distribution defined by the training set and probability distribution defined by model.&lt;/p&gt;
+
+&lt;p&gt;For example, MSE is the cross-entropy between the empirical distribution and a Gaussian model.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;We can see maximum likelihood as an *attempt to make the model distribution match the empirical distribution \(\hat{p}_{\mathrm{data}}\) (we have no direct access to the true distribution \(p_{\mathrm{data}}\).&lt;/p&gt;
+
+&lt;p&gt;While the optimal \(\boldsymbol{\theta}\) is the same regardless of whether we are maximising the likelihood or minimising the KL divergence, &lt;strong&gt;the values of the object function are different&lt;/strong&gt;. In software, we often phrase both as &lt;strong&gt;minimising a cost function&lt;/strong&gt;. Maximum likelihood thus become minimisation of &lt;strong&gt;negative log-likelihood&lt;/strong&gt; (NLL), or equivalently, minimisation of the cross-entropy.&lt;/p&gt;
+
+&lt;h4 id=&#34;conditional-log-likelihood-and-mean-squared-error&#34;&gt;Conditional Log-Likelihood and Mean Squared Error&lt;/h4&gt;
+
+&lt;p&gt;The conditional maximum likelihood estimator is&lt;/p&gt;
+
+&lt;p&gt;\[ \boldsymbol{\theta}_{\mathrm{ML}} = \underset{\boldsymbol{\theta}}{\arg \max} P(\boldsymbol{Y} \; | \; \boldsymbol{X} ; \boldsymbol{\theta}).\tag{84} \]&lt;/p&gt;
+
+&lt;p&gt;If the examples are assumed to be i.i.d., then this can be decomposed into
+&lt;a id=&#34;orga376e9b&#34;&gt;&lt;/a&gt;
+\[ \boldsymbol{\theta}_{\mathrm{ML}} = \underset{\boldsymbol{\theta}}{\arg \max} \displaystyle \sum_{i=1}^{m} \log P(\boldsymbol{y}^{(i)} \; | \; \boldsymbol{x}^{(i)} ; \boldsymbol{\theta}). \tag{85}\]&lt;/p&gt;
+
+&lt;h4 id=&#34;example-linear-regression-as-maximum-likelihood&#34;&gt;Example: Linear Regression as Maximum Likelihood&lt;/h4&gt;
+
+&lt;p&gt;Instead of producing a single prediction \(\hat{y}\), we now think of the model as &lt;strong&gt;producing a conditional distribution&lt;/strong&gt; \(p(y \; | \; \boldsymbol{x})\). The goal of the learning algorithm is now to fit the distribution \(p(y \; | \; \boldsymbol{x})\) to all of those different \(y\) values that all compatible with \(\boldsymbol{x}\). We define \(p(y \; | \; \boldsymbol{x}) = \mathcal{N} (y:\hat{y}(\boldsymbol{x};\boldsymbol{w}), \sigma^2)\), where the function \(\hat{y}(\boldsymbol{x}; \boldsymbol{w})\) gives the prediction of the mean of the Gaussian. Since the examples are assumed to be i.i.d., the conditional &lt;a href=&#34;#orga376e9b&#34;&gt;log-likelihood&lt;/a&gt; is given by&lt;/p&gt;
+
+&lt;p&gt;\[\displaystyle \sum_{i=1}^{m} \log P(\boldsymbol{y}^{(i)} \; | \; \boldsymbol{x}^{(i)} ; \boldsymbol{\theta}) = -m \log \sigma - \frac{m}{2} \log(2 \pi) - \sum_{i=1}^{m} \frac{||\hat{y}^{(i)} - y^{(i)}||^2}{2 \sigma^2},\tag{86}\]&lt;/p&gt;
+
+&lt;p&gt;where \(\hat{y}^{(i)}\) is the output of the linear regression on the $i$-th input \(\boldsymbol{x}^{(i)}\) and \(m\) is the number of the training examples. Compare to &lt;a href=&#34;#orgb87a6b9&#34;&gt;MSE&lt;/a&gt; we can see that maximising the log-likelihood with respect to \(\boldsymbol{w}\) yields the same estimate of the parameters \(\boldsymbol{w}\) as does minimising the mean squared error. The two criteria have different values but the same locations of the optimum.&lt;/p&gt;
+
+&lt;h4 id=&#34;properties-of-maximum-likelihood&#34;&gt;&lt;span class=&#34;org-todo todo TODO&#34;&gt;TODO&lt;/span&gt; Properties of Maximum Likelihood&lt;/h4&gt;
+</description>
+      
+    </item>
+    
+  </channel>
+</rss>
