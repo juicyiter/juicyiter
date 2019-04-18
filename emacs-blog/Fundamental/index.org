@@ -1,8 +1,0 @@
-#+TITLE: Fundamental
-#+AUTHOR:   Ethan Mengoreo
-#+EMAIL:    mengoreo@163.com
-#+STARTUP:  indent
-#+LANGUAGE: en
-#+OPTIONS:  toc:t num:0
-#+SETUPFILE: https://juicyiter.gitee.io/assets/mengoreo.setup
-* [[./Computer_System.html][Computer System]]

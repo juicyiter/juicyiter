@@ -1,8 +1,0 @@
-#+TITLE:    Algorithms
-#+AUTHOR:   Ethan Mengoreo
-#+EMAIL:    mengoreo@163.com
-#+STARTUP:  indent
-#+LANGUAGE: en
-#+OPTIONS:  toc:t num:0
-#+SETUPFILE: https://juicyiter.gitee.io/assets/mengoreo.setup
-* [[./Elements_of_Programming_Interviews_in_Python.html][Elements of Programming Interviews in Python]]

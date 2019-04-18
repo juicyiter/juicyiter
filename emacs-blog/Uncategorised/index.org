@@ -1,8 +1,0 @@
-#+TITLE: Uncategorised
-#+AUTHOR:   Ethan Mengoreo
-#+EMAIL:    mengoreo@163.com
-#+STARTUP:  indent
-#+LANGUAGE: en
-#+OPTIONS:  toc:t num:0
-#+SETUPFILE: https://juicyiter.gitee.io/assets/mengoreo.setup
-* [[./Phonetic_Signs.html][Phonetic Signs]]

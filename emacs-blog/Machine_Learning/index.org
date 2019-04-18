@@ -1,9 +1,0 @@
-#+TITLE: Machine Learning
-#+AUTHOR:   Ethan Mengoreo
-#+EMAIL:    mengoreo@163.com
-#+STARTUP:  indent
-#+LANGUAGE: en
-#+OPTIONS:  toc:t num:0
-#+SETUPFILE: https://juicyiter.gitee.io/assets/mengoreo.setup
-* [[./Deep_Learning_Book.html][Deep Learning Book]]
-* [[./TensorFlow.html][TensorFlow]]
