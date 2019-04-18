@@ -61,11 +61,7 @@
 
 &lt;p&gt;For human beings, it&amp;rsquo;s obviously that those two image all contain &lt;strong&gt;X&lt;/strong&gt;. But from computers&amp;rsquo; perspective, pixels are all numbers. Let&amp;rsquo;s say \(1\) is white and \(-1\) is black. When comparing two images, if any pixel values don&amp;rsquo;t match, then the images don&amp;rsquo;t match, at least to the computer. Ideally, we would like to be able to distinguish &lt;strong&gt;X&lt;/strong&gt;&amp;rsquo;s and &lt;strong&gt;O&lt;/strong&gt;&amp;rsquo;s even if they&amp;rsquo;re shifted, shrunken, rotated or deformed, which brings the &lt;strong&gt;CNN&lt;/strong&gt; to us.&lt;/p&gt;
 
-&lt;h2 id=&#34;concepts-in-cnn&#34;&gt;Concepts in CNN&lt;/h2&gt;
-
-&lt;p&gt;Without these concepts, there is no way you can understand CNN well.&lt;/p&gt;
-
-&lt;h3 id=&#34;features&#34;&gt;Features&lt;/h3&gt;
+&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;CNNs compare images &amp;lsquo;piece by piece&amp;rsquo;&lt;/strong&gt;. The pieces it looks for are called &lt;strong&gt;features&lt;/strong&gt;.&lt;/p&gt;
 

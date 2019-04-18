@@ -78,7 +78,7 @@ An naïve approach is solving it to save an image of an X and an O and compare e
 
 <meta itemprop="datePublished" content="2019-04-18T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2019-04-19T00:27:13&#43;08:00" />
-<meta itemprop="wordCount" content="1800">
+<meta itemprop="wordCount" content="1785">
 
 
 
@@ -322,9 +322,8 @@ if (!doNotTrack) {
 <li>
 <ul>
 <li><a href="#x-s-and-o-s">X&rsquo;s and O&rsquo;s</a></li>
-<li><a href="#concepts-in-cnn">Concepts in CNN</a>
+<li><a href="#features">Features</a>
 <ul>
-<li><a href="#features">Features</a></li>
 <li><a href="#convolution">Convolution</a></li>
 <li><a href="#pooling">Pooling</a></li>
 <li><a href="#rectified-linear-units">Rectified Linear Units</a></li>
@@ -386,11 +385,7 @@ if (!doNotTrack) {
 
 <p>For human beings, it&rsquo;s obviously that those two image all contain <strong>X</strong>. But from computers&rsquo; perspective, pixels are all numbers. Let&rsquo;s say \(1\) is white and \(-1\) is black. When comparing two images, if any pixel values don&rsquo;t match, then the images don&rsquo;t match, at least to the computer. Ideally, we would like to be able to distinguish <strong>X</strong>&rsquo;s and <strong>O</strong>&rsquo;s even if they&rsquo;re shifted, shrunken, rotated or deformed, which brings the <strong>CNN</strong> to us.</p>
 
-<h2 id="concepts-in-cnn">Concepts in CNN</h2>
-
-<p>Without these concepts, there is no way you can understand CNN well.</p>
-
-<h3 id="features">Features</h3>
+<h2 id="features">Features</h2>
 
 <p><strong>CNNs compare images &lsquo;piece by piece&rsquo;</strong>. The pieces it looks for are called <strong>features</strong>.</p>
 
