@@ -2784,29 +2784,5 @@ Consider a set of examples \(\{x^{(1)}, \dots, x^{(m)} \}\) that are i.i.d accor
       
     </item>
     
-    <item>
-      <title>test</title>
-      <link>https://mengoreo.github.io/post/test/</link>
-      <pubDate>Wed, 17 Apr 2019 00:00:00 +0800</pubDate>
-      
-      <guid>https://mengoreo.github.io/post/test/</guid>
-      
-        <description>&lt;p&gt;test&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://mengoreo.github.io/test/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mengoreo.github.io/test/</guid>
-      
-        <description>&lt;p&gt;test&lt;/p&gt;
-</description>
-      
-    </item>
-    
   </channel>
 </rss>

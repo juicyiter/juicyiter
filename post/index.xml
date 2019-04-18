@@ -23,14 +23,5 @@
  Tensors: An array with more than two axes, denoted by this typeface: \(\boldsymbol{\mathsf{A}}\) (in latex: \boldsymbol{\mathsf{A}}).</description>
     </item>
     
-    <item>
-      <title>test</title>
-      <link>https://mengoreo.github.io/post/test/</link>
-      <pubDate>Wed, 17 Apr 2019 00:00:00 +0800</pubDate>
-      
-      <guid>https://mengoreo.github.io/post/test/</guid>
-      <description>test</description>
-    </item>
-    
   </channel>
 </rss>
