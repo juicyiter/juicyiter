@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Mengoreo</title>
-    <link>https://mengoreo.github.io/post/</link>
-    <description>Recent content in Posts on Mengoreo</description>
+    <title>Notes on Mengoreo</title>
+    <link>https://mengoreo.github.io/categories/notes/</link>
+    <description>Recent content in Notes on Mengoreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 18 Apr 2019 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="https://mengoreo.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://mengoreo.github.io/categories/notes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,18 +20,6 @@
       <description>X&amp;rsquo;s and O&amp;rsquo;s    Figure 1: Determining whether an image is an X or an O
    To better understand how CNN works. Consider an simple example. In this example, CNN has one job. Each time we hand it a picture, it has to decide whether it has an X or an O. It assumes there is always one or another.
 An naïve approach is solving it to save an image of an X and an O and compare every new image to the exemplars to see which is the better match.</description>
-    </item>
-    
-    <item>
-      <title>Notes of Deep Learning Book</title>
-      <link>https://mengoreo.github.io/post/deep_learning_book/</link>
-      <pubDate>Wed, 17 Apr 2019 00:00:00 +0800</pubDate>
-      
-      <guid>https://mengoreo.github.io/post/deep_learning_book/</guid>
-      <description>Linear Algebra Basic Types  Scalars: A scalar is just a single number, usually in lower-case variable names.
- Vectors: An array of numbers, with lower case names written in bold typeface. \[ \boldsymbol{x} = [ x_1, x_2, \cdots, x_n ]^\top . \]
- Matrices: A 2-D array of numbers, usually given in upper-case variable names with bold typeface, Such as \(\boldsymbol{M}\).
- Tensors: An array with more than two axes, denoted by this typeface: \(\boldsymbol{\mathsf{A}}\) (in latex: \boldsymbol{\mathsf{A}}).</description>
     </item>
     
   </channel>

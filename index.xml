@@ -5,10 +5,406 @@
     <description>Recent content on Mengoreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 17 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 18 Apr 2019 00:00:00 +0800</lastBuildDate>
     
         <atom:link href="https://mengoreo.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How does Convolutional Neural Network work?</title>
+      <link>https://mengoreo.github.io/post/cnn-in-org-subtree-export/</link>
+      <pubDate>Thu, 18 Apr 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/cnn-in-org-subtree-export/</guid>
+      
+        <description>
+
+&lt;h2 id=&#34;x-s-and-o-s&#34;&gt;X&amp;rsquo;s and O&amp;rsquo;s&lt;/h2&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://mengoreo.github.io/images/xos.png&#34; alt=&#34;Figure 1: Determining whether an image is an X or an O&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://mengoreo.github.io/images/xos.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 1: Determining whether an image is an X or an O&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;To better understand how CNN works. Consider an simple example. In this example, CNN has one job. Each time we hand it a picture, it has to decide whether it has an &lt;strong&gt;X&lt;/strong&gt; or an &lt;strong&gt;O&lt;/strong&gt;. It assumes there is always one or another.&lt;/p&gt;
+
+&lt;p&gt;An naïve approach is solving it to save an image of an &lt;strong&gt;X&lt;/strong&gt; and an &lt;strong&gt;O&lt;/strong&gt; and compare every new image to the exemplars to see which is the better match.&lt;/p&gt;
+
+&lt;p&gt;Consider the following example:&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://mengoreo.github.io/images/twisted-x.png&#34; alt=&#34;Figure 2: Normal X v.s. Twisted X&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://mengoreo.github.io/images/twisted-x.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 2: Normal X v.s. Twisted X&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;For human beings, it&amp;rsquo;s obviously that those two image all contain &lt;strong&gt;X&lt;/strong&gt;. But from computers&amp;rsquo; perspective, pixels are all numbers. Let&amp;rsquo;s say \(1\) is white and \(-1\) is black. When comparing two images, if any pixel values don&amp;rsquo;t match, then the images don&amp;rsquo;t match, at least to the computer. Ideally, we would like to be able to distinguish &lt;strong&gt;X&lt;/strong&gt;&amp;rsquo;s and &lt;strong&gt;O&lt;/strong&gt;&amp;rsquo;s even if they&amp;rsquo;re shifted, shrunken, rotated or deformed, which brings the &lt;strong&gt;CNN&lt;/strong&gt; to us.&lt;/p&gt;
+
+&lt;h2 id=&#34;concepts-in-cnn&#34;&gt;Concepts in CNN&lt;/h2&gt;
+
+&lt;p&gt;Without these concepts, there is no way you can understand CNN well.&lt;/p&gt;
+
+&lt;h3 id=&#34;features&#34;&gt;Features&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;CNNs compare images &amp;lsquo;piece by piece&amp;rsquo;&lt;/strong&gt;. The pieces it looks for are called &lt;strong&gt;features&lt;/strong&gt;.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://mengoreo.github.io/images/feature-compare.png&#34; alt=&#34;Figure 3: By finding rough feature matches in roughly the same positions in two images, CNNs get a lot better at seeing similarity than whole-image matching schemes.&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://mengoreo.github.io/images/feature-compare.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 3: By finding rough feature matches in roughly the same positions in two images, CNNs get a lot better at seeing similarity than whole-image matching schemes.&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Features match common aspects of the images. In the case of &lt;strong&gt;X&lt;/strong&gt; images, features consist of &lt;strong&gt;diagonal lines&lt;/strong&gt; and a &lt;strong&gt;crossing&lt;/strong&gt; capture all the important characteristics of most &lt;strong&gt;X&lt;/strong&gt;&amp;rsquo;s. These features will probably match up to the arms and center of any image of an &lt;strong&gt;X&lt;/strong&gt;.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://mengoreo.github.io/images/feature.png&#34; alt=&#34;Figure 4: Each feature&amp;#39;s like an mini-image (array of values).&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://mengoreo.github.io/images/feature.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 4: Each feature&amp;#39;s like an mini-image (array of values).&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;But where does those features come from? If the computer can&amp;rsquo;t &amp;lsquo;see&amp;rsquo; the image, how will it know where the features lies? See &lt;a href=&#34;#backpropagation&#34;&gt;Backpropagation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;convolution&#34;&gt;Convolution&lt;/h3&gt;
+
+&lt;p&gt;When presented a new image, the CNN doesn&amp;rsquo;t know exactly where these features will match so it tries them everywhere, in every possible position. In calculating the match to a feature across the whole image, we make it a &lt;strong&gt;filter&lt;/strong&gt;. The math used to do this is called &lt;strong&gt;convolution&lt;/strong&gt;, from which Convolutional Neural Networks take their name.&lt;/p&gt;
+
+&lt;p&gt;The math behind the convolution is pretty easy. To calculate the match of a feature to a patch of the image, simply &lt;strong&gt;multiply each pixel in the feature by the value of the corresponding pixel in the image&lt;/strong&gt;. Then add up the answers &lt;strong&gt;divided by the total number of pixels in the feature&lt;/strong&gt;. Every matching pixel results in a \(1\), and any mismatch will result in a \(-1\).&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://mengoreo.github.io/images/figure.png&#34; alt=&#34;Figure 5: Multiplying each pixel in the feature by the value of the corresponding pixel in the image.&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://mengoreo.github.io/images/figure.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 5: Multiplying each pixel in the feature by the value of the corresponding pixel in the image.&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;To complete the convolution, we repeat the process, lining up the feature withe every possible image patch.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://mengoreo.github.io/images/Xnip2019-04-18_16-38-14.png&#34; alt=&#34;Figure 6: New filterd &amp;#34;image&amp;#34; based on where in the image each patch is located.&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://mengoreo.github.io/images/Xnip2019-04-18_16-38-14.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 6: New filterd &amp;#34;image&amp;#34; based on where in the image each patch is located.&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;The above figure is a map of where in the image the feature is found. &lt;strong&gt;Values close to \(1\) show strong matches&lt;/strong&gt;, values &lt;strong&gt;close to \(-1\) show strong matches for the photographic negative of the feature&lt;/strong&gt;, and values &lt;strong&gt;near \(0\) show no match of any sort&lt;/strong&gt;.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://mengoreo.github.io/images/figure_20190418_212148_.png&#34; alt=&#34;Figure 7: Convolution layer&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://mengoreo.github.io/images/figure_20190418_212148_.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 7: Convolution layer&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;After stepping through all the features, we have a set of &lt;strong&gt;filtered images&lt;/strong&gt;, one for each of the filters. It&amp;rsquo;s convenient to think of this whole collections of convolution operations as a single processing step. In CNNs this is referred to as &lt;strong&gt;convolution layers&lt;/strong&gt;, hinting at the fact that &lt;strong&gt;it will soon have other layers added to it&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;pooling&#34;&gt;Pooling&lt;/h3&gt;
+
+&lt;p&gt;Pooling is a way to take large images and &lt;strong&gt;shrink theme down&lt;/strong&gt; while &lt;strong&gt;preserving the most important information in them&lt;/strong&gt;. The math behind pooling is second-grade level at most&amp;hellip;. It consists of &lt;strong&gt;stepping a small window&lt;/strong&gt; across an image and &lt;strong&gt;taking the maximum&lt;/strong&gt; value from the window at each step. In practice, a window \(2\) or \(3\) pixels on a side an steps of \(2\) pixels work well.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://mengoreo.github.io/images/figure_20190418_213014_.png&#34; alt=&#34;Figure 8: 2 x 2 window-sized pooling with a step size of 2&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://mengoreo.github.io/images/figure_20190418_213014_.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 8: 2 x 2 window-sized pooling with a step size of 2&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;After pooling, an images has about a quarter as many pixels as it started with, &lt;strong&gt;preserving the best fits of each feature within the window&lt;/strong&gt;. This means that it &lt;strong&gt;doesn&amp;rsquo;t care so much exactly where the features fit&lt;/strong&gt; as it fit somewhere within the window. The result of the this is that CNNs can &lt;strong&gt;find whether a feature is in an image without worrying about where it is&lt;/strong&gt;. This helps solve the problem of computers being &amp;lsquo;hyper-literal&amp;rsquo;.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://mengoreo.github.io/images/figure_20190418_213738_.png&#34; alt=&#34;Figure 9: Pooling layer&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://mengoreo.github.io/images/figure_20190418_213738_.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 9: Pooling layer&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;A pooling layer is just the operation performing pooling on an image or a collection of images. The output will have the same number of images, but they will each have fewer pixels. &lt;strong&gt;This is also helpful in managing the computational load&lt;/strong&gt;. Taking an \(8\) megapixel image down to a \(2\) megapixel image makes life a lot easier for everything downstream!&lt;/p&gt;
+
+&lt;h3 id=&#34;rectified-linear-units&#34;&gt;Rectified Linear Units&lt;/h3&gt;
+
+&lt;p&gt;A small but important player in this process is the Rectified Linear Unit or ReLU. Math behind this is also very simple &amp;ndash; wherever a negative number occurs, swap it out for a \(0\). This &lt;strong&gt;helps the CNN stay mathematically healthy&lt;/strong&gt; by keeping learned values &lt;strong&gt;from getting stuck near \(0\) or blowing up toward infinity&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;\[ f(x) = \max (0, x) \]&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://mengoreo.github.io/images/figure_20190418_224924_.png&#34; alt=&#34;Figure 10: Rectified Linear Unit&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://mengoreo.github.io/images/figure_20190418_224924_.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 10: Rectified Linear Unit&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;It’s the axle grease of CNNs—not particularly glamorous, but without it they don’t get very far.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://mengoreo.github.io/images/figure_20190418_225133_.png&#34; alt=&#34;Figure 11: ReLU layer&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://mengoreo.github.io/images/figure_20190418_225133_.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 11: ReLU layer&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;The output layer is the same size as whatever is put into it, just &lt;strong&gt;with all the negative values removed&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;deep-learning&#34;&gt;Deep Learning&lt;/h3&gt;
+
+&lt;p&gt;Raw images get filtered, rectified and pooled to create a set of shrunken, feature-filtered images. These can be filtered and shrunken again and again.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://mengoreo.github.io/images/figure_20190418_230115_.png&#34; alt=&#34;Figure 12: Deep learning (really Lego bricks of all kinds of layers)&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://mengoreo.github.io/images/figure_20190418_230115_.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 12: Deep learning (really Lego bricks of all kinds of layers)&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Each time, the features become larger and more complex, and the images become more compact. This lets &lt;strong&gt;lower layers represent simple aspects of the image, such as edges and bright spots&lt;/strong&gt;. &lt;strong&gt;Higher layers can represent increasingly sophisticated aspects of the image, such as shapes and patterns&lt;/strong&gt;. These tend to be readily recognisable.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://mengoreo.github.io/images/figure_20190418_230258_.png&#34; alt=&#34;Figure 13: For example, in a CNN trained on human faces, the highest layers represents patterns that are clearly face-like.&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://mengoreo.github.io/images/figure_20190418_230258_.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 13: For example, in a CNN trained on human faces, the highest layers represents patterns that are clearly face-like.&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;h3 id=&#34;fully-connected-layers&#34;&gt;Fully connected layers&lt;/h3&gt;
+
+&lt;p&gt;Fully connected layers take the high-level filtered images and translate them into votes. In our case, we only have to decide between two categories, &lt;strong&gt;X&lt;/strong&gt; and &lt;strong&gt;O&lt;/strong&gt;. Fully connected layers are the primary building block of traditional neural networks. Instead of treating inputs as a two-dimensional array, they are treated as a single list and all treated identically. Every value gets its own vote on whether the current image is an &lt;strong&gt;X&lt;/strong&gt; or and &lt;strong&gt;O&lt;/strong&gt;. However, the process isn’t entirely democratic. Some values are much better than others at knowing when the image is an &lt;strong&gt;X&lt;/strong&gt;, and some are particularly good at knowing when the image is an &lt;strong&gt;O&lt;/strong&gt;. These get larger votes than the others. &lt;strong&gt;These votes are expressed as weights, or connection strengths, between each value and each category&lt;/strong&gt;.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://mengoreo.github.io/images/figure_20190418_230959_.png&#34; alt=&#34;Figure 14: Fully connected layers&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://mengoreo.github.io/images/figure_20190418_230959_.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 14: Fully connected layers&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;So where these weights come from?? Still, check &lt;a href=&#34;#backpropagation&#34;&gt;Backpropagation&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;When a new image is presented to the CNN, it percolates through the lower layers until it reaches the fully connected layer at the end. Then an election is held. The answer with the most votes wins and is declared the category of the input.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://mengoreo.github.io/images/figure_20190418_232435_.png&#34; alt=&#34;Figure 15: Coming through&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://mengoreo.github.io/images/figure_20190418_232435_.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 15: Coming through&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;In practice, several fully connected layers are often stacked together, &lt;strong&gt;with each intermediate layer voting on phantom “hidden” categories&lt;/strong&gt;. In effect, each additional layer lets the network learn ever more sophisticated combinations of features that help it make better decisions.&lt;/p&gt;
+
+&lt;h3 id=&#34;backpropagation&#34;&gt;Backpropagation&lt;/h3&gt;
+
+&lt;p&gt;There still two questions unsolved:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Where do features come from?&lt;/li&gt;
+&lt;li&gt;How do we find the weights in our fully connected layers?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If these all had to be chosen by hand, CNNs would be a good deal less popular than they are. Luckily, a bit of machine learning magic called &lt;strong&gt;backpropagation&lt;/strong&gt; does this work for us.&lt;/p&gt;
+
+&lt;p&gt;To make use of backpropagation, &lt;strong&gt;we need a collection of images that we already know the answer for&lt;/strong&gt;. This means that some patient soul flipped through thousands of images and assigned them a label of &lt;strong&gt;X&lt;/strong&gt; or &lt;strong&gt;O&lt;/strong&gt;. We use these with an untrained CNN, which means that every pixel of every feature and every weight in every fully connected layer is &lt;strong&gt;set to a random value&lt;/strong&gt;. Then we start feeding images through it, one after other.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Each image the CNN processes results in a vote&lt;/strong&gt;. The amount of wrongness in the vote, &lt;strong&gt;the error&lt;/strong&gt;, &lt;strong&gt;tells us how good our features and weights are&lt;/strong&gt;. The features and weights can then be &lt;strong&gt;adjusted to make the error less&lt;/strong&gt;. Each value is adjusted a little higher and a little lower, and the new error computed each time.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://mengoreo.github.io/images/figure_20190419_001929_.png&#34; alt=&#34;Figure 16: Backpropagation&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://mengoreo.github.io/images/figure_20190419_001929_.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 16: Backpropagation&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Whichever adjustment makes the error less is kept. After doing this &lt;strong&gt;for every feature pixel in every convolutional layer and every weight in every fully connected layer&lt;/strong&gt;, the new weights give an answer that works slightly better for that image. This is then repeated with each subsequent image in the set of labeled images. Quirks that occur in a single image are quickly forgotten, but &lt;strong&gt;patterns that occur in lots of images get baked into the features&lt;/strong&gt; and &lt;strong&gt;connection weights&lt;/strong&gt;. If you have enough labeled images, these values stabilize to a set that works pretty well across a wide variety of cases.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Backpropagation is another expensive computing step and another motivator for specialised computing hardware.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;hyperparameters&#34;&gt;Hyperparameters&lt;/h3&gt;
+
+&lt;p&gt;There is a long list of decisions that a CNN &lt;strong&gt;designer must make&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;For each convolution layer, How many features? How many pixels in each feature?&lt;/li&gt;
+&lt;li&gt;For each pooling layer, What window size? What stride?&lt;/li&gt;
+&lt;li&gt;For each extra fully connected layer, How many hidden neurons?&lt;/li&gt;
+&lt;li&gt;How many of each layer to include? In what order?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That&amp;rsquo;s right. Those are the so-called hyperparameters.&lt;/p&gt;
+
+&lt;h3 id=&#34;beyond-images&#34;&gt;Beyond images&lt;/h3&gt;
+
+&lt;p&gt;CNNs can be used to categorize other types of data too. The trick is, whatever data type you start with, to transform it to make it look like an image. For instance, audio signals can be chopped into short time chunks, and then each chunk broken up into bass, midrange, treble, or finer frequency bands. This can be represented as a two-dimensional array where each column is a time chunk and each row is a frequency band. “Pixels” in this fake picture that are close together are closely related. CNNs work well on this.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://mengoreo.github.io/images/figure_20190419_002618_.png&#34; alt=&#34;Figure 17: Something more ..&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://mengoreo.github.io/images/figure_20190419_002618_.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 17: Something more ..&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;A rule of thumb: If your data is just as useful after swapping any of your columns with each other, then you can’t use Convolutional Neural Networks.&lt;/p&gt;
+
+&lt;p&gt;However if you can make your problem look like finding patterns in an image, then CNNs may be exactly what you need.&lt;/p&gt;
+</description>
+      
+    </item>
     
     <item>
       <title>Notes of Deep Learning Book</title>

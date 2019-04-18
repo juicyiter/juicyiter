@@ -6,9 +6,19 @@
     <description>Recent content in Categories on Mengoreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <lastBuildDate>Thu, 18 Apr 2019 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://mengoreo.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes</title>
+      <link>https://mengoreo.github.io/categories/notes/</link>
+      <pubDate>Thu, 18 Apr 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/categories/notes/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
