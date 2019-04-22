@@ -45,3 +45,10 @@ body {
     transform: scale(0.95);
     box-shadow: 0 0.15rem 0.3rem 0 rgba(0, 0, 0, 0.16), 0 0.15rem 0.3rem -0.04rem rgba(0, 0, 0, 0.23);
 }
+.post .post-content code {
+    background: none;
+}
+.post .post-content .chroma {
+    background-color: #f8f5ec08;
+
+}

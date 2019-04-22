@@ -6,10 +6,46 @@
     <description>Recent content in Posts on Mengoreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 18 Apr 2019 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 20 Apr 2019 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://mengoreo.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Long-Short Time Memory</title>
+      <link>https://mengoreo.github.io/post/rnn-lstm-in-org-subtree-export/</link>
+      <pubDate>Sat, 20 Apr 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/rnn-lstm-in-org-subtree-export/</guid>
+      <description>colah&amp;rsquo;s blog</description>
+    </item>
+    
+    <item>
+      <title>Recursive Bayesian Estimation</title>
+      <link>https://mengoreo.github.io/post/recursive-bayesian-esitimation-in-org-subtree-export/</link>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/recursive-bayesian-esitimation-in-org-subtree-export/</guid>
+      <description>&lt;p&gt;In the world of Bayesian Estimation, we model the world in such a way that &lt;strong&gt;all the changes in the environment take place at &lt;em&gt;discrete&lt;/em&gt;, &lt;em&gt;equidistant time steps&lt;/em&gt; \(t \in \mathbb{N}_0\)&lt;/strong&gt;, where &lt;strong&gt;sensor measurements arrive at every time step \(t \ge 1\)&lt;/strong&gt;. The discrete-time model can be seen as an approximation at the continuous case&amp;nbsp;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fn-1&#34;&gt;&lt;a href=&#34;#fn:fn-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Robot Localisation</title>
+      <link>https://mengoreo.github.io/post/robot-localisation-in-org-subtree-export/</link>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/robot-localisation-in-org-subtree-export/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Filtering&lt;/strong&gt; is a general way of estimating variables from noisy observations over time. Histogram Filter, Kalman Filter and Particle Filter are all variants of Bayesian Filter.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>The Histogram Filter</title>
+      <link>https://mengoreo.github.io/post/histogram-in-org-subtree-export/</link>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/histogram-in-org-subtree-export/</guid>
+      <description>&lt;p&gt;The &lt;strong&gt;Histogram Filter&lt;/strong&gt; is the most straightforward solution to represent &lt;strong&gt;continuous beliefs&lt;/strong&gt;. We simply divide \(\text{dom}(x_t)\) into \(n\) disjoint bins \(b_0, \dots, b_{n-1}\) such that \(\cup_i b_{i} = \text{dom}(x_t)\). Then we define a new state \(x_t^\prime \in \{\dots, n − 1\}\) where \(x_t^\prime = i\) if and only if \(x_t \in b_i\). Since \(x_t^\prime\) has a discrete, finite state space, we can use the discrete Bayes Filter to calculate \(\text{bel}(x^\prime_t)\).&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>How does Convolutional Neural Network work?</title>
@@ -17,21 +53,175 @@
       <pubDate>Thu, 18 Apr 2019 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/cnn-in-org-subtree-export/</guid>
-      <description>X&amp;rsquo;s and O&amp;rsquo;s    Figure 1: Determining whether an image is an X or an O
-   To better understand how CNN works. Consider an simple example. In this example, CNN has one job. Each time we hand it a picture, it has to decide whether it has an X or an O. It assumes there is always one or another.
-An naïve approach is solving it to save an image of an X and an O and compare every new image to the exemplars to see which is the better match.</description>
+      <description>&lt;h2 id=&#34;x-s-and-o-s&#34;&gt;X&amp;rsquo;s and O&amp;rsquo;s&lt;/h2&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://mengoreo.github.io/images/xos.png&#34; alt=&#34;Figure 1: Determining whether an image is an X or an O&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://mengoreo.github.io/images/xos.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 1: Determining whether an image is an X or an O&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;</description>
     </item>
     
     <item>
-      <title>Notes of Deep Learning Book</title>
-      <link>https://mengoreo.github.io/post/deep_learning_book/</link>
-      <pubDate>Wed, 17 Apr 2019 00:00:00 +0800</pubDate>
+      <title>Deep Learning Book</title>
+      <link>https://mengoreo.github.io/post/deep-learning-book-in-org-subtree-export/</link>
+      <pubDate>Tue, 19 Mar 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/deep_learning_book/</guid>
-      <description>Linear Algebra Basic Types  Scalars: A scalar is just a single number, usually in lower-case variable names.
- Vectors: An array of numbers, with lower case names written in bold typeface. \[ \boldsymbol{x} = [ x_1, x_2, \cdots, x_n ]^\top . \]
- Matrices: A 2-D array of numbers, usually given in upper-case variable names with bold typeface, Such as \(\boldsymbol{M}\).
- Tensors: An array with more than two axes, denoted by this typeface: \(\boldsymbol{\mathsf{A}}\) (in latex: \boldsymbol{\mathsf{A}}).</description>
+      <guid>https://mengoreo.github.io/post/deep-learning-book-in-org-subtree-export/</guid>
+      <description>&lt;h2 id=&#34;linear-algebra&#34;&gt;Linear Algebra&lt;/h2&gt;
+
+&lt;h3 id=&#34;basic-types&#34;&gt;Basic Types&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Scalars&lt;/em&gt;: A scalar is just a single number, usually in lower-case&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;variable names.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Elements of Programming Interviews in Python</title>
+      <link>https://mengoreo.github.io/post/epi-in-org-subtree-export/</link>
+      <pubDate>Fri, 22 Feb 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/epi-in-org-subtree-export/</guid>
+      <description>Be very comfortable with bitwise operators, particularly XOR.
+Understand how to use masks and create them in an machine independent way
+Know how fast ways to clear the lowermost set bit (and by extension, set the lowermost 0, get its index, etc.)
+Understand signedness and its implications to shifting
+Consider using a cache to accelerate operations by using it to brute-force small inputs
+Be aware that commutativity and associativity can be used to perform operations in parallel and reorder operations.</description>
+    </item>
+    
+    <item>
+      <title>Phonetic Signs</title>
+      <link>https://mengoreo.github.io/post/phonetic-signs-in-org-subtree-export/</link>
+      <pubDate>Fri, 05 Oct 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/phonetic-signs-in-org-subtree-export/</guid>
+      <description>Name Sign Phonetic name     Space bar  Space bar   Tilde ~ Tilde   Acute ` &amp;ldquo;Un-speakable&amp;rdquo;   Exclamation mark ! Exclamation mark   Inverted exclamation mark ¡ Inverted exclamation mark   At @ at sign   Number/Hash # Number/Hash sign   Dollar $ Dollar sign   Percent % Percent sign   Caret ^ Caret   Ampersand &amp;amp; Ampersand   Asterisk * Asterisk   Open/Left parenthesis (or brackets) ( Open parenthesis   Close/Right parenthesis (or brackets) ) Close parenthesis   Hyphen (shorter) - Hyphen   Dash (longer) – Dash   Underscore _ Underscore   Plus + Plus sign   Equal = Equal sign   Open/Left curly braces { Open curly   Close/Right curly braces } Close curly   Open/Left square braces [ Open square   Close/Right square braces ] Close curly   Vertical bar &amp;vert; Vertical bar   Backslash \ Backslash   Colon : Colon   Semi colon ; Semi colon   Quote or Double quote &amp;quot; Open/Close quote   Single quote(or Prime) &#39; single quote   Less than &amp;lt; Less than sign   Greater than &amp;gt; Greater than sign   Question mark ?</description>
+    </item>
+    
+    <item>
+      <title>My Voice</title>
+      <link>https://mengoreo.github.io/post/my-voice-in-org-subtree-export/</link>
+      <pubDate>Mon, 30 Jul 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/my-voice-in-org-subtree-export/</guid>
+      <description>Podcast The Philosopher&#39;s Stone Mimics 寂静，如同地狱般的……</description>
+    </item>
+    
+    <item>
+      <title>PAT Advanced 1001 A&#43;B Format In C</title>
+      <link>https://mengoreo.github.io/post/pata1001-in-org-subtree-export/</link>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/pata1001-in-org-subtree-export/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PAT Advanced 1002 A&#43;B for Polynomials In C</title>
+      <link>https://mengoreo.github.io/post/pata1002-in-org-subtree-export/</link>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/pata1002-in-org-subtree-export/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PAT Advanced 1003 Emergency In C</title>
+      <link>https://mengoreo.github.io/post/pata1003-in-org-subtree-export/</link>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/pata1003-in-org-subtree-export/</guid>
+      <description>&lt;p&gt;Shortest first, if same then number of people&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>PAT Advanced 1004 Counting Leaves In C</title>
+      <link>https://mengoreo.github.io/post/pata1004-in-org-subtree-export/</link>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/pata1004-in-org-subtree-export/</guid>
+      <description>&lt;p&gt;叶节点个数，我这里选择的广度搜索。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>PAT Advanced 1005 Spell It Right In C</title>
+      <link>https://mengoreo.github.io/post/pata1005-in-org-subtree-export/</link>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/pata1005-in-org-subtree-export/</guid>
+      <description>&lt;p&gt;类似格式化输出数字了&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>PAT Advanced 1006 Sign In and Sign Out In C</title>
+      <link>https://mengoreo.github.io/post/pata1006-in-org-subtree-export/</link>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/pata1006-in-org-subtree-export/</guid>
+      <description>&lt;p&gt;找出最早进去的和最晚出来的。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>PAT Advanced 1009 Product of Polynomials In C</title>
+      <link>https://mengoreo.github.io/post/pata1009-in-org-subtree-export/</link>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/pata1009-in-org-subtree-export/</guid>
+      <description>&lt;p&gt;两个多项式相加，你就把你在纸上演算的过程，转换成语言就好啦，
+我这里用指数配合hash，这样方便查找同次幂的项，然后相加。
+要注意的一点是，要想到有*负数*情况！，解决办法呢，各显神通。
+每个人肯定有每个人的习惯性写法。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>PAT Advanced 1014 Waiting in Line In C</title>
+      <link>https://mengoreo.github.io/post/pata1014-in-org-subtree-export/</link>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/pata1014-in-org-subtree-export/</guid>
+      <description>&lt;p&gt;其实就按照平常你排队的思路来解题就OK的，不过有几个坑，可能也不能叫做坑，对思维缜密的人来讲就应该不是坑，既然你看到了我的这篇，很有可能你的思维可能跟我一样还不够缜密。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>PAT Advanced 1015 Reversible Primes In C</title>
+      <link>https://mengoreo.github.io/post/pata1015-in-org-subtree-export/</link>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/pata1015-in-org-subtree-export/</guid>
+      <description>正反都是素数，思路很明显。 但是有坑：不要理解成前面的数字n就是在改进制下的数字，*前面的n是十进制下的数字*，将其转换成后面进制d的数字，然</description>
+    </item>
+    
+    <item>
+      <title>PAT Advanced 1022 Digital Library In C</title>
+      <link>https://mengoreo.github.io/post/pata1022-in-org-subtree-export/</link>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/pata1022-in-org-subtree-export/</guid>
+      <description>&lt;p&gt;注意点就是,仔细看题的要求,一个是ID**一个年份**,其他的的要求都比较一般.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>PAT Advanced 1028 List Sorting In C</title>
+      <link>https://mengoreo.github.io/post/pata1028-in-org-subtree-export/</link>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/pata1028-in-org-subtree-export/</guid>
+      <description>&lt;p&gt;结构体按列排序,我用了qsort的函数,主要就搞好三个comp函数就可以啦.这题还算简单辣,不知道为何通过率这么低.&lt;/p&gt;
+
+&lt;p&gt;代码如下：&lt;/p&gt;</description>
     </item>
     
   </channel>

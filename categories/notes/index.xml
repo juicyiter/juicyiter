@@ -6,10 +6,37 @@
     <description>Recent content in Notes on Mengoreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 18 Apr 2019 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 19 Apr 2019 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://mengoreo.github.io/categories/notes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Recursive Bayesian Estimation</title>
+      <link>https://mengoreo.github.io/post/recursive-bayesian-esitimation-in-org-subtree-export/</link>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/recursive-bayesian-esitimation-in-org-subtree-export/</guid>
+      <description>&lt;p&gt;In the world of Bayesian Estimation, we model the world in such a way that &lt;strong&gt;all the changes in the environment take place at &lt;em&gt;discrete&lt;/em&gt;, &lt;em&gt;equidistant time steps&lt;/em&gt; \(t \in \mathbb{N}_0\)&lt;/strong&gt;, where &lt;strong&gt;sensor measurements arrive at every time step \(t \ge 1\)&lt;/strong&gt;. The discrete-time model can be seen as an approximation at the continuous case&amp;nbsp;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fn-1&#34;&gt;&lt;a href=&#34;#fn:fn-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Robot Localisation</title>
+      <link>https://mengoreo.github.io/post/robot-localisation-in-org-subtree-export/</link>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/robot-localisation-in-org-subtree-export/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Filtering&lt;/strong&gt; is a general way of estimating variables from noisy observations over time. Histogram Filter, Kalman Filter and Particle Filter are all variants of Bayesian Filter.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>The Histogram Filter</title>
+      <link>https://mengoreo.github.io/post/histogram-in-org-subtree-export/</link>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/histogram-in-org-subtree-export/</guid>
+      <description>&lt;p&gt;The &lt;strong&gt;Histogram Filter&lt;/strong&gt; is the most straightforward solution to represent &lt;strong&gt;continuous beliefs&lt;/strong&gt;. We simply divide \(\text{dom}(x_t)\) into \(n\) disjoint bins \(b_0, \dots, b_{n-1}\) such that \(\cup_i b_{i} = \text{dom}(x_t)\). Then we define a new state \(x_t^\prime \in \{\dots, n − 1\}\) where \(x_t^\prime = i\) if and only if \(x_t \in b_i\). Since \(x_t^\prime\) has a discrete, finite state space, we can use the discrete Bayes Filter to calculate \(\text{bel}(x^\prime_t)\).&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>How does Convolutional Neural Network work?</title>
@@ -17,21 +44,39 @@
       <pubDate>Thu, 18 Apr 2019 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/cnn-in-org-subtree-export/</guid>
-      <description>X&amp;rsquo;s and O&amp;rsquo;s    Figure 1: Determining whether an image is an X or an O
-   To better understand how CNN works. Consider an simple example. In this example, CNN has one job. Each time we hand it a picture, it has to decide whether it has an X or an O. It assumes there is always one or another.
-An naïve approach is solving it to save an image of an X and an O and compare every new image to the exemplars to see which is the better match.</description>
+      <description>&lt;h2 id=&#34;x-s-and-o-s&#34;&gt;X&amp;rsquo;s and O&amp;rsquo;s&lt;/h2&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://mengoreo.github.io/images/xos.png&#34; alt=&#34;Figure 1: Determining whether an image is an X or an O&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;https://mengoreo.github.io/images/xos.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 1: Determining whether an image is an X or an O&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;</description>
     </item>
     
     <item>
-      <title>Notes of Deep Learning Book</title>
-      <link>https://mengoreo.github.io/post/deep_learning_book/</link>
-      <pubDate>Wed, 17 Apr 2019 00:00:00 +0800</pubDate>
+      <title>Deep Learning Book</title>
+      <link>https://mengoreo.github.io/post/deep-learning-book-in-org-subtree-export/</link>
+      <pubDate>Tue, 19 Mar 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/deep_learning_book/</guid>
-      <description>Linear Algebra Basic Types  Scalars: A scalar is just a single number, usually in lower-case variable names.
- Vectors: An array of numbers, with lower case names written in bold typeface. \[ \boldsymbol{x} = [ x_1, x_2, \cdots, x_n ]^\top . \]
- Matrices: A 2-D array of numbers, usually given in upper-case variable names with bold typeface, Such as \(\boldsymbol{M}\).
- Tensors: An array with more than two axes, denoted by this typeface: \(\boldsymbol{\mathsf{A}}\) (in latex: \boldsymbol{\mathsf{A}}).</description>
+      <guid>https://mengoreo.github.io/post/deep-learning-book-in-org-subtree-export/</guid>
+      <description>&lt;h2 id=&#34;linear-algebra&#34;&gt;Linear Algebra&lt;/h2&gt;
+
+&lt;h3 id=&#34;basic-types&#34;&gt;Basic Types&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Scalars&lt;/em&gt;: A scalar is just a single number, usually in lower-case&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;variable names.&lt;/p&gt;</description>
     </item>
     
   </channel>

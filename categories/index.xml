@@ -6,17 +6,44 @@
     <description>Recent content in Categories on Mengoreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 18 Apr 2019 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 19 Apr 2019 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://mengoreo.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Autonomous</title>
+      <link>https://mengoreo.github.io/categories/autonomous/</link>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/categories/autonomous/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Notes</title>
       <link>https://mengoreo.github.io/categories/notes/</link>
-      <pubDate>Thu, 18 Apr 2019 00:00:00 +0800</pubDate>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/categories/notes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>uncategorised</title>
+      <link>https://mengoreo.github.io/categories/uncategorised/</link>
+      <pubDate>Fri, 05 Oct 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/categories/uncategorised/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PAT</title>
+      <link>https://mengoreo.github.io/categories/pat/</link>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/categories/pat/</guid>
       <description></description>
     </item>
     

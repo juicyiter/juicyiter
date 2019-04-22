@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>uncategorised on Mengoreo</title>
+    <link>https://mengoreo.github.io/categories/uncategorised/</link>
+    <description>Recent content in uncategorised on Mengoreo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 05 Oct 2018 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://mengoreo.github.io/categories/uncategorised/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Phonetic Signs</title>
+      <link>https://mengoreo.github.io/post/phonetic-signs-in-org-subtree-export/</link>
+      <pubDate>Fri, 05 Oct 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/phonetic-signs-in-org-subtree-export/</guid>
+      <description>Name Sign Phonetic name     Space bar  Space bar   Tilde ~ Tilde   Acute ` &amp;ldquo;Un-speakable&amp;rdquo;   Exclamation mark ! Exclamation mark   Inverted exclamation mark ¡ Inverted exclamation mark   At @ at sign   Number/Hash # Number/Hash sign   Dollar $ Dollar sign   Percent % Percent sign   Caret ^ Caret   Ampersand &amp;amp; Ampersand   Asterisk * Asterisk   Open/Left parenthesis (or brackets) ( Open parenthesis   Close/Right parenthesis (or brackets) ) Close parenthesis   Hyphen (shorter) - Hyphen   Dash (longer) – Dash   Underscore _ Underscore   Plus + Plus sign   Equal = Equal sign   Open/Left curly braces { Open curly   Close/Right curly braces } Close curly   Open/Left square braces [ Open square   Close/Right square braces ] Close curly   Vertical bar &amp;vert; Vertical bar   Backslash \ Backslash   Colon : Colon   Semi colon ; Semi colon   Quote or Double quote &amp;quot; Open/Close quote   Single quote(or Prime) &#39; single quote   Less than &amp;lt; Less than sign   Greater than &amp;gt; Greater than sign   Question mark ?</description>
+    </item>
+    
+    <item>
+      <title>My Voice</title>
+      <link>https://mengoreo.github.io/post/my-voice-in-org-subtree-export/</link>
+      <pubDate>Mon, 30 Jul 2018 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/my-voice-in-org-subtree-export/</guid>
+      <description>Podcast The Philosopher&#39;s Stone Mimics 寂静，如同地狱般的……</description>
+    </item>
+    
+  </channel>
+</rss>
