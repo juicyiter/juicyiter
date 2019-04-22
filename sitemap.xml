@@ -16,19 +16,19 @@
   
   <url>
     <loc>https://mengoreo.github.io/</loc>
-    <lastmod>2019-04-22T22:32:31+08:00</lastmod>
+    <lastmod>2019-04-22T22:42:11+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mengoreo.github.io/post/</loc>
-    <lastmod>2019-04-22T22:32:31+08:00</lastmod>
+    <lastmod>2019-04-22T22:42:11+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mengoreo.github.io/tags/</loc>
-    <lastmod>2019-04-22T22:32:31+08:00</lastmod>
+    <lastmod>2019-04-22T22:42:11+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -40,7 +40,7 @@
   
   <url>
     <loc>https://mengoreo.github.io/categories/</loc>
-    <lastmod>2019-04-22T21:00:29+08:00</lastmod>
+    <lastmod>2019-04-22T22:42:11+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -112,20 +112,20 @@
   
   <url>
     <loc>https://mengoreo.github.io/post/phonetic-signs-in-org-subtree-export/</loc>
-    <lastmod>2019-04-22T20:57:04+08:00</lastmod>
+    <lastmod>2019-04-22T22:42:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://mengoreo.github.io/categories/uncategorised/</loc>
-    <lastmod>2019-04-22T21:00:29+08:00</lastmod>
+    <lastmod>2019-04-22T22:42:11+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mengoreo.github.io/tags/voice/</loc>
-    <lastmod>2019-04-22T21:00:29+08:00</lastmod>
+    <lastmod>2019-04-22T22:42:11+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -143,13 +143,13 @@
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/tags/pat/</loc>
+    <loc>https://mengoreo.github.io/categories/pat/</loc>
     <lastmod>2019-04-22T20:50:47+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/categories/pat/</loc>
+    <loc>https://mengoreo.github.io/tags/pat/</loc>
     <lastmod>2019-04-22T20:50:47+08:00</lastmod>
     <priority>0</priority>
   </url>
