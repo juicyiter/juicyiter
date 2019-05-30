@@ -9,7 +9,7 @@
     background: #ecedef url(https://themes.gohugo.io/theme/aether/img/ignasi_pattern_s.png) repeat;
 }*/
 body {
-        background: #ecedef url(/images/ignasi_pattern_s.png) repeat;
+        background: #ecedef url(/ignasi_pattern_s.png) repeat;
 }
 .bg-white {
     background-color: #ebebeb94;

@@ -6,10 +6,30 @@
     <description>Recent content in Posts on Mengoreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 20 Apr 2019 00:00:00 +0800</lastBuildDate>
+    <copyright>Mengoreo is not oreo</copyright>
+    <lastBuildDate>Thu, 30 May 2019 15:13:35 +0800</lastBuildDate>
     
 	<atom:link href="https://mengoreo.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Learning OpenCV</title>
+      <link>https://mengoreo.github.io/post/learning_opencv/</link>
+      <pubDate>Thu, 30 May 2019 15:13:35 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/learning_opencv/</guid>
+      <description>Mat - The Basic Image Container Mat is basically a class with two data parts: the matrix header (containing information such as the size of the matrix, the method used for storing, at which address is the matrix stored …) and a pointer to the matrix data containing the pixe values. The matrix header size is constant, but the size of the matrix itself may vary.
+OpenCV uses a reference counting system.</description>
+    </item>
+    
+    <item>
+      <title>机器学习-周志华 课后习题</title>
+      <link>https://mengoreo.github.io/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%91%A8%E5%BF%97%E5%8D%8E/</link>
+      <pubDate>Sat, 04 May 2019 14:37:36 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%91%A8%E5%BF%97%E5%8D%8E/</guid>
+      <description>写在前面，因为没有标准答案，机友如果有不同见解欢迎评论交流，我会及时回复。 绪论 1.1 更改后的数据集为： 编号 色泽 根蒂 敲声 好瓜 1 青绿 蜷缩 浊响 是 4 乌黑</description>
+    </item>
     
     <item>
       <title>Long-Short Time Memory</title>
@@ -112,6 +132,15 @@ Be aware that commutativity and associativity can be used to perform operations 
     </item>
     
     <item>
+      <title>    Git Related</title>
+      <link>https://mengoreo.github.io/post/git/</link>
+      <pubDate>Fri, 28 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/git/</guid>
+      <description>Basic Config 1 2 3 4 5 6 7 8 9 10 11  man git git help config git config --list git config [--global] core.editor &amp;#34;emacs&amp;#34; git config [--global] user.name &amp;#34;jit&amp;#34; git config [--global] user.mail &amp;#34;contactme@juicyiter.com&amp;#34;   Initialize a Git Repository 1 2 3 4 5  git help init cd to/your/project git init   Cloning an Existing Repository 1 2 3  git help clone git clone link.</description>
+    </item>
+    
+    <item>
       <title>My Voice</title>
       <link>https://mengoreo.github.io/post/my-voice-in-org-subtree-export/</link>
       <pubDate>Mon, 30 Jul 2018 00:00:00 +0800</pubDate>
@@ -193,35 +222,6 @@ Be aware that commutativity and associativity can be used to perform operations 
       
       <guid>https://mengoreo.github.io/post/pata1014-in-org-subtree-export/</guid>
       <description>&lt;p&gt;其实就按照平常你排队的思路来解题就OK的，不过有几个坑，可能也不能叫做坑，对思维缜密的人来讲就应该不是坑，既然你看到了我的这篇，很有可能你的思维可能跟我一样还不够缜密。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>PAT Advanced 1015 Reversible Primes In C</title>
-      <link>https://mengoreo.github.io/post/pata1015-in-org-subtree-export/</link>
-      <pubDate>Sun, 06 May 2018 00:00:00 +0800</pubDate>
-      
-      <guid>https://mengoreo.github.io/post/pata1015-in-org-subtree-export/</guid>
-      <description>正反都是素数，思路很明显。 但是有坑：不要理解成前面的数字n就是在改进制下的数字，*前面的n是十进制下的数字*，将其转换成后面进制d的数字，然</description>
-    </item>
-    
-    <item>
-      <title>PAT Advanced 1022 Digital Library In C</title>
-      <link>https://mengoreo.github.io/post/pata1022-in-org-subtree-export/</link>
-      <pubDate>Sun, 06 May 2018 00:00:00 +0800</pubDate>
-      
-      <guid>https://mengoreo.github.io/post/pata1022-in-org-subtree-export/</guid>
-      <description>&lt;p&gt;注意点就是,仔细看题的要求,一个是ID**一个年份**,其他的的要求都比较一般.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>PAT Advanced 1028 List Sorting In C</title>
-      <link>https://mengoreo.github.io/post/pata1028-in-org-subtree-export/</link>
-      <pubDate>Sun, 06 May 2018 00:00:00 +0800</pubDate>
-      
-      <guid>https://mengoreo.github.io/post/pata1028-in-org-subtree-export/</guid>
-      <description>&lt;p&gt;结构体按列排序,我用了qsort的函数,主要就搞好三个comp函数就可以啦.这题还算简单辣,不知道为何通过率这么低.&lt;/p&gt;
-
-&lt;p&gt;代码如下：&lt;/p&gt;</description>
     </item>
     
   </channel>
