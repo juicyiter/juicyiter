@@ -7,10 +7,10 @@
   
 
 <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<meta name="MobileOptimized" content="width"/>
-<meta name="HandheldFriendly" content="true"/>
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
 
 
 <meta name="applicable-device" content="pc,mobile">
@@ -23,9 +23,11 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Mengoreo" />
-  <meta name="description" content="Basic Config 1 2 3 4 5 6 7 8 9 10 11  man git git help config git config --list git config [--global] core.editor &amp;#34;emacs&amp;#34; git config [--global] user.name &amp;#34;jit&amp;#34; git config [--global] user.mail &amp;#34;contactme@juicyiter.com&amp;#34;   Initialize a Git Repository 1 2 3 4 5  git help init cd to/your/project git init   Cloning an Existing Repository 1 2 3  git help clone git clone link." />
+<meta name="description" content="Basic Config 1 2 3 4 5 6 7 8 9 10 11  man git git help config git config --list git config [--global] core.editor &amp;#34;emacs&amp;#34; git config [--global] user.name &amp;#34;jit&amp;#34; git config [--global] user.mail &amp;#34;contactme@juicyiter.com&amp;#34;   Initialize a Git Repository 1 2 3 4 5  git help init cd to/your/project git init   Cloning an Existing Repository 1 2 3  git help clone git clone link." />
 
-  <meta name="keywords" content="Hugo, theme, jane" />
+<meta name="keywords"
+  content="Hugo, theme, jane" />
+
 
 
 
@@ -51,7 +53,8 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.ec807d8b802a40889537c26e014f733206312ea440d42e1f0dabed80918de1ac.css" integrity="sha256-7IB9i4AqQIiVN8JuAU9zMgYxLqRA1C4fDavtgJGN4aw=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.ec807d8b802a40889537c26e014f733206312ea440d42e1f0dabed80918de1ac.css" integrity="sha256-7IB9i4AqQIiVN8JuAU9zMgYxLqRA1C4fDavtgJGN4aw=" media="screen"
+  crossorigin="anonymous">
 
 
 
@@ -101,7 +104,6 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
 
 
 </head>
@@ -1106,13 +1108,14 @@ git log --oneline --decorate --graph --all <span class="c1"># prints out the his
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a> & <a class="theme-link" href="https://github.com/josephhutch/aether">aether</a>
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a> & <a class="theme-link"
+      href="https://github.com/josephhutch/aether">aether</a>
   </span>
 
   <span class="copyright-year">
     &copy;
     
-      2018 -
+    2018 -
     2019
     <span class="heart">
       
@@ -1126,16 +1129,15 @@ git log --oneline --decorate --graph --all <span class="c1"># prints out the his
 
       </i>
     </span><span class="author">
-        Mengoreo is not oreo
-        
-      </span></span>
+      Mengoreo is not oreo
+      
+    </span></span>
 
   
   
 
   
 </div>
-
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -1157,7 +1159,7 @@ git log --oneline --decorate --graph --all <span class="c1"># prints out the his
 
 
 
-<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ="
+<script type="text/javascript" src="/js/main.bf001ebff4576465ae0e6d86319ad6ab1fbf9d5da965cca4d8ea1bcdfc8c425c.js" integrity="sha256-vwAev/RXZGWuDm2GMZrWqx&#43;/nV2pZcyk2OobzfyMQlw="
   crossorigin="anonymous"></script>
 
 <script type="text/javascript">
@@ -1165,15 +1167,25 @@ git log --oneline --decorate --graph --all <span class="c1"># prints out the his
     showProcessingMessages: false,
     tex2jax: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
-      processEscapes: true
+      displayMath: [['$$', '$$'], ['\[', '\]']],
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'sup'],
+      processEscapes: false
     },
     TeX: { equationNumbers: { autoNumber: "all" } },
-    messageStyle: 'none',
+    
     
     
     
   };
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ 
+    "HTML-CSS": { linebreaks: { automatic: true, width: "75% container" } }, 
+    "SVG": { linebreaks: { automatic: true, width: "75% container" } } 
+  });
+</script>
+
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 <script id="baidu_push">

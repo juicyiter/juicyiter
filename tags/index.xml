@@ -6,11 +6,20 @@
     <description>Recent content in Tags on Mengoreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>Mengoreo is not oreo</copyright>
-    <lastBuildDate>Thu, 30 May 2019 15:13:35 +0800</lastBuildDate>
+    <copyright>Mengoreo is not an oreo</copyright>
+    <lastBuildDate>Wed, 17 Jul 2019 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://mengoreo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SLAM</title>
+      <link>https://mengoreo.github.io/tags/slam/</link>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/tags/slam/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>cv</title>

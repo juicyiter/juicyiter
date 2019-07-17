@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VSLAM on Mengoreo</title>
+    <link>https://mengoreo.github.io/categories/vslam/</link>
+    <description>Recent content in VSLAM on Mengoreo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Mengoreo is not an oreo</copyright>
+    <lastBuildDate>Wed, 17 Jul 2019 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://mengoreo.github.io/categories/vslam/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>视觉 SLAM 十四讲 —— 第三章习题</title>
+      <link>https://mengoreo.github.io/post/vslam_ch3/</link>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/vslam_ch3/</guid>
+      <description>&lt;p&gt;个人拙见，如有错误，欢迎评论指出 🤗。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>视觉 SLAM 十四讲 —— 第四章习题</title>
+      <link>https://mengoreo.github.io/post/vslam_ch4/</link>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/vslam_ch4/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

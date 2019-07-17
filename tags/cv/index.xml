@@ -6,14 +6,14 @@
     <description>Recent content in cv on Mengoreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>Mengoreo is not oreo</copyright>
+    <copyright>Mengoreo is not an oreo</copyright>
     <lastBuildDate>Thu, 30 May 2019 15:13:35 +0800</lastBuildDate>
     
 	<atom:link href="https://mengoreo.github.io/tags/cv/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Learning OpenCV</title>
+      <title>Core Functionality of OpenCV4</title>
       <link>https://mengoreo.github.io/post/learning_opencv/</link>
       <pubDate>Thu, 30 May 2019 15:13:35 +0800</pubDate>
       

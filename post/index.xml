@@ -6,14 +6,41 @@
     <description>Recent content in Posts on Mengoreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>Mengoreo is not oreo</copyright>
-    <lastBuildDate>Thu, 30 May 2019 15:13:35 +0800</lastBuildDate>
+    <copyright>Mengoreo is not an oreo</copyright>
+    <lastBuildDate>Wed, 17 Jul 2019 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://mengoreo.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Learning OpenCV</title>
+      <title>视觉 SLAM 十四讲 —— 第三章习题</title>
+      <link>https://mengoreo.github.io/post/vslam_ch3/</link>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/vslam_ch3/</guid>
+      <description>&lt;p&gt;个人拙见，如有错误，欢迎评论指出 🤗。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>视觉 SLAM 十四讲 —— 第四章习题</title>
+      <link>https://mengoreo.github.io/post/vslam_ch4/</link>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/vslam_ch4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>视觉 SLAM 十四讲 —— 第一章习题</title>
+      <link>https://mengoreo.github.io/post/vslam_ch1/</link>
+      <pubDate>Tue, 16 Jul 2019 16:47:54 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/vslam_ch1/</guid>
+      <description>&lt;p&gt;个人拙见，如有错误，欢迎评论指出 🤗。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Core Functionality of OpenCV4</title>
       <link>https://mengoreo.github.io/post/learning_opencv/</link>
       <pubDate>Thu, 30 May 2019 15:13:35 +0800</pubDate>
       
@@ -132,15 +159,6 @@ Be aware that commutativity and associativity can be used to perform operations 
     </item>
     
     <item>
-      <title>    Git Related</title>
-      <link>https://mengoreo.github.io/post/git/</link>
-      <pubDate>Fri, 28 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://mengoreo.github.io/post/git/</guid>
-      <description>Basic Config 1 2 3 4 5 6 7 8 9 10 11  man git git help config git config --list git config [--global] core.editor &amp;#34;emacs&amp;#34; git config [--global] user.name &amp;#34;jit&amp;#34; git config [--global] user.mail &amp;#34;contactme@juicyiter.com&amp;#34;   Initialize a Git Repository 1 2 3 4 5  git help init cd to/your/project git init   Cloning an Existing Repository 1 2 3  git help clone git clone link.</description>
-    </item>
-    
-    <item>
       <title>My Voice</title>
       <link>https://mengoreo.github.io/post/my-voice-in-org-subtree-export/</link>
       <pubDate>Mon, 30 Jul 2018 00:00:00 +0800</pubDate>
@@ -201,27 +219,6 @@ Be aware that commutativity and associativity can be used to perform operations 
       
       <guid>https://mengoreo.github.io/post/pata1006-in-org-subtree-export/</guid>
       <description>&lt;p&gt;找出最早进去的和最晚出来的。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>PAT Advanced 1009 Product of Polynomials In C</title>
-      <link>https://mengoreo.github.io/post/pata1009-in-org-subtree-export/</link>
-      <pubDate>Sun, 06 May 2018 00:00:00 +0800</pubDate>
-      
-      <guid>https://mengoreo.github.io/post/pata1009-in-org-subtree-export/</guid>
-      <description>&lt;p&gt;两个多项式相加，你就把你在纸上演算的过程，转换成语言就好啦，
-我这里用指数配合hash，这样方便查找同次幂的项，然后相加。
-要注意的一点是，要想到有*负数*情况！，解决办法呢，各显神通。
-每个人肯定有每个人的习惯性写法。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>PAT Advanced 1014 Waiting in Line In C</title>
-      <link>https://mengoreo.github.io/post/pata1014-in-org-subtree-export/</link>
-      <pubDate>Sun, 06 May 2018 00:00:00 +0800</pubDate>
-      
-      <guid>https://mengoreo.github.io/post/pata1014-in-org-subtree-export/</guid>
-      <description>&lt;p&gt;其实就按照平常你排队的思路来解题就OK的，不过有几个坑，可能也不能叫做坑，对思维缜密的人来讲就应该不是坑，既然你看到了我的这篇，很有可能你的思维可能跟我一样还不够缜密。&lt;/p&gt;</description>
     </item>
     
   </channel>

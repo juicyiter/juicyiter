@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Learning OpenCV - Mengoreo</title>
+  <title>Core Functionality of OpenCV4 - Mengoreo</title>
   
 
 <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<meta name="MobileOptimized" content="width"/>
-<meta name="HandheldFriendly" content="true"/>
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
 
 
 <meta name="applicable-device" content="pc,mobile">
@@ -23,10 +23,12 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Mengoreo" />
-  <meta name="description" content="Mat - The Basic Image Container Mat is basically a class with two data parts: the matrix header (containing information such as the size of the matrix, the method used for storing, at which address is the matrix stored …) and a pointer to the matrix data containing the pixe values. The matrix header size is constant, but the size of the matrix itself may vary.
+<meta name="description" content="Mat - The Basic Image Container Mat is basically a class with two data parts: the matrix header (containing information such as the size of the matrix, the method used for storing, at which address is the matrix stored …) and a pointer to the matrix data containing the pixe values. The matrix header size is constant, but the size of the matrix itself may vary.
 OpenCV uses a reference counting system." />
 
-  <meta name="keywords" content="Hugo, theme, jane" />
+<meta name="keywords"
+  content="Hugo, theme, jane" />
+
 
 
 
@@ -52,7 +54,8 @@ OpenCV uses a reference counting system." />
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.ec807d8b802a40889537c26e014f733206312ea440d42e1f0dabed80918de1ac.css" integrity="sha256-7IB9i4AqQIiVN8JuAU9zMgYxLqRA1C4fDavtgJGN4aw=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.ec807d8b802a40889537c26e014f733206312ea440d42e1f0dabed80918de1ac.css" integrity="sha256-7IB9i4AqQIiVN8JuAU9zMgYxLqRA1C4fDavtgJGN4aw=" media="screen"
+  crossorigin="anonymous">
 
 
 
@@ -60,7 +63,7 @@ OpenCV uses a reference counting system." />
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:title" content="Learning OpenCV" />
+<meta property="og:title" content="Core Functionality of OpenCV4" />
 <meta property="og:description" content="Mat - The Basic Image Container Mat is basically a class with two data parts: the matrix header (containing information such as the size of the matrix, the method used for storing, at which address is the matrix stored …) and a pointer to the matrix data containing the pixe values. The matrix header size is constant, but the size of the matrix itself may vary.
 OpenCV uses a reference counting system." />
 <meta property="og:type" content="article" />
@@ -68,20 +71,20 @@ OpenCV uses a reference counting system." />
 <meta property="article:published_time" content="2019-05-30T15:13:35&#43;08:00"/>
 <meta property="article:modified_time" content="2019-05-30T15:13:35&#43;08:00"/>
 
-<meta itemprop="name" content="Learning OpenCV">
+<meta itemprop="name" content="Core Functionality of OpenCV4">
 <meta itemprop="description" content="Mat - The Basic Image Container Mat is basically a class with two data parts: the matrix header (containing information such as the size of the matrix, the method used for storing, at which address is the matrix stored …) and a pointer to the matrix data containing the pixe values. The matrix header size is constant, but the size of the matrix itself may vary.
 OpenCV uses a reference counting system.">
 
 
 <meta itemprop="datePublished" content="2019-05-30T15:13:35&#43;08:00" />
 <meta itemprop="dateModified" content="2019-05-30T15:13:35&#43;08:00" />
-<meta itemprop="wordCount" content="249">
+<meta itemprop="wordCount" content="668">
 
 
 
 <meta itemprop="keywords" content="cv," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Learning OpenCV"/>
+<meta name="twitter:title" content="Core Functionality of OpenCV4"/>
 <meta name="twitter:description" content="Mat - The Basic Image Container Mat is basically a class with two data parts: the matrix header (containing information such as the size of the matrix, the method used for storing, at which address is the matrix stored …) and a pointer to the matrix data containing the pixe values. The matrix header size is constant, but the size of the matrix itself may vary.
 OpenCV uses a reference counting system."/>
 
@@ -105,7 +108,6 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
 
 
 </head>
@@ -219,10 +221,17 @@ if (!doNotTrack) {
   
 
   <header id="header" class="header container">
-    <div class="logo-wrapper">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css"
+  integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js"
+  integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"></script>
+<div class="logo-wrapper">
   <a href="/" class="logo">
     
-      Mengoreo
+    Mengoreo
     
   </a>
 </div>
@@ -231,54 +240,57 @@ if (!doNotTrack) {
   <ul id="menu" class="menu">
     
     
-        <li class="menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://mengoreo.github.io/">Home</a>
-          
+    <li
+      class="menu-item">
+      
+      
+      
+      <a class="menu-item-link" href="https://mengoreo.github.io/">Home</a>
+      
 
-        
+      
 
-      </li>
+    </li>
     
-        <li class="menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://mengoreo.github.io/post/">Archives</a>
-          
+    <li
+      class="menu-item">
+      
+      
+      
+      <a class="menu-item-link" href="https://mengoreo.github.io/post/">Archives</a>
+      
 
-        
+      
 
-      </li>
+    </li>
     
-        <li class="menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://mengoreo.github.io/tags/">Tags</a>
-          
+    <li
+      class="menu-item">
+      
+      
+      
+      <a class="menu-item-link" href="https://mengoreo.github.io/tags/">Tags</a>
+      
 
-        
+      
 
-      </li>
+    </li>
     
-        <li class="menu-item">
-        
-          
-          
-            <a class="menu-item-link" href="https://mengoreo.github.io/categories/">Categories</a>
-          
+    <li
+      class="menu-item">
+      
+      
+      
+      <a class="menu-item-link" href="https://mengoreo.github.io/categories/">Categories</a>
+      
 
-        
+      
 
-      </li>
+    </li>
     
     
   </ul>
 </nav>
-
   </header>
 
   <div id="mobile-panel">
@@ -288,14 +300,14 @@ if (!doNotTrack) {
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">Learning OpenCV</h1>
+      <h1 class="post-title">Core Functionality of OpenCV4</h1>
       
       <div class="post-meta">
         <time datetime="2019-05-30" class="post-time">
           2019-05-30
         </time>
         <div class="post-category">
-            <a href="https://mengoreo.github.io/categories/notes/"> Notes </a>
+            <a href="https://mengoreo.github.io/categories/opencv/"> OpenCV </a>
             
           </div>
         
@@ -310,19 +322,6 @@ if (!doNotTrack) {
 
     
     
-<div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Table of Contents</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#mat-the-basic-image-container">Mat - The Basic Image Container</a></li>
-</ul></li>
-</ul>
-</nav>
-  </div>
-</div>
 
     
     <div class="post-content">
@@ -372,6 +371,158 @@ if (!doNotTrack) {
 </div>
 <p>The first two numbers in <code>Rect</code>  specify the coordinates of the top-left vertex, and the last two the bottom-right vertex. (<strong>To be verified</strong>)</p>
 
+<p>In order to also copy the matrix data, OpenCV provides the <code>cv::Mat::clone()</code> and <code>cv::mat::copyTo()</code> functions.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Mat</span> <span class="n">F</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span>
+<span class="n">Mat</span> <span class="n">G</span><span class="p">;</span>
+<span class="n">A</span><span class="p">.</span><span class="n">copyTo</span><span class="p">(</span><span class="n">G</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="storing-methods-color-spaces">Storing Methods (color spaces)</h3>
+
+<p>The color space refers to how we combine color components in order to code a given color.</p>
+
+<blockquote>
+<ul>
+<li><strong>Grey scale</strong>: the simplest one where colors are black and white.</li>
+<li><strong>RGB</strong>: the most common one, whose base colors are <strong>R</strong>ed, <strong>G</strong>reen and <strong>B</strong>lue. To code the transparency of a color sometimes a fourth element: <strong>A</strong>lpha is added. But OpenCV standard display system composes colors using the <strong>BGR</strong> color space.</li>
+<li>The <strong>HSV</strong> and <strong>HLS</strong> decompose colors into their hue, saturation and value/luminance components, which is a more natural way for us to describe colors.</li>
+<li>YCrCb is used by the popular JPEG image format.</li>
+<li>CIE L*a<em>b</em> is a perceptually uniform color space, which comes handy if you need to measure the <em>distance</em> of a given color to another color.</li>
+</ul>
+</blockquote>
+
+<h3 id="create-a-mat-object-explicitly">Create A Mat Object Explicitly</h3>
+
+<ul>
+<li><code>cv::Mat::Mat</code> Constructor</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// Create a 2 by 2 with multi-channel image
+</span><span class="c1"></span><span class="n">Mat</span> <span class="nf">M</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">CV_8UC3</span><span class="p">,</span> <span class="n">Scalar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">));</span>
+
+<span class="c1">// Creat a matrix with one more than two dimensions
+</span><span class="c1"></span><span class="kt">int</span> <span class="n">sz</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">};</span>
+<span class="n">Mat</span> <span class="n">L</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">sz</span><span class="p">,</span> <span class="n">CV8UC</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">Scalar</span><span class="o">::</span><span class="n">all</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="c1">// Not printable??
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-pseudocode" data-lang="pseudocode"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-pseudocode" data-lang="pseudocode">Mat M(row_count, column_count, CV_[bits per item][Signed or Unsigned][Type Prefix]C[channel number], custom_value)</code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>Use <code>Scalar</code></strong>!</p>
+
+<ul>
+<li><code>cv::Mat::create</code> function:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Mat</span> <span class="n">C</span><span class="p">;</span>
+<span class="n">C</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">CV_8UC</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>One of the key <code>Mat</code> methods. <strong>Most of the OpenCV function calls <code>Mat::create()</code> for the output array internally</strong>.</p>
+
+<p>The method uses the following algorithm:</p>
+
+<ol>
+<li>If the current array shape and the type match the new ones, return immediately.  Otherwise, de-reference the previous data by calling <code>Mat::release</code>.</li>
+<li>Initialize the new header.</li>
+<li>Allocate the new data of <code>total()*elemSize()</code> bytes.</li>
+<li>Allocate the new, associated with the data, reference couter and set it to 1</li>
+</ol>
+
+<ul>
+<li>MATLAB style initialiser</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Mat</span> <span class="n">E</span> <span class="o">=</span> <span class="n">Mat</span><span class="o">::</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">CV_64F</span><span class="p">);</span> <span class="c1">// channel = 1
+</span><span class="c1"></span><span class="n">Mat</span> <span class="n">O</span> <span class="o">=</span> <span class="n">Mat</span><span class="o">::</span><span class="n">ones</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">CV_32F</span><span class="p">);</span>
+<span class="n">Mat</span> <span class="n">Z</span> <span class="o">=</span> <span class="n">Mat</span><span class="o">::</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">CV_8UC1</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>Comma separated initialisers or initialiser list</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp">  <span class="n">Mat</span> <span class="n">C</span> <span class="o">=</span> <span class="p">(</span><span class="n">Mat_</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="c1">// The following requires C++ 11 support
+</span><span class="c1"></span>  <span class="n">C</span> <span class="o">=</span> <span class="p">(</span><span class="n">Mat_</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">({</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">})).</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>  <span class="c1">// reshape to 3 columns
+</span></code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li><code>cv::Mat::clone</code> or <code>cv:Mat::copyTo</code></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp">  <span class="n">Mat</span> <span class="n">RowClone</span> <span class="o">=</span> <span class="n">C</span><span class="p">.</span><span class="n">row</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">clone</span><span class="p">();</span>
+  <span class="n">C</span><span class="p">.</span><span class="n">row</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">copyTo</span><span class="p">(</span><span class="n">A</span><span class="p">.</span><span class="n">row</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="output-formatting">Output Formatting</h3>
+
+<p>Formatter type: <code>FMT_PYTHON</code>, <code>FMT_CSV</code>, &lsquo;FMT_NUMPY&rsquo; and <code>FMT_C</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Mat</span> <span class="n">R</span> <span class="o">=</span> <span class="n">Mat</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">CV_8UC3</span><span class="p">);</span>
+<span class="c1">// 				lower 			and 	higher boundaries
+</span><span class="c1"></span><span class="n">randu</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">Scalar</span><span class="o">::</span><span class="n">all</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">Scalar</span><span class="o">::</span><span class="n">all</span><span class="p">(</span><span class="mi">255</span><span class="p">));</span>
+
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">format</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">Formatter</span><span class="o">::</span><span class="n">FMT_C</span><span class="p">)</span> <span class="o">&lt;&lt;</span><span class="n">endl</span>
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     
@@ -405,6 +556,19 @@ if (!doNotTrack) {
       
       <nav class="post-nav">
         
+          <a class="prev" href="/post/vslam_ch1/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">视觉 SLAM 十四讲 —— 第一章习题</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
         
           <a class="next" href="/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%91%A8%E5%BF%97%E5%8D%8E/">
             <span class="next-text nav-default">机器学习-周志华 课后习题</span>
@@ -507,13 +671,14 @@ if (!doNotTrack) {
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a> & <a class="theme-link" href="https://github.com/josephhutch/aether">aether</a>
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a> & <a class="theme-link"
+      href="https://github.com/josephhutch/aether">aether</a>
   </span>
 
   <span class="copyright-year">
     &copy;
     
-      2018 -
+    2018 -
     2019
     <span class="heart">
       
@@ -527,16 +692,15 @@ if (!doNotTrack) {
 
       </i>
     </span><span class="author">
-        Mengoreo is not oreo
-        
-      </span></span>
+      Mengoreo is not an oreo
+      
+    </span></span>
 
   
   
 
   
 </div>
-
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -558,7 +722,7 @@ if (!doNotTrack) {
 
 
 
-<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ="
+<script type="text/javascript" src="/js/main.bf001ebff4576465ae0e6d86319ad6ab1fbf9d5da965cca4d8ea1bcdfc8c425c.js" integrity="sha256-vwAev/RXZGWuDm2GMZrWqx&#43;/nV2pZcyk2OobzfyMQlw="
   crossorigin="anonymous"></script>
 
 <script type="text/javascript">
@@ -566,15 +730,26 @@ if (!doNotTrack) {
     showProcessingMessages: false,
     tex2jax: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
-      processEscapes: true
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'sup'],
+      processEscapes: true,
+      processEnvironments: true
     },
     TeX: { equationNumbers: { autoNumber: "all" } },
-    messageStyle: 'none',
+    
     
     
     
   };
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ 
+    "HTML-CSS": { linebreaks: { automatic: true, width: "75% container" } }, 
+    "SVG": { linebreaks: { automatic: true, width: "75% container" } } 
+  });
+</script>
+
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 <script id="baidu_push">

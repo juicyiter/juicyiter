@@ -6,21 +6,11 @@
     <description>Recent content in Notes on Mengoreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>Mengoreo is not oreo</copyright>
-    <lastBuildDate>Thu, 30 May 2019 15:13:35 +0800</lastBuildDate>
+    <copyright>Mengoreo is not an oreo</copyright>
+    <lastBuildDate>Sat, 04 May 2019 14:37:36 +0800</lastBuildDate>
     
 	<atom:link href="https://mengoreo.github.io/categories/notes/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Learning OpenCV</title>
-      <link>https://mengoreo.github.io/post/learning_opencv/</link>
-      <pubDate>Thu, 30 May 2019 15:13:35 +0800</pubDate>
-      
-      <guid>https://mengoreo.github.io/post/learning_opencv/</guid>
-      <description>Mat - The Basic Image Container Mat is basically a class with two data parts: the matrix header (containing information such as the size of the matrix, the method used for storing, at which address is the matrix stored …) and a pointer to the matrix data containing the pixe values. The matrix header size is constant, but the size of the matrix itself may vary.
-OpenCV uses a reference counting system.</description>
-    </item>
     
     <item>
       <title>机器学习-周志华 课后习题</title>
