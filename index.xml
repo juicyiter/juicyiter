@@ -406,7 +406,469 @@ q_0 = \frac{\sqrt{\text{tr}(\boldsymbol{R}) + 1}}{2}, q_1 = \frac{r_{23} - r_{32
       
       <guid>https://mengoreo.github.io/post/vslam_ch4/</guid>
       
-        <description></description>
+        <description>&lt;p&gt;个人拙见，如有错误，欢迎评论指出 🤗。
+fjds&lt;/p&gt;
+
+&lt;h2 id=&#34;验证--so3----se3---和--sim3---关于乘法成群&#34;&gt;验证 \(SO(3)\), \(SE(3)\) 和 \(Sim(3)\) 关于乘法成群。&lt;/h2&gt;
+
+&lt;p&gt;\begin{equation}
+\begin{aligned}
+SO(3) &amp;amp;=\left\{
+\boldsymbol{R} \in \mathbb{R}^{3 \times 3} \; | \; \boldsymbol{R} \boldsymbol{R}^{\top}=\boldsymbol{I}, \operatorname{det}(\boldsymbol{R})=1
+\right\} \\&lt;br /&gt;
+SE(3) &amp;amp;=\left\{
+\boldsymbol{T}=
+\left[\begin{array}{cc}
+{\boldsymbol{R}} &amp;amp; {\boldsymbol{t}} \\&lt;br /&gt;
+{\mathbf{0}^{\top}} &amp;amp; {1}
+\end{array}\right] \; | \; \boldsymbol{T} \in \mathbb{R}^{4 \times 4}, \boldsymbol{R} \in S O(3), \boldsymbol{t} \in \mathbb{R}^{3}
+\right\} \\&lt;br /&gt;
+Sim(3) &amp;amp;=\left\{
+\boldsymbol{S}=\left[\begin{array}{cc}{s \boldsymbol{R}} &amp;amp; {\boldsymbol{t}} \\&lt;br /&gt;
+ {\mathbf{0}^{\top}} &amp;amp; {1}\end{array}\right] \; | \; \boldsymbol{S} \in \mathbb{R}^{4 \times 4}, \boldsymbol{R} \in S O(3), \boldsymbol{t} \in \mathbb{R}^{3}, s \in \mathbb{R}
+\right\}
+\end{aligned}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;证明：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;\(SO(3)\)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;\begin{equation}
+\boldsymbol{R}_1 \boldsymbol{R}_2 \in \mathbb{R}^{3 \times 3} \\&lt;br /&gt;
+\boldsymbol{R}_1 \boldsymbol{R}_2 \boldsymbol{R}_2^\top \boldsymbol{R}_1^\top = \boldsymbol{I} \boldsymbol{I} \\&lt;br /&gt;
+\det(\boldsymbol{R}_1 \boldsymbol{R}_2) = \det(\boldsymbol{R}_1) \det(\boldsymbol{R}_2) = 1
+\end{equation}&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;\(SE(3)\)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;\begin{equation}
+        \boldsymbol{T}_1 \boldsymbol{T}_2 =
+        \begin{bmatrix}
+                \boldsymbol{R}_1 &amp;amp; \boldsymbol{t}_1 \\&lt;br /&gt;
+                \boldsymbol{0}^\top &amp;amp; 1
+        \end{bmatrix}
+        \begin{bmatrix}
+                \boldsymbol{R}_2 &amp;amp; \boldsymbol{t}_2 \\&lt;br /&gt;
+                \boldsymbol{0}^\top &amp;amp; 1
+        \end{bmatrix} =
+        \begin{bmatrix}
+                \boldsymbol{R}_1 \boldsymbol{R}_2 &amp;amp; \boldsymbol{R}_1 \boldsymbol{t}_2 + \boldsymbol{t}_1 \\&lt;br /&gt;
+                \boldsymbol{0}^\top &amp;amp; 1
+        \end{bmatrix} \in \mathbb{R}^{4 \times 4} \\&lt;br /&gt;
+        \boldsymbol{R}_1 \boldsymbol{R}_2 \in \mathbb{R}^{3 \times 3} \\&lt;br /&gt;
+        \boldsymbol{R}_1 \boldsymbol{t}_2 + \boldsymbol{t}_1 \in \mathbb{R}^3
+\end{equation}&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;\(Sim(3)\)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;\begin{equation}
+\boldsymbol{S}_1 \boldsymbol{S}_2 =
+\begin{bmatrix}
+    s_1 s_2 \boldsymbol{R}_1 \boldsymbol{R}_2 &amp;amp; s_1 \boldsymbol{R}_1 \boldsymbol{t}_2 + \boldsymbol{t}_1 \\&lt;br /&gt;
+    \boldsymbol{0}^\top &amp;amp; 1
+\end{bmatrix} \in \mathbb{R}^{4 \times 4} \\&lt;br /&gt;
+s_1 s_2 \boldsymbol{R}_1 \boldsymbol{R}_2 \in \mathbb{R}^{3 \times 3} \\&lt;br /&gt;
+s_1 \boldsymbol{R}_1 \boldsymbol{t}_2 + \boldsymbol{t}_1 \in \mathbb{R}^3
+\end{equation}&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;验证---mathbb-r-3-mathbb-r-times---构成李代数&#34;&gt;验证 \((\mathbb{R}^3, \mathbb{R}, \times)\) 构成李代数&lt;/h2&gt;
+
+&lt;p&gt;要证明 \((\mathbb{V}^3, \mathbb{F}, \times)\) 李代数，只需证明满足李代数的四条性质即可，即： &lt;strong&gt;封闭性&lt;/strong&gt; 、 &lt;strong&gt;双线性&lt;/strong&gt; 、 &lt;strong&gt;自反性&lt;/strong&gt; 和 &lt;strong&gt;雅可比等价性&lt;/strong&gt; 。&lt;/p&gt;
+
+&lt;p&gt;证明：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;封闭性： \(\forall \boldsymbol{X}, \boldsymbol{Y} \in \mathbb{V}\) ， 则\([\boldsymbol{X}, \boldsymbol{Y}] \in \mathbb{V}\).&lt;/p&gt;
+
+&lt;p&gt;\(\mathbb{R}^{3} \times \mathbb{R}^{3} \in \mathbb{R}^{3}\) 显然成立。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;双线性： \(\forall \boldsymbol{X}, \boldsymbol{Y}, \boldsymbol{Z} \in \mathbb{V}, a, b \in \mathbb{F}\) 那么， \([a \boldsymbol{X} + b \boldsymbol{Y}, \boldsymbol{Z} ] = a[ \boldsymbol{X}, \boldsymbol{Z} ] + b[ \boldsymbol{Y}, \boldsymbol{Z} ], \; [\boldsymbol{Z}, a \boldsymbol{X} + b \boldsymbol{Y}] = a [\boldsymbol{Z}, \boldsymbol{X}] + b [\boldsymbol{Z}, \boldsymbol{Y}]\)&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+\begin{aligned}
+     &amp;amp;[a \boldsymbol{X} + b \boldsymbol{Y}, \boldsymbol{Z}] \\&lt;br /&gt;
+     &amp;amp; = (a \boldsymbol{X} + b \boldsymbol{Y}) \times \boldsymbol{Z} \\&lt;br /&gt;
+     &amp;amp; = a \boldsymbol{X} \times \boldsymbol{Z} + b \boldsymbol{Y} \times \boldsymbol{Z} \\&lt;br /&gt;
+     &amp;amp; = a [\boldsymbol{X}, \boldsymbol{Z}] + b [\boldsymbol{Y}, \boldsymbol{Z}]
+\end{aligned}
+\end{equation}&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;自反性： \(\forall \boldsymbol{X} \in \mathbb{V}, [\boldsymbol{X}, \boldsymbol{X}] = \boldsymbol{0}\)&lt;/p&gt;
+
+&lt;p&gt;显然成立。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;雅可比等价性： \(\forall \boldsymbol{X}, \boldsymbol{Y}, \boldsymbol{Z} \in \mathbb{V}, [\boldsymbol{X}, [\boldsymbol{Y}, \boldsymbol{Z}]] + [\boldsymbol{Y}, [\boldsymbol{Z}, \boldsymbol{X}]] + [\boldsymbol{Z}, [\boldsymbol{X}, \boldsymbol{Y}]] = \boldsymbol{0}\)（ &lt;strong&gt;形式一定要写对了！&lt;/strong&gt; 之前顺序错了，推了好久都没注意问题原来出现在这里 。。。）&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+\begin{aligned}
+   &amp;amp; [\boldsymbol{X}, [\boldsymbol{Y}, \boldsymbol{Z}]] + [\boldsymbol{Y}, [\boldsymbol{Z}, \boldsymbol{X}]] + [\boldsymbol{Z}, [\boldsymbol{X}, \boldsymbol{Y}]] \\&lt;br /&gt;
+   &amp;amp;= \boldsymbol{Y}(\boldsymbol{X} \cdot \boldsymbol{Z}) - \boldsymbol{Z}(\boldsymbol{X} \cdot \boldsymbol{Y}) + \boldsymbol{Z}(\boldsymbol{Y} \cdot \boldsymbol{X}) \\&lt;br /&gt;
+   &amp;amp;- \boldsymbol{X}(\boldsymbol{Y} \cdot \boldsymbol{Z}) + \boldsymbol{X}(\boldsymbol{Z} \cdot \boldsymbol{Y}) - \boldsymbol{Y}(\boldsymbol{Z} \cdot \boldsymbol{X}) \\&lt;br /&gt;
+   &amp;amp;= \boldsymbol{0}
+\end{aligned}
+\end{equation}&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;验证--mathfrak-so-3---和--mathfrak-se-3---满足李代数的性质&#34;&gt;验证 \(\mathfrak{so}(3)\) 和 \(\mathfrak{se}(3)\) 满足李代数的性质&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;\(\mathfrak{so}(3) = (\mathbb{R}^3, \mathbb{R}, [,])\)&lt;/p&gt;
+
+&lt;p&gt;李括号的定义为：&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    [\boldsymbol{\phi}_1, \boldsymbol{\phi}_2] = (\boldsymbol{\phi}_1^\wedge \boldsymbol{\phi}_2^\wedge - \boldsymbol{\phi}_2^\wedge \boldsymbol{\phi}_1^\wedge)^\vee
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;验证：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;(1) \(\forall \boldsymbol{\phi}_1, \boldsymbol{\phi}_2 \in \mathbb{R}^3\),显然有 \([\boldsymbol{\phi}_1, \boldsymbol{\phi}_2] = (\boldsymbol{\phi}_1^\wedge \boldsymbol{\phi}_2^\wedge - \boldsymbol{\phi}_2^\wedge \boldsymbol{\phi}_1^\wedge)^\vee\)&lt;/p&gt;
+
+&lt;p&gt;(2) \(\forall \boldsymbol{\phi}_1, \boldsymbol{\phi}_2, \boldsymbol{\phi}_3 \in \mathbb{R}^3, \forall a, b \in \mathbb{R}\) ,&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \begin{aligned}
+        &amp;amp; [a \boldsymbol{\phi}_1 + b \boldsymbol{\phi}_2, \boldsymbol{\phi}_3] \\&lt;br /&gt;
+        &amp;amp;= ((a \boldsymbol{\phi}_1 + b \boldsymbol{\phi}_2)^\wedge \boldsymbol{\phi}_3^\wedge - \boldsymbol{\phi}_3^\wedge (a \boldsymbol{\phi}_1 + b \boldsymbol{\phi}_2)^\wedge)^\vee \\&lt;br /&gt;
+        &amp;amp;= a(\boldsymbol{\phi}_1^\wedge \boldsymbol{\phi}_3^\wedge - \boldsymbol{\phi}_3^\wedge \boldsymbol{\phi}_1^\wedge)^\vee + b(\boldsymbol{\phi}_2^\wedge \boldsymbol{\phi}_3^\wedge - \boldsymbol{\phi}_3^\wedge \boldsymbol{\phi}_2^\wedge)^\vee \\&lt;br /&gt;
+        &amp;amp;= a[\boldsymbol{\phi}_1, \boldsymbol{\phi}_3] + b[\boldsymbol{\phi}_2, \boldsymbol{\phi}_3]
+    \end{aligned}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;(3) \(\forall \boldsymbol{\phi}_1 \in \mathbb{R}^3\),&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    [\boldsymbol{\phi}_1, \boldsymbol{\phi}_1] = (\boldsymbol{\phi}_1^\wedge \boldsymbol{\phi}_1^\wedge - \boldsymbol{\phi}_1^\wedge \boldsymbol{\phi}_1^\wedge)^\vee = \boldsymbol{0}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;(4) \(\forall \boldsymbol{a}, \boldsymbol{b}, \boldsymbol{c} \in \mathbb{R}^3\), 有&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \begin{aligned}
+        &amp;amp;[\boldsymbol{a}, [\boldsymbol{b}, \boldsymbol{c}]] + [\boldsymbol{b}, [\boldsymbol{c}, \boldsymbol{a}]] + [\boldsymbol{c}, [\boldsymbol{a}, \boldsymbol{b}]] \\&lt;br /&gt;
+        &amp;amp;= [\boldsymbol{a}, (\boldsymbol{BC} - \boldsymbol{CB}^\vee)] + [\boldsymbol{b}, (\boldsymbol{CA} - \boldsymbol{AC})^\vee] + [\boldsymbol{c}, (\boldsymbol{AB} - \boldsymbol{BA})^\vee] \\&lt;br /&gt;
+        &amp;amp;= (\boldsymbol{ABC} - \boldsymbol{ACB} - \boldsymbol{BCA} + \boldsymbol{CBA})^\vee \\&lt;br /&gt;
+        &amp;amp;+ (\boldsymbol{BCA} - \boldsymbol{BAC} - \boldsymbol{CAB} + \boldsymbol{ACB})^\vee \\&lt;br /&gt;
+        &amp;amp;+ (\boldsymbol{CAB} - \boldsymbol{CBA} - \boldsymbol{ABC} + \boldsymbol{BAC})^\vee \\&lt;br /&gt;
+        &amp;amp;= \boldsymbol{0}
+    \end{aligned}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;其中 \(\boldsymbol{A} = \boldsymbol{a}^\wedge, \boldsymbol{B} = \boldsymbol{b}^\wedge, \boldsymbol{C} = \boldsymbol{c}^\wedge\).&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;\(\mathfrak{se}(3) = (\mathbb{R}^6, \mathbb{R}, [,])\)&lt;/p&gt;
+
+&lt;p&gt;李括号定义与 \(\mathfrak{so}(3)\) 一致，不过需要注意：&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \mathfrak{se}(3) =
+    \left \{
+        \boldsymbol{\xi} = \begin{bmatrix}
+            \boldsymbol{\rho} \\&lt;br /&gt;
+            \boldsymbol{\phi}
+        \end{bmatrix}, \boldsymbol{\rho} \in \mathbb{R}^3, \boldsymbol{\phi} \in \mathfrak{so}(3), \boldsymbol{\xi}^\wedge = \begin{bmatrix}
+            \boldsymbol{\phi}^\wedge &amp;amp; \boldsymbol{\rho} \\&lt;br /&gt;
+            \boldsymbol{0}^\top &amp;amp; 1
+        \end{bmatrix}
+    \right \}
+\end{equation}&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;验证性质--boldsymbol-a-wedge-boldsymbol-a-wedge-boldsymbol-aa-top-i--以及--boldsymbol-a-wedge-boldsymbol-a-wedge-boldsymbol-a-wedge-boldsymbol-a-wedge&#34;&gt;验证性质 \(\boldsymbol{a}^\wedge\boldsymbol{a}^\wedge = \boldsymbol{aa}^\top - I\) 以及 \(\boldsymbol{a}^\wedge\boldsymbol{a}^\wedge\boldsymbol{a}^\wedge = - \boldsymbol{a}^\wedge\)&lt;/h2&gt;
+
+&lt;p&gt;已知 \(\boldsymbol{a}\) 的长度为 \(1\).&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;\begin{aligned}
+    \because \boldsymbol{a}^\wedge
+    &amp;amp;= \begin{bmatrix}
+        0 &amp;amp; -a_3 &amp;amp; a_2 \\&lt;br /&gt;
+        a_3 &amp;amp; 0 &amp;amp; -a_1 \\&lt;br /&gt;
+        -a_2 &amp;amp; a_1 &amp;amp; 0
+    \end{bmatrix} \\&lt;br /&gt;
+    \therefore \boldsymbol{a}^\wedge \boldsymbol{a}^\wedge
+    &amp;amp;= \begin{bmatrix}
+        -a_3^2 -a_2^2 &amp;amp; a_1a_2 &amp;amp; a_1a_3 \\&lt;br /&gt;
+        a_2a_1 &amp;amp; -a_3^2 -a_1^2 &amp;amp; a_2a_3 \\&lt;br /&gt;
+        a_3a_1 &amp;amp; a_3a_2 &amp;amp; -a_1^2 -a_2^2
+    \end{bmatrix} \\&lt;br /&gt;
+    &amp;amp;= \begin{bmatrix}
+        a_1^2 &amp;amp; a_1a_2 &amp;amp; a_1a_3 \\&lt;br /&gt;
+        a_2a_1 &amp;amp; a_2^2 &amp;amp; a_2a_3 \\&lt;br /&gt;
+        a_3a_1 &amp;amp; a_3a_2 &amp;amp; a_3^2
+    \end{bmatrix} -
+    \begin{bmatrix}
+        a_1^2+a_2^2+a_3^2 &amp;amp; 0 &amp;amp; 0 \\&lt;br /&gt;
+        0 &amp;amp; a_1^2+a_2^2+a_3^2 &amp;amp; 0 \\&lt;br /&gt;
+        0 &amp;amp; 0 &amp;amp; a_1^2+a_2^2+a_3^2
+    \end{bmatrix} \\&lt;br /&gt;
+    &amp;amp;= \boldsymbol{aa}^\top - \boldsymbol{I}
+\end{aligned}&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;!--quoteend--&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;\begin{aligned}
+    \because \boldsymbol{a}^\wedge\boldsymbol{a}^\wedge &amp;amp;= \boldsymbol{aa}^\top - \boldsymbol{I} \\&lt;br /&gt;
+    \therefore \boldsymbol{a}^\wedge\boldsymbol{a}^\wedge\boldsymbol{a}^\wedge &amp;amp;= (\boldsymbol{aa}^\top - \boldsymbol{I})\boldsymbol{a}^\wedge = \boldsymbol{aa}^\top \boldsymbol{a}^\wedge - \boldsymbol{a}^\wedge = - \boldsymbol{a}^\wedge
+\end{aligned}&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;证明--boldsymbol-rp-wedge-boldsymbol-r-top--boldsymbol-rp--wedge&#34;&gt;证明：\(\boldsymbol{Rp}^\wedge \boldsymbol{R}^\top = (\boldsymbol{Rp})^\wedge\)&lt;/h2&gt;
+
+&lt;p&gt;令 \(\boldsymbol{R} = \begin{bmatrix}
+r_{11} &amp;amp; r_{12} &amp;amp; r_{13} \\&lt;br /&gt;
+r_{21} &amp;amp; r_{22} &amp;amp; r_{23} \\&lt;br /&gt;
+r_{31} &amp;amp; r_{32} &amp;amp; r_{33} \end{bmatrix}, \boldsymbol{p} = [p_1, p_2, p_3]^\top\),&lt;/p&gt;
+
+&lt;p&gt;那么：&lt;/p&gt;
+
+&lt;p&gt;\begin{aligned}
+    \boldsymbol{R}\boldsymbol{p}^\wedge \boldsymbol{R}^\top
+    &amp;amp;= \begin{bmatrix}
+        r_{11} &amp;amp; r_{12} &amp;amp; r_{13} \\&lt;br /&gt;
+        r_{21} &amp;amp; r_{22} &amp;amp; r_{23} \\&lt;br /&gt;
+        r_{31} &amp;amp; r_{32} &amp;amp; r_{33}
+    \end{bmatrix} \begin{bmatrix}
+        0 &amp;amp; -p_3 &amp;amp; p_2 \\&lt;br /&gt;
+        p_3 &amp;amp; 0 &amp;amp; -p_1 \\&lt;br /&gt;
+        -p_2 &amp;amp; p_1 &amp;amp; 0
+    \end{bmatrix} \begin{bmatrix}
+        r_{11} &amp;amp; r_{32} &amp;amp; r_{31} \\&lt;br /&gt;
+        r_{12} &amp;amp; r_{22} &amp;amp; r_{32} \\&lt;br /&gt;
+        r_{13} &amp;amp; r_{23} &amp;amp; r_{33}
+    \end{bmatrix} \\&lt;br /&gt;
+    &amp;amp;= \begin{bmatrix}
+        r_{12}p_3 - r_{13}p_2 &amp;amp; -r_{11}p_3 + r_{13}p_1 &amp;amp; r_{11}p_2 - r_{12}p_1 \\&lt;br /&gt;
+        r_{22}p_3 - r_{23}p_2 &amp;amp; -r_{21}p_3 + r_{23}p_1 &amp;amp; r_{21}p_2 - r_{22}p_1 \\&lt;br /&gt;
+        r_{32}p_3 - r_{33}p_2 &amp;amp; -r_{31}p_3 + r_{33}p_1 &amp;amp; r_{31}p_2 - r_{32}p_1
+    \end{bmatrix} \begin{bmatrix}
+        r_{11} &amp;amp; r_{32} &amp;amp; r_{31} \\&lt;br /&gt;
+        r_{12} &amp;amp; r_{22} &amp;amp; r_{32} \\&lt;br /&gt;
+        r_{13} &amp;amp; r_{23} &amp;amp; r_{33}
+    \end{bmatrix} \\&lt;br /&gt;
+    &amp;amp;= \begin{bmatrix}
+        0 &amp;amp; - r_{31}p_1 - r_{32}p_2 - r_{33}p_3 &amp;amp; r_{21}p_1 + r_{22}p_2 + r_{23}p_3 \\&lt;br /&gt;
+        r_{31}p_1 + r_{32}p_2 + r_{33}p_3 &amp;amp; 0 &amp;amp; - r_{11}p_1 - r_{12}p_2 - r_{13}p_3 \\&lt;br /&gt;
+        - r_{21}p_1 - r_{22}p_2 - r_{23}p_3 &amp;amp; r_{11}p_1 + r_{12}p_2 + r_{13}p_3 &amp;amp; 0
+    \end{bmatrix} \\&lt;br /&gt;
+    &amp;amp;= (\boldsymbol{Rp})^\wedge
+\end{aligned}&lt;/p&gt;
+
+&lt;h2 id=&#34;证明--boldsymbol-r-exp--boldsymbol-p-wedge--boldsymbol-r-top-exp---boldsymbol-rp--wedge--dot&#34;&gt;&lt;span class=&#34;org-todo todo TODO&#34;&gt;TODO&lt;/span&gt; 证明： \(\boldsymbol{R} \exp (\boldsymbol{p}^\wedge) \boldsymbol{R}^\top = \exp ((\boldsymbol{Rp})^\wedge)\).&lt;/h2&gt;
+
+&lt;p&gt;该式为 \(SO(3)\) 上的 &lt;strong&gt;伴随&lt;/strong&gt; 性质。同样的，在 \(SE(3)\) 上同样有：&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+\boldsymbol{T} \exp (\boldsymbol{\xi}^\wedge) \boldsymbol{T}^\top = \exp ((\text{Ad}(\boldsymbol{T}) \boldsymbol{\xi})^\wedge)
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;其中：&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+\text{Ad}(\boldsymbol{T}) = \begin{bmatrix}
+    \boldsymbol{R} &amp;amp; \boldsymbol{t}^\wedge \boldsymbol{R} \\&lt;br /&gt;
+    \boldsymbol{0} &amp;amp; \boldsymbol{R}
+\end{bmatrix}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;证明：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;令 \(\boldsymbol{p}\) 的模长和方向分别为 \(\theta\) 和 \(\boldsymbol{a}\), 当然这里的 \(\boldsymbol{a}\) 是单位向量。那么 \(\boldsymbol{p}\) 在 \(SO(3)\) 上指数映射为：&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \exp(\boldsymbol{p}^\wedge) = \exp (\theta \boldsymbol{a}^\wedge) = \cos \theta \boldsymbol{I} + (1 - \cos \theta) \boldsymbol{aa}^\top + \sin \theta \boldsymbol{a}^\wedge
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;那么：&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \begin{aligned}
+        &amp;amp;\boldsymbol{R} \exp (\boldsymbol{p}^\wedge) \boldsymbol{R}^\top \\&lt;br /&gt;
+        &amp;amp;= \boldsymbol{R} \cos \theta \boldsymbol{I} \boldsymbol{R}^\top + \boldsymbol{R} (1 - \cos \theta) \boldsymbol{aa}^\top \boldsymbol{R}^\top + \boldsymbol{R} \sin \theta \boldsymbol{a}^\wedge \boldsymbol{R}^\top \\&lt;br /&gt;
+        &amp;amp;= \cos \theta \boldsymbol{I} + (1-\cos \theta) \boldsymbol{Ra} (\boldsymbol{Ra})^\top + \sin \theta (\boldsymbol{Ra})^\wedge \\&lt;br /&gt;
+        &amp;amp;= \exp ((\boldsymbol{Rp})^\wedge)
+    \end{aligned}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;因为 \(\boldsymbol{p}\) 经过旋转矩阵旋转之后， &lt;strong&gt;模长是不变的&lt;/strong&gt; ，而且 \(\boldsymbol{Ra}\) 显然是旋转之后 \(\boldsymbol{p}\) 的方向向量，符合罗德里格斯公式的格式。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;!--quoteend--&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;\(\boldsymbol{\xi} = \begin{bmatrix}
+    \boldsymbol{\rho} \\&lt;br /&gt;
+    \boldsymbol{\phi}
+\end{bmatrix}\) 在 \(SE(3)\) 上的指数映射为：&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \exp (\boldsymbol{\xi}^\wedge) = \begin{bmatrix}
+        \boldsymbol{R} &amp;amp; \boldsymbol{J \rho} \\&lt;br /&gt;
+        \boldsymbol{0}^\top &amp;amp; 1
+    \end{bmatrix} = \begin{bmatrix}
+        \exp (\boldsymbol{\phi}^\wedge) &amp;amp; \boldsymbol{t} \\&lt;br /&gt;
+        \boldsymbol{0}^\top &amp;amp; 1
+    \end{bmatrix} = \boldsymbol{T}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;其中 \(\boldsymbol{J}\) 为:&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \boldsymbol{J} = \frac{\sin \theta}{\theta} \boldsymbol{I} + ( 1 -  \frac{\sin \theta}{\theta}) \boldsymbol{aa}^\top + (\frac{1 - \cos \theta}{\theta}) \boldsymbol{a}^\wedge
+\end{equation}&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;仿照左扰动的推导-推导--so3---和--se3---在右扰动下的导数&#34;&gt;仿照左扰动的推导，推导 \(SO(3)\) 和 \(SE(3)\) 在右扰动下的导数&lt;/h2&gt;
+
+&lt;p&gt;BCH近似公式&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fn-1&#34;&gt;&lt;a href=&#34;#fn:fn-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;:&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \ln[\, \exp(\boldsymbol{\phi}_1^\wedge)\exp(\boldsymbol{\phi}_2^\wedge) \,]^\vee \approx
+\begin{cases}
+    \boldsymbol{J_l}(\boldsymbol{\phi}_2^{\wedge})^{-1}\boldsymbol{\phi}_1^\wedge + \boldsymbol{\phi}_2^\wedge &amp;amp; \text{if } \boldsymbol{\phi}_1^\wedge \text{ is small} \\&lt;br /&gt;
+    \boldsymbol{J_r}(\boldsymbol{\phi}_1^\wedge)^{-1} \boldsymbol{\phi}_2^\wedge + \boldsymbol{\phi}_1^\wedge &amp;amp; \text{if } \boldsymbol{\phi}_2^\wedge \text{ is small}
+\end{cases}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;\(SO(3)\) 在右扰动下的导数：&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \begin{aligned}
+    \frac{\partial(\boldsymbol{R}\boldsymbol{p})}{\partial \boldsymbol{\varphi}}
+    &amp;amp;= \lim _{\boldsymbol{\varphi} \rightarrow \boldsymbol{0}} \frac{\boldsymbol{R}(\Delta{\boldsymbol{R}})\boldsymbol{p} - \boldsymbol{R} \boldsymbol{p}}{\boldsymbol{\varphi}} \\&lt;br /&gt;
+    &amp;amp;= \lim _{\boldsymbol{\varphi} \rightarrow \boldsymbol{0}} \frac{\exp(\boldsymbol{\phi}^\wedge) \exp({\boldsymbol{\varphi}^\wedge}) \boldsymbol{p} - \exp(\boldsymbol{\phi}^\wedge) \boldsymbol{p}}{\boldsymbol{\varphi}} \\&lt;br /&gt;
+    &amp;amp;\approx \lim _{\boldsymbol{\varphi} \rightarrow \boldsymbol{0}} \frac{\exp({\boldsymbol{\phi}^\wedge}) (\boldsymbol{I} + \boldsymbol{\varphi}^\wedge)  \boldsymbol{p} - \exp(\boldsymbol{\phi}^\wedge) \boldsymbol{p}}{\boldsymbol{\varphi}} \\&lt;br /&gt;
+    &amp;amp;= \lim _{\boldsymbol{\varphi} \rightarrow \boldsymbol{0}} \frac{\boldsymbol{R\varphi}^\wedge\boldsymbol{p}} {\boldsymbol{\varphi}}
+    = \boldsymbol{Rp}^\wedge
+    \end{aligned}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;\(SE(3)\) 在右扰动下的导数：&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+\begin{aligned}
+    \frac{\partial(\boldsymbol{Tp})}{\delta \boldsymbol{\xi}}
+    &amp;amp;= \lim_{\delta \boldsymbol{\xi} \rightarrow \boldsymbol{0}} \frac{\boldsymbol{T}\Delta{\boldsymbol{Tp}} - \boldsymbol{Tp}}{\delta \boldsymbol{\xi}} \\&lt;br /&gt;
+    &amp;amp;= \lim_{\delta \boldsymbol{\xi} \rightarrow \boldsymbol{0}} \frac{\exp(\boldsymbol{\xi}^\wedge)\exp(\delta\boldsymbol{\xi^\wedge})\boldsymbol{p} - \exp(\boldsymbol{\xi^\wedge})\boldsymbol{p}}{\delta \boldsymbol{\xi}}\\&lt;br /&gt;
+    &amp;amp;\approx \lim_{\delta \boldsymbol{\xi} \rightarrow \boldsymbol{0}} \frac{\exp(\boldsymbol{\xi^\wedge}) \delta\boldsymbol{\xi^\wedge}\boldsymbol{p}}{\delta \boldsymbol{\xi}} \\&lt;br /&gt;
+    &amp;amp;= \lim_{\delta \boldsymbol{\xi} \rightarrow \boldsymbol{0}} \frac{
+        \left[\begin{array}{cc}
+            \boldsymbol{R} &amp;amp; \boldsymbol{t} \\&lt;br /&gt;
+            \boldsymbol{0}^\top &amp;amp; 1
+        \end{array}\right]
+        \left[\begin{array}{cc}
+            \delta \boldsymbol{\phi}^\wedge &amp;amp; \delta \boldsymbol{p} \\&lt;br /&gt;
+            \boldsymbol{0}^\top &amp;amp; 0
+        \end{array}\right]
+        \left[\begin{array}{c}
+            \boldsymbol{p} \\&lt;br /&gt;
+            1
+        \end{array}\right]
+    }{[\delta\boldsymbol{p},\; \delta \boldsymbol{\phi}]^\top} \\&lt;br /&gt;
+    &amp;amp;=
+    \left[\begin{array}{cc}
+  \boldsymbol{R} &amp;amp; -\boldsymbol{Rp}^\wedge \\&lt;br /&gt;
+  \boldsymbol{0}^\top &amp;amp; \boldsymbol{0}^\top
+    \end{array}\right]
+\end{aligned}
+\end{equation}&lt;/p&gt;
+
+&lt;h2 id=&#34;cmake-find-package-fn-2&#34;&gt;CMake &lt;code&gt;find_package&lt;/code&gt; &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fn-2&#34;&gt;&lt;a href=&#34;#fn:fn-2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
+
+&lt;p&gt;Basic:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmake&#34; data-lang=&#34;cmake&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmake&#34; data-lang=&#34;cmake&#34;&gt;&lt;span class=&#34;nb&#34;&gt;find_package&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;lt;PackageName&amp;gt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;[version]&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;[EXACT]&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;[QUIET]&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;[MODULE]&lt;/span&gt;
+			 &lt;span class=&#34;s&#34;&gt;[REQUIERED]&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;[[COMPONENTS]&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;[components&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;...]]&lt;/span&gt;
+			 &lt;span class=&#34;s&#34;&gt;[OPTIONAL_COMPONENTS&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;components&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;...]&lt;/span&gt;
+			 &lt;span class=&#34;s&#34;&gt;[NO_POLICY_SCOPE]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Full:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmake&#34; data-lang=&#34;cmake&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmake&#34; data-lang=&#34;cmake&#34;&gt;&lt;span class=&#34;nb&#34;&gt;find_package&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;lt;PackageName&amp;gt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;[version]&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;[EXACT]&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;[QUIET]&lt;/span&gt;
+	     &lt;span class=&#34;s&#34;&gt;[REQUIRED]&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;[[COMPONENTS]&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;[components...]]&lt;/span&gt;
+	     &lt;span class=&#34;s&#34;&gt;[CONFIG|NO_MODULE]&lt;/span&gt;
+	     &lt;span class=&#34;s&#34;&gt;[NO_POLICY_SCOPE]&lt;/span&gt;
+	     &lt;span class=&#34;s&#34;&gt;[NAMES&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;name1&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;[name2&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;...]]&lt;/span&gt;
+	     &lt;span class=&#34;s&#34;&gt;[CONFIGS&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;config1&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;[config2&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;...]]&lt;/span&gt;
+	     &lt;span class=&#34;s&#34;&gt;[HINTS&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;path1&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;[path2&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;...&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;]]&lt;/span&gt;
+	     &lt;span class=&#34;s&#34;&gt;[PATHS&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;path1&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;[path2&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;...&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;]]&lt;/span&gt;
+	     &lt;span class=&#34;s&#34;&gt;[PATH_SUFFIXES&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;suffix1&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;[suffix2&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;...]]&lt;/span&gt;
+	     &lt;span class=&#34;s&#34;&gt;[NO_DEFAULT_PATH]&lt;/span&gt;
+	     &lt;span class=&#34;s&#34;&gt;[NO_PACKAGE_ROOT_PATH]&lt;/span&gt;
+	     &lt;span class=&#34;s&#34;&gt;[NO_CMAKE_PATH]&lt;/span&gt;
+	     &lt;span class=&#34;s&#34;&gt;[NO_CMAKE_ENVIRONMENT_PATH]&lt;/span&gt;
+	     &lt;span class=&#34;s&#34;&gt;[NO_SYSTEM_ENVIRONMENT_PATH]&lt;/span&gt;
+	     &lt;span class=&#34;s&#34;&gt;[NO_CMAKE_PACKAGE_REGISTRY]&lt;/span&gt;
+	     &lt;span class=&#34;s&#34;&gt;[NO_CMAKE_BUILDS_PATH]&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;# Deprecated; does nothing.
+&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;	     &lt;span class=&#34;s&#34;&gt;[NO_CMAKE_SYSTEM_PATH]&lt;/span&gt;
+	     &lt;span class=&#34;s&#34;&gt;[NO_CMAKE_SYSTEM_PACKAGE_REGISTRY]&lt;/span&gt;
+	     &lt;span class=&#34;s&#34;&gt;[CMAKE_FIND_ROOT_PATH_BOTH&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;|&lt;/span&gt;
+	      &lt;span class=&#34;s&#34;&gt;ONLY_CMAKE_FIND_ROOT_PATH&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;|&lt;/span&gt;
+	      &lt;span class=&#34;s&#34;&gt;NO_CMAKE_FIND_ROOT_PATH]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:fn-1&#34;&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Baker-Campbell-Hausdorff%5Fformula&#34;&gt;https://en.wikipedia.org/wiki/Baker-Campbell-Hausdorff%5Fformula&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:fn-1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:fn-2&#34;&gt;&lt;a href=&#34;https://cmake.org/cmake/help/v3.14/command/find%5Fpackage.html&#34;&gt;https://cmake.org/cmake/help/v3.14/command/find%5Fpackage.html&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:fn-2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description>
       
     </item>
     
