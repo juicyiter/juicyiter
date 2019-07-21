@@ -406,8 +406,7 @@ q_0 = \frac{\sqrt{\text{tr}(\boldsymbol{R}) + 1}}{2}, q_1 = \frac{r_{23} - r_{32
       
       <guid>https://mengoreo.github.io/post/vslam_ch4/</guid>
       
-        <description>&lt;p&gt;个人拙见，如有错误，欢迎评论指出 🤗。
-fjds&lt;/p&gt;
+        <description>&lt;p&gt;个人拙见，如有错误，欢迎评论指出 🤗。&lt;/p&gt;
 
 &lt;h2 id=&#34;验证--so3----se3---和--sim3---关于乘法成群&#34;&gt;验证 \(SO(3)\), \(SE(3)\) 和 \(Sim(3)\) 关于乘法成群。&lt;/h2&gt;
 
