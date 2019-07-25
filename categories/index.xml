@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
-    <lastBuildDate>Wed, 17 Jul 2019 00:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jul 2019 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://mengoreo.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>VSLAM</title>
       <link>https://mengoreo.github.io/categories/vslam/</link>
-      <pubDate>Wed, 17 Jul 2019 00:00:00 -0700</pubDate>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/categories/vslam/</guid>
       <description></description>
@@ -51,7 +51,7 @@
     <item>
       <title>Autonomous</title>
       <link>https://mengoreo.github.io/categories/autonomous/</link>
-      <pubDate>Fri, 19 Apr 2019 00:00:00 -0700</pubDate>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/categories/autonomous/</guid>
       <description></description>
@@ -60,7 +60,7 @@
     <item>
       <title>uncategorised</title>
       <link>https://mengoreo.github.io/categories/uncategorised/</link>
-      <pubDate>Fri, 05 Oct 2018 00:00:00 -0700</pubDate>
+      <pubDate>Fri, 05 Oct 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/categories/uncategorised/</guid>
       <description></description>
@@ -69,7 +69,7 @@
     <item>
       <title>PAT</title>
       <link>https://mengoreo.github.io/categories/pat/</link>
-      <pubDate>Wed, 23 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/categories/pat/</guid>
       <description></description>

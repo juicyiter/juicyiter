@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
-    <lastBuildDate>Wed, 23 May 2018 00:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 23 May 2018 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://mengoreo.github.io/tags/c/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>PAT Advanced 1001 A&#43;B Format In C</title>
       <link>https://mengoreo.github.io/post/pata1001-in-org-subtree-export/</link>
-      <pubDate>Wed, 23 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1001-in-org-subtree-export/</guid>
       <description></description>
@@ -24,7 +24,7 @@
     <item>
       <title>PAT Advanced 1002 A&#43;B for Polynomials In C</title>
       <link>https://mengoreo.github.io/post/pata1002-in-org-subtree-export/</link>
-      <pubDate>Wed, 23 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1002-in-org-subtree-export/</guid>
       <description></description>
@@ -33,7 +33,7 @@
     <item>
       <title>PAT Advanced 1003 Emergency In C</title>
       <link>https://mengoreo.github.io/post/pata1003-in-org-subtree-export/</link>
-      <pubDate>Wed, 23 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1003-in-org-subtree-export/</guid>
       <description>&lt;p&gt;Shortest first, if same then number of people&lt;/p&gt;</description>
@@ -42,7 +42,7 @@
     <item>
       <title>PAT Advanced 1004 Counting Leaves In C</title>
       <link>https://mengoreo.github.io/post/pata1004-in-org-subtree-export/</link>
-      <pubDate>Wed, 23 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1004-in-org-subtree-export/</guid>
       <description>&lt;p&gt;叶节点个数，我这里选择的广度搜索。&lt;/p&gt;</description>
@@ -51,7 +51,7 @@
     <item>
       <title>PAT Advanced 1005 Spell It Right In C</title>
       <link>https://mengoreo.github.io/post/pata1005-in-org-subtree-export/</link>
-      <pubDate>Wed, 23 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1005-in-org-subtree-export/</guid>
       <description>&lt;p&gt;类似格式化输出数字了&lt;/p&gt;</description>
@@ -60,7 +60,7 @@
     <item>
       <title>PAT Advanced 1006 Sign In and Sign Out In C</title>
       <link>https://mengoreo.github.io/post/pata1006-in-org-subtree-export/</link>
-      <pubDate>Wed, 23 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1006-in-org-subtree-export/</guid>
       <description>&lt;p&gt;找出最早进去的和最晚出来的。&lt;/p&gt;</description>
@@ -69,7 +69,7 @@
     <item>
       <title>PAT Advanced 1009 Product of Polynomials In C</title>
       <link>https://mengoreo.github.io/post/pata1009-in-org-subtree-export/</link>
-      <pubDate>Sun, 06 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1009-in-org-subtree-export/</guid>
       <description>&lt;p&gt;两个多项式相加，你就把你在纸上演算的过程，转换成语言就好啦，
@@ -81,7 +81,7 @@
     <item>
       <title>PAT Advanced 1014 Waiting in Line In C</title>
       <link>https://mengoreo.github.io/post/pata1014-in-org-subtree-export/</link>
-      <pubDate>Sun, 06 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1014-in-org-subtree-export/</guid>
       <description>&lt;p&gt;其实就按照平常你排队的思路来解题就OK的，不过有几个坑，可能也不能叫做坑，对思维缜密的人来讲就应该不是坑，既然你看到了我的这篇，很有可能你的思维可能跟我一样还不够缜密。&lt;/p&gt;</description>
@@ -90,7 +90,7 @@
     <item>
       <title>PAT Advanced 1015 Reversible Primes In C</title>
       <link>https://mengoreo.github.io/post/pata1015-in-org-subtree-export/</link>
-      <pubDate>Sun, 06 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1015-in-org-subtree-export/</guid>
       <description>正反都是素数，思路很明显。 但是有坑：不要理解成前面的数字n就是在改进制下的数字，*前面的n是十进制下的数字*，将其转换成后面进制d的数字，然</description>
@@ -99,7 +99,7 @@
     <item>
       <title>PAT Advanced 1022 Digital Library In C</title>
       <link>https://mengoreo.github.io/post/pata1022-in-org-subtree-export/</link>
-      <pubDate>Sun, 06 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1022-in-org-subtree-export/</guid>
       <description>&lt;p&gt;注意点就是,仔细看题的要求,一个是ID**一个年份**,其他的的要求都比较一般.&lt;/p&gt;</description>
@@ -108,7 +108,7 @@
     <item>
       <title>PAT Advanced 1028 List Sorting In C</title>
       <link>https://mengoreo.github.io/post/pata1028-in-org-subtree-export/</link>
-      <pubDate>Sun, 06 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1028-in-org-subtree-export/</guid>
       <description>&lt;p&gt;结构体按列排序,我用了qsort的函数,主要就搞好三个comp函数就可以啦.这题还算简单辣,不知道为何通过率这么低.&lt;/p&gt;
@@ -119,7 +119,7 @@
     <item>
       <title>PAT Advanced 1098 Insertion or Heap Sort In C</title>
       <link>https://mengoreo.github.io/post/pata1098-in-org-subtree-export/</link>
-      <pubDate>Sun, 06 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1098-in-org-subtree-export/</guid>
       <description>&lt;p&gt;题目的意思就是，给一个原始序列和经过若干步的排序算法之后的序列，然后让你来判断是插入排序还是堆排序。

@@ -6,7 +6,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
-    <lastBuildDate>Wed, 17 Jul 2019 00:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jul 2019 00:00:00 +0800</lastBuildDate>
     
         <atom:link href="https://mengoreo.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>视觉 SLAM 十四讲 —— 第三章习题</title>
       <link>https://mengoreo.github.io/post/vslam_ch3/</link>
-      <pubDate>Wed, 17 Jul 2019 00:00:00 -0700</pubDate>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/vslam_ch3/</guid>
       
@@ -402,7 +402,7 @@ q_0 = \frac{\sqrt{\text{tr}(\boldsymbol{R}) + 1}}{2}, q_1 = \frac{r_{23} - r_{32
     <item>
       <title>视觉 SLAM 十四讲 —— 第四章习题</title>
       <link>https://mengoreo.github.io/post/vslam_ch4/</link>
-      <pubDate>Wed, 17 Jul 2019 00:00:00 -0700</pubDate>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/vslam_ch4/</guid>
       
@@ -1673,7 +1673,7 @@ $$&lt;/p&gt;
     <item>
       <title>Long-Short Time Memory</title>
       <link>https://mengoreo.github.io/post/rnn-lstm-in-org-subtree-export/</link>
-      <pubDate>Sat, 20 Apr 2019 00:00:00 -0700</pubDate>
+      <pubDate>Sat, 20 Apr 2019 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/rnn-lstm-in-org-subtree-export/</guid>
       
@@ -1685,7 +1685,7 @@ $$&lt;/p&gt;
     <item>
       <title>Recursive Bayesian Estimation</title>
       <link>https://mengoreo.github.io/post/recursive-bayesian-esitimation-in-org-subtree-export/</link>
-      <pubDate>Fri, 19 Apr 2019 00:00:00 -0700</pubDate>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/recursive-bayesian-esitimation-in-org-subtree-export/</guid>
       
@@ -1765,7 +1765,7 @@ $$&lt;/p&gt;
     <item>
       <title>Robot Localisation</title>
       <link>https://mengoreo.github.io/post/robot-localisation-in-org-subtree-export/</link>
-      <pubDate>Fri, 19 Apr 2019 00:00:00 -0700</pubDate>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/robot-localisation-in-org-subtree-export/</guid>
       
@@ -1796,7 +1796,7 @@ $$&lt;/p&gt;
     <item>
       <title>The Histogram Filter</title>
       <link>https://mengoreo.github.io/post/histogram-in-org-subtree-export/</link>
-      <pubDate>Fri, 19 Apr 2019 00:00:00 -0700</pubDate>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/histogram-in-org-subtree-export/</guid>
       
@@ -1920,7 +1920,7 @@ $$&lt;/p&gt;
     <item>
       <title>How does Convolutional Neural Network work?</title>
       <link>https://mengoreo.github.io/post/cnn-in-org-subtree-export/</link>
-      <pubDate>Thu, 18 Apr 2019 00:00:00 -0700</pubDate>
+      <pubDate>Thu, 18 Apr 2019 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/cnn-in-org-subtree-export/</guid>
       
@@ -2309,7 +2309,7 @@ $$&lt;/p&gt;
     <item>
       <title>Deep Learning Book</title>
       <link>https://mengoreo.github.io/post/deep-learning-book-in-org-subtree-export/</link>
-      <pubDate>Tue, 19 Mar 2019 00:00:00 -0700</pubDate>
+      <pubDate>Tue, 19 Mar 2019 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/deep-learning-book-in-org-subtree-export/</guid>
       
@@ -3782,7 +3782,7 @@ Consider a set of examples \(\{x^{(1)}, \dots, x^{(m)} \}\) that are i.i.d accor
     <item>
       <title>Elements of Programming Interviews in Python</title>
       <link>https://mengoreo.github.io/post/epi-in-org-subtree-export/</link>
-      <pubDate>Fri, 22 Feb 2019 00:00:00 -0800</pubDate>
+      <pubDate>Fri, 22 Feb 2019 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/epi-in-org-subtree-export/</guid>
       
@@ -4219,7 +4219,7 @@ consecutive bits that differ&lt;/strong&gt;.&lt;/p&gt;
     <item>
       <title>Phonetic Signs</title>
       <link>https://mengoreo.github.io/post/phonetic-signs-in-org-subtree-export/</link>
-      <pubDate>Fri, 05 Oct 2018 00:00:00 -0700</pubDate>
+      <pubDate>Fri, 05 Oct 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/phonetic-signs-in-org-subtree-export/</guid>
       
@@ -4456,7 +4456,7 @@ consecutive bits that differ&lt;/strong&gt;.&lt;/p&gt;
     <item>
       <title>My Voice</title>
       <link>https://mengoreo.github.io/post/my-voice-in-org-subtree-export/</link>
-      <pubDate>Mon, 30 Jul 2018 00:00:00 -0700</pubDate>
+      <pubDate>Mon, 30 Jul 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/my-voice-in-org-subtree-export/</guid>
       
@@ -4483,7 +4483,7 @@ https://m.lizhi.fm/vod/voicesheet/2681878630495796289&#34; target=&#34;_blank&#3
     <item>
       <title>PAT Advanced 1001 A&#43;B Format In C</title>
       <link>https://mengoreo.github.io/post/pata1001-in-org-subtree-export/</link>
-      <pubDate>Wed, 23 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1001-in-org-subtree-export/</guid>
       
@@ -4560,7 +4560,7 @@ https://m.lizhi.fm/vod/voicesheet/2681878630495796289&#34; target=&#34;_blank&#3
     <item>
       <title>PAT Advanced 1002 A&#43;B for Polynomials In C</title>
       <link>https://mengoreo.github.io/post/pata1002-in-org-subtree-export/</link>
-      <pubDate>Wed, 23 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1002-in-org-subtree-export/</guid>
       
@@ -4642,7 +4642,7 @@ https://m.lizhi.fm/vod/voicesheet/2681878630495796289&#34; target=&#34;_blank&#3
     <item>
       <title>PAT Advanced 1003 Emergency In C</title>
       <link>https://mengoreo.github.io/post/pata1003-in-org-subtree-export/</link>
-      <pubDate>Wed, 23 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1003-in-org-subtree-export/</guid>
       
@@ -4892,7 +4892,7 @@ https://m.lizhi.fm/vod/voicesheet/2681878630495796289&#34; target=&#34;_blank&#3
     <item>
       <title>PAT Advanced 1004 Counting Leaves In C</title>
       <link>https://mengoreo.github.io/post/pata1004-in-org-subtree-export/</link>
-      <pubDate>Wed, 23 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1004-in-org-subtree-export/</guid>
       
@@ -5034,7 +5034,7 @@ https://m.lizhi.fm/vod/voicesheet/2681878630495796289&#34; target=&#34;_blank&#3
     <item>
       <title>PAT Advanced 1005 Spell It Right In C</title>
       <link>https://mengoreo.github.io/post/pata1005-in-org-subtree-export/</link>
-      <pubDate>Wed, 23 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1005-in-org-subtree-export/</guid>
       
@@ -5110,7 +5110,7 @@ https://m.lizhi.fm/vod/voicesheet/2681878630495796289&#34; target=&#34;_blank&#3
     <item>
       <title>PAT Advanced 1006 Sign In and Sign Out In C</title>
       <link>https://mengoreo.github.io/post/pata1006-in-org-subtree-export/</link>
-      <pubDate>Wed, 23 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1006-in-org-subtree-export/</guid>
       
@@ -5210,7 +5210,7 @@ https://m.lizhi.fm/vod/voicesheet/2681878630495796289&#34; target=&#34;_blank&#3
     <item>
       <title>PAT Advanced 1009 Product of Polynomials In C</title>
       <link>https://mengoreo.github.io/post/pata1009-in-org-subtree-export/</link>
-      <pubDate>Sun, 06 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1009-in-org-subtree-export/</guid>
       
@@ -5345,7 +5345,7 @@ https://m.lizhi.fm/vod/voicesheet/2681878630495796289&#34; target=&#34;_blank&#3
     <item>
       <title>PAT Advanced 1014 Waiting in Line In C</title>
       <link>https://mengoreo.github.io/post/pata1014-in-org-subtree-export/</link>
-      <pubDate>Sun, 06 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1014-in-org-subtree-export/</guid>
       
@@ -5770,7 +5770,7 @@ https://m.lizhi.fm/vod/voicesheet/2681878630495796289&#34; target=&#34;_blank&#3
     <item>
       <title>PAT Advanced 1015 Reversible Primes In C</title>
       <link>https://mengoreo.github.io/post/pata1015-in-org-subtree-export/</link>
-      <pubDate>Sun, 06 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1015-in-org-subtree-export/</guid>
       
@@ -5876,7 +5876,7 @@ https://m.lizhi.fm/vod/voicesheet/2681878630495796289&#34; target=&#34;_blank&#3
     <item>
       <title>PAT Advanced 1022 Digital Library In C</title>
       <link>https://mengoreo.github.io/post/pata1022-in-org-subtree-export/</link>
-      <pubDate>Sun, 06 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1022-in-org-subtree-export/</guid>
       
@@ -6171,7 +6171,7 @@ https://m.lizhi.fm/vod/voicesheet/2681878630495796289&#34; target=&#34;_blank&#3
     <item>
       <title>PAT Advanced 1028 List Sorting In C</title>
       <link>https://mengoreo.github.io/post/pata1028-in-org-subtree-export/</link>
-      <pubDate>Sun, 06 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1028-in-org-subtree-export/</guid>
       
@@ -6285,7 +6285,7 @@ https://m.lizhi.fm/vod/voicesheet/2681878630495796289&#34; target=&#34;_blank&#3
     <item>
       <title>PAT Advanced 1098 Insertion or Heap Sort In C</title>
       <link>https://mengoreo.github.io/post/pata1098-in-org-subtree-export/</link>
-      <pubDate>Sun, 06 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1098-in-org-subtree-export/</guid>
       

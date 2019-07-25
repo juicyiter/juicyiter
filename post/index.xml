@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
-    <lastBuildDate>Wed, 17 Jul 2019 00:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jul 2019 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://mengoreo.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>视觉 SLAM 十四讲 —— 第三章习题</title>
       <link>https://mengoreo.github.io/post/vslam_ch3/</link>
-      <pubDate>Wed, 17 Jul 2019 00:00:00 -0700</pubDate>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/vslam_ch3/</guid>
       <description>&lt;p&gt;个人拙见，如有错误，欢迎评论指出 🤗。&lt;/p&gt;</description>
@@ -24,7 +24,7 @@
     <item>
       <title>视觉 SLAM 十四讲 —— 第四章习题</title>
       <link>https://mengoreo.github.io/post/vslam_ch4/</link>
-      <pubDate>Wed, 17 Jul 2019 00:00:00 -0700</pubDate>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/vslam_ch4/</guid>
       <description>&lt;p&gt;个人拙见，如有错误，欢迎评论指出 🤗。&lt;/p&gt;</description>
@@ -61,7 +61,7 @@ OpenCV uses a reference counting system.</description>
     <item>
       <title>Long-Short Time Memory</title>
       <link>https://mengoreo.github.io/post/rnn-lstm-in-org-subtree-export/</link>
-      <pubDate>Sat, 20 Apr 2019 00:00:00 -0700</pubDate>
+      <pubDate>Sat, 20 Apr 2019 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/rnn-lstm-in-org-subtree-export/</guid>
       <description>colah&amp;rsquo;s blog</description>
@@ -70,7 +70,7 @@ OpenCV uses a reference counting system.</description>
     <item>
       <title>Recursive Bayesian Estimation</title>
       <link>https://mengoreo.github.io/post/recursive-bayesian-esitimation-in-org-subtree-export/</link>
-      <pubDate>Fri, 19 Apr 2019 00:00:00 -0700</pubDate>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/recursive-bayesian-esitimation-in-org-subtree-export/</guid>
       <description>&lt;p&gt;In the world of Bayesian Estimation, we model the world in such a way that &lt;strong&gt;all the changes in the environment take place at &lt;em&gt;discrete&lt;/em&gt;, &lt;em&gt;equidistant time steps&lt;/em&gt; \(t \in \mathbb{N}_0\)&lt;/strong&gt;, where &lt;strong&gt;sensor measurements arrive at every time step \(t \ge 1\)&lt;/strong&gt;. The discrete-time model can be seen as an approximation at the continuous case&amp;nbsp;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fn-1&#34;&gt;&lt;a href=&#34;#fn:fn-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;</description>
@@ -79,7 +79,7 @@ OpenCV uses a reference counting system.</description>
     <item>
       <title>Robot Localisation</title>
       <link>https://mengoreo.github.io/post/robot-localisation-in-org-subtree-export/</link>
-      <pubDate>Fri, 19 Apr 2019 00:00:00 -0700</pubDate>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/robot-localisation-in-org-subtree-export/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Filtering&lt;/strong&gt; is a general way of estimating variables from noisy observations over time. Histogram Filter, Kalman Filter and Particle Filter are all variants of Bayesian Filter.&lt;/p&gt;</description>
@@ -88,7 +88,7 @@ OpenCV uses a reference counting system.</description>
     <item>
       <title>The Histogram Filter</title>
       <link>https://mengoreo.github.io/post/histogram-in-org-subtree-export/</link>
-      <pubDate>Fri, 19 Apr 2019 00:00:00 -0700</pubDate>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/histogram-in-org-subtree-export/</guid>
       <description>&lt;p&gt;The &lt;strong&gt;Histogram Filter&lt;/strong&gt; is the most straightforward solution to represent &lt;strong&gt;continuous beliefs&lt;/strong&gt;. We simply divide \(\text{dom}(x_t)\) into \(n\) disjoint bins \(b_0, \dots, b_{n-1}\) such that \(\cup_i b_{i} = \text{dom}(x_t)\). Then we define a new state \(x_t^\prime \in \{\dots, n − 1\}\) where \(x_t^\prime = i\) if and only if \(x_t \in b_i\). Since \(x_t^\prime\) has a discrete, finite state space, we can use the discrete Bayes Filter to calculate \(\text{bel}(x^\prime_t)\).&lt;/p&gt;</description>
@@ -97,7 +97,7 @@ OpenCV uses a reference counting system.</description>
     <item>
       <title>How does Convolutional Neural Network work?</title>
       <link>https://mengoreo.github.io/post/cnn-in-org-subtree-export/</link>
-      <pubDate>Thu, 18 Apr 2019 00:00:00 -0700</pubDate>
+      <pubDate>Thu, 18 Apr 2019 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/cnn-in-org-subtree-export/</guid>
       <description>&lt;h2 id=&#34;x-s-and-o-s&#34;&gt;X&amp;rsquo;s and O&amp;rsquo;s&lt;/h2&gt;
@@ -121,7 +121,7 @@ OpenCV uses a reference counting system.</description>
     <item>
       <title>Deep Learning Book</title>
       <link>https://mengoreo.github.io/post/deep-learning-book-in-org-subtree-export/</link>
-      <pubDate>Tue, 19 Mar 2019 00:00:00 -0700</pubDate>
+      <pubDate>Tue, 19 Mar 2019 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/deep-learning-book-in-org-subtree-export/</guid>
       <description>&lt;h2 id=&#34;linear-algebra&#34;&gt;Linear Algebra&lt;/h2&gt;
@@ -138,7 +138,7 @@ OpenCV uses a reference counting system.</description>
     <item>
       <title>Elements of Programming Interviews in Python</title>
       <link>https://mengoreo.github.io/post/epi-in-org-subtree-export/</link>
-      <pubDate>Fri, 22 Feb 2019 00:00:00 -0800</pubDate>
+      <pubDate>Fri, 22 Feb 2019 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/epi-in-org-subtree-export/</guid>
       <description>Be very comfortable with bitwise operators, particularly XOR.
@@ -152,7 +152,7 @@ Be aware that commutativity and associativity can be used to perform operations 
     <item>
       <title>Phonetic Signs</title>
       <link>https://mengoreo.github.io/post/phonetic-signs-in-org-subtree-export/</link>
-      <pubDate>Fri, 05 Oct 2018 00:00:00 -0700</pubDate>
+      <pubDate>Fri, 05 Oct 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/phonetic-signs-in-org-subtree-export/</guid>
       <description></description>
@@ -161,7 +161,7 @@ Be aware that commutativity and associativity can be used to perform operations 
     <item>
       <title>My Voice</title>
       <link>https://mengoreo.github.io/post/my-voice-in-org-subtree-export/</link>
-      <pubDate>Mon, 30 Jul 2018 00:00:00 -0700</pubDate>
+      <pubDate>Mon, 30 Jul 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/my-voice-in-org-subtree-export/</guid>
       <description>Podcast The Philosopher&#39;s Stone Mimics 寂静，如同地狱般的……</description>
@@ -170,7 +170,7 @@ Be aware that commutativity and associativity can be used to perform operations 
     <item>
       <title>PAT Advanced 1001 A&#43;B Format In C</title>
       <link>https://mengoreo.github.io/post/pata1001-in-org-subtree-export/</link>
-      <pubDate>Wed, 23 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1001-in-org-subtree-export/</guid>
       <description></description>
@@ -179,7 +179,7 @@ Be aware that commutativity and associativity can be used to perform operations 
     <item>
       <title>PAT Advanced 1002 A&#43;B for Polynomials In C</title>
       <link>https://mengoreo.github.io/post/pata1002-in-org-subtree-export/</link>
-      <pubDate>Wed, 23 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1002-in-org-subtree-export/</guid>
       <description></description>
@@ -188,7 +188,7 @@ Be aware that commutativity and associativity can be used to perform operations 
     <item>
       <title>PAT Advanced 1003 Emergency In C</title>
       <link>https://mengoreo.github.io/post/pata1003-in-org-subtree-export/</link>
-      <pubDate>Wed, 23 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1003-in-org-subtree-export/</guid>
       <description>&lt;p&gt;Shortest first, if same then number of people&lt;/p&gt;</description>
@@ -197,7 +197,7 @@ Be aware that commutativity and associativity can be used to perform operations 
     <item>
       <title>PAT Advanced 1004 Counting Leaves In C</title>
       <link>https://mengoreo.github.io/post/pata1004-in-org-subtree-export/</link>
-      <pubDate>Wed, 23 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1004-in-org-subtree-export/</guid>
       <description>&lt;p&gt;叶节点个数，我这里选择的广度搜索。&lt;/p&gt;</description>
@@ -206,7 +206,7 @@ Be aware that commutativity and associativity can be used to perform operations 
     <item>
       <title>PAT Advanced 1005 Spell It Right In C</title>
       <link>https://mengoreo.github.io/post/pata1005-in-org-subtree-export/</link>
-      <pubDate>Wed, 23 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1005-in-org-subtree-export/</guid>
       <description>&lt;p&gt;类似格式化输出数字了&lt;/p&gt;</description>
@@ -215,7 +215,7 @@ Be aware that commutativity and associativity can be used to perform operations 
     <item>
       <title>PAT Advanced 1006 Sign In and Sign Out In C</title>
       <link>https://mengoreo.github.io/post/pata1006-in-org-subtree-export/</link>
-      <pubDate>Wed, 23 May 2018 00:00:00 -0700</pubDate>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/post/pata1006-in-org-subtree-export/</guid>
       <description>&lt;p&gt;找出最早进去的和最晚出来的。&lt;/p&gt;</description>
