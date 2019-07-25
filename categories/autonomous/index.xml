@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
-    <lastBuildDate>Fri, 19 Apr 2019 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 19 Apr 2019 00:00:00 -0700</lastBuildDate>
     
 	<atom:link href="https://mengoreo.github.io/categories/autonomous/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Recursive Bayesian Estimation</title>
       <link>https://mengoreo.github.io/post/recursive-bayesian-esitimation-in-org-subtree-export/</link>
-      <pubDate>Fri, 19 Apr 2019 00:00:00 +0800</pubDate>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 -0700</pubDate>
       
       <guid>https://mengoreo.github.io/post/recursive-bayesian-esitimation-in-org-subtree-export/</guid>
       <description>&lt;p&gt;In the world of Bayesian Estimation, we model the world in such a way that &lt;strong&gt;all the changes in the environment take place at &lt;em&gt;discrete&lt;/em&gt;, &lt;em&gt;equidistant time steps&lt;/em&gt; \(t \in \mathbb{N}_0\)&lt;/strong&gt;, where &lt;strong&gt;sensor measurements arrive at every time step \(t \ge 1\)&lt;/strong&gt;. The discrete-time model can be seen as an approximation at the continuous case&amp;nbsp;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fn-1&#34;&gt;&lt;a href=&#34;#fn:fn-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;</description>
@@ -24,7 +24,7 @@
     <item>
       <title>Robot Localisation</title>
       <link>https://mengoreo.github.io/post/robot-localisation-in-org-subtree-export/</link>
-      <pubDate>Fri, 19 Apr 2019 00:00:00 +0800</pubDate>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 -0700</pubDate>
       
       <guid>https://mengoreo.github.io/post/robot-localisation-in-org-subtree-export/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Filtering&lt;/strong&gt; is a general way of estimating variables from noisy observations over time. Histogram Filter, Kalman Filter and Particle Filter are all variants of Bayesian Filter.&lt;/p&gt;</description>
@@ -33,7 +33,7 @@
     <item>
       <title>The Histogram Filter</title>
       <link>https://mengoreo.github.io/post/histogram-in-org-subtree-export/</link>
-      <pubDate>Fri, 19 Apr 2019 00:00:00 +0800</pubDate>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 -0700</pubDate>
       
       <guid>https://mengoreo.github.io/post/histogram-in-org-subtree-export/</guid>
       <description>&lt;p&gt;The &lt;strong&gt;Histogram Filter&lt;/strong&gt; is the most straightforward solution to represent &lt;strong&gt;continuous beliefs&lt;/strong&gt;. We simply divide \(\text{dom}(x_t)\) into \(n\) disjoint bins \(b_0, \dots, b_{n-1}\) such that \(\cup_i b_{i} = \text{dom}(x_t)\). Then we define a new state \(x_t^\prime \in \{\dots, n − 1\}\) where \(x_t^\prime = i\) if and only if \(x_t \in b_i\). Since \(x_t^\prime\) has a discrete, finite state space, we can use the discrete Bayes Filter to calculate \(\text{bel}(x^\prime_t)\).&lt;/p&gt;</description>

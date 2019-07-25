@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
-    <lastBuildDate>Thu, 18 Apr 2019 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 18 Apr 2019 00:00:00 -0700</lastBuildDate>
     
 	<atom:link href="https://mengoreo.github.io/tags/cnn/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>How does Convolutional Neural Network work?</title>
       <link>https://mengoreo.github.io/post/cnn-in-org-subtree-export/</link>
-      <pubDate>Thu, 18 Apr 2019 00:00:00 +0800</pubDate>
+      <pubDate>Thu, 18 Apr 2019 00:00:00 -0700</pubDate>
       
       <guid>https://mengoreo.github.io/post/cnn-in-org-subtree-export/</guid>
       <description>&lt;h2 id=&#34;x-s-and-o-s&#34;&gt;X&amp;rsquo;s and O&amp;rsquo;s&lt;/h2&gt;
