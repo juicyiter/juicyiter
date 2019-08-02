@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
-    <lastBuildDate>Wed, 17 Jul 2019 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 01 Aug 2019 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://mengoreo.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>VSLAM</title>
       <link>https://mengoreo.github.io/categories/vslam/</link>
-      <pubDate>Wed, 17 Jul 2019 00:00:00 +0800</pubDate>
+      <pubDate>Thu, 01 Aug 2019 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/categories/vslam/</guid>
       <description></description>

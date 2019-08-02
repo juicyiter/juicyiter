@@ -35,7 +35,7 @@
 <meta name="google-site-verification" content="gVkxHuty-Yq4pXCYdtF18vY2y64Ez3dl8mbUHcC0Uys" />
 
 
-<meta name="generator" content="Hugo 0.55.6" />
+<meta name="generator" content="Hugo 0.56.3" />
 
 
 <link rel="canonical" href="https://mengoreo.github.io/post/vslam_ch1/" />
@@ -67,9 +67,8 @@
 <meta property="og:description" content="个人拙见，如有错误，欢迎评论指出 🤗。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://mengoreo.github.io/post/vslam_ch1/" />
-<meta property="article:published_time" content="2019-07-16T16:47:54&#43;08:00"/>
-<meta property="article:modified_time" content="2019-07-16T16:47:54&#43;08:00"/>
-
+<meta property="article:published_time" content="2019-07-16T16:47:54+08:00" />
+<meta property="article:modified_time" content="2019-07-16T16:47:54+08:00" />
 <meta itemprop="name" content="视觉 SLAM 十四讲 —— 第一章习题">
 <meta itemprop="description" content="个人拙见，如有错误，欢迎评论指出 🤗。">
 
@@ -396,22 +395,20 @@ if (!doNotTrack) {
 <ul>
 <li><p><strong>Without</strong> any return type.</p></li>
 
-<li><p>Overloading</p></li>
-</ul>
+<li><p>Overloading</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-C++" data-lang="C++"><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++">   <span class="n">class_name</span> <span class="n">obj_name</span><span class="p">;</span> <span class="c1">// calls the default constructor
-</span><span class="c1"></span>   <span class="n">class_name</span> <span class="nf">obj_name1</span><span class="p">();</span> <span class="c1">// default constructor NOT called
+<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="n">class_name</span> <span class="n">obj_name</span><span class="p">;</span> <span class="c1">// calls the default constructor
+</span><span class="c1"></span><span class="n">class_name</span> <span class="nf">obj_name1</span><span class="p">();</span> <span class="c1">// default constructor NOT called
 </span></code></pre></td></tr></table>
 </div>
-</div>
-<ul>
-<li>Uniform initialisation</li>
-</ul>
+</div></li>
+
+<li><p>Uniform initialisation</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-c++" data-lang="c++"><span class="lnt">1
@@ -420,13 +417,15 @@ if (!doNotTrack) {
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++">   <span class="n">class_name</span> <span class="n">obj_name</span> <span class="o">=</span> <span class="n">initiaisation_value</span><span class="p">;</span> <span class="c1">// assignment init.(single parameter)
-</span><span class="c1"></span>   <span class="n">class_name</span> <span class="n">obj_name1</span> <span class="o">=</span> <span class="p">{</span><span class="n">value</span><span class="p">,</span> <span class="n">value1</span><span class="p">,</span> <span class="p">...}</span> <span class="c1">// POD-like init.
-</span><span class="c1"></span>   <span class="n">class_name</span> <span class="n">obj_name2</span> <span class="p">{</span><span class="n">value</span><span class="p">,</span> <span class="n">value1</span><span class="p">,</span> <span class="p">...}</span> <span class="c1">// uniform init.
-</span><span class="c1"></span>   <span class="n">class_name</span> <span class="n">obj_name3</span> <span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">value1</span><span class="p">,</span> <span class="p">...)</span> <span class="c1">// functional form init.
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">class_name</span> <span class="n">obj_name</span> <span class="o">=</span> <span class="n">initiaisation_value</span><span class="p">;</span> <span class="c1">// assignment init.(single parameter)
+</span><span class="c1"></span><span class="n">class_name</span> <span class="n">obj_name1</span> <span class="o">=</span> <span class="p">{</span><span class="n">value</span><span class="p">,</span> <span class="n">value1</span><span class="p">,</span> <span class="p">...}</span> <span class="c1">// POD-like init.
+</span><span class="c1"></span><span class="n">class_name</span> <span class="n">obj_name2</span> <span class="p">{</span><span class="n">value</span><span class="p">,</span> <span class="n">value1</span><span class="p">,</span> <span class="p">...}</span> <span class="c1">// uniform init.
+</span><span class="c1"></span><span class="n">class_name</span> <span class="n">obj_name3</span> <span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">value1</span><span class="p">,</span> <span class="p">...)</span> <span class="c1">// functional form init.
 </span></code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ul>
+
 <p><strong>Braces cannot be confused with function declarations, and thus can be used to explicitly call default constructor</strong>.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -442,8 +441,7 @@ if (!doNotTrack) {
 </div>
 </div>
 <ul>
-<li>Member initialisation</li>
-</ul>
+<li><p>Member initialisation</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-c++" data-lang="c++"><span class="lnt">1
@@ -451,12 +449,14 @@ if (!doNotTrack) {
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++">   <span class="c1">// The followings are equal definition
-</span><span class="c1"></span>   <span class="n">class_name</span><span class="o">::</span><span class="n">class_name</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="n">width</span><span class="o">=</span><span class="n">x</span><span class="p">;</span> <span class="n">height</span><span class="o">=</span><span class="n">y</span><span class="p">;</span> <span class="p">}</span>
-   <span class="n">class_name</span><span class="o">::</span><span class="n">class_name</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="o">:</span> <span class="n">width</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">height</span><span class="o">=</span><span class="n">y</span><span class="p">;</span> <span class="p">}</span> <span class="c1">// member initialiser list
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="c1">// The followings are equal definition
+</span><span class="c1"></span><span class="n">class_name</span><span class="o">::</span><span class="n">class_name</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="n">width</span><span class="o">=</span><span class="n">x</span><span class="p">;</span> <span class="n">height</span><span class="o">=</span><span class="n">y</span><span class="p">;</span> <span class="p">}</span>
+<span class="n">class_name</span><span class="o">::</span><span class="n">class_name</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="o">:</span> <span class="n">width</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">height</span><span class="o">=</span><span class="n">y</span><span class="p">;</span> <span class="p">}</span> <span class="c1">// member initialiser list
 </span></code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ul>
+
 <p>The following example <strong>MUST</strong> use <em>member initialisation list</em>.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -570,22 +570,20 @@ delete    new[]     delete[]</pre></td></tr></table>
 <p><strong><code>const</code> objects can only access the <code>const</code> member function</strong>.</p>
 
 <ul>
-<li>Template specialisation</li>
-</ul>
+<li><p>Template specialisation</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-c++" data-lang="c++"><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++">   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span><span class="err"> </span><span class="nc">T</span><span class="o">&gt;</span> <span class="k">class</span><span class="err"> </span><span class="nc">mycontainer</span> <span class="p">{</span> <span class="p">...</span> <span class="p">};</span>
-   <span class="k">template</span> <span class="o">&lt;&gt;</span> <span class="k">class</span><span class="err"> </span><span class="nc">mycontainer</span> <span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="p">{</span> <span class="p">...</span> <span class="p">};</span>
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span><span class="err"> </span><span class="nc">T</span><span class="o">&gt;</span> <span class="k">class</span><span class="err"> </span><span class="nc">mycontainer</span> <span class="p">{</span> <span class="p">...</span> <span class="p">};</span>
+<span class="k">template</span> <span class="o">&lt;&gt;</span> <span class="k">class</span><span class="err"> </span><span class="nc">mycontainer</span> <span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="p">{</span> <span class="p">...</span> <span class="p">};</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<ul>
-<li>Special members
-<br /></li>
+</div></li>
+
+<li><p>Special members</p></li>
 </ul>
 
 <p><img src="assets/image-20190701173126124.png" alt="image-20190701173126124" /></p>
@@ -646,15 +644,15 @@ delete    new[]     delete[]</pre></td></tr></table>
 </code></pre></td></tr></table>
 </div>
 </div>
-<p>They are able to use <code>this</code> to access the proper virtual members, even though they themselves have no implementation from this function;</p>
+<p>They are able to use <code>this</code> to access the proper virtual members, even though they themselves have no implementation from this function;</p></li>
+</ul></li>
+</ul>
 
 <ol>
 <li><p><a href="https://www.geeksforgeeks.org/the-c-standard-template-library-stl/">STL (Standard Template Library)</a></p></li>
 
 <li><p><a href="https://smartbear.com/blog/develop/the-biggest-changes-in-c11-and-why-you-should-care/">C++ 11 new features</a></p></li>
-</ol></li>
-</ul></li>
-</ul>
+</ol>
     </div>
 
     

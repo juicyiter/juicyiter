@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
-    <lastBuildDate>Wed, 17 Jul 2019 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 01 Aug 2019 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://mengoreo.github.io/categories/vslam/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>视觉 SLAM 十四讲 —— 第七章习题</title>
+      <link>https://mengoreo.github.io/post/vslam_ch7/</link>
+      <pubDate>Thu, 01 Aug 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/vslam_ch7/</guid>
+      <description>&lt;p&gt;个人拙见，如有错误，欢迎评论指出 🤗。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>视觉 SLAM 十四讲 —— 第五章习题</title>
+      <link>https://mengoreo.github.io/post/vslam_ch5/</link>
+      <pubDate>Thu, 01 Aug 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/vslam_ch5/</guid>
+      <description>&lt;p&gt;本篇主要总结关于相机标定的问题，特别是相机的内参如何求。总结的还不全面，有待补充。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>视觉 SLAM 十四讲 —— 第六章习题</title>
+      <link>https://mengoreo.github.io/post/vslam_ch6/</link>
+      <pubDate>Thu, 01 Aug 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/vslam_ch6/</guid>
+      <description>&lt;p&gt;个人拙见，如有错误，欢迎评论指出 🤗。查找资料整理的时候，懒得翻译了。。。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>视觉 SLAM 十四讲 —— 第三章习题</title>

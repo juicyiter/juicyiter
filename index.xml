@@ -6,10 +6,424 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
-    <lastBuildDate>Wed, 17 Jul 2019 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 01 Aug 2019 00:00:00 +0800</lastBuildDate>
     
         <atom:link href="https://mengoreo.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>视觉 SLAM 十四讲 —— 第七章习题</title>
+      <link>https://mengoreo.github.io/post/vslam_ch7/</link>
+      <pubDate>Thu, 01 Aug 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/vslam_ch7/</guid>
+      
+        <description>&lt;p&gt;个人拙见，如有错误，欢迎评论指出 🤗。&lt;/p&gt;
+
+&lt;h2 id=&#34;feature-detection-and-description&#34;&gt;Feature detection and Description&lt;/h2&gt;
+
+&lt;h3 id=&#34;harris-角点-fn-1&#34;&gt;Harris 角点 &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fn-1&#34;&gt;&lt;a href=&#34;#fn:fn-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
+
+&lt;p&gt;原理就是计算一个窗口与该窗口进行一定的偏移之后在各个方向上的差异。该差异表示为：&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    E(u, v)=\sum_{x, y} \underbrace{w(x, y)}_{\text { window function }}[\underbrace{I(x+u, y+v)}_{\text { shifted intensity }}-\underbrace{I(x, y)}_{\text { intensity }}]^{2}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;这个差异越大，说明该 window 内存在角点的可能性越大。所以我们要最大化 \(E(u, v)\) 对 \(I(x+u, y+v)\) 用泰勒展开之后：&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \begin{aligned}
+        &amp;amp;\displaystyle \sum_{x, y} [ I(x+u, y+v) - I(x, y)]^2 \\&lt;br /&gt;
+        &amp;amp;\approx \displaystyle \sum_{x, y} [ I(x, y) + uI_x + vI_y - I(x, y) ]^2 \\&lt;br /&gt;
+        &amp;amp;= \displaystyle \sum_{x, y} u^2I_x^2 + 2uvI_xI_y + v^2I_y^2 \\&lt;br /&gt;
+        &amp;amp;= \begin{bmatrix}u &amp;amp; v\end{bmatrix} \left( \displaystyle \sum_{x, y} \begin{bmatrix}
+            I_x^2 &amp;amp; I_xI_y \\&lt;br /&gt;
+            I_xI_y &amp;amp; I_y^2
+        \end{bmatrix} \right) \begin{bmatrix}
+            u \\&lt;br /&gt;
+            v
+        \end{bmatrix}
+    \end{aligned}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;令：&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \boldsymbol{M} = \displaystyle \sum_{x, y} w(x, y) \begin{bmatrix}
+        I_x^2 &amp;amp; I_xI_y \\&lt;br /&gt;
+        I_xI_y &amp;amp; I_y^2
+    \end{bmatrix}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;这里的 \(I_x\) 和 \(I_y\) 是 image 分别在 \(x\) 和 \(y\) 方向上的导数，可以通过 &lt;code&gt;cv::Sobel()&lt;/code&gt;&amp;nbsp;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fn-2&#34;&gt;&lt;a href=&#34;#fn:fn-2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; 得到.&lt;/p&gt;
+
+&lt;p&gt;&lt;a id=&#34;org55866fa&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Harris response 可以定义为：&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    R=\operatorname{det}(\boldsymbol{M})-k(\operatorname{trace}(\boldsymbol{M}))^{2} = \lambda_1 \lambda_2 - k(\lambda_1 + \lambda_2)^2
+\end{equation}&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;\(k\) 的经验值范围： \(k \in [0.04, 0.06]\)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;根据 \(\lambda\) 值的大小，可以分为一下情况:&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;./assets/img2019-07-12-13-39-21.png&#34; alt=&#34;Figure 1: Harris corner response&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;./assets/img2019-07-12-13-39-21.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 1: Harris corner response&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;为了能够更准确的找到角点的位置，OpenCV 提供了 &lt;code&gt;cv::cornerSubPix()&lt;/code&gt;&amp;nbsp;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fn-3&#34;&gt;&lt;a href=&#34;#fn:fn-3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;shi-tomasi-角点&#34;&gt;Shi-Tomasi 角点&lt;/h2&gt;
+
+&lt;p&gt;与 Harris 角点不同的是，Shi-Tomasi 不再用复杂的 &lt;a href=&#34;#org55866fa&#34;&gt;Response 函数&lt;/a&gt; 而是直接比较两个 \(\lambda\) :&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    R = \min(\lambda_1, \lambda_2)
+\end{equation}&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;./assets/img2019-07-12-13-39-12.png&#34; alt=&#34;Figure 2: Shi-Tomasi Response&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;./assets/img2019-07-12-13-39-12.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 2: Shi-Tomasi Response&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;该方法更适合 tracking。&amp;nbsp;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fn-4&#34;&gt;&lt;a href=&#34;#fn:fn-4&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;n&#34;&gt;cv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;goodFeaturesToTrack&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:fn-1&#34;&gt;&lt;a href=&#34;https://docs.opencv.org/3.4/dc/d0d/tutorial%5Fpy%5Ffeatures%5Fharris.html&#34;&gt;https://docs.opencv.org/3.4/dc/d0d/tutorial%5Fpy%5Ffeatures%5Fharris.html&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:fn-1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:fn-2&#34;&gt;&lt;a href=&#34;https://docs.opencv.org/3.4/d4/d86/group%5F%5Fimgproc%5F%5Ffilter.html#gacea54f142e81b6758cb6f375ce782c8d&#34;&gt;https://docs.opencv.org/3.4/d4/d86/group%5F%5Fimgproc%5F%5Ffilter.html#gacea54f142e81b6758cb6f375ce782c8d&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:fn-2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:fn-3&#34;&gt;&lt;a href=&#34;https://docs.opencv.org/3.4/dd/d1a/group%5F%5Fimgproc%5F%5Ffeature.html#ga354e0d7c86d0d9da75de9b9701a9a87e&#34;&gt;https://docs.opencv.org/3.4/dd/d1a/group%5F%5Fimgproc%5F%5Ffeature.html#ga354e0d7c86d0d9da75de9b9701a9a87e&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:fn-3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:fn-4&#34;&gt;&lt;a href=&#34;https://docs.opencv.org/3.4/dd/d1a/group%5F%5Fimgproc%5F%5Ffeature.html#ga1d6bb77486c8f92d79c8793ad995d541&#34;&gt;https://docs.opencv.org/3.4/dd/d1a/group%5F%5Fimgproc%5F%5Ffeature.html#ga1d6bb77486c8f92d79c8793ad995d541&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:fn-4&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>视觉 SLAM 十四讲 —— 第五章习题</title>
+      <link>https://mengoreo.github.io/post/vslam_ch5/</link>
+      <pubDate>Thu, 01 Aug 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/vslam_ch5/</guid>
+      
+        <description>&lt;p&gt;本篇主要总结关于相机标定的问题，特别是相机的内参如何求。总结的还不全面，有待补充。&lt;/p&gt;
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;./assets/img2019-07-10-15-00-19.png&#34; alt=&#34;Figure 1: 小孔成像模型&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;./assets/img2019-07-10-15-00-19.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 1: 小孔成像模型&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;&lt;a id=&#34;org292a28a&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;根据相似三角形有：&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \tilde{x} = f \frac{X_c}{Z_c}, \; \tilde{y} = f \frac{Y_c}{Z_c}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;&lt;a id=&#34;org0af21a0&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;在 physical image plane 中，原点在中心，但是在 &lt;strong&gt;digital&lt;/strong&gt; image plane（CV）中，原点在左上角，二者之间的关系为：&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    u = \frac{\tilde{x}}{dx} + x_0, \; v = \frac{\tilde{y}}{dy} + y_0
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;这里的 \(x_0\) 和 \(y_0\) 代表 physical image plane 的中心相对于 digital image plane 的偏移，即原点（physical image）在 digital image plane 下的坐标（单位为：像素）。 那么如果 \(\tilde{x}\) 的单位为：米， \(dx\) 的单位就是：像素/米。&lt;/p&gt;
+
+&lt;p&gt;整理 &lt;a href=&#34;#org292a28a&#34;&gt;（1）&lt;/a&gt;和&lt;a href=&#34;#org0af21a0&#34;&gt;（2）&lt;/a&gt;可以得到：&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \begin{bmatrix}
+        u \\&lt;br /&gt;
+        v \\&lt;br /&gt;
+        1
+    \end{bmatrix} = \begin{bmatrix}
+        \frac{f}{dx} &amp;amp; 0 &amp;amp; x_0 \\&lt;br /&gt;
+        0 &amp;amp; \frac{f}{dy} &amp;amp; y_0 \\&lt;br /&gt;
+        0 &amp;amp; 0 &amp;amp; 1
+    \end{bmatrix} \begin{bmatrix}
+        \frac{X_c}{Z_c} \\&lt;br /&gt;
+        \frac{Y_c}{Z_c} \\&lt;br /&gt;
+        1
+    \end{bmatrix}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;中间的这个就是相机的内参矩阵（intrinsics） \(\boldsymbol{K}\) :&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \boldsymbol{K} = \begin{bmatrix}
+        f_x &amp;amp; 0 &amp;amp; c_x \\&lt;br /&gt;
+        0 &amp;amp; f_y &amp;amp; c_y \\&lt;br /&gt;
+        0 &amp;amp; 0 &amp;amp; 1
+    \end{bmatrix}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;相机标定方法：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Plane-based internal parameters estimation (Zhang&amp;rsquo;s method without considering distortion)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;假设图像在世界坐标系下的 \(XOY\) 平面内，即 \(Z=0\).&lt;/p&gt;
+
+&lt;p&gt;如下图所示：&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;./assets/img2019-07-11-10-30-24.png&#34; alt=&#34;Figure 2: 国际象棋标定图&#34;/&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;./assets/img2019-07-11-10-30-24.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+      &lt;figcaption&gt;
+          &lt;p&gt;Figure 2: 国际象棋标定图&lt;/p&gt;
+      &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;注意这里的 \(X\) 和 \(Y\) 是世界坐标系下的坐标。&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \begin{aligned}
+        \begin{bmatrix}
+            u \\&lt;br /&gt;
+            v \\&lt;br /&gt;
+            1
+        \end{bmatrix} &amp;amp;= \boldsymbol{K} [\boldsymbol{R} \, | \, \boldsymbol{t}] \begin{bmatrix}
+            X \\&lt;br /&gt;
+            Y \\&lt;br /&gt;
+            0 \\&lt;br /&gt;
+            1
+        \end{bmatrix} \\&lt;br /&gt;
+        &amp;amp;= \boldsymbol{K} \begin{bmatrix}
+            \boldsymbol{r}_1 &amp;amp; \boldsymbol{r}_2 &amp;amp; \boldsymbol{t}
+        \end{bmatrix} \begin{bmatrix}
+            X \\&lt;br /&gt;
+            Y \\&lt;br /&gt;
+            1
+        \end{bmatrix} \\&lt;br /&gt;
+        &amp;amp; \color{orange}{\sim} \boldsymbol{H} \begin{bmatrix}
+            X \\&lt;br /&gt;
+            Y \\&lt;br /&gt;
+            1
+        \end{bmatrix}
+    \end{aligned}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;求出 \(\boldsymbol{H}\) 之后，可以利用旋转矩阵的性质：&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \boldsymbol{r_1}^\top \boldsymbol{r_2} = \boldsymbol{h_1}^\top (\boldsymbol{K}\boldsymbol{K}^\top)^{-1} \boldsymbol{h_2} = 0
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \boldsymbol{r_1}^\top \boldsymbol{r_1} = \boldsymbol{r_2}^\top \boldsymbol{r_2} = \boldsymbol{h_1}^\top (\boldsymbol{K}\boldsymbol{K}^\top)^{-1} \boldsymbol{h_1} = \boldsymbol{h_2}^\top (\boldsymbol{K}\boldsymbol{K}^\top)^{-1} \boldsymbol{h_2} = 1
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;其中，令：&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \begin{aligned}
+    \boldsymbol{\omega}
+    &amp;amp;= (\boldsymbol{KK}^\top)^{-1} \\&lt;br /&gt;
+    &amp;amp;= \begin{bmatrix}
+    \frac{1}{\alpha_x^2} &amp;amp; 0 &amp;amp; -\frac{x_0}{\alpha_x^2} \\&lt;br /&gt;
+    0 &amp;amp; \frac{1}{\alpha_y^2} &amp;amp; -\frac{y_0}{\alpha_y^2} \\&lt;br /&gt;
+    -\frac{x_0}{\alpha_x^2} &amp;amp; -\frac{y_0}{\alpha_y^2} &amp;amp; \frac{x_0^2}{\alpha_x^2} + \frac{y_0^2}{\alpha_y^2} + 1
+    \end{bmatrix}
+    \end{aligned}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;那么求解 \(\boldsymbol{\omega}\) 就可以转换求解一个线性方程：&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \boldsymbol{A}_i [\omega_{11}, \omega_{13}, \omega_{22}, \omega_{23}, \omega_{33}]^\top = \boldsymbol{0}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;求解之后, \(\boldsymbol{\omega}\) 中未知数就可以表示出来：&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \def\arraystretch{1.8}
+    \begin{aligned}
+    x_0 &amp;amp;= - \frac{\omega_{13}}{\omega_{11}} \\&lt;br /&gt;
+    y_0 &amp;amp;= - \frac{\omega_{23}}{\omega_{22}} \\&lt;br /&gt;
+    \alpha_{y} &amp;amp;= \left(\frac{\omega_{11} \omega_{22} \omega_{33}-\omega_{22} \omega_{13}^{2}-\omega_{11} \omega_{23}^{2}}{\omega_{11} \omega_{22}^{2}}\right)^{\frac{1}{2}} \\&lt;br /&gt;
+    &amp;amp;(\text{Why not simply as } \sqrt{\omega_{11}} \text{ ?}) \\&lt;br /&gt;
+    \alpha_{x}&amp;amp;=\alpha_{y}\left(\frac{\omega_{22}}{\omega_{11}}\right)^{\frac{1}{2}}
+    \end{aligned}
+\end{equation}&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;在估计 \(\boldsymbol{H}\) 的时候，回顾 &lt;strong&gt;八点法&lt;/strong&gt; ，至少需要四对图像和世界坐标（对于一次拍摄）。这里可以直接用 DLT 或者非线性优化来求解。&lt;/p&gt;
+
+&lt;p&gt;在求解 \(\boldsymbol{\omega}\) 的时候，因为 \(\boldsymbol{\omega}\) 有五个自由度，所以至少需要 &lt;strong&gt;五次&lt;/strong&gt; 拍摄（求得的 \(\boldsymbol{H}\) ），同样的，可以用 DLT 和非线性优化来求解。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>视觉 SLAM 十四讲 —— 第六章习题</title>
+      <link>https://mengoreo.github.io/post/vslam_ch6/</link>
+      <pubDate>Thu, 01 Aug 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/vslam_ch6/</guid>
+      
+        <description>&lt;p&gt;个人拙见，如有错误，欢迎评论指出 🤗。查找资料整理的时候，懒得翻译了。。。&lt;/p&gt;
+
+&lt;h2 id=&#34;given-a-linear-equation--boldsymbol-ax-boldsymbol-b--prove-that-its-least-square-root-is--boldsymbol-x--boldsymbol-a-top-boldsymbol-a--1-boldsymbol-a-top-boldsymbol-b--when-the-coefficient-matrix-is-overdetermined-dot&#34;&gt;Given a linear equation \(\boldsymbol{Ax} = \boldsymbol{b}\), prove that its least square root is \(\boldsymbol{x} = (\boldsymbol{A}^\top \boldsymbol{A})^{-1} \boldsymbol{A}^\top \boldsymbol{b}\), when the coefficient matrix is overdetermined.&lt;/h2&gt;
+
+&lt;p&gt;Define \(f(\boldsymbol{x}) = \boldsymbol{Ax} - \boldsymbol{b}\). The root of least square root of the linear equation is&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \underset{\boldsymbol{x}}{\mathrm{argmin}} \frac{1}{2} ||f(\boldsymbol{x})||^2_2 = \frac{1}{2} (\boldsymbol{x}^\top \boldsymbol{A}^\top \boldsymbol{Ax} - 2 \boldsymbol{b}^\top \boldsymbol{Ax} + \boldsymbol{b}^\top \boldsymbol{b})
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;The Jacobian is:&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \boldsymbol{J}(\boldsymbol{x}) = \boldsymbol{A}^\top \boldsymbol{Ax} - \boldsymbol{A}^\top \boldsymbol{b}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;So the root of the linear equation is equal to the root of the \(\boldsymbol{J}(\boldsymbol{x}) = \boldsymbol{0}\):&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \boldsymbol{x} = (\boldsymbol{A}^\top \boldsymbol{A})^{-1} \boldsymbol{A}^\top \boldsymbol{b}
+\end{equation}&lt;/p&gt;
+
+&lt;h2 id=&#34;comparison-between-gradient-descent-newton-s-method-gaussian-newton-and-levenberg-marquadt-fn-1&#34;&gt;Comparison between Gradient descent , Newton&amp;rsquo;s method, Gaussian-Newton and Levenberg-Marquadt &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fn-1&#34;&gt;&lt;a href=&#34;#fn:fn-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
+
+&lt;p&gt;Scalar-valued goodness-of-fit measure is called &lt;strong&gt;chi-squared error criterion&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \begin{aligned} \chi^{2}(\boldsymbol{p}) &amp;amp;=\sum_{i=1}^{m}\left[\frac{y\left(t_{i}\right)-\hat{y}\left(t_{i} ; \boldsymbol{p}\right)}{\sigma_{y_{i}}}\right]^{2} \\&lt;br /&gt;
+    &amp;amp;=(\boldsymbol{y}-\hat{\boldsymbol{y}}(\boldsymbol{p}))^{\top} \boldsymbol{W}(\boldsymbol{y}-\hat{\boldsymbol{y}}(\boldsymbol{p})) \\&lt;br /&gt;
+    &amp;amp;=\boldsymbol{y}^{\top} \boldsymbol{W} \boldsymbol{y}-2 \boldsymbol{y}^{\top} \boldsymbol{W} \hat{\boldsymbol{y}}+\hat{\boldsymbol{y}}^{\top} \boldsymbol{W} \hat{\boldsymbol{y}} \end{aligned}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;Typically the weight matrix is diagonal with \(\boldsymbol{W}_{ii} = 1/\sigma_{y_i}^2\).&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Gradient descent&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Updates parameter values in the &amp;ldquo;downhill&amp;rdquo; direction&lt;/li&gt;
+&lt;li&gt;By \(\Delta{\boldsymbol{p}} = \alpha \boldsymbol{J}^{\top} \boldsymbol{W}(\boldsymbol{y}-\hat{\boldsymbol{y}})\)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Converges well with simple objective function&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Gaussian-Newton (first-order approximation)&amp;nbsp;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fn-2&#34;&gt;&lt;a href=&#34;#fn:fn-2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Presumes that the objective function is &lt;strong&gt;quadratic&lt;/strong&gt; in parameters &lt;strong&gt;near&lt;/strong&gt; the optimal solution and finds the minimum of the quadratic.&lt;/li&gt;
+&lt;li&gt;Converges faster than the gradient descent for moderately-sized problems.&lt;/li&gt;
+&lt;li&gt;\(\frac{\partial}{\partial \Delta{\boldsymbol{p}}} \chi^{2}(\boldsymbol{p}+\Delta{\boldsymbol{p}}) \approx-2(\boldsymbol{y}-\hat{\boldsymbol{y}})^{\top} \boldsymbol{W} \boldsymbol{J}+2 \Delta{\boldsymbol{p}}^{\top} \boldsymbol{J}^{\top} \boldsymbol{W} \boldsymbol{J}\)&lt;/li&gt;
+&lt;li&gt;Updates by the result of the normal equation \(\left[\boldsymbol{J}^{\top} \boldsymbol{W} \boldsymbol{J}\right] \boldsymbol{h}_{\mathrm{gn}}=\boldsymbol{J}^{\top} \boldsymbol{W}(\boldsymbol{y}-\hat{\boldsymbol{y}})\)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Newton&amp;rsquo;s method (second-order approximation)&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fn-3&#34;&gt;&lt;a href=&#34;#fn:fn-3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Levenberg-Marquadt&amp;nbsp;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fn-4&#34;&gt;&lt;a href=&#34;#fn:fn-4&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Adaptively varies the parameter updates between the gradient descent update and the Gauss-Newton update. The Levenberg-Marquadt method acts more like a gradient-descent method when the parameters are &lt;strong&gt;far&lt;/strong&gt; from their optimal value, and acts more like the Gauss-Newton method when the parameters are &lt;strong&gt;close&lt;/strong&gt; to their optimal value.&lt;/li&gt;
+&lt;li&gt;\(\left[\boldsymbol{J}^{\top} \boldsymbol{W} \boldsymbol{J}+\lambda \boldsymbol{I}\right] \boldsymbol{h}_{\mathrm{lm}}=\boldsymbol{J}^{\top} \boldsymbol{W}(\boldsymbol{y}-\hat{\boldsymbol{y}})\)&lt;/li&gt;
+&lt;li&gt;Small values of damping parameter \(\lambda\) result in a Gauss-Newton update and large values of \(\lambda\) result in a gradient descent update.&lt;/li&gt;
+&lt;li&gt;\(\lambda\) is initiated to be large so that the first update are small steps in the steepest direction, as the solution improves, \(\lambda\) is decreased, the LM approaches GN, and the solution typically accelerates to the local minimum;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;为什么-gn-的增量方程的系数矩阵--boldsymbol-j-top-boldsymbol-j--可能不正定&#34;&gt;为什么 GN 的增量方程的系数矩阵 \(\boldsymbol{J}^\top \boldsymbol{J}\) 可能不正定？&lt;/h2&gt;
+
+&lt;p&gt;对于非零向量 \(z\) :&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    z^\top \boldsymbol{J}^\top \boldsymbol{J} z = ||\boldsymbol{J}z ||^2 \geq 0
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;当 \(\boldsymbol{J}\) 的行列式 \(|\boldsymbol{J}| = 0\) 的时候，\(\boldsymbol{J}^\top \boldsymbol{J}\) 就是不正定的，增量方程就没有唯一解，从而导致在这种情况下的解不稳定。&lt;/p&gt;
+
+&lt;h2 id=&#34;some-useful-links&#34;&gt;Some useful links&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Positive-definite%5Ffunction&#34;&gt;https://en.wikipedia.org/wiki/Positive-definite%5Ffunction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Positive-definite%5Fmatrices&#34;&gt;https://en.wikipedia.org/wiki/Positive-definite%5Fmatrices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Jacobian%5Fmatrix&#34;&gt;https://en.wikipedia.org/wiki/Jacobian%5Fmatrix&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Invertible%5Ffunction&#34;&gt;https://en.wikipedia.org/wiki/Invertible%5Ffunction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Inverse%5Fmatrices&#34;&gt;https://en.wikipedia.org/wiki/Inverse%5Fmatrices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.numerical.rl.ac.uk/people/nimg/course/lectures/raphael/lectures/lec7slides.pdf&#34;&gt;http://www.numerical.rl.ac.uk/people/nimg/course/lectures/raphael/lectures/lec7slides.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:fn-1&#34;&gt;METHODS FOR NON-LINEAR LEAST SQUARES PROBLEMS 2nd Edition, April 2004, K. Madsen, H.B. Nielsen, O. Tingleff
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:fn-1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:fn-2&#34;&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Gauss%E2%80%93Newton%5Falgorithm&#34;&gt;https://en.wikipedia.org/wiki/Gauss%E2%80%93Newton%5Falgorithm&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:fn-2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:fn-3&#34;&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Newton%27s%5Fmethod%5Fin%5Foptimization&#34;&gt;https://en.wikipedia.org/wiki/Newton%27s%5Fmethod%5Fin%5Foptimization&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:fn-3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:fn-4&#34;&gt;&lt;a href=&#34;http://people.duke.edu/~hpgavin/ce281/lm.pdf&#34;&gt;http://people.duke.edu/~hpgavin/ce281/lm.pdf&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:fn-4&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description>
+      
+    </item>
     
     <item>
       <title>视觉 SLAM 十四讲 —— 第三章习题</title>
@@ -952,22 +1366,20 @@ r_{31} &amp;amp; r_{32} &amp;amp; r_{33} \end{bmatrix}, \boldsymbol{p} = [p_1, p
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Without&lt;/strong&gt; any return type.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Overloading&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;Overloading&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;   &lt;span class=&#34;n&#34;&gt;class_name&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;obj_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// calls the default constructor
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;   &lt;span class=&#34;n&#34;&gt;class_name&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;obj_name1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// default constructor NOT called
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span class=&#34;n&#34;&gt;class_name&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;obj_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// calls the default constructor
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;class_name&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;obj_name1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// default constructor NOT called
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;Uniform initialisation&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Uniform initialisation&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -976,13 +1388,15 @@ r_{31} &amp;amp; r_{32} &amp;amp; r_{33} \end{bmatrix}, \boldsymbol{p} = [p_1, p
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;   &lt;span class=&#34;n&#34;&gt;class_name&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;obj_name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;initiaisation_value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// assignment init.(single parameter)
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;   &lt;span class=&#34;n&#34;&gt;class_name&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;obj_name1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;...}&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// POD-like init.
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;   &lt;span class=&#34;n&#34;&gt;class_name&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;obj_name2&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;...}&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// uniform init.
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;   &lt;span class=&#34;n&#34;&gt;class_name&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;obj_name3&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;...)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// functional form init.
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;n&#34;&gt;class_name&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;obj_name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;initiaisation_value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// assignment init.(single parameter)
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;class_name&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;obj_name1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;...}&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// POD-like init.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;class_name&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;obj_name2&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;...}&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// uniform init.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;class_name&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;obj_name3&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;...)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// functional form init.
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;strong&gt;Braces cannot be confused with function declarations, and thus can be used to explicitly call default constructor&lt;/strong&gt;.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -998,8 +1412,7 @@ r_{31} &amp;amp; r_{32} &amp;amp; r_{33} \end{bmatrix}, \boldsymbol{p} = [p_1, p
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;ul&gt;
-&lt;li&gt;Member initialisation&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;Member initialisation&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -1007,12 +1420,14 @@ r_{31} &amp;amp; r_{32} &amp;amp; r_{33} \end{bmatrix}, \boldsymbol{p} = [p_1, p
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;   &lt;span class=&#34;c1&#34;&gt;// The followings are equal definition
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;   &lt;span class=&#34;n&#34;&gt;class_name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;class_name&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;height&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-   &lt;span class=&#34;n&#34;&gt;class_name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;class_name&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;height&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// member initialiser list
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// The followings are equal definition
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;class_name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;class_name&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;height&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;class_name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;class_name&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;height&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// member initialiser list
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;The following example &lt;strong&gt;MUST&lt;/strong&gt; use &lt;em&gt;member initialisation list&lt;/em&gt;.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -1126,22 +1541,20 @@ delete    new[]     delete[]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;const&lt;/code&gt; objects can only access the &lt;code&gt;const&lt;/code&gt; member function&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Template specialisation&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;Template specialisation&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;   &lt;span class=&#34;k&#34;&gt;template&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;err&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;err&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;mycontainer&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
-   &lt;span class=&#34;k&#34;&gt;template&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;err&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;mycontainer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;char&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;k&#34;&gt;template&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;err&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;err&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;mycontainer&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;template&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;err&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;mycontainer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;char&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;Special members
-&lt;br /&gt;&lt;/li&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Special members&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&#34;assets/image-20190701173126124.png&#34; alt=&#34;image-20190701173126124&#34; /&gt;&lt;/p&gt;
@@ -1202,15 +1615,15 @@ delete    new[]     delete[]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;They are able to use &lt;code&gt;this&lt;/code&gt; to access the proper virtual members, even though they themselves have no implementation from this function;&lt;/p&gt;
+&lt;p&gt;They are able to use &lt;code&gt;this&lt;/code&gt; to access the proper virtual members, even though they themselves have no implementation from this function;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.geeksforgeeks.org/the-c-standard-template-library-stl/&#34;&gt;STL (Standard Template Library)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://smartbear.com/blog/develop/the-biggest-changes-in-c11-and-why-you-should-care/&#34;&gt;C++ 11 new features&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;</description>
+&lt;/ol&gt;</description>
       
     </item>
     
@@ -1298,8 +1711,7 @@ delete    new[]     delete[]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;h3 id=&#34;create-a-mat-object-explicitly&#34;&gt;Create A Mat Object Explicitly&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;cv::Mat::Mat&lt;/code&gt; Constructor&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;cv::Mat::Mat&lt;/code&gt; Constructor&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -1325,12 +1737,13 @@ delete    new[]     delete[]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-pseudocode&#34; data-lang=&#34;pseudocode&#34;&gt;Mat M(row_count, column_count, CV_[bits per item][Signed or Unsigned][Type Prefix]C[channel number], custom_value)&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;strong&gt;Use &lt;code&gt;Scalar&lt;/code&gt;&lt;/strong&gt;!&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;cv::Mat::create&lt;/code&gt; function:&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;cv::Mat::create&lt;/code&gt; function:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -1341,7 +1754,9 @@ delete    new[]     delete[]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;span class=&#34;n&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;create&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CV_8UC&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;One of the key &lt;code&gt;Mat&lt;/code&gt; methods. &lt;strong&gt;Most of the OpenCV function calls &lt;code&gt;Mat::create()&lt;/code&gt; for the output array internally&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;The method uses the following algorithm:&lt;/p&gt;
@@ -1354,8 +1769,7 @@ delete    new[]     delete[]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/ol&gt;
 
 &lt;ul&gt;
-&lt;li&gt;MATLAB style initialiser&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;MATLAB style initialiser&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -1368,10 +1782,9 @@ delete    new[]     delete[]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;span class=&#34;n&#34;&gt;Mat&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Z&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Mat&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;zeros&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CV_8UC1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;Comma separated initialisers or initialiser list&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Comma separated initialisers or initialiser list&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -1379,26 +1792,27 @@ delete    new[]     delete[]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;  &lt;span class=&#34;n&#34;&gt;Mat&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;C&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Mat_&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-  &lt;span class=&#34;c1&#34;&gt;// The following requires C++ 11 support
-&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;C&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Mat_&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;})).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;reshape&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;// reshape to 3 columns
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;n&#34;&gt;Mat&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;C&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Mat_&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;// The following requires C++ 11 support
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;C&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Mat_&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;})).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;reshape&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;// reshape to 3 columns
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;cv::Mat::clone&lt;/code&gt; or &lt;code&gt;cv:Mat::copyTo&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;cv::Mat::clone&lt;/code&gt; or &lt;code&gt;cv:Mat::copyTo&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;  &lt;span class=&#34;n&#34;&gt;Mat&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RowClone&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;row&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;clone&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
-  &lt;span class=&#34;n&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;row&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;copyTo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;row&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;n&#34;&gt;Mat&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RowClone&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;row&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;clone&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;row&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;copyTo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;row&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h3 id=&#34;output-formatting&#34;&gt;Output Formatting&lt;/h3&gt;
 
 &lt;p&gt;Formatter type: &lt;code&gt;FMT_PYTHON&lt;/code&gt;, &lt;code&gt;FMT_CSV&lt;/code&gt;, &amp;lsquo;FMT_NUMPY&amp;rsquo; and &lt;code&gt;FMT_C&lt;/code&gt;.&lt;/p&gt;
@@ -3971,10 +4385,10 @@ perform the \(XORs\) does not change the result.&lt;/p&gt;
         &lt;span class=&#34;n&#34;&gt;p2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;blx&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;blp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
         &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;^&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;p2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;Test if \(x\) is a power of \(2\), i.e., evaluates to true for
-\(x=1,2,4, 8,\dots\), false for others. &lt;code&gt;x ^ (1 &amp;lt;&amp;lt; blx) =&lt;/code&gt; 0=&lt;/li&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Test if \(x\) is a power of \(2\), i.e., evaluates to true for
+\(x=1,2,4, 8,\dots\), false for others. &lt;code&gt;x ^ (1 &amp;lt;&amp;lt; blx) =&lt;/code&gt; 0=&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;swap-bits&#34;&gt;Swap Bits&lt;/h3&gt;
@@ -4071,9 +4485,7 @@ at index \(0\). The corresponding integer is \(11​\).&lt;/p&gt;
 		&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;^=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bit_maks&lt;/span&gt;
 	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
+&lt;/div&gt;
 &lt;blockquote&gt;
 &lt;p&gt;The time complexity is \(O(1)\), independent of word size.&lt;/p&gt;
 &lt;/blockquote&gt;

@@ -35,7 +35,7 @@ OpenCV uses a reference counting system." />
 <meta name="google-site-verification" content="gVkxHuty-Yq4pXCYdtF18vY2y64Ez3dl8mbUHcC0Uys" />
 
 
-<meta name="generator" content="Hugo 0.55.6" />
+<meta name="generator" content="Hugo 0.56.3" />
 
 
 <link rel="canonical" href="https://mengoreo.github.io/post/learning_opencv/" />
@@ -68,9 +68,8 @@ OpenCV uses a reference counting system." />
 OpenCV uses a reference counting system." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://mengoreo.github.io/post/learning_opencv/" />
-<meta property="article:published_time" content="2019-05-30T15:13:35&#43;08:00"/>
-<meta property="article:modified_time" content="2019-05-30T15:13:35&#43;08:00"/>
-
+<meta property="article:published_time" content="2019-05-30T15:13:35+08:00" />
+<meta property="article:modified_time" content="2019-05-30T15:13:35+08:00" />
 <meta itemprop="name" content="Core Functionality of OpenCV4">
 <meta itemprop="description" content="Mat - The Basic Image Container Mat is basically a class with two data parts: the matrix header (containing information such as the size of the matrix, the method used for storing, at which address is the matrix stored …) and a pointer to the matrix data containing the pixe values. The matrix header size is constant, but the size of the matrix itself may vary.
 OpenCV uses a reference counting system.">
@@ -402,8 +401,7 @@ if (!doNotTrack) {
 <h3 id="create-a-mat-object-explicitly">Create A Mat Object Explicitly</h3>
 
 <ul>
-<li><code>cv::Mat::Mat</code> Constructor</li>
-</ul>
+<li><p><code>cv::Mat::Mat</code> Constructor</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="lnt">1
@@ -429,12 +427,13 @@ if (!doNotTrack) {
 <td class="lntd">
 <pre class="chroma"><code class="language-pseudocode" data-lang="pseudocode">Mat M(row_count, column_count, CV_[bits per item][Signed or Unsigned][Type Prefix]C[channel number], custom_value)</code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ul>
+
 <p><strong>Use <code>Scalar</code></strong>!</p>
 
 <ul>
-<li><code>cv::Mat::create</code> function:</li>
-</ul>
+<li><p><code>cv::Mat::create</code> function:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="lnt">1
@@ -445,7 +444,9 @@ if (!doNotTrack) {
 <span class="n">C</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">CV_8UC</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
 </code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ul>
+
 <p>One of the key <code>Mat</code> methods. <strong>Most of the OpenCV function calls <code>Mat::create()</code> for the output array internally</strong>.</p>
 
 <p>The method uses the following algorithm:</p>
@@ -458,8 +459,7 @@ if (!doNotTrack) {
 </ol>
 
 <ul>
-<li>MATLAB style initialiser</li>
-</ul>
+<li><p>MATLAB style initialiser</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="lnt">1
@@ -472,10 +472,9 @@ if (!doNotTrack) {
 <span class="n">Mat</span> <span class="n">Z</span> <span class="o">=</span> <span class="n">Mat</span><span class="o">::</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">CV_8UC1</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<ul>
-<li>Comma separated initialisers or initialiser list</li>
-</ul>
+</div></li>
+
+<li><p>Comma separated initialisers or initialiser list</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="lnt">1
@@ -483,26 +482,27 @@ if (!doNotTrack) {
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-cpp" data-lang="cpp">  <span class="n">Mat</span> <span class="n">C</span> <span class="o">=</span> <span class="p">(</span><span class="n">Mat_</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-  <span class="c1">// The following requires C++ 11 support
-</span><span class="c1"></span>  <span class="n">C</span> <span class="o">=</span> <span class="p">(</span><span class="n">Mat_</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">({</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">})).</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>  <span class="c1">// reshape to 3 columns
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Mat</span> <span class="n">C</span> <span class="o">=</span> <span class="p">(</span><span class="n">Mat_</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="c1">// The following requires C++ 11 support
+</span><span class="c1"></span><span class="n">C</span> <span class="o">=</span> <span class="p">(</span><span class="n">Mat_</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">({</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">})).</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>  <span class="c1">// reshape to 3 columns
 </span></code></pre></td></tr></table>
 </div>
-</div>
-<ul>
-<li><code>cv::Mat::clone</code> or <code>cv:Mat::copyTo</code></li>
-</ul>
+</div></li>
+
+<li><p><code>cv::Mat::clone</code> or <code>cv:Mat::copyTo</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-cpp" data-lang="cpp">  <span class="n">Mat</span> <span class="n">RowClone</span> <span class="o">=</span> <span class="n">C</span><span class="p">.</span><span class="n">row</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">clone</span><span class="p">();</span>
-  <span class="n">C</span><span class="p">.</span><span class="n">row</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">copyTo</span><span class="p">(</span><span class="n">A</span><span class="p">.</span><span class="n">row</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Mat</span> <span class="n">RowClone</span> <span class="o">=</span> <span class="n">C</span><span class="p">.</span><span class="n">row</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">clone</span><span class="p">();</span>
+<span class="n">C</span><span class="p">.</span><span class="n">row</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">copyTo</span><span class="p">(</span><span class="n">A</span><span class="p">.</span><span class="n">row</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
 </code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ul>
+
 <h3 id="output-formatting">Output Formatting</h3>
 
 <p>Formatter type: <code>FMT_PYTHON</code>, <code>FMT_CSV</code>, &lsquo;FMT_NUMPY&rsquo; and <code>FMT_C</code>.</p>
