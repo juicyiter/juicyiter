@@ -67,7 +67,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://mengoreo.github.io/" />
 
-<meta property="og:updated_time" content="2019-08-01T00:00:00+08:00" />
+<meta property="og:updated_time" content="2019-08-06T15:17:00+08:00" />
 <meta itemprop="name" content="Mengoreo">
 <meta itemprop="description" content="Be yourself &amp; Beyond yourself.">
 
@@ -293,15 +293,15 @@ if (!doNotTrack) {
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/vslam_ch3/">视觉 SLAM 十四讲 —— 第三章习题</a>
+      <a class="post-link" href="/post/binary_trees/">Binary Trees</a>
     </h1>
     
     <div class="post-meta">
-      <time datetime="2019-07-17" class="post-time">
-        2019-07-17
+      <time datetime="2019-08-06" class="post-time">
+        2019-08-06
       </time>
       <div class="post-category">
-          <a href="https://mengoreo.github.io/categories/vslam/"> VSLAM </a>
+          <a href="https://mengoreo.github.io/categories/algorithm/"> Algorithm </a>
           
         </div>
       
@@ -313,10 +313,58 @@ if (!doNotTrack) {
   <div class="post-content">
     
     <div class="post-summary">
-      <p>个人拙见，如有错误，欢迎评论指出 🤗。</p>
+      <h2 id="test-if-a-binary-tree-is-heigh-balanced">Test If A Binary Tree Is Heigh-Balanced</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="k">def</span> <span class="nf">is_balanced_binary_tree</span><span class="p">(</span><span class="n">tree</span><span class="p">):</span>
+    <span class="n">BalancedStatusWithHeight</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">namedtuple</span><span class="p">(</span><span class="s2">&#34;BalancedStatusWithHeight&#34;</span><span class="p">,</span> <span class="p">(</span><span class="s2">&#34;balanced&#34;</span><span class="p">,</span> <span class="s2">&#34;height&#34;</span><span class="p">))</span>
+    <span class="c1"># First value indicates if tree is balanced</span>
+    <span class="c1"># and if balanced, second value is the height of tree</span>
+    <span class="k">def</span> <span class="nf">check_balanced</span><span class="p">(</span><span class="n">tree</span><span class="p">):</span>
+	<span class="k">if</span> <span class="ow">not</span> <span class="n">tree</span><span class="p">:</span>
+	    <span class="k">return</span> <span class="n">BalancedStatusWithHeight</span><span class="p">(</span><span class="bp">False</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Base case</span>
+
+	<span class="n">left_result</span> <span class="o">=</span> <span class="n">check_balanced</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
+	<span class="k">if</span> <span class="ow">not</span> <span class="n">left_result</span><span class="o">.</span><span class="n">balanced</span><span class="p">:</span>
+	    <span class="k">return</span> <span class="n">BalancedStatusWithHeight</span><span class="p">(</span><span class="bp">False</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># Current &#34;root&#34; height</span>
+
+	<span class="n">right_result</span> <span class="o">=</span> <span class="n">check_balanced</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
+	<span class="k">if</span> <span class="ow">not</span> <span class="n">right_result</span><span class="o">.</span><span class="n">balanced</span><span class="p">:</span>
+	    <span class="k">return</span> <span class="n">BalancedStatusWithHeight</span><span class="p">(</span><span class="bp">False</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+	<span class="n">status</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">left_result</span><span class="o">.</span><span class="n">height</span> <span class="o">-</span> <span class="n">right_result</span><span class="o">.</span><span class="n">height</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span>
+	<span class="n">height</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">left_result</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">right_result</span><span class="o">.</span><span class="n">height</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+	<span class="k">return</span> <span class="n">BalancedStatusWithHeight</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">check_balanced</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span><span class="o">.</span><span class="n">balanced</span></code></pre></td></tr></table>
+</div>
+</div>
     </div>
     <div class="read-more">
-      <a href="/post/vslam_ch3/" class="read-more-link">Read more</a>
+      <a href="/post/binary_trees/" class="read-more-link">Read more</a>
     </div>
     
   </div>
@@ -327,15 +375,15 @@ if (!doNotTrack) {
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/vslam_ch4/">视觉 SLAM 十四讲 —— 第四章习题</a>
+      <a class="post-link" href="/post/stacks_and_queues/">Stacks and Queues</a>
     </h1>
     
     <div class="post-meta">
-      <time datetime="2019-07-17" class="post-time">
-        2019-07-17
+      <time datetime="2019-08-06" class="post-time">
+        2019-08-06
       </time>
       <div class="post-category">
-          <a href="https://mengoreo.github.io/categories/vslam/"> VSLAM </a>
+          <a href="https://mengoreo.github.io/categories/algorithm/"> Algorithm </a>
           
         </div>
       
@@ -347,10 +395,12 @@ if (!doNotTrack) {
   <div class="post-content">
     
     <div class="post-summary">
-      <p>个人拙见，如有错误，欢迎评论指出 🤗。</p>
+      <h2 id="implement-a-stack-with-max-api">Implement A Stack with Max API</h2>
+
+<p>If we use a single auxiliary variable, \(M\) to record the element that is maximum in the stack, updating \(M\) on pushes is easy, but not on pops. For this reason, we cache the maximum stored at or below that entry. When we pop, we simply evict the corresponding cached value.</p>
     </div>
     <div class="read-more">
-      <a href="/post/vslam_ch4/" class="read-more-link">Read more</a>
+      <a href="/post/stacks_and_queues/" class="read-more-link">Read more</a>
     </div>
     
   </div>
@@ -361,15 +411,15 @@ if (!doNotTrack) {
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/vslam_ch1/">视觉 SLAM 十四讲 —— 第一章习题</a>
+      <a class="post-link" href="/post/linked_lists/">Linked Lists</a>
     </h1>
     
     <div class="post-meta">
-      <time datetime="2019-07-16" class="post-time">
-        2019-07-16
+      <time datetime="2019-08-05" class="post-time">
+        2019-08-05
       </time>
       <div class="post-category">
-          <a href="https://mengoreo.github.io/categories/v-slam/"> V-SLAM </a>
+          <a href="https://mengoreo.github.io/categories/algorithm/"> Algorithm </a>
           
         </div>
       
@@ -381,10 +431,14 @@ if (!doNotTrack) {
   <div class="post-content">
     
     <div class="post-summary">
-      <p>个人拙见，如有错误，欢迎评论指出 🤗。</p>
+      <p>Inserting and deleting elements in a list has time complexity \(O(1)\) , while obtaining $k$-th element in a list has time complexity \(O(n)\) .</p>
+
+<p><strong>A <code>list</code> object is an array not a list.</strong></p>
+
+<p>There are two types list related problems:</p>
     </div>
     <div class="read-more">
-      <a href="/post/vslam_ch1/" class="read-more-link">Read more</a>
+      <a href="/post/linked_lists/" class="read-more-link">Read more</a>
     </div>
     
   </div>
@@ -454,6 +508,18 @@ if (!doNotTrack) {
       
       <li >
         <a href="/page/10/">10</a>
+      </li>
+      
+      <li >
+        <a href="/page/11/">11</a>
+      </li>
+      
+      <li >
+        <a href="/page/12/">12</a>
+      </li>
+      
+      <li >
+        <a href="/page/13/">13</a>
       </li>
       
     </ul>

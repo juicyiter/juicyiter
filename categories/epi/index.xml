@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EPI on Mengoreo</title>
+    <link>https://mengoreo.github.io/categories/epi/</link>
+    <description>Recent content in EPI on Mengoreo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Mengoreo is not an oreo</copyright>
+    <lastBuildDate>Mon, 05 Aug 2019 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://mengoreo.github.io/categories/epi/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Strings</title>
+      <link>https://mengoreo.github.io/post/strings/</link>
+      <pubDate>Mon, 05 Aug 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/strings/</guid>
+      <description>&lt;p&gt;You should know &lt;strong&gt;how strings are represented in memory&lt;/strong&gt; and understand basic operations on strings such as comparison, copying, joining, splitting, matching, etc. Advanced string processing algorithm often use &lt;strong&gt;hash tables&lt;/strong&gt; and &lt;strong&gt;dynamic programming&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Arrays</title>
+      <link>https://mengoreo.github.io/post/arrays/</link>
+      <pubDate>Sun, 04 Aug 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/arrays/</guid>
+      <description>&lt;h2 id=&#34;libraries&#34;&gt;Libraries&lt;/h2&gt;
+
+&lt;p&gt;Arrays are provided in Python by &lt;code&gt;list&lt;/code&gt; type. ( &lt;code&gt;tuple&lt;/code&gt; is similar to &lt;code&gt;list&lt;/code&gt;, but immutable.);&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Checking if a value in an array has \(O(n)\) time complexity.&lt;/li&gt;
+&lt;li&gt;To understand how copy works check &lt;a href=&#34;https://mengoreo.github.io/post/python_questions/#shallow-and-deep-copy&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Primitive Types</title>
+      <link>https://mengoreo.github.io/post/primitive-types/</link>
+      <pubDate>Fri, 22 Feb 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/primitive-types/</guid>
+      <description>Be very comfortable with bitwise operators, particularly XOR.
+Understand how to use masks and create them in an machine independent way
+Know how fast ways to clear the lowermost set bit (and by extension, set the lowermost 0, get its index, etc.)
+Understand signedness and its implications to shifting
+Consider using a cache to accelerate operations by using it to brute-force small inputs
+Be aware that commutativity and associativity can be used to perform operations in parallel and reorder operations.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -7,10 +7,174 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
-    <lastBuildDate>Thu, 01 Aug 2019 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 06 Aug 2019 15:17:00 +0800</lastBuildDate>
     
 	<atom:link href="https://mengoreo.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hash Tables</title>
+      <link>https://mengoreo.github.io/post/hash_tables/</link>
+      <pubDate>Tue, 06 Aug 2019 15:17:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/hash_tables/</guid>
+      <description>&lt;p&gt;Hash tables have the &lt;strong&gt;best theoretical and real-world performance&lt;/strong&gt; for lookup, insert and delete. Each of these operations has \(O(1)\) time complexity. The \(O(1)\) time complexity for insertion is for the average case &amp;ndash; a single insert can take \(O(n)\) if the hash table to has to be resized.&lt;/p&gt;
+
+&lt;p&gt;Consider using a hash code as a &lt;strong&gt;signature&lt;/strong&gt; to enhance performance, e.g. to filter out candidates.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Searching</title>
+      <link>https://mengoreo.github.io/post/searching/</link>
+      <pubDate>Tue, 06 Aug 2019 14:15:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/searching/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Binary search&lt;/strong&gt; is an effective search tool. It is applicable to more than just searching in sorted arrays, e.g., it can be used to search an &lt;strong&gt;interval of real numbers or integers&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;If your solution uses sorting, and the computation performed after sorting is faster than sorting e.g., \(O(n)\) or \(O(\log n)\) , &lt;strong&gt;look for solutions that do not perform a complete sort&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Consider &lt;strong&gt;time/space trade-offs&lt;/strong&gt;, such as making multiple passes through the data.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Heaps</title>
+      <link>https://mengoreo.github.io/post/heaps/</link>
+      <pubDate>Tue, 06 Aug 2019 13:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/heaps/</guid>
+      <description>&lt;h2 id=&#34;libraries&#34;&gt;Libraries&lt;/h2&gt;
+
+&lt;p&gt;Heap functionality is provided by the &lt;code&gt;heapq&lt;/code&gt; module.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;heapq.heapify(L)&lt;/code&gt;, which transforms the elements in &lt;code&gt;L&lt;/code&gt; into a heap &lt;strong&gt;in place&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;heapq.nsmallest(k, l)&lt;/code&gt; return the \(k\) smallest elements in &lt;code&gt;L&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;heapq.heappush(h, e)&lt;/code&gt; pushes a new element on the heap.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;heapq.heappop(h)&lt;/code&gt; pops the smallest value from the heap.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;heapq.heappushpop(h, e)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;e = h[0]&lt;/code&gt; returns the smallest value without popping it.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;It&amp;rsquo;s very important to note that &lt;strong&gt;&lt;code&gt;heapq&lt;/code&gt; only provides min-heap functionality&lt;/strong&gt;. If you need build a max-heap on integers or floats, insert their negative value to get the effect. For objects, implement &lt;code&gt;__lt()__&lt;/code&gt; appropriately.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Binary Trees</title>
+      <link>https://mengoreo.github.io/post/binary_trees/</link>
+      <pubDate>Tue, 06 Aug 2019 10:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/binary_trees/</guid>
+      <description>&lt;h2 id=&#34;test-if-a-binary-tree-is-heigh-balanced&#34;&gt;Test If A Binary Tree Is Heigh-Balanced&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;is_balanced_binary_tree&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tree&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;BalancedStatusWithHeight&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;collections&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;namedtuple&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;BalancedStatusWithHeight&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;balanced&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;height&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;# First value indicates if tree is balanced&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;# and if balanced, second value is the height of tree&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;check_balanced&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tree&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+	&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tree&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+	    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BalancedStatusWithHeight&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# Base case&lt;/span&gt;
+
+	&lt;span class=&#34;n&#34;&gt;left_result&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;check_balanced&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tree&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;left&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+	&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;left_result&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;balanced&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+	    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BalancedStatusWithHeight&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# Current &amp;#34;root&amp;#34; height&lt;/span&gt;
+
+	&lt;span class=&#34;n&#34;&gt;right_result&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;check_balanced&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tree&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;right&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+	&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;right_result&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;balanced&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+	    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BalancedStatusWithHeight&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+	&lt;span class=&#34;n&#34;&gt;status&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;abs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;left_result&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;height&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;right_result&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;height&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;height&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;max&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;left_result&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;height&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;right_result&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;height&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
+	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BalancedStatusWithHeight&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;status&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;height&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;check_balanced&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tree&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;balanced&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Stacks and Queues</title>
+      <link>https://mengoreo.github.io/post/stacks_and_queues/</link>
+      <pubDate>Tue, 06 Aug 2019 08:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/stacks_and_queues/</guid>
+      <description>&lt;h2 id=&#34;implement-a-stack-with-max-api&#34;&gt;Implement A Stack with Max API&lt;/h2&gt;
+
+&lt;p&gt;If we use a single auxiliary variable, \(M\) to record the element that is maximum in the stack, updating \(M\) on pushes is easy, but not on pops. For this reason, we cache the maximum stored at or below that entry. When we pop, we simply evict the corresponding cached value.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Linked Lists</title>
+      <link>https://mengoreo.github.io/post/linked_lists/</link>
+      <pubDate>Mon, 05 Aug 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/linked_lists/</guid>
+      <description>&lt;p&gt;Inserting and deleting elements in a list has time complexity \(O(1)\) , while obtaining $k$-th element in a list has time complexity \(O(n)\) .&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A &lt;code&gt;list&lt;/code&gt; object is an array not a list.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;There are two types list related problems:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Strings</title>
+      <link>https://mengoreo.github.io/post/strings/</link>
+      <pubDate>Mon, 05 Aug 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/strings/</guid>
+      <description>&lt;p&gt;You should know &lt;strong&gt;how strings are represented in memory&lt;/strong&gt; and understand basic operations on strings such as comparison, copying, joining, splitting, matching, etc. Advanced string processing algorithm often use &lt;strong&gt;hash tables&lt;/strong&gt; and &lt;strong&gt;dynamic programming&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Arrays</title>
+      <link>https://mengoreo.github.io/post/arrays/</link>
+      <pubDate>Sun, 04 Aug 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/arrays/</guid>
+      <description>&lt;h2 id=&#34;libraries&#34;&gt;Libraries&lt;/h2&gt;
+
+&lt;p&gt;Arrays are provided in Python by &lt;code&gt;list&lt;/code&gt; type. ( &lt;code&gt;tuple&lt;/code&gt; is similar to &lt;code&gt;list&lt;/code&gt;, but immutable.);&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Checking if a value in an array has \(O(n)\) time complexity.&lt;/li&gt;
+&lt;li&gt;To understand how copy works check &lt;a href=&#34;https://mengoreo.github.io/post/python_questions/#shallow-and-deep-copy&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python Questions</title>
+      <link>https://mengoreo.github.io/post/python_questions/</link>
+      <pubDate>Sun, 04 Aug 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/python_questions/</guid>
+      <description>&lt;h2 id=&#34;garbage-collection&#34;&gt;Garbage Collection&lt;/h2&gt;
+
+&lt;p&gt;Garbage collection is the process of &lt;strong&gt;finding data objects&lt;/strong&gt; in a running programe that cannot be accessed in the future, and &lt;strong&gt;to reclaim resources&lt;/strong&gt;, particularly memory, used by those objects.
+Most garbage-collected language uses either &lt;strong&gt;reference counting&lt;/strong&gt; or &lt;strong&gt;tracing&lt;/strong&gt; .&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>视觉 SLAM 十四讲 —— 第七章习题</title>
@@ -110,115 +274,6 @@ OpenCV uses a reference counting system.</description>
       
       <guid>https://mengoreo.github.io/post/robot-localisation-in-org-subtree-export/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Filtering&lt;/strong&gt; is a general way of estimating variables from noisy observations over time. Histogram Filter, Kalman Filter and Particle Filter are all variants of Bayesian Filter.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>The Histogram Filter</title>
-      <link>https://mengoreo.github.io/post/histogram-in-org-subtree-export/</link>
-      <pubDate>Fri, 19 Apr 2019 00:00:00 +0800</pubDate>
-      
-      <guid>https://mengoreo.github.io/post/histogram-in-org-subtree-export/</guid>
-      <description>&lt;p&gt;The &lt;strong&gt;Histogram Filter&lt;/strong&gt; is the most straightforward solution to represent &lt;strong&gt;continuous beliefs&lt;/strong&gt;. We simply divide \(\text{dom}(x_t)\) into \(n\) disjoint bins \(b_0, \dots, b_{n-1}\) such that \(\cup_i b_{i} = \text{dom}(x_t)\). Then we define a new state \(x_t^\prime \in \{\dots, n − 1\}\) where \(x_t^\prime = i\) if and only if \(x_t \in b_i\). Since \(x_t^\prime\) has a discrete, finite state space, we can use the discrete Bayes Filter to calculate \(\text{bel}(x^\prime_t)\).&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How does Convolutional Neural Network work?</title>
-      <link>https://mengoreo.github.io/post/cnn-in-org-subtree-export/</link>
-      <pubDate>Thu, 18 Apr 2019 00:00:00 +0800</pubDate>
-      
-      <guid>https://mengoreo.github.io/post/cnn-in-org-subtree-export/</guid>
-      <description>&lt;h2 id=&#34;x-s-and-o-s&#34;&gt;X&amp;rsquo;s and O&amp;rsquo;s&lt;/h2&gt;
-
-
-
-&lt;div class=&#34;box&#34;&gt;
-&lt;figure  itemprop=&#34;associatedMedia&#34;
-  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
-    &lt;div class=&#34;img&#34;&gt;
-      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://mengoreo.github.io/images/xos.png&#34; alt=&#34;Figure 1: Determining whether an image is an X or an O&#34;/&gt;
-    &lt;/div&gt;
-    &lt;a href=&#34;https://mengoreo.github.io/images/xos.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
-      &lt;figcaption&gt;
-          &lt;p&gt;Figure 1: Determining whether an image is an X or an O&lt;/p&gt;
-      &lt;/figcaption&gt;
-  &lt;/figure&gt;
-&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>Deep Learning Book</title>
-      <link>https://mengoreo.github.io/post/deep-learning-book-in-org-subtree-export/</link>
-      <pubDate>Tue, 19 Mar 2019 00:00:00 +0800</pubDate>
-      
-      <guid>https://mengoreo.github.io/post/deep-learning-book-in-org-subtree-export/</guid>
-      <description>&lt;h2 id=&#34;linear-algebra&#34;&gt;Linear Algebra&lt;/h2&gt;
-
-&lt;h3 id=&#34;basic-types&#34;&gt;Basic Types&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;Scalars&lt;/em&gt;: A scalar is just a single number, usually in lower-case&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;variable names.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Elements of Programming Interviews in Python</title>
-      <link>https://mengoreo.github.io/post/epi-in-org-subtree-export/</link>
-      <pubDate>Fri, 22 Feb 2019 00:00:00 +0800</pubDate>
-      
-      <guid>https://mengoreo.github.io/post/epi-in-org-subtree-export/</guid>
-      <description>Be very comfortable with bitwise operators, particularly XOR.
-Understand how to use masks and create them in an machine independent way
-Know how fast ways to clear the lowermost set bit (and by extension, set the lowermost 0, get its index, etc.)
-Understand signedness and its implications to shifting
-Consider using a cache to accelerate operations by using it to brute-force small inputs
-Be aware that commutativity and associativity can be used to perform operations in parallel and reorder operations.</description>
-    </item>
-    
-    <item>
-      <title>Phonetic Signs</title>
-      <link>https://mengoreo.github.io/post/phonetic-signs-in-org-subtree-export/</link>
-      <pubDate>Fri, 05 Oct 2018 00:00:00 +0800</pubDate>
-      
-      <guid>https://mengoreo.github.io/post/phonetic-signs-in-org-subtree-export/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>My Voice</title>
-      <link>https://mengoreo.github.io/post/my-voice-in-org-subtree-export/</link>
-      <pubDate>Mon, 30 Jul 2018 00:00:00 +0800</pubDate>
-      
-      <guid>https://mengoreo.github.io/post/my-voice-in-org-subtree-export/</guid>
-      <description>Podcast The Philosopher&#39;s Stone Mimics 寂静，如同地狱般的……</description>
-    </item>
-    
-    <item>
-      <title>PAT Advanced 1001 A&#43;B Format In C</title>
-      <link>https://mengoreo.github.io/post/pata1001-in-org-subtree-export/</link>
-      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
-      
-      <guid>https://mengoreo.github.io/post/pata1001-in-org-subtree-export/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>PAT Advanced 1002 A&#43;B for Polynomials In C</title>
-      <link>https://mengoreo.github.io/post/pata1002-in-org-subtree-export/</link>
-      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
-      
-      <guid>https://mengoreo.github.io/post/pata1002-in-org-subtree-export/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>PAT Advanced 1003 Emergency In C</title>
-      <link>https://mengoreo.github.io/post/pata1003-in-org-subtree-export/</link>
-      <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
-      
-      <guid>https://mengoreo.github.io/post/pata1003-in-org-subtree-export/</guid>
-      <description>&lt;p&gt;Shortest first, if same then number of people&lt;/p&gt;</description>
     </item>
     
   </channel>

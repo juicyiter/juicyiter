@@ -68,14 +68,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://mengoreo.github.io/post/vslam_ch7/" />
 <meta property="article:published_time" content="2019-08-01T00:00:00+08:00" />
-<meta property="article:modified_time" content="2019-08-01T22:57:07+08:00" />
+<meta property="article:modified_time" content="2019-08-05T11:06:58+08:00" />
 <meta itemprop="name" content="视觉 SLAM 十四讲 —— 第七章习题">
 <meta itemprop="description" content="个人拙见，如有错误，欢迎评论指出 🤗。">
 
 
 <meta itemprop="datePublished" content="2019-08-01T00:00:00&#43;08:00" />
-<meta itemprop="dateModified" content="2019-08-01T22:57:07&#43;08:00" />
-<meta itemprop="wordCount" content="403">
+<meta itemprop="dateModified" content="2019-08-05T11:06:58&#43;08:00" />
+<meta itemprop="wordCount" content="421">
 
 
 
@@ -361,7 +361,7 @@ if (!doNotTrack) {
 
 <p>这里的 \(I_x\) 和 \(I_y\) 是 image 分别在 \(x\) 和 \(y\) 方向上的导数，可以通过 <code>cv::Sobel()</code>&nbsp;<sup class="footnote-ref" id="fnref:fn-2"><a href="#fn:fn-2">2</a></sup> 得到.</p>
 
-<p><a id="org55866fa"></a></p>
+<p><a id="org6e88ce6"></a></p>
 
 <p>Harris response 可以定义为：</p>
 
@@ -374,6 +374,11 @@ if (!doNotTrack) {
 </blockquote>
 
 <p>根据 \(\lambda\) 值的大小，可以分为一下情况:</p>
+
+<style>.org-center { margin-left: auto; margin-right: auto; text-align: center; }</style>
+
+<div class="org-center">
+  <div></div>
 
 
 <link rel="stylesheet" href="/css/hugo-easy-gallery.css" />
@@ -391,15 +396,22 @@ if (!doNotTrack) {
 </div>
 
 
+<p></div></p>
+
 <p>为了能够更准确的找到角点的位置，OpenCV 提供了 <code>cv::cornerSubPix()</code>&nbsp;<sup class="footnote-ref" id="fnref:fn-3"><a href="#fn:fn-3">3</a></sup></p>
 
 <h2 id="shi-tomasi-角点">Shi-Tomasi 角点</h2>
 
-<p>与 Harris 角点不同的是，Shi-Tomasi 不再用复杂的 <a href="#org55866fa">Response 函数</a> 而是直接比较两个 \(\lambda\) :</p>
+<p>与 Harris 角点不同的是，Shi-Tomasi 不再用复杂的 <a href="#org6e88ce6">Response 函数</a> 而是直接比较两个 \(\lambda\) :</p>
 
 <p>\begin{equation}
     R = \min(\lambda_1, \lambda_2)
 \end{equation}</p>
+
+<style>.org-center { margin-left: auto; margin-right: auto; text-align: center; }</style>
+
+<div class="org-center">
+  <div></div>
 
 
 
@@ -416,6 +428,8 @@ if (!doNotTrack) {
   </figure>
 </div>
 
+
+<p></div></p>
 
 <p>该方法更适合 tracking。&nbsp;<sup class="footnote-ref" id="fnref:fn-4"><a href="#fn:fn-4">4</a></sup></p>
 <div class="highlight"><div class="chroma">
@@ -452,7 +466,7 @@ if (!doNotTrack) {
   </p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
-    <span class="item-content">2019-08-01</span>
+    <span class="item-content">2019-08-05</span>
   </p>
   
   <p class="copyright-item">
@@ -474,6 +488,19 @@ if (!doNotTrack) {
       
       <nav class="post-nav">
         
+          <a class="prev" href="/post/python_questions/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Python Questions</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
         
           <a class="next" href="/post/vslam_ch5/">
             <span class="next-text nav-default">视觉 SLAM 十四讲 —— 第五章习题</span>

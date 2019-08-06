@@ -67,7 +67,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://mengoreo.github.io/" />
 
-<meta property="og:updated_time" content="2019-08-01T00:00:00+08:00" />
+<meta property="og:updated_time" content="2019-08-06T15:17:00+08:00" />
 <meta itemprop="name" content="Mengoreo">
 <meta itemprop="description" content="Be yourself &amp; Beyond yourself.">
 
@@ -293,15 +293,15 @@ if (!doNotTrack) {
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/vslam_ch7/">视觉 SLAM 十四讲 —— 第七章习题</a>
+      <a class="post-link" href="/post/hash_tables/">Hash Tables</a>
     </h1>
     
     <div class="post-meta">
-      <time datetime="2019-08-01" class="post-time">
-        2019-08-01
+      <time datetime="2019-08-06" class="post-time">
+        2019-08-06
       </time>
       <div class="post-category">
-          <a href="https://mengoreo.github.io/categories/vslam/"> VSLAM </a>
+          <a href="https://mengoreo.github.io/categories/algorithm/"> Algorithm </a>
           
         </div>
       
@@ -313,10 +313,12 @@ if (!doNotTrack) {
   <div class="post-content">
     
     <div class="post-summary">
-      <p>个人拙见，如有错误，欢迎评论指出 🤗。</p>
+      <p>Hash tables have the <strong>best theoretical and real-world performance</strong> for lookup, insert and delete. Each of these operations has \(O(1)\) time complexity. The \(O(1)\) time complexity for insertion is for the average case &ndash; a single insert can take \(O(n)\) if the hash table to has to be resized.</p>
+
+<p>Consider using a hash code as a <strong>signature</strong> to enhance performance, e.g. to filter out candidates.</p>
     </div>
     <div class="read-more">
-      <a href="/post/vslam_ch7/" class="read-more-link">Read more</a>
+      <a href="/post/hash_tables/" class="read-more-link">Read more</a>
     </div>
     
   </div>
@@ -327,15 +329,15 @@ if (!doNotTrack) {
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/vslam_ch5/">视觉 SLAM 十四讲 —— 第五章习题</a>
+      <a class="post-link" href="/post/searching/">Searching</a>
     </h1>
     
     <div class="post-meta">
-      <time datetime="2019-08-01" class="post-time">
-        2019-08-01
+      <time datetime="2019-08-06" class="post-time">
+        2019-08-06
       </time>
       <div class="post-category">
-          <a href="https://mengoreo.github.io/categories/vslam/"> VSLAM </a>
+          <a href="https://mengoreo.github.io/categories/algorithm/"> Algorithm </a>
           
         </div>
       
@@ -347,10 +349,14 @@ if (!doNotTrack) {
   <div class="post-content">
     
     <div class="post-summary">
-      <p>本篇主要总结关于相机标定的问题，特别是相机的内参如何求。总结的还不全面，有待补充。</p>
+      <p><strong>Binary search</strong> is an effective search tool. It is applicable to more than just searching in sorted arrays, e.g., it can be used to search an <strong>interval of real numbers or integers</strong>.</p>
+
+<p>If your solution uses sorting, and the computation performed after sorting is faster than sorting e.g., \(O(n)\) or \(O(\log n)\) , <strong>look for solutions that do not perform a complete sort</strong>.</p>
+
+<p>Consider <strong>time/space trade-offs</strong>, such as making multiple passes through the data.</p>
     </div>
     <div class="read-more">
-      <a href="/post/vslam_ch5/" class="read-more-link">Read more</a>
+      <a href="/post/searching/" class="read-more-link">Read more</a>
     </div>
     
   </div>
@@ -361,15 +367,15 @@ if (!doNotTrack) {
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/vslam_ch6/">视觉 SLAM 十四讲 —— 第六章习题</a>
+      <a class="post-link" href="/post/heaps/">Heaps</a>
     </h1>
     
     <div class="post-meta">
-      <time datetime="2019-08-01" class="post-time">
-        2019-08-01
+      <time datetime="2019-08-06" class="post-time">
+        2019-08-06
       </time>
       <div class="post-category">
-          <a href="https://mengoreo.github.io/categories/vslam/"> VSLAM </a>
+          <a href="https://mengoreo.github.io/categories/algorithm/"> Algorithm </a>
           
         </div>
       
@@ -381,10 +387,23 @@ if (!doNotTrack) {
   <div class="post-content">
     
     <div class="post-summary">
-      <p>个人拙见，如有错误，欢迎评论指出 🤗。查找资料整理的时候，懒得翻译了。。。</p>
+      <h2 id="libraries">Libraries</h2>
+
+<p>Heap functionality is provided by the <code>heapq</code> module.</p>
+
+<ul>
+<li><code>heapq.heapify(L)</code>, which transforms the elements in <code>L</code> into a heap <strong>in place</strong>.</li>
+<li><code>heapq.nsmallest(k, l)</code> return the \(k\) smallest elements in <code>L</code>.</li>
+<li><code>heapq.heappush(h, e)</code> pushes a new element on the heap.</li>
+<li><code>heapq.heappop(h)</code> pops the smallest value from the heap.</li>
+<li><code>heapq.heappushpop(h, e)</code></li>
+<li><code>e = h[0]</code> returns the smallest value without popping it.</li>
+</ul>
+
+<p>It&rsquo;s very important to note that <strong><code>heapq</code> only provides min-heap functionality</strong>. If you need build a max-heap on integers or floats, insert their negative value to get the effect. For objects, implement <code>__lt()__</code> appropriately.</p>
     </div>
     <div class="read-more">
-      <a href="/post/vslam_ch6/" class="read-more-link">Read more</a>
+      <a href="/post/heaps/" class="read-more-link">Read more</a>
     </div>
     
   </div>
@@ -454,6 +473,18 @@ if (!doNotTrack) {
       
       <li >
         <a href="/page/10/">10</a>
+      </li>
+      
+      <li >
+        <a href="/page/11/">11</a>
+      </li>
+      
+      <li >
+        <a href="/page/12/">12</a>
+      </li>
+      
+      <li >
+        <a href="/page/13/">13</a>
       </li>
       
     </ul>
