@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://mengoreo.github.io/categories/algorithm/</loc>
+    <loc>https://mengoreo.github.io/tags/algorithm/</loc>
     <lastmod>2019-08-06T21:00:15+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/tags/algorithm/</loc>
+    <loc>https://mengoreo.github.io/categories/algorithm/</loc>
     <lastmod>2019-08-06T21:00:15+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -100,13 +100,13 @@
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/categories/python/</loc>
+    <loc>https://mengoreo.github.io/tags/python/</loc>
     <lastmod>2019-08-05T16:04:55+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/tags/python/</loc>
+    <loc>https://mengoreo.github.io/categories/python/</loc>
     <lastmod>2019-08-05T16:04:55+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -328,13 +328,13 @@
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/categories/pat/</loc>
+    <loc>https://mengoreo.github.io/tags/pat/</loc>
     <lastmod>2019-04-22T20:50:47+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/tags/pat/</loc>
+    <loc>https://mengoreo.github.io/categories/pat/</loc>
     <lastmod>2019-04-22T20:50:47+08:00</lastmod>
     <priority>0</priority>
   </url>
