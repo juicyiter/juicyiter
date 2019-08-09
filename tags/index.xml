@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
-    <lastBuildDate>Tue, 06 Aug 2019 15:17:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 09 Aug 2019 20:50:00 +0800</lastBuildDate>
     
 	<atom:link href="https://mengoreo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SLAM</title>
+      <link>https://mengoreo.github.io/tags/slam/</link>
+      <pubDate>Fri, 09 Aug 2019 20:50:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/tags/slam/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OpenCV</title>
+      <link>https://mengoreo.github.io/tags/opencv/</link>
+      <pubDate>Tue, 06 Aug 2019 21:31:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/tags/opencv/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Algorithm</title>
@@ -27,15 +45,6 @@
       <pubDate>Sun, 04 Aug 2019 00:00:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SLAM</title>
-      <link>https://mengoreo.github.io/tags/slam/</link>
-      <pubDate>Thu, 01 Aug 2019 00:00:00 +0800</pubDate>
-      
-      <guid>https://mengoreo.github.io/tags/slam/</guid>
       <description></description>
     </item>
     

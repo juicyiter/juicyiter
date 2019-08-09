@@ -67,7 +67,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://mengoreo.github.io/" />
 
-<meta property="og:updated_time" content="2019-08-06T15:17:00+08:00" />
+<meta property="og:updated_time" content="2019-08-09T20:50:00+08:00" />
 <meta itemprop="name" content="Mengoreo">
 <meta itemprop="description" content="Be yourself &amp; Beyond yourself.">
 
@@ -293,6 +293,91 @@ if (!doNotTrack) {
   <header class="post-header">
     <h1 class="post-title">
       
+      <a class="post-link" href="/post/searching/">Searching</a>
+    </h1>
+    
+    <div class="post-meta">
+      <time datetime="2019-08-06" class="post-time">
+        2019-08-06
+      </time>
+      <div class="post-category">
+          <a href="https://mengoreo.github.io/categories/algorithm/"> Algorithm </a>
+          
+        </div>
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      <p><strong>Binary search</strong> is an effective search tool. It is applicable to more than just searching in sorted arrays, e.g., it can be used to search an <strong>interval of real numbers or integers</strong>.</p>
+
+<p>If your solution uses sorting, and the computation performed after sorting is faster than sorting e.g., \(O(n)\) or \(O(\log n)\) , <strong>look for solutions that do not perform a complete sort</strong>.</p>
+
+<p>Consider <strong>time/space trade-offs</strong>, such as making multiple passes through the data.</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/searching/" class="read-more-link">Read more</a>
+    </div>
+    
+  </div>
+</article>
+
+    
+      <article class="post bg-white post-preview">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/post/heaps/">Heaps</a>
+    </h1>
+    
+    <div class="post-meta">
+      <time datetime="2019-08-06" class="post-time">
+        2019-08-06
+      </time>
+      <div class="post-category">
+          <a href="https://mengoreo.github.io/categories/algorithm/"> Algorithm </a>
+          
+        </div>
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      <h2 id="libraries">Libraries</h2>
+
+<p>Heap functionality is provided by the <code>heapq</code> module.</p>
+
+<ul>
+<li><code>heapq.heapify(L)</code>, which transforms the elements in <code>L</code> into a heap <strong>in place</strong>.</li>
+<li><code>heapq.nsmallest(k, l)</code> return the \(k\) smallest elements in <code>L</code>.</li>
+<li><code>heapq.heappush(h, e)</code> pushes a new element on the heap.</li>
+<li><code>heapq.heappop(h)</code> pops the smallest value from the heap.</li>
+<li><code>heapq.heappushpop(h, e)</code></li>
+<li><code>e = h[0]</code> returns the smallest value without popping it.</li>
+</ul>
+
+<p>It&rsquo;s very important to note that <strong><code>heapq</code> only provides min-heap functionality</strong>. If you need build a max-heap on integers or floats, insert their negative value to get the effect. For objects, implement <code>__lt()__</code> appropriately.</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/heaps/" class="read-more-link">Read more</a>
+    </div>
+    
+  </div>
+</article>
+
+    
+      <article class="post bg-white post-preview">
+  <header class="post-header">
+    <h1 class="post-title">
+      
       <a class="post-link" href="/post/binary_trees/">Binary Trees</a>
     </h1>
     
@@ -371,80 +456,6 @@ if (!doNotTrack) {
 </article>
 
     
-      <article class="post bg-white post-preview">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/stacks_and_queues/">Stacks and Queues</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2019-08-06" class="post-time">
-        2019-08-06
-      </time>
-      <div class="post-category">
-          <a href="https://mengoreo.github.io/categories/algorithm/"> Algorithm </a>
-          
-        </div>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      <h2 id="implement-a-stack-with-max-api">Implement A Stack with Max API</h2>
-
-<p>If we use a single auxiliary variable, \(M\) to record the element that is maximum in the stack, updating \(M\) on pushes is easy, but not on pops. For this reason, we cache the maximum stored at or below that entry. When we pop, we simply evict the corresponding cached value.</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/stacks_and_queues/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
-
-    
-      <article class="post bg-white post-preview">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/linked_lists/">Linked Lists</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2019-08-05" class="post-time">
-        2019-08-05
-      </time>
-      <div class="post-category">
-          <a href="https://mengoreo.github.io/categories/algorithm/"> Algorithm </a>
-          
-        </div>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      <p>Inserting and deleting elements in a list has time complexity \(O(1)\) , while obtaining $k$-th element in a list has time complexity \(O(n)\) .</p>
-
-<p><strong>A <code>list</code> object is an array not a list.</strong></p>
-
-<p>There are two types list related problems:</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/linked_lists/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
-
-    
   </section>
 
   
@@ -467,65 +478,475 @@ if (!doNotTrack) {
 
   
   
-  <nav class="pagination">
-    <ul>
-      
-      <li >
-        <a href="/">1</a>
-      </li>
-      
-      <li  class="active" >
-        <a href="/page/2/">2</a>
-      </li>
-      
-      <li >
-        <a href="/page/3/">3</a>
-      </li>
-      
-      <li >
-        <a href="/page/4/">4</a>
-      </li>
-      
-      <li >
-        <a href="/page/5/">5</a>
-      </li>
-      
-      <li >
-        <a href="/page/6/">6</a>
-      </li>
-      
-      <li >
-        <a href="/page/7/">7</a>
-      </li>
-      
-      <li >
-        <a href="/page/8/">8</a>
-      </li>
-      
-      <li >
-        <a href="/page/9/">9</a>
-      </li>
-      
-      <li >
-        <a href="/page/10/">10</a>
-      </li>
-      
-      <li >
-        <a href="/page/11/">11</a>
-      </li>
-      
-      <li >
-        <a href="/page/12/">12</a>
-      </li>
-      
-      <li >
-        <a href="/page/13/">13</a>
-      </li>
-      
-    </ul>
-  </nav>
 
-  
+    <nav class="pagination">
+      <ul>
+
+      
+      
+      <li><a href="/">««</a></li>
+      
+
+      
+      
+      <li><a href="/">«</a></li>
+      
+
+      
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/">
+              1
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+          
+
+        
+        
+
+        
+        
+          <li class="active">
+            <a href="/page/2/">
+              2
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/3/">
+              3
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/4/">
+              4
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/5/">
+              5
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/6/">
+              6
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/7/">
+              7
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/8/">
+              8
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/9/">
+              9
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/10/">
+              10
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/11/">
+              11
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/12/">
+              12
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/13/">
+              13
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+
+          
+          
+          
+
+        
+        
+
+        
+        
+
+      
+
+      
+      
+      <li><a href="/page/3/">»</a></li>
+      
+
+      
+      
+      <li><a href="/page/14/">»»</a></li>
+      
+
+      </ul>
+    </nav>
   
 
 

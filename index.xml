@@ -6,10 +6,413 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
-    <lastBuildDate>Tue, 06 Aug 2019 15:17:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 09 Aug 2019 20:50:00 +0800</lastBuildDate>
     
         <atom:link href="https://mengoreo.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>从零搭建「视觉里程计」 —— 单文件</title>
+      <link>https://mengoreo.github.io/post/vo_single/</link>
+      <pubDate>Fri, 09 Aug 2019 20:50:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/vo_single/</guid>
+      
+        <description>&lt;p&gt;视觉里程计分为单目、双目和 RGB-D 三类，其中单目视觉相对复杂，而 RGB-D 最为简单，没有初始化，也没有尺度问题。本文从 RGB-D 做起，使用的数据来自 &lt;a href=&#34;https://vision.in.tum.de/data/datasets/rgbd-dataset/download&#34;&gt;TUM 数据集&lt;/a&gt; 。之所以先从单文件说起，是想先把视觉里程计的原理和流程搞明白，再去分模块搭建框架，要不然上来就分模块设计，难免会有些云里雾里。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;本文是「视觉 SLAM 十四讲」的读书笔记，记录些坑。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Feature Detection</title>
+      <link>https://mengoreo.github.io/post/feature_detection/</link>
+      <pubDate>Tue, 06 Aug 2019 21:31:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/feature_detection/</guid>
+      
+        <description>
+
+&lt;h2 id=&#34;harris-shi-tomasi-feature-detector-cv-gfttdetector&#34;&gt;Harris-Shi-Tomasi Feature Detector &lt;code&gt;cv::GFTTDetector()&lt;/code&gt;&lt;/h2&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;./assets/img2019-08-06-21-37-18.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;./assets/img2019-08-06-21-37-18.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;If the image is shifted a small amount (\(\Delta x\) , \(\Delta y\) ), &lt;strong&gt;how similar is it to its original self?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    c(x, y, \Delta x, \Delta y) = \displaystyle \sum_{(i, j) \in W(x, y)} w_{i, j}(I(i, j) - I(i + \Delta x, j + \Delta y))^2
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \boldsymbol{M}=\sum_{x, y} w(x, y)\left[\begin{array}{cc}{I_{x}^{2}} &amp;amp; {I_{x} I_{y}} \\&lt;br /&gt;
+    {I_{x} I_{y}} &amp;amp; {I_{y}^{2}}\end{array}\right]
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;\(W\) is a Gaussian weighting that makes the differences near the center of the window contribute more strongly than those farther away from the center.&lt;/p&gt;
+
+&lt;p&gt;Harris and Shi-Tomasi critical steps are accomplished with the function &lt;code&gt;cv::cornerHarris()&lt;/code&gt; and &lt;code&gt;cv::cornerMinEigenVal()&lt;/code&gt; respectively.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;./assets/img2019-08-06-21-49-14.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;./assets/img2019-08-06-21-49-14.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;h2 id=&#34;simpleblob-feature-detector-cv-simpleblobdetector&#34;&gt;SimpleBlob Feature Detector &lt;code&gt;cv::SimpleBlobDetector()&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;Blobs are not so clearly located, but represent regions of interest that might be expected to have some &lt;strong&gt;stability over time&lt;/strong&gt;. Blob works &lt;strong&gt;best at simple environments&lt;/strong&gt; where there are expected to be a few very well-defined objects to locate.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;./assets/img2019-08-06-21-56-54.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;./assets/img2019-08-06-21-56-54.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Steps:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;convert image to grey scale&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;compute a series of thresholded (binary) imges from the grey scale images &lt;code&gt;minThreshold&lt;/code&gt; &lt;code&gt;maxThreshold&lt;/code&gt; &lt;code&gt;thresholdStep&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;starting at &lt;code&gt;minThreshold&lt;/code&gt; stepping up until but &lt;strong&gt;NOT&lt;/strong&gt; including &lt;code&gt;maxThreshold&lt;/code&gt; typically start with [50, 64], with &lt;strong&gt;small&lt;/strong&gt; step, (like 10), up to [220, 235]. Thus, avoiding the &lt;strong&gt;often-less-informative ends of the intensity distribution&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;minDistBetweenBlobs&lt;/code&gt; controls &amp;ldquo;overlapping&amp;rdquo;, blobs within the distance are considered to be related to the same blob. This one is in &lt;strong&gt;pixel units&lt;/strong&gt;. The default value is &lt;code&gt;10&lt;/code&gt;, which is probably suitable for images about \(640 x 480\).&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;minRepeatability&lt;/code&gt; determines how many (consecutive) threshold images must contain overlapping blog candidates, which &lt;strong&gt;typically a small integer&lt;/strong&gt;, but rarely less than two.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;extract connected components by &lt;code&gt;cv::findContours&lt;/code&gt; and compute the center of such contours, which are the  candidate blob centers.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;blob centers that near one another (&lt;code&gt;minDistBetweenBlobs&lt;/code&gt;) and from images with adjacent thresholds are  grouped together.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;assign these groups a radius and a center. The resulting objects are the keypoints.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;fast-feature-detector-cv-fastfeaturedetector&#34;&gt;FAST Feature Detector &lt;code&gt;cv::FastFeatureDetector()&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;FAST only uses the points on a &lt;strong&gt;ring&lt;/strong&gt; around \(P\).&lt;/p&gt;
+
+&lt;p&gt;The points are classified as either &lt;strong&gt;darker&lt;/strong&gt; than \(P\), &lt;strong&gt;lighter&lt;/strong&gt; than \(P\), or &lt;strong&gt;similar&lt;/strong&gt; to \(P\). The classification is done by a &lt;strong&gt;threshold&lt;/strong&gt;, &lt;code&gt;t&lt;/code&gt;, such that&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;darker ones: \(&amp;lt; I_p - t\)&lt;/li&gt;
+&lt;li&gt;lighter ones: \(&amp;gt; I_p + t\)&lt;/li&gt;
+&lt;li&gt;similar ones: in between&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Once the classification is done, FAST requires &lt;strong&gt;more than half the total number on the ring&lt;/strong&gt; of pixels that either all brighter or lighter than \(P\).&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;./assets/img2019-08-06-22-05-17.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;./assets/img2019-08-06-22-05-17.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;In practice, &lt;strong&gt;four equidistant&lt;/strong&gt; points are tested first, if there is not at least a pair of consecutive points that are brighter or darker than \(P\), then \(P\) cannot be a FAST feature.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;./assets/img2019-08-06-22-05-56.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;./assets/img2019-08-06-22-05-56.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;./assets/img2019-08-06-22-06-11.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;./assets/img2019-08-06-22-06-11.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;h2 id=&#34;sift--scale-invariant-feature-transform--cv-xfeature2d-sift&#34;&gt;SIFT (Scale Invariant Feature Transform) &lt;code&gt;cv::xfeature2d::SIFT&lt;/code&gt;&lt;/h2&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;./assets/img2019-08-06-22-07-15.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;./assets/img2019-08-06-22-07-15.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;./assets/img2019-08-06-22-07-35.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;./assets/img2019-08-06-22-07-35.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Convolving the original image with Gaussian kernels of various sizes, each with its successor, which is the one convolved with a slightly larger Gaussian&lt;/li&gt;
+&lt;li&gt;Result is &lt;strong&gt;Difference of Gaussian&lt;/strong&gt;, each pixel in the &amp;ldquo;stack&amp;rdquo; is compared with it neighbours ( imagine a cube, and the pixel is in the center)&lt;/li&gt;
+&lt;li&gt;If a pixel has higher value in the DoG than all 26 of these neighbours, it&amp;rsquo;s considered a &lt;strong&gt;scale space extrema&lt;/strong&gt; of the DoG operator.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Once all such scale space extrema have been found, SIFT proceeds to compute their descriptor.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Assign an orientation&lt;/strong&gt; to the keypoint, the orientation is the largest &lt;strong&gt;directional derivatives&lt;/strong&gt; over the points around the keypoint. This way SIFT is orientation invariant.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;./assets/img2019-08-06-22-09-26.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;./assets/img2019-08-06-22-09-26.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;SIFT works best with 128( 8 in 4x4 region) element descriptors. It&amp;rsquo;s better to leave the default values unchanged.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;surf--speeded-up-robust-features--cv-xfeature2d-surf&#34;&gt;SURF (Speeded-Up Robust Features) &lt;code&gt;cv::xfeature2d::SURF&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;SURF defines a keypoint in terms of the local Hessian at a given point. Instead of using DoG like SIFT, SURF uses a &lt;strong&gt;box filter&lt;/strong&gt; that approximates the difference of the two Gaussian kernel.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;./assets/img2019-08-06-22-12-02.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;./assets/img2019-08-06-22-12-02.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;The advantage is that we can evaluate them quickly using the integral image technique on box filters. In SIFT case the actual technique was to &lt;strong&gt;convolve&lt;/strong&gt; with the two different Gaussian kernels and then &lt;strong&gt;subtract&lt;/strong&gt; the results. In SURF case, the kernel was first &lt;strong&gt;subtracted&lt;/strong&gt; and a single &lt;strong&gt;convolution&lt;/strong&gt; is done with the different kernel.&lt;/p&gt;
+
+&lt;p&gt;For a feature scale \(s\), the \(20s \times 20s\) region centred on the feature by an angle given by the orientation just computed.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;./assets/img2019-08-06-22-13-25.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;./assets/img2019-08-06-22-13-25.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;This gives 4 numbers in each 4x4 grid, a total of 64 numbers, which form the entries in a 64-dimensional feature vector for the individual SURF feature.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;./assets/img2019-08-06-22-13-54.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;./assets/img2019-08-06-22-13-54.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;The default value of Hessian threshold is 100, which is pretty small, bascially means &amp;ldquo;all of them&amp;rdquo;. A reasonable threshold will be &lt;strong&gt;1500&lt;/strong&gt;. The Paremeter &lt;code&gt;upright&lt;/code&gt; indicates that orientation should not be computed for features, and they should be treated as &amp;ldquo;vertical&amp;rdquo;, this is known as &amp;ldquo;upright-SURF&amp;rdquo;, or just &amp;ldquo;&lt;strong&gt;U-SURF&lt;/strong&gt;&amp;rdquo;.&lt;/p&gt;
+
+&lt;h2 id=&#34;brief--binary-robust-independent-elementary-features--cv-xfeature2d-briefdescriptorextractor&#34;&gt;BRIEF (Binary Robust Independent Elementary Features) &lt;code&gt;cv::xfeature2d::BriefDescriptorExtractor&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;BRIEF descriptor is that a feature is described &lt;strong&gt;as a series of tests&lt;/strong&gt;, each of which simply compare a single pixel in the area of the feature to some other pixels, yielding a simple binary result( 0 or 1) based on which portion is brighter.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;./assets/img2019-08-06-22-16-24.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;./assets/img2019-08-06-22-16-24.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;The descriptor is the result of &lt;code&gt;n&lt;/code&gt; such test arranged into a bit string.&lt;/p&gt;
+
+&lt;h2 id=&#34;star-censure-features-cv-xfeature2d-stardetector&#34;&gt;Star/CenSurE Features &lt;code&gt;cv::xfeature2d::StarDetector&lt;/code&gt;&lt;/h2&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;./assets/img2019-08-06-22-19-37.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;./assets/img2019-08-06-22-19-37.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;The Star feature also know as ( Center Surround Extrema) attempts to solve the problem  providing the level of localisation of Harris and FAST while also providing  scale invariance. There is no descriptors for Star feature, the author used a variant of the &amp;ldquo;U-SURF&amp;rdquo; feature descriptors.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;./assets/img2019-08-06-22-18-05.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;./assets/img2019-08-06-22-18-05.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;The concept of the Star feature is to compute all variants of some features at &lt;strong&gt;all scale&lt;/strong&gt; and select the extrema across scale and location. At the same time, the goal was to have  features &lt;strong&gt;fast to compute&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;First stage: very fast approximation of DoG used by SIFT and the  extraction of extrema of this operation.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;./assets/img2019-08-06-22-20-25.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;./assets/img2019-08-06-22-20-25.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Second stage: cull things that look too much like edges using &lt;strong&gt;scale-adapted&lt;/strong&gt; version of Harris measure.&lt;/p&gt;
+
+&lt;p&gt;The scale-adapted Harris measure used a *&lt;strong&gt;&lt;em&gt;a rate of change of DoG operator&lt;/em&gt;&lt;/strong&gt;* rather than of image intensity. In OpenCV, this measure is &lt;strong&gt;binarized scale-adapted Harris measure&lt;/strong&gt;. This binarized test is a way of quantifying the extent to which a particular point is a scale space extrema.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;brisk-cv-brisk&#34;&gt;BRISK &lt;code&gt;cv::BRISK&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;BRISK is essentially based on FAST like &amp;ldquo;AGAST&amp;rdquo; detector.&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;./assets/img2019-08-06-22-26-09.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;./assets/img2019-08-06-22-26-09.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;./assets/img2019-08-06-22-26-33.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;./assets/img2019-08-06-22-26-33.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;BRISK identifies the scale by first creating a &lt;em&gt;space pyramid&lt;/em&gt; with a fixed number of octaves, and compute a fixed number of intra-octaves in between.&lt;/li&gt;
+&lt;li&gt;Apply FAST (or actually AGAST) on these scales, then non-maxima compression, leaving only the &amp;ldquo;maximal&amp;rdquo; features, then Compute AGAST score at the corresponding locations.&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Comparing to BRIEF, The BRISK descriptor is constructed by a series of rings around the center point.
+&lt;img src=&#34;./assets/img2019-08-06-22-31-33.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The short-range parings form the descriptor and the long-range parings from the dominant orientation.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;orb-cv-orb&#34;&gt;&lt;span class=&#34;org-todo todo TODO&#34;&gt;TODO&lt;/span&gt; ORB &lt;code&gt;cv::ORB&lt;/code&gt;&lt;/h2&gt;
+
+
+
+&lt;div class=&#34;box&#34;&gt;
+&lt;figure  itemprop=&#34;associatedMedia&#34;
+  itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
+    &lt;div class=&#34;img&#34;&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;./assets/img2019-08-06-22-32-33.png&#34; /&gt;
+    &lt;/div&gt;
+    &lt;a href=&#34;./assets/img2019-08-06-22-32-33.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;h2 id=&#34;freak&#34;&gt;&lt;span class=&#34;org-todo todo TODO&#34;&gt;TODO&lt;/span&gt; FREAK&lt;/h2&gt;
+
+&lt;h2 id=&#34;densefeaturedetector&#34;&gt;&lt;span class=&#34;org-todo todo TODO&#34;&gt;TODO&lt;/span&gt; DenseFeatureDetector&lt;/h2&gt;
+</description>
+      
+    </item>
     
     <item>
       <title>Hash Tables</title>

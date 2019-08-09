@@ -67,7 +67,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://mengoreo.github.io/" />
 
-<meta property="og:updated_time" content="2019-08-06T15:17:00+08:00" />
+<meta property="og:updated_time" content="2019-08-09T20:50:00+08:00" />
 <meta itemprop="name" content="Mengoreo">
 <meta itemprop="description" content="Be yourself &amp; Beyond yourself.">
 
@@ -293,6 +293,76 @@ if (!doNotTrack) {
   <header class="post-header">
     <h1 class="post-title">
       
+      <a class="post-link" href="/post/robot-localisation-in-org-subtree-export/">Robot Localisation</a>
+    </h1>
+    
+    <div class="post-meta">
+      <time datetime="2019-04-19" class="post-time">
+        2019-04-19
+      </time>
+      <div class="post-category">
+          <a href="https://mengoreo.github.io/categories/autonomous/"> Autonomous </a>
+          <a href="https://mengoreo.github.io/categories/notes/"> Notes </a>
+          
+        </div>
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      <p><strong>Filtering</strong> is a general way of estimating variables from noisy observations over time. Histogram Filter, Kalman Filter and Particle Filter are all variants of Bayesian Filter.</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/robot-localisation-in-org-subtree-export/" class="read-more-link">Read more</a>
+    </div>
+    
+  </div>
+</article>
+
+    
+      <article class="post bg-white post-preview">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/post/histogram-in-org-subtree-export/">The Histogram Filter</a>
+    </h1>
+    
+    <div class="post-meta">
+      <time datetime="2019-04-19" class="post-time">
+        2019-04-19
+      </time>
+      <div class="post-category">
+          <a href="https://mengoreo.github.io/categories/autonomous/"> Autonomous </a>
+          <a href="https://mengoreo.github.io/categories/notes/"> Notes </a>
+          
+        </div>
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      <p>The <strong>Histogram Filter</strong> is the most straightforward solution to represent <strong>continuous beliefs</strong>. We simply divide \(\text{dom}(x_t)\) into \(n\) disjoint bins \(b_0, \dots, b_{n-1}\) such that \(\cup_i b_{i} = \text{dom}(x_t)\). Then we define a new state \(x_t^\prime \in \{\dots, n − 1\}\) where \(x_t^\prime = i\) if and only if \(x_t \in b_i\). Since \(x_t^\prime\) has a discrete, finite state space, we can use the discrete Bayes Filter to calculate \(\text{bel}(x^\prime_t)\).</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/histogram-in-org-subtree-export/" class="read-more-link">Read more</a>
+    </div>
+    
+  </div>
+</article>
+
+    
+      <article class="post bg-white post-preview">
+  <header class="post-header">
+    <h1 class="post-title">
+      
       <a class="post-link" href="/post/cnn-in-org-subtree-export/">How does Convolutional Neural Network work?</a>
     </h1>
     
@@ -338,87 +408,6 @@ if (!doNotTrack) {
 </article>
 
     
-      <article class="post bg-white post-preview">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/deep-learning-book-in-org-subtree-export/">Deep Learning Book</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2019-03-19" class="post-time">
-        2019-03-19
-      </time>
-      <div class="post-category">
-          <a href="https://mengoreo.github.io/categories/notes/"> Notes </a>
-          
-        </div>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      <h2 id="linear-algebra">Linear Algebra</h2>
-
-<h3 id="basic-types">Basic Types</h3>
-
-<ul>
-<li><em>Scalars</em>: A scalar is just a single number, usually in lower-case</li>
-</ul>
-
-<p>variable names.</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/deep-learning-book-in-org-subtree-export/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
-
-    
-      <article class="post bg-white post-preview">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/primitive-types/">Primitive Types</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2019-02-22" class="post-time">
-        2019-02-22
-      </time>
-      <div class="post-category">
-          <a href="https://mengoreo.github.io/categories/epi/"> EPI </a>
-          
-        </div>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      Be very comfortable with bitwise operators, particularly XOR.
-Understand how to use masks and create them in an machine independent way
-Know how fast ways to clear the lowermost set bit (and by extension, set the lowermost 0, get its index, etc.)
-Understand signedness and its implications to shifting
-Consider using a cache to accelerate operations by using it to brute-force small inputs
-Be aware that commutativity and associativity can be used to perform operations in parallel and reorder operations.
-    </div>
-    <div class="read-more">
-      <a href="/post/primitive-types/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
-
-    
   </section>
 
   
@@ -441,65 +430,461 @@ Be aware that commutativity and associativity can be used to perform operations 
 
   
   
-  <nav class="pagination">
-    <ul>
-      
-      <li >
-        <a href="/">1</a>
-      </li>
-      
-      <li >
-        <a href="/page/2/">2</a>
-      </li>
-      
-      <li >
-        <a href="/page/3/">3</a>
-      </li>
-      
-      <li >
-        <a href="/page/4/">4</a>
-      </li>
-      
-      <li >
-        <a href="/page/5/">5</a>
-      </li>
-      
-      <li >
-        <a href="/page/6/">6</a>
-      </li>
-      
-      <li >
-        <a href="/page/7/">7</a>
-      </li>
-      
-      <li  class="active" >
-        <a href="/page/8/">8</a>
-      </li>
-      
-      <li >
-        <a href="/page/9/">9</a>
-      </li>
-      
-      <li >
-        <a href="/page/10/">10</a>
-      </li>
-      
-      <li >
-        <a href="/page/11/">11</a>
-      </li>
-      
-      <li >
-        <a href="/page/12/">12</a>
-      </li>
-      
-      <li >
-        <a href="/page/13/">13</a>
-      </li>
-      
-    </ul>
-  </nav>
 
-  
+    <nav class="pagination">
+      <ul>
+
+      
+      
+      <li><a href="/">««</a></li>
+      
+
+      
+      
+      <li><a href="/page/7/">«</a></li>
+      
+
+      
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+
+          
+          
+
+        
+        
+
+        
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/2/">
+              2
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/3/">
+              3
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/4/">
+              4
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/5/">
+              5
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/6/">
+              6
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/7/">
+              7
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+
+        
+        
+
+        
+        
+          <li class="active">
+            <a href="/page/8/">
+              8
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/9/">
+              9
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/10/">
+              10
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/11/">
+              11
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/12/">
+              12
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/13/">
+              13
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+            
+              
+            
+
+          
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/14/">
+              14
+            </a>
+          </li>
+        
+
+      
+
+      
+      
+      <li><a href="/page/9/">»</a></li>
+      
+
+      
+      
+      <li><a href="/page/14/">»»</a></li>
+      
+
+      </ul>
+    </nav>
   
 
 
