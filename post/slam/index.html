@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SLAM - Mengoreo</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Mengoreo" />
+<meta name="description" content="SLAM interview questions
+" />
+
+<meta name="keywords"
+  content="Hugo, theme, jane" />
+
+
+
+
+<meta name="google-site-verification" content="gVkxHuty-Yq4pXCYdtF18vY2y64Ez3dl8mbUHcC0Uys" />
+
+
+<meta name="generator" content="Hugo 0.56.3" />
+
+
+<link rel="canonical" href="https://mengoreo.github.io/post/slam/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.ec807d8b802a40889537c26e014f733206312ea440d42e1f0dabed80918de1ac.css" integrity="sha256-7IB9i4AqQIiVN8JuAU9zMgYxLqRA1C4fDavtgJGN4aw=" media="screen"
+  crossorigin="anonymous">
+
+
+
+
+<link rel="stylesheet" href="/css/custom.css">
+
+
+<meta property="og:title" content="SLAM" />
+<meta property="og:description" content="SLAM interview questions" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mengoreo.github.io/post/slam/" />
+<meta property="article:published_time" content="2019-08-20T13:45:00+08:00" />
+<meta property="article:modified_time" content="2019-08-24T15:39:15+08:00" />
+<meta itemprop="name" content="SLAM">
+<meta itemprop="description" content="SLAM interview questions">
+
+
+<meta itemprop="datePublished" content="2019-08-20T13:45:00&#43;08:00" />
+<meta itemprop="dateModified" content="2019-08-24T15:39:15&#43;08:00" />
+<meta itemprop="wordCount" content="1186">
+
+
+
+<meta itemprop="keywords" content="SLAM,Interviews," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SLAM"/>
+<meta name="twitter:description" content="SLAM interview questions"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-119777703-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Mengoreo</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://mengoreo.github.io/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://mengoreo.github.io/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://mengoreo.github.io/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://mengoreo.github.io/categories/">Categories</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css"
+  integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js"
+  integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"></script>
+<div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+    Mengoreo
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+    <li
+      class="menu-item">
+      
+      
+      
+      <a class="menu-item-link" href="https://mengoreo.github.io/">Home</a>
+      
+
+      
+
+    </li>
+    
+    <li
+      class="menu-item">
+      
+      
+      
+      <a class="menu-item-link" href="https://mengoreo.github.io/post/">Archives</a>
+      
+
+      
+
+    </li>
+    
+    <li
+      class="menu-item">
+      
+      
+      
+      <a class="menu-item-link" href="https://mengoreo.github.io/tags/">Tags</a>
+      
+
+      
+
+    </li>
+    
+    <li
+      class="menu-item">
+      
+      
+      
+      <a class="menu-item-link" href="https://mengoreo.github.io/categories/">Categories</a>
+      
+
+      
+
+    </li>
+    
+    
+  </ul>
+</nav>
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">SLAM</h1>
+      
+      <div class="post-meta">
+        <time datetime="2019-08-20" class="post-time">
+          2019-08-20
+        </time>
+        <div class="post-category">
+            <a href="https://mengoreo.github.io/categories/slam/"> SLAM </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#connected-component-labelling--ccl"><span class="org-todo todo TODO">TODO</span> Connected Component Labelling (CCL)</a>
+<ul>
+<li><a href="#one-component-at-a-time">One component at a time</a></li>
+</ul></li>
+<li><a href="#ransac-fn-2-fn-3"><span class="org-todo todo TODO">TODO</span> RANSAC<sup class="footnote-ref" id="fnref:fn-2"><a href="#fn:fn-2">2</a></sup><sup>, </sup><sup class="footnote-ref" id="fnref:fn-3"><a href="#fn:fn-3">3</a></sup></a></li>
+<li><a href="#homography-and-fundamental-matrix">Homography and Fundamental matrix</a></li>
+<li><a href="#optimisation-methods"><span class="org-todo todo TODO">TODO</span> Optimisation Methods</a></li>
+<li><a href="#kalman-filter-fn-7">Kalman Filter <sup class="footnote-ref" id="fnref:fn-7"><a href="#fn:fn-7">7</a></sup></a></li>
+<li><a href="#particle-filter-fn-8"><span class="org-todo todo TODO">TODO</span> Particle Filter<sup class="footnote-ref" id="fnref:fn-8"><a href="#fn:fn-8">8</a></sup></a></li>
+<li><a href="#sift-and-surf">SIFT and SURF</a></li>
+<li><a href="#solving--ax-b">Solving \(Ax = b\)</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <p>SLAM interview questions</p>
+
+<h2 id="connected-component-labelling--ccl"><span class="org-todo todo TODO">TODO</span> Connected Component Labelling (CCL)</h2>
+
+<p>CCL (alternatively Connected Component Analysis, blob extraction, blog discovery, region extraction etc.) is an algorithmic application in graph theory. CCL is <strong>NOT</strong> to be confused with <strong>segmentation</strong>. The most common algorithms for CCL are <strong>One component at a time</strong> and <strong>Two-pass</strong>.&nbsp;<sup class="footnote-ref" id="fnref:fn-1"><a href="#fn:fn-1">1</a></sup></p>
+
+<h3 id="one-component-at-a-time">One component at a time</h3>
+
+<h2 id="ransac-fn-2-fn-3"><span class="org-todo todo TODO">TODO</span> RANSAC<sup class="footnote-ref" id="fnref:fn-2"><a href="#fn:fn-2">2</a></sup><sup>, </sup><sup class="footnote-ref" id="fnref:fn-3"><a href="#fn:fn-3">3</a></sup></h2>
+
+<h2 id="homography-and-fundamental-matrix">Homography and Fundamental matrix</h2>
+
+<p>\(\boldsymbol{H} = \boldsymbol{K} (\boldsymbol{R} - \frac{\boldsymbol{tn}^\top}{d}) \boldsymbol{K}^{-1}, \, \boldsymbol{F} = \boldsymbol{K} \boldsymbol{E} \boldsymbol{K}^{-1} = \boldsymbol{K} \boldsymbol{t}^{\wedge} \boldsymbol{R}\boldsymbol{K}^{-1}\)</p>
+
+<ul>
+<li><p>Similarities</p>
+
+<ul>
+<li>They all relates to the transformation between to image points.</li>
+<li>Both of them are used in epipolar geometry to solve \(\boldsymbol{R}\) and \(\boldsymbol{t}\) .</li>
+<li>Both of them are \(3 \times 3\) matrices</li>
+<li>Both of them can be solved using <strong>eight-point-algorithm</strong></li>
+</ul></li>
+
+<li><p>Differences</p>
+
+<ul>
+<li>\(\boldsymbol{H}\) describes the transformation between points of two images that lies on the <strong>same</strong> plane, while \(\boldsymbol{F}\) describes the transformation between points of two images that lies on the <strong>different</strong> (or same) plane.</li>
+<li>\(\boldsymbol{H}\) with \(8\) DOF, while \(\boldsymbol{F}\) with \(5\) DOF</li>
+<li>Solving \(\boldsymbol{H}\) at least needs \(\boldsymbol{4}\) pairs of points while \(\boldsymbol{F}\) acquires at least \(\boldsymbol{8}\) pairs.</li>
+</ul></li>
+</ul>
+
+<p>When the landmarks (feature points) are co-planar or the camera only rotates, fundamental matrix <strong>degenerates</strong> to homography. Now if carrying on using eight-point-algorithm to solve \(\boldsymbol{F}\), &ldquo;extra DOF&rdquo; of \(\boldsymbol{F}\) will be mainly determined by noises. Empirically, we estimate both \(\boldsymbol{F}\) and \(\boldsymbol{H}\), and choose the one with smaller re-projection error.</p>
+
+<blockquote>
+<p>A homography is a special case of the Fundamental matrix.<sup class="footnote-ref" id="fnref:fn-4"><a href="#fn:fn-4">4</a></sup> For a general case of a scene with objects with different depth, the geometry between two views is encapsulated with \(\boldsymbol{F}\), which is a \(3 \times 3\) matrix of rank \(2\) . Say \(X\) in the scene corresponds to \(x\) in one view and \(x^{\prime}\) in another. The relation between them is \({x^\prime}^\top \boldsymbol{F} x = 0\) .If we know the position of \(x\) in one image, then the search of \(x^\prime\) in another image is reduced to the search on the epipolar line \(l = \boldsymbol{F} x\) .</p>
+
+<p>A planar homography \(\boldsymbol{H}\) satisfies the constrains \(x^\prime = \boldsymbol{H} x\) . \(\boldsymbol{H}\) is a a \(3 \times 3\) matrix of rank \(3\) in which there is <strong>one-to-one</strong> point correspondence between the first and second image.</p>
+</blockquote>
+
+<h2 id="optimisation-methods"><span class="org-todo todo TODO">TODO</span> Optimisation Methods</h2>
+
+<p>Problem:</p>
+
+<p>\begin{equation}
+    \begin{aligned}
+        \boldsymbol{x}^* &amp;= \arg \min_{\boldsymbol{x}} F(\boldsymbol{x})\\<br />
+                         &amp;= \arg \min_{\boldsymbol{x}} \frac{1}{2} || f(\boldsymbol{x}) ||^2\\<br />
+                         &amp;= \arg \min_{\boldsymbol{x}} \frac{1}{2} || \boldsymbol{y} - \hat{\boldsymbol{y}} ||^2
+    \end{aligned}
+\end{equation}</p>
+
+<ul>
+<li><p>Gaussian Newton</p>
+
+<p>Estimate \(\red{f}(\boldsymbol{x} + \Delta{\boldsymbol{x}})\) using first-order Taylor expansion.</p>
+
+<p>\begin{equation}
+    f(\boldsymbol{x} + \Delta \boldsymbol{x}) = f(\boldsymbol{x}) + \boldsymbol{J}(\boldsymbol{x})^\top \Delta \boldsymbol{x}
+\end{equation}</p>
+
+<p>Then solve</p>
+
+<p>\begin{equation}
+   \min_{\Delta \boldsymbol{x}} \frac{1}{2} || f(\boldsymbol{x}) + \boldsymbol{J}(\boldsymbol{x})^\top \Delta \boldsymbol{x} ||^2
+\end{equation}</p>
+
+<p>for optimal \(\Delta \boldsymbol{x}^*\).</p>
+
+<p>\begin{equation}
+    \underbrace{\boldsymbol{J}(\boldsymbol{x}) \boldsymbol{J}(\boldsymbol{x})^\top}_{\boldsymbol{H}(\boldsymbol{x})} \Delta \boldsymbol{x} = \underbrace{-\boldsymbol{J}(\boldsymbol{x})f(\boldsymbol{x})}_{\boldsymbol{g}}
+\end{equation}</p>
+
+<p>Cons:</p>
+
+<ul>
+<li>Without good stability, may not converge if \(\boldsymbol{H}\) is singular.</li>
+<li>If the step \(\Delta \boldsymbol{x}\) is too large, then the assumption of Taylor expansion fails to stand.</li>
+</ul></li>
+
+<li><p>Levenberg Marquadt</p>
+
+<p>Constrain equation (3) in \(|| \boldsymbol{D} \Delta \boldsymbol{x} ||^2 \leq \mu\) .</p>
+
+<p>Solve Lagrangian equation</p>
+
+<p>\begin{equation}
+    \mathcal{L}(\Delta \boldsymbol{x}, \lambda) = \frac{1}{2} || f(\boldsymbol{x}) + \boldsymbol{J}(\boldsymbol{x})^\top \Delta \boldsymbol{x} ||^2 + \frac{\lambda}{2} (|| \boldsymbol{D} \Delta \boldsymbol{x} ||^2 - \mu)
+\end{equation}</p>
+
+<p><a id="orgbdb1278"></a></p>
+
+<p>for optimal \(\Delta \boldsymbol{x}^*\).</p>
+
+<p>\begin{equation}
+    (\boldsymbol{H} + \lambda \boldsymbol{D}^\top \boldsymbol{D}) \Delta \boldsymbol{x} = \boldsymbol{g}.
+\end{equation}</p>
+
+<p>Simplest cast is when \(\boldsymbol{D} = \boldsymbol{I}\) .</p>
+
+<p>while iterating, another term, called <em>gain ratio</em> is calculated,</p>
+
+<p>\begin{equation}
+    \mathcal{g} = \frac{f(\boldsymbol{x} + \Delta \boldsymbol{x}) - f(\boldsymbol{x})}{\boldsymbol{J}(\boldsymbol{x})^\top \Delta \boldsymbol{x}}
+\end{equation}</p>
+
+<ul>
+<li>if \(\mathcal{g} &lt; 0.25\), then in next iteration \(\mu = 0.5 \mu\). (estimated decrement is too large)</li>
+<li>if \(\mathcal{g} &gt; 0.75\), then \(\mu = 2 \mu\). (estimated is nearly the actual, let&rsquo;s try larger radius)</li>
+<li>if \(\mathcal{g}\) is greater than some threshold, then this \(\Delta \boldsymbol{x}\) is presumed good, \(\boldsymbol{x}_{k+1} = \boldsymbol{x}_k + \Delta \boldsymbol{x}\).</li>
+</ul>
+
+<blockquote>
+<p>\(\boldsymbol{D}\) here can make the constraint ball become ellipsoid, which will be larger constraints on smaller gradient. Empirically, \(\boldsymbol{D}\) is set to <strong>non-negative diagonal matrix</strong>, which typically using square root of the diagonals of \(\boldsymbol{J}^\top \boldsymbol{J}\).</p>
+</blockquote>
+
+<p>In equation <a href="#orgbdb1278">(6)</a>, when \(\lambda\) is small, \(\boldsymbol{H}\) dominants, LM behaves more like GN.(<strong>final stage</strong>) When \(\lambda\) is large, \(\lambda \boldsymbol{D}^\top \boldsymbol{D}\) dominants, LM behaves more like gradient descent.(<strong>initial stage</strong>)</p>
+
+<p>Compare to GN, LM, to some extent, rectifies GN&rsquo;s problems and is more robust, but with slower converging speed, which is why LM is also called <strong>Damped Newton Method</strong>.</p></li>
+
+<li><p>Dog Leg<sup class="footnote-ref" id="fnref:fn-5"><a href="#fn:fn-5">5</a></sup><sup>, </sup><sup class="footnote-ref" id="fnref:fn-6"><a href="#fn:fn-6">6</a></sup></p></li>
+</ul>
+
+<h2 id="kalman-filter-fn-7">Kalman Filter <sup class="footnote-ref" id="fnref:fn-7"><a href="#fn:fn-7">7</a></sup></h2>
+
+<p>Consider the transition model and sensor model for a simple linear system:</p>
+
+<p>\begin{equation}
+    \begin{cases}
+        \boldsymbol{x}_k = \boldsymbol{A}_k \boldsymbol{x}_{k-1} + \boldsymbol{u}_k + \boldsymbol{w}_k \\<br />
+        \boldsymbol{z}_k = \boldsymbol{C}_k \boldsymbol{x}_k + \boldsymbol{v}_k
+    \end{cases} \quad k = 1, \cdots, N
+\end{equation}</p>
+
+<p>where</p>
+
+<p>\begin{equation}
+    \boldsymbol{w}_k \sim N(0, \boldsymbol{R}_k) \\<br />
+    \boldsymbol{v}_k \sim N(0, \boldsymbol{Q}_k).
+\end{equation}</p>
+
+<p>The goal is to estimate \(\boldsymbol{x}_k\)&rsquo;s distribution which is also gaussian distributed. From Bayesian rules, we have</p>
+
+<p>\begin{equation}
+    P(\boldsymbol{x}_k | \boldsymbol{x}_0, \boldsymbol{u}_{1:k}, \boldsymbol{z}_{1:k}) = \frac{P(\boldsymbol{z}_k | \boldsymbol{x}_{k}, \boldsymbol{x}_0, \boldsymbol{u}_{1:k}, \boldsymbol{z}_{1:k-1}) P(\boldsymbol{x}_k | \boldsymbol{x}_0, \boldsymbol{u}_{1:k}, \boldsymbol{z}_{1:k-1})}{P(\boldsymbol{z}_k | \boldsymbol{x}_0, \boldsymbol{u}_{1:k}, \boldsymbol{z}_{1:k-1})}
+    = \frac{P(\boldsymbol{z}_k | \boldsymbol{x}_{k}) P(\boldsymbol{x}_k | \boldsymbol{x}_0, \boldsymbol{u}_{1:k}, \boldsymbol{z}_{1:k-1})}{P(\boldsymbol{z}_k | \boldsymbol{x}_0, \boldsymbol{u}_{1:k}, \boldsymbol{z}_{1:k-1})}
+\end{equation}</p>
+
+<p><a id="org0734024"></a></p>
+
+<p>Say we now know the posterior \(\hat{\boldsymbol{x}}_{k-1}\) and the covariance matrix \(\hat{\boldsymbol{P}}_{k-1}\) of \(\boldsymbol{x}\) at time \(k-1\). We want to know the <strong>posterior</strong> \(\hat{\boldsymbol{x}}_{k}\) and the covariance \(\hat{\boldsymbol{P}}_{k}\) at time \(k\).</p>
+
+<p>\begin{equation}
+    \begin{aligned}
+        &amp;N(\hat{\boldsymbol{x}}_{k}, \hat{\boldsymbol{P}}_{k}) \\<br />
+        &amp;=P(\boldsymbol{x}_k | \boldsymbol{x}_0, \boldsymbol{u}_{1:k}, \boldsymbol{z}_{1:k})  \\<br />
+        &amp;=\eta N(\boldsymbol{C}_k \boldsymbol{x}_k, \boldsymbol{Q}_k) \cdot N(\boldsymbol{A}_k \hat{\boldsymbol{x}}_{k-1} + \boldsymbol{u}_k, \boldsymbol{A}_k \hat{\boldsymbol{P}}_{k-1}^{-1} \boldsymbol{A}_k^\top + \boldsymbol{R}_k)
+    \end{aligned}
+\end{equation}</p>
+
+<p>Here, \(N(\boldsymbol{A}_k \hat{\boldsymbol{x}}_{k-1} + \boldsymbol{u}_k, \boldsymbol{A}_k \hat{\boldsymbol{P}}_{k-1} \boldsymbol{A}_k^\top + \boldsymbol{R}_k)\) is the <strong>prior</strong> probability of \(x_k\). Let</p>
+
+<p>\begin{equation}
+    \check{\boldsymbol{x}}_{k} = \boldsymbol{A}_k \hat{\boldsymbol{x}}_{k-1} + \boldsymbol{u}_k \\<br />
+    \check{\boldsymbol{P}}_{k} = \boldsymbol{A}_k \hat{\boldsymbol{P}}_{k-1}^{-1} \boldsymbol{A}_k^\top + \boldsymbol{R}_k)
+\end{equation}</p>
+
+<p>so equation <a href="#org0734024">(11)</a> becomes</p>
+
+<p>\begin{aligned}
+    N(\hat{\boldsymbol{x}}_{k}, \hat{\boldsymbol{P}}_{k}) = \eta N(\boldsymbol{C}_k \boldsymbol{x}_k, \boldsymbol{Q}_k) \cdot N(\check{\boldsymbol{x}}_{k}, \check{\boldsymbol{P}}_{k}).
+\end{aligned}</p>
+
+<p>Since we already know that both sides of the equation are gaussian distributed, so we can compare the quadratic form of the \(\exp\) part to derive the \(\hat{\boldsymbol{x}}_{k}, \hat{\boldsymbol{P}}_{k}\).</p>
+
+<p>\begin{equation}
+    \begin{aligned}
+        &amp;(\boldsymbol{x}_k - \hat{\boldsymbol{x}}_{k})^\top \hat{\boldsymbol{P}}_{k}^{-1} (\boldsymbol{x}_k - \hat{\boldsymbol{x}}_{k}) \\<br />
+        &amp; \, \dot{=} \, (\boldsymbol{z}_k - \boldsymbol{C}_k \boldsymbol{x}_k)^\top  \boldsymbol{Q}_k^{-1} (\boldsymbol{z}_k - \boldsymbol{C}_k \boldsymbol{x}_k)\\<br />
+        &amp;+ (\boldsymbol{x}_k - \check{\boldsymbol{x}}_{k})^\top \check{\boldsymbol{P}}_{k}^{-1} (\boldsymbol{x}_k - \check{\boldsymbol{x}}_{k})
+    \end{aligned}
+\end{equation}</p>
+
+<p><a id="org640698e"></a></p>
+
+<p>Compare the second-order coefficients, we have</p>
+
+<p>\begin{equation}
+    \hat{\boldsymbol{P}}_{k}^{-1} \dot{=} \boldsymbol{C}_k^\top \boldsymbol{Q}_k^{-1}\boldsymbol{C}_k + \check{\boldsymbol{P}}_{k}^{-1}
+\end{equation}</p>
+
+<p>Compare the first order coefficients, we have</p>
+
+<p>\begin{equation}
+    \hat{\boldsymbol{P}}_{k}^{-1} \hat{\boldsymbol{x}}_{k} = \boldsymbol{C}_k^\top \boldsymbol{Q}_k^{-1}\boldsymbol{z}_k + \check{\boldsymbol{P}}_{k}^{-1} \check{\boldsymbol{x}}_{k}
+\end{equation}</p>
+
+<p>Using <a href="https://en.wikipedia.org/wiki/Woodbury%5Fmatrix%5Fidentity">SMW</a> we can derive \(\hat{\boldsymbol{P}}_{k}\) from <a href="#org640698e">(14)</a>.</p>
+
+<p>Then \(\hat{\boldsymbol{x}}_{k}\) from (15).</p>
+
+<blockquote>
+<p>All of this can be summarised as two steps:</p>
+
+<ul>
+<li><p>Prediction</p>
+
+<p>\[
+    \check{\boldsymbol{x}}_{k} = \boldsymbol{A}_k \hat{\boldsymbol{x}}_{k-1} + \boldsymbol{u}_k
+    \]</p>
+
+<p>\[
+    \check{\boldsymbol{P}}_{k} = \boldsymbol{A}_k \hat{\boldsymbol{P}}_{k-1}^{-1} \boldsymbol{A}_k^\top + \boldsymbol{R}_k
+    \]</p></li>
+
+<li><p>Update: calculate \(\boldsymbol{K}\) first, which is also called <strong>Kalman gain</strong></p>
+
+<p>\[
+    \boldsymbol{K} = \check{\boldsymbol{P}}_{k} \boldsymbol{C}_k^\top (\boldsymbol{C}_k \check{\boldsymbol{P}}_{k}  \boldsymbol{C}_k^\top)^{-1}
+    \]</p>
+
+<p>then the posterior probability distribution.</p>
+
+<p>\[
+    \hat{\boldsymbol{x}}_k = \check{\boldsymbol{x}}_k + \boldsymbol{K}(\boldsymbol{z}_k - \boldsymbol{C}_k \check{\boldsymbol{x}}_k)
+    \]</p>
+
+<p>\[
+    \hat{\boldsymbol{P}}_{k} = (\boldsymbol{I} - \boldsymbol{KC}_k)\check{\boldsymbol{P}}_{k}
+    \]</p></li>
+</ul>
+</blockquote>
+
+<p>For non-linear system, use first order Taylor expansion at \(\hat{\boldsymbol{x}}_{k-1}\) and \(\hat{\boldsymbol{P}}_{k-1}\),</p>
+
+<p>\begin{equation}
+    \boldsymbol{x}_k \approx f(\hat{\boldsymbol{x}}_{k-1}, \boldsymbol{u}_k) + \frac{\partial f}{\partial \boldsymbol{x}_{k-1}} \Bigg |_{\hat{\boldsymbol{x}}_{k-1}} (\boldsymbol{x}_{k-1} - \hat{\boldsymbol{x}}_{k-1}) + \boldsymbol{w}_k
+\end{equation}</p>
+
+<p>\begin{equation}
+    \boldsymbol{z}_k \approx h(\check{\boldsymbol{x}}_{k}) + \frac{\partial h}{\partial \boldsymbol{x}_{k}} \Bigg |_{\check{\boldsymbol{x}}_{k}} (\boldsymbol{x}_k - \check{\boldsymbol{x}}_{k}) + \boldsymbol{v}_k
+\end{equation}</p>
+
+<p>Then using linear system comprehension.</p>
+
+<h2 id="particle-filter-fn-8"><span class="org-todo todo TODO">TODO</span> Particle Filter<sup class="footnote-ref" id="fnref:fn-8"><a href="#fn:fn-8">8</a></sup></h2>
+
+<h2 id="sift-and-surf">SIFT and SURF</h2>
+
+<p><a href="http://localhost:1313/post/feature%5Fdetection/#sift--scale-invariant-feature-transform--cv-xfeature2d-sift">http://localhost:1313/post/feature%5Fdetection/#sift--scale-invariant-feature-transform--cv-xfeature2d-sift</a></p>
+
+<h2 id="solving--ax-b">Solving \(Ax = b\)</h2>
+
+<p>Direction Methods: <a href="https://eigen.tuxfamily.org/dox/group%5F%5FLeastSquares.html">https://eigen.tuxfamily.org/dox/group%5F%5FLeastSquares.html</a></p>
+
+<p>Iteration Methods: <a href="https://eigen.tuxfamily.org/dox/group%5F%5FTopicSparseSystems.html#title2">https://eigen.tuxfamily.org/dox/group%5F%5FTopicSparseSystems.html#title2</a></p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:fn-1"><a href="https://en.wikipedia.org/wiki/Connected-component%5Flabeling">https://en.wikipedia.org/wiki/Connected-component%5Flabeling</a>
+ <a class="footnote-return" href="#fnref:fn-1"><sup>[return]</sup></a></li>
+<li id="fn:fn-2"><a href="https://en.wikipedia.org/wiki/Random%5Fsample%5Fconsensus">https://en.wikipedia.org/wiki/Random%5Fsample%5Fconsensus</a>
+ <a class="footnote-return" href="#fnref:fn-2"><sup>[return]</sup></a></li>
+<li id="fn:fn-3"><a href="http://mrpt.ual.es/reference/stable/ransac%5F8cpp.html">http://mrpt.ual.es/reference/stable/ransac%5F8cpp.html</a>
+ <a class="footnote-return" href="#fnref:fn-3"><sup>[return]</sup></a></li>
+<li id="fn:fn-4"><a href="https://www.quora.com/Computer-Vision-What-is-the-relationship-of-homography-and-the-fundamental-matrix/answer/Helen-Flynn-1?srid=dDQH">https://www.quora.com/Computer-Vision-What-is-the-relationship-of-homography-and-the-fundamental-matrix/answer/Helen-Flynn-1?srid=dDQH</a>
+ <a class="footnote-return" href="#fnref:fn-4"><sup>[return]</sup></a></li>
+<li id="fn:fn-5"><a href="http://www.bioinfo.org.cn/~wangchao/maa/Numerical%5FOptimization.pdf">http://www.bioinfo.org.cn/~wangchao/maa/Numerical%5FOptimization.pdf</a>
+ <a class="footnote-return" href="#fnref:fn-5"><sup>[return]</sup></a></li>
+<li id="fn:fn-6"><a href="http://www.numerical.rl.ac.uk/people/nimg/course/lectures/raphael/lectures/lec7slides.pdf">http://www.numerical.rl.ac.uk/people/nimg/course/lectures/raphael/lectures/lec7slides.pdf</a>
+ <a class="footnote-return" href="#fnref:fn-6"><sup>[return]</sup></a></li>
+<li id="fn:fn-7">视觉 SLAM 十四讲：从理论到实践
+ <a class="footnote-return" href="#fnref:fn-7"><sup>[return]</sup></a></li>
+<li id="fn:fn-8"><a href="https://en.wikipedia.org/wiki/Particle%5Ffilter">https://en.wikipedia.org/wiki/Particle%5Ffilter</a>
+ <a class="footnote-return" href="#fnref:fn-8"><sup>[return]</sup></a></li>
+</ol>
+</div>
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Mengoreo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">2019-08-24</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://mengoreo.github.io/tags/slam/">SLAM</a>
+          <a href="https://mengoreo.github.io/tags/interviews/">Interviews</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/vo_single/">
+            <span class="next-text nav-default">从零搭建「视觉里程计」 —— 单文件</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+    <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="/js/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: 'dbf596b8510d168b548e',
+    clientSecret: 'c337db331a6264c5c3c6f848ee5ddd758126b97b',
+    repo: 'mengoreo.github.io',
+    owner: 'mengoreo',
+    admin: ['mengoreo'],
+    id: location.pathname, 
+    distractionFreeMode: true 
+  });
+  gitalk.render('gitalk-container');
+
+</script>
+
+  </article>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:mengoreo@163.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/mengoreo" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://mengoreo.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a> & <a class="theme-link"
+      href="https://github.com/josephhutch/aether">aether</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+    2018 -
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+      Mengoreo is not an oreo
+      
+    </span></span>
+
+  
+  
+
+  
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.bf001ebff4576465ae0e6d86319ad6ab1fbf9d5da965cca4d8ea1bcdfc8c425c.js" integrity="sha256-vwAev/RXZGWuDm2GMZrWqx&#43;/nV2pZcyk2OobzfyMQlw="
+  crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+  window.MathJax = {
+    showProcessingMessages: true,
+    tex2jax: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'sup'],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    TeX: { equationNumbers: { autoNumber: "all" } },
+    
+    
+    
+    
+  };
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ 
+    "HTML-CSS": { linebreaks: { automatic: true, width: "75% container" } }, 
+    "SVG": { linebreaks: { automatic: true, width: "75% container" } } 
+  });
+</script>
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_SVG' async></script>
+
+<script id="baidu_push">
+  (function () {
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+<script type="text/javascript" src="/js/load-photoswipe.js"></script>
+<script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+<script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

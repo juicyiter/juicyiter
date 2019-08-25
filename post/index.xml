@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
-    <lastBuildDate>Fri, 09 Aug 2019 20:50:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 20 Aug 2019 13:45:00 +0800</lastBuildDate>
     
 	<atom:link href="https://mengoreo.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SLAM</title>
+      <link>https://mengoreo.github.io/post/slam/</link>
+      <pubDate>Tue, 20 Aug 2019 13:45:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/slam/</guid>
+      <description>&lt;p&gt;SLAM interview questions&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>从零搭建「视觉里程计」 —— 单文件</title>
@@ -268,15 +277,6 @@ OpenCV uses a reference counting system.</description>
       
       <guid>https://mengoreo.github.io/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%91%A8%E5%BF%97%E5%8D%8E/</guid>
       <description>写在前面，因为没有标准答案，机友如果有不同见解欢迎评论交流，我会及时回复。 绪论 1.1 更改后的数据集为： 编号 色泽 根蒂 敲声 好瓜 1 青绿 蜷缩 浊响 是 4 乌黑</description>
-    </item>
-    
-    <item>
-      <title>Long-Short Time Memory</title>
-      <link>https://mengoreo.github.io/post/rnn-lstm-in-org-subtree-export/</link>
-      <pubDate>Sat, 20 Apr 2019 00:00:00 +0800</pubDate>
-      
-      <guid>https://mengoreo.github.io/post/rnn-lstm-in-org-subtree-export/</guid>
-      <description>colah&amp;rsquo;s blog</description>
     </item>
     
   </channel>

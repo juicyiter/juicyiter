@@ -6,10 +6,300 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
-    <lastBuildDate>Fri, 09 Aug 2019 20:50:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 20 Aug 2019 13:45:00 +0800</lastBuildDate>
     
         <atom:link href="https://mengoreo.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SLAM</title>
+      <link>https://mengoreo.github.io/post/slam/</link>
+      <pubDate>Tue, 20 Aug 2019 13:45:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/slam/</guid>
+      
+        <description>&lt;p&gt;SLAM interview questions&lt;/p&gt;
+
+&lt;h2 id=&#34;connected-component-labelling--ccl&#34;&gt;&lt;span class=&#34;org-todo todo TODO&#34;&gt;TODO&lt;/span&gt; Connected Component Labelling (CCL)&lt;/h2&gt;
+
+&lt;p&gt;CCL (alternatively Connected Component Analysis, blob extraction, blog discovery, region extraction etc.) is an algorithmic application in graph theory. CCL is &lt;strong&gt;NOT&lt;/strong&gt; to be confused with &lt;strong&gt;segmentation&lt;/strong&gt;. The most common algorithms for CCL are &lt;strong&gt;One component at a time&lt;/strong&gt; and &lt;strong&gt;Two-pass&lt;/strong&gt;.&amp;nbsp;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fn-1&#34;&gt;&lt;a href=&#34;#fn:fn-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;one-component-at-a-time&#34;&gt;One component at a time&lt;/h3&gt;
+
+&lt;h2 id=&#34;ransac-fn-2-fn-3&#34;&gt;&lt;span class=&#34;org-todo todo TODO&#34;&gt;TODO&lt;/span&gt; RANSAC&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fn-2&#34;&gt;&lt;a href=&#34;#fn:fn-2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;sup&gt;, &lt;/sup&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fn-3&#34;&gt;&lt;a href=&#34;#fn:fn-3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
+
+&lt;h2 id=&#34;homography-and-fundamental-matrix&#34;&gt;Homography and Fundamental matrix&lt;/h2&gt;
+
+&lt;p&gt;\(\boldsymbol{H} = \boldsymbol{K} (\boldsymbol{R} - \frac{\boldsymbol{tn}^\top}{d}) \boldsymbol{K}^{-1}, \, \boldsymbol{F} = \boldsymbol{K} \boldsymbol{E} \boldsymbol{K}^{-1} = \boldsymbol{K} \boldsymbol{t}^{\wedge} \boldsymbol{R}\boldsymbol{K}^{-1}\)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Similarities&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;They all relates to the transformation between to image points.&lt;/li&gt;
+&lt;li&gt;Both of them are used in epipolar geometry to solve \(\boldsymbol{R}\) and \(\boldsymbol{t}\) .&lt;/li&gt;
+&lt;li&gt;Both of them are \(3 \times 3\) matrices&lt;/li&gt;
+&lt;li&gt;Both of them can be solved using &lt;strong&gt;eight-point-algorithm&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Differences&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;\(\boldsymbol{H}\) describes the transformation between points of two images that lies on the &lt;strong&gt;same&lt;/strong&gt; plane, while \(\boldsymbol{F}\) describes the transformation between points of two images that lies on the &lt;strong&gt;different&lt;/strong&gt; (or same) plane.&lt;/li&gt;
+&lt;li&gt;\(\boldsymbol{H}\) with \(8\) DOF, while \(\boldsymbol{F}\) with \(5\) DOF&lt;/li&gt;
+&lt;li&gt;Solving \(\boldsymbol{H}\) at least needs \(\boldsymbol{4}\) pairs of points while \(\boldsymbol{F}\) acquires at least \(\boldsymbol{8}\) pairs.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;When the landmarks (feature points) are co-planar or the camera only rotates, fundamental matrix &lt;strong&gt;degenerates&lt;/strong&gt; to homography. Now if carrying on using eight-point-algorithm to solve \(\boldsymbol{F}\), &amp;ldquo;extra DOF&amp;rdquo; of \(\boldsymbol{F}\) will be mainly determined by noises. Empirically, we estimate both \(\boldsymbol{F}\) and \(\boldsymbol{H}\), and choose the one with smaller re-projection error.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A homography is a special case of the Fundamental matrix.&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fn-4&#34;&gt;&lt;a href=&#34;#fn:fn-4&#34;&gt;4&lt;/a&gt;&lt;/sup&gt; For a general case of a scene with objects with different depth, the geometry between two views is encapsulated with \(\boldsymbol{F}\), which is a \(3 \times 3\) matrix of rank \(2\) . Say \(X\) in the scene corresponds to \(x\) in one view and \(x^{\prime}\) in another. The relation between them is \({x^\prime}^\top \boldsymbol{F} x = 0\) .If we know the position of \(x\) in one image, then the search of \(x^\prime\) in another image is reduced to the search on the epipolar line \(l = \boldsymbol{F} x\) .&lt;/p&gt;
+
+&lt;p&gt;A planar homography \(\boldsymbol{H}\) satisfies the constrains \(x^\prime = \boldsymbol{H} x\) . \(\boldsymbol{H}\) is a a \(3 \times 3\) matrix of rank \(3\) in which there is &lt;strong&gt;one-to-one&lt;/strong&gt; point correspondence between the first and second image.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;optimisation-methods&#34;&gt;&lt;span class=&#34;org-todo todo TODO&#34;&gt;TODO&lt;/span&gt; Optimisation Methods&lt;/h2&gt;
+
+&lt;p&gt;Problem:&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \begin{aligned}
+        \boldsymbol{x}^* &amp;amp;= \arg \min_{\boldsymbol{x}} F(\boldsymbol{x})\\&lt;br /&gt;
+                         &amp;amp;= \arg \min_{\boldsymbol{x}} \frac{1}{2} || f(\boldsymbol{x}) ||^2\\&lt;br /&gt;
+                         &amp;amp;= \arg \min_{\boldsymbol{x}} \frac{1}{2} || \boldsymbol{y} - \hat{\boldsymbol{y}} ||^2
+    \end{aligned}
+\end{equation}&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Gaussian Newton&lt;/p&gt;
+
+&lt;p&gt;Estimate \(\red{f}(\boldsymbol{x} + \Delta{\boldsymbol{x}})\) using first-order Taylor expansion.&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    f(\boldsymbol{x} + \Delta \boldsymbol{x}) = f(\boldsymbol{x}) + \boldsymbol{J}(\boldsymbol{x})^\top \Delta \boldsymbol{x}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;Then solve&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+   \min_{\Delta \boldsymbol{x}} \frac{1}{2} || f(\boldsymbol{x}) + \boldsymbol{J}(\boldsymbol{x})^\top \Delta \boldsymbol{x} ||^2
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;for optimal \(\Delta \boldsymbol{x}^*\).&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \underbrace{\boldsymbol{J}(\boldsymbol{x}) \boldsymbol{J}(\boldsymbol{x})^\top}_{\boldsymbol{H}(\boldsymbol{x})} \Delta \boldsymbol{x} = \underbrace{-\boldsymbol{J}(\boldsymbol{x})f(\boldsymbol{x})}_{\boldsymbol{g}}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;Cons:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Without good stability, may not converge if \(\boldsymbol{H}\) is singular.&lt;/li&gt;
+&lt;li&gt;If the step \(\Delta \boldsymbol{x}\) is too large, then the assumption of Taylor expansion fails to stand.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Levenberg Marquadt&lt;/p&gt;
+
+&lt;p&gt;Constrain equation (3) in \(|| \boldsymbol{D} \Delta \boldsymbol{x} ||^2 \leq \mu\) .&lt;/p&gt;
+
+&lt;p&gt;Solve Lagrangian equation&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \mathcal{L}(\Delta \boldsymbol{x}, \lambda) = \frac{1}{2} || f(\boldsymbol{x}) + \boldsymbol{J}(\boldsymbol{x})^\top \Delta \boldsymbol{x} ||^2 + \frac{\lambda}{2} (|| \boldsymbol{D} \Delta \boldsymbol{x} ||^2 - \mu)
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;&lt;a id=&#34;orgbdb1278&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;for optimal \(\Delta \boldsymbol{x}^*\).&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    (\boldsymbol{H} + \lambda \boldsymbol{D}^\top \boldsymbol{D}) \Delta \boldsymbol{x} = \boldsymbol{g}.
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;Simplest cast is when \(\boldsymbol{D} = \boldsymbol{I}\) .&lt;/p&gt;
+
+&lt;p&gt;while iterating, another term, called &lt;em&gt;gain ratio&lt;/em&gt; is calculated,&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \mathcal{g} = \frac{f(\boldsymbol{x} + \Delta \boldsymbol{x}) - f(\boldsymbol{x})}{\boldsymbol{J}(\boldsymbol{x})^\top \Delta \boldsymbol{x}}
+\end{equation}&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;if \(\mathcal{g} &amp;lt; 0.25\), then in next iteration \(\mu = 0.5 \mu\). (estimated decrement is too large)&lt;/li&gt;
+&lt;li&gt;if \(\mathcal{g} &amp;gt; 0.75\), then \(\mu = 2 \mu\). (estimated is nearly the actual, let&amp;rsquo;s try larger radius)&lt;/li&gt;
+&lt;li&gt;if \(\mathcal{g}\) is greater than some threshold, then this \(\Delta \boldsymbol{x}\) is presumed good, \(\boldsymbol{x}_{k+1} = \boldsymbol{x}_k + \Delta \boldsymbol{x}\).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;\(\boldsymbol{D}\) here can make the constraint ball become ellipsoid, which will be larger constraints on smaller gradient. Empirically, \(\boldsymbol{D}\) is set to &lt;strong&gt;non-negative diagonal matrix&lt;/strong&gt;, which typically using square root of the diagonals of \(\boldsymbol{J}^\top \boldsymbol{J}\).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In equation &lt;a href=&#34;#orgbdb1278&#34;&gt;(6)&lt;/a&gt;, when \(\lambda\) is small, \(\boldsymbol{H}\) dominants, LM behaves more like GN.(&lt;strong&gt;final stage&lt;/strong&gt;) When \(\lambda\) is large, \(\lambda \boldsymbol{D}^\top \boldsymbol{D}\) dominants, LM behaves more like gradient descent.(&lt;strong&gt;initial stage&lt;/strong&gt;)&lt;/p&gt;
+
+&lt;p&gt;Compare to GN, LM, to some extent, rectifies GN&amp;rsquo;s problems and is more robust, but with slower converging speed, which is why LM is also called &lt;strong&gt;Damped Newton Method&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Dog Leg&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fn-5&#34;&gt;&lt;a href=&#34;#fn:fn-5&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;sup&gt;, &lt;/sup&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fn-6&#34;&gt;&lt;a href=&#34;#fn:fn-6&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;kalman-filter-fn-7&#34;&gt;Kalman Filter &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fn-7&#34;&gt;&lt;a href=&#34;#fn:fn-7&#34;&gt;7&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
+
+&lt;p&gt;Consider the transition model and sensor model for a simple linear system:&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \begin{cases}
+        \boldsymbol{x}_k = \boldsymbol{A}_k \boldsymbol{x}_{k-1} + \boldsymbol{u}_k + \boldsymbol{w}_k \\&lt;br /&gt;
+        \boldsymbol{z}_k = \boldsymbol{C}_k \boldsymbol{x}_k + \boldsymbol{v}_k
+    \end{cases} \quad k = 1, \cdots, N
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;where&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \boldsymbol{w}_k \sim N(0, \boldsymbol{R}_k) \\&lt;br /&gt;
+    \boldsymbol{v}_k \sim N(0, \boldsymbol{Q}_k).
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;The goal is to estimate \(\boldsymbol{x}_k\)&amp;rsquo;s distribution which is also gaussian distributed. From Bayesian rules, we have&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    P(\boldsymbol{x}_k | \boldsymbol{x}_0, \boldsymbol{u}_{1:k}, \boldsymbol{z}_{1:k}) = \frac{P(\boldsymbol{z}_k | \boldsymbol{x}_{k}, \boldsymbol{x}_0, \boldsymbol{u}_{1:k}, \boldsymbol{z}_{1:k-1}) P(\boldsymbol{x}_k | \boldsymbol{x}_0, \boldsymbol{u}_{1:k}, \boldsymbol{z}_{1:k-1})}{P(\boldsymbol{z}_k | \boldsymbol{x}_0, \boldsymbol{u}_{1:k}, \boldsymbol{z}_{1:k-1})}
+    = \frac{P(\boldsymbol{z}_k | \boldsymbol{x}_{k}) P(\boldsymbol{x}_k | \boldsymbol{x}_0, \boldsymbol{u}_{1:k}, \boldsymbol{z}_{1:k-1})}{P(\boldsymbol{z}_k | \boldsymbol{x}_0, \boldsymbol{u}_{1:k}, \boldsymbol{z}_{1:k-1})}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;&lt;a id=&#34;org0734024&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Say we now know the posterior \(\hat{\boldsymbol{x}}_{k-1}\) and the covariance matrix \(\hat{\boldsymbol{P}}_{k-1}\) of \(\boldsymbol{x}\) at time \(k-1\). We want to know the &lt;strong&gt;posterior&lt;/strong&gt; \(\hat{\boldsymbol{x}}_{k}\) and the covariance \(\hat{\boldsymbol{P}}_{k}\) at time \(k\).&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \begin{aligned}
+        &amp;amp;N(\hat{\boldsymbol{x}}_{k}, \hat{\boldsymbol{P}}_{k}) \\&lt;br /&gt;
+        &amp;amp;=P(\boldsymbol{x}_k | \boldsymbol{x}_0, \boldsymbol{u}_{1:k}, \boldsymbol{z}_{1:k})  \\&lt;br /&gt;
+        &amp;amp;=\eta N(\boldsymbol{C}_k \boldsymbol{x}_k, \boldsymbol{Q}_k) \cdot N(\boldsymbol{A}_k \hat{\boldsymbol{x}}_{k-1} + \boldsymbol{u}_k, \boldsymbol{A}_k \hat{\boldsymbol{P}}_{k-1}^{-1} \boldsymbol{A}_k^\top + \boldsymbol{R}_k)
+    \end{aligned}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;Here, \(N(\boldsymbol{A}_k \hat{\boldsymbol{x}}_{k-1} + \boldsymbol{u}_k, \boldsymbol{A}_k \hat{\boldsymbol{P}}_{k-1} \boldsymbol{A}_k^\top + \boldsymbol{R}_k)\) is the &lt;strong&gt;prior&lt;/strong&gt; probability of \(x_k\). Let&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \check{\boldsymbol{x}}_{k} = \boldsymbol{A}_k \hat{\boldsymbol{x}}_{k-1} + \boldsymbol{u}_k \\&lt;br /&gt;
+    \check{\boldsymbol{P}}_{k} = \boldsymbol{A}_k \hat{\boldsymbol{P}}_{k-1}^{-1} \boldsymbol{A}_k^\top + \boldsymbol{R}_k)
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;so equation &lt;a href=&#34;#org0734024&#34;&gt;(11)&lt;/a&gt; becomes&lt;/p&gt;
+
+&lt;p&gt;\begin{aligned}
+    N(\hat{\boldsymbol{x}}_{k}, \hat{\boldsymbol{P}}_{k}) = \eta N(\boldsymbol{C}_k \boldsymbol{x}_k, \boldsymbol{Q}_k) \cdot N(\check{\boldsymbol{x}}_{k}, \check{\boldsymbol{P}}_{k}).
+\end{aligned}&lt;/p&gt;
+
+&lt;p&gt;Since we already know that both sides of the equation are gaussian distributed, so we can compare the quadratic form of the \(\exp\) part to derive the \(\hat{\boldsymbol{x}}_{k}, \hat{\boldsymbol{P}}_{k}\).&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \begin{aligned}
+        &amp;amp;(\boldsymbol{x}_k - \hat{\boldsymbol{x}}_{k})^\top \hat{\boldsymbol{P}}_{k}^{-1} (\boldsymbol{x}_k - \hat{\boldsymbol{x}}_{k}) \\&lt;br /&gt;
+        &amp;amp; \, \dot{=} \, (\boldsymbol{z}_k - \boldsymbol{C}_k \boldsymbol{x}_k)^\top  \boldsymbol{Q}_k^{-1} (\boldsymbol{z}_k - \boldsymbol{C}_k \boldsymbol{x}_k)\\&lt;br /&gt;
+        &amp;amp;+ (\boldsymbol{x}_k - \check{\boldsymbol{x}}_{k})^\top \check{\boldsymbol{P}}_{k}^{-1} (\boldsymbol{x}_k - \check{\boldsymbol{x}}_{k})
+    \end{aligned}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;&lt;a id=&#34;org640698e&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Compare the second-order coefficients, we have&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \hat{\boldsymbol{P}}_{k}^{-1} \dot{=} \boldsymbol{C}_k^\top \boldsymbol{Q}_k^{-1}\boldsymbol{C}_k + \check{\boldsymbol{P}}_{k}^{-1}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;Compare the first order coefficients, we have&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \hat{\boldsymbol{P}}_{k}^{-1} \hat{\boldsymbol{x}}_{k} = \boldsymbol{C}_k^\top \boldsymbol{Q}_k^{-1}\boldsymbol{z}_k + \check{\boldsymbol{P}}_{k}^{-1} \check{\boldsymbol{x}}_{k}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;Using &lt;a href=&#34;https://en.wikipedia.org/wiki/Woodbury%5Fmatrix%5Fidentity&#34;&gt;SMW&lt;/a&gt; we can derive \(\hat{\boldsymbol{P}}_{k}\) from &lt;a href=&#34;#org640698e&#34;&gt;(14)&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Then \(\hat{\boldsymbol{x}}_{k}\) from (15).&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;All of this can be summarised as two steps:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Prediction&lt;/p&gt;
+
+&lt;p&gt;\[
+    \check{\boldsymbol{x}}_{k} = \boldsymbol{A}_k \hat{\boldsymbol{x}}_{k-1} + \boldsymbol{u}_k
+    \]&lt;/p&gt;
+
+&lt;p&gt;\[
+    \check{\boldsymbol{P}}_{k} = \boldsymbol{A}_k \hat{\boldsymbol{P}}_{k-1}^{-1} \boldsymbol{A}_k^\top + \boldsymbol{R}_k
+    \]&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Update: calculate \(\boldsymbol{K}\) first, which is also called &lt;strong&gt;Kalman gain&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;\[
+    \boldsymbol{K} = \check{\boldsymbol{P}}_{k} \boldsymbol{C}_k^\top (\boldsymbol{C}_k \check{\boldsymbol{P}}_{k}  \boldsymbol{C}_k^\top)^{-1}
+    \]&lt;/p&gt;
+
+&lt;p&gt;then the posterior probability distribution.&lt;/p&gt;
+
+&lt;p&gt;\[
+    \hat{\boldsymbol{x}}_k = \check{\boldsymbol{x}}_k + \boldsymbol{K}(\boldsymbol{z}_k - \boldsymbol{C}_k \check{\boldsymbol{x}}_k)
+    \]&lt;/p&gt;
+
+&lt;p&gt;\[
+    \hat{\boldsymbol{P}}_{k} = (\boldsymbol{I} - \boldsymbol{KC}_k)\check{\boldsymbol{P}}_{k}
+    \]&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;For non-linear system, use first order Taylor expansion at \(\hat{\boldsymbol{x}}_{k-1}\) and \(\hat{\boldsymbol{P}}_{k-1}\),&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \boldsymbol{x}_k \approx f(\hat{\boldsymbol{x}}_{k-1}, \boldsymbol{u}_k) + \frac{\partial f}{\partial \boldsymbol{x}_{k-1}} \Bigg |_{\hat{\boldsymbol{x}}_{k-1}} (\boldsymbol{x}_{k-1} - \hat{\boldsymbol{x}}_{k-1}) + \boldsymbol{w}_k
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \boldsymbol{z}_k \approx h(\check{\boldsymbol{x}}_{k}) + \frac{\partial h}{\partial \boldsymbol{x}_{k}} \Bigg |_{\check{\boldsymbol{x}}_{k}} (\boldsymbol{x}_k - \check{\boldsymbol{x}}_{k}) + \boldsymbol{v}_k
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;Then using linear system comprehension.&lt;/p&gt;
+
+&lt;h2 id=&#34;particle-filter-fn-8&#34;&gt;&lt;span class=&#34;org-todo todo TODO&#34;&gt;TODO&lt;/span&gt; Particle Filter&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fn-8&#34;&gt;&lt;a href=&#34;#fn:fn-8&#34;&gt;8&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
+
+&lt;h2 id=&#34;sift-and-surf&#34;&gt;SIFT and SURF&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/post/feature%5Fdetection/#sift--scale-invariant-feature-transform--cv-xfeature2d-sift&#34;&gt;http://localhost:1313/post/feature%5Fdetection/#sift--scale-invariant-feature-transform--cv-xfeature2d-sift&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;solving--ax-b&#34;&gt;Solving \(Ax = b\)&lt;/h2&gt;
+
+&lt;p&gt;Direction Methods: &lt;a href=&#34;https://eigen.tuxfamily.org/dox/group%5F%5FLeastSquares.html&#34;&gt;https://eigen.tuxfamily.org/dox/group%5F%5FLeastSquares.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Iteration Methods: &lt;a href=&#34;https://eigen.tuxfamily.org/dox/group%5F%5FTopicSparseSystems.html#title2&#34;&gt;https://eigen.tuxfamily.org/dox/group%5F%5FTopicSparseSystems.html#title2&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:fn-1&#34;&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Connected-component%5Flabeling&#34;&gt;https://en.wikipedia.org/wiki/Connected-component%5Flabeling&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:fn-1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:fn-2&#34;&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Random%5Fsample%5Fconsensus&#34;&gt;https://en.wikipedia.org/wiki/Random%5Fsample%5Fconsensus&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:fn-2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:fn-3&#34;&gt;&lt;a href=&#34;http://mrpt.ual.es/reference/stable/ransac%5F8cpp.html&#34;&gt;http://mrpt.ual.es/reference/stable/ransac%5F8cpp.html&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:fn-3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:fn-4&#34;&gt;&lt;a href=&#34;https://www.quora.com/Computer-Vision-What-is-the-relationship-of-homography-and-the-fundamental-matrix/answer/Helen-Flynn-1?srid=dDQH&#34;&gt;https://www.quora.com/Computer-Vision-What-is-the-relationship-of-homography-and-the-fundamental-matrix/answer/Helen-Flynn-1?srid=dDQH&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:fn-4&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:fn-5&#34;&gt;&lt;a href=&#34;http://www.bioinfo.org.cn/~wangchao/maa/Numerical%5FOptimization.pdf&#34;&gt;http://www.bioinfo.org.cn/~wangchao/maa/Numerical%5FOptimization.pdf&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:fn-5&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:fn-6&#34;&gt;&lt;a href=&#34;http://www.numerical.rl.ac.uk/people/nimg/course/lectures/raphael/lectures/lec7slides.pdf&#34;&gt;http://www.numerical.rl.ac.uk/people/nimg/course/lectures/raphael/lectures/lec7slides.pdf&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:fn-6&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:fn-7&#34;&gt;视觉 SLAM 十四讲：从理论到实践
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:fn-7&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:fn-8&#34;&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Particle%5Ffilter&#34;&gt;https://en.wikipedia.org/wiki/Particle%5Ffilter&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:fn-8&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description>
+      
+    </item>
     
     <item>
       <title>从零搭建「视觉里程计」 —— 单文件</title>
@@ -22,7 +312,11 @@
 
 &lt;blockquote&gt;
 &lt;p&gt;本文是「视觉 SLAM 十四讲」的读书笔记，记录些坑。&lt;/p&gt;
-&lt;/blockquote&gt;</description>
+&lt;/blockquote&gt;
+
+&lt;p&gt;废话不逼逼，直接进入正题。&lt;/p&gt;
+
+&lt;h2 id=&#34;两帧间的视觉里程计&#34;&gt;两帧间的视觉里程计&lt;/h2&gt;</description>
       
     </item>
     

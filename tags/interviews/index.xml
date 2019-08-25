@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Interviews on Mengoreo</title>
+    <link>https://mengoreo.github.io/tags/interviews/</link>
+    <description>Recent content in Interviews on Mengoreo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Mengoreo is not an oreo</copyright>
+    <lastBuildDate>Tue, 20 Aug 2019 13:45:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://mengoreo.github.io/tags/interviews/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SLAM</title>
+      <link>https://mengoreo.github.io/post/slam/</link>
+      <pubDate>Tue, 20 Aug 2019 13:45:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/slam/</guid>
+      <description>&lt;p&gt;SLAM interview questions&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
