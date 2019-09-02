@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
-    <lastBuildDate>Tue, 20 Aug 2019 13:45:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 01 Sep 2019 20:53:00 +0800</lastBuildDate>
     
 	<atom:link href="https://mengoreo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Data Structures</title>
+      <link>https://mengoreo.github.io/tags/data-structures/</link>
+      <pubDate>Sun, 01 Sep 2019 20:53:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/tags/data-structures/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://mengoreo.github.io/tags/python/</link>
+      <pubDate>Sun, 01 Sep 2019 20:53:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/tags/python/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Interviews</title>
@@ -45,15 +63,6 @@
       <pubDate>Tue, 06 Aug 2019 15:17:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/tags/algorithm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>https://mengoreo.github.io/tags/python/</link>
-      <pubDate>Sun, 04 Aug 2019 00:00:00 +0800</pubDate>
-      
-      <guid>https://mengoreo.github.io/tags/python/</guid>
       <description></description>
     </item>
     

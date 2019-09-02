@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Python on Mengoreo</title>
-    <link>https://mengoreo.github.io/tags/python/</link>
-    <description>Recent content in Python on Mengoreo</description>
+    <title>Data Structures on Mengoreo</title>
+    <link>https://mengoreo.github.io/tags/data-structures/</link>
+    <description>Recent content in Data Structures on Mengoreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
     <lastBuildDate>Sun, 01 Sep 2019 20:53:00 +0800</lastBuildDate>
     
-	<atom:link href="https://mengoreo.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://mengoreo.github.io/tags/data-structures/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -29,18 +29,6 @@
       <guid>https://mengoreo.github.io/post/binary_search_trees/</guid>
       <description>Libraries Excellent third-party modules: bintrees,1 sortedcontainers.2
 Test if a binary tree is a BST One approach is to check constrains on the values for each subtree. The basic idea generalises: if all nodes in a tree must have keys in the range [l, u], and the key at root is w (which is must be between [l, u], otherwise the requirement is violated at the root itself), then all nodes in the left subtree must be between [l, w], and all nodes in right subtree between [w, u].</description>
-    </item>
-    
-    <item>
-      <title>Python Questions</title>
-      <link>https://mengoreo.github.io/post/python_questions/</link>
-      <pubDate>Sun, 04 Aug 2019 00:00:00 +0800</pubDate>
-      
-      <guid>https://mengoreo.github.io/post/python_questions/</guid>
-      <description>&lt;h2 id=&#34;garbage-collection&#34;&gt;Garbage Collection&lt;/h2&gt;
-
-&lt;p&gt;Garbage collection is the process of &lt;strong&gt;finding data objects&lt;/strong&gt; in a running programe that cannot be accessed in the future, and &lt;strong&gt;to reclaim resources&lt;/strong&gt;, particularly memory, used by those objects.
-Most garbage-collected language uses either &lt;strong&gt;reference counting&lt;/strong&gt; or &lt;strong&gt;tracing&lt;/strong&gt; .&lt;/p&gt;</description>
     </item>
     
   </channel>

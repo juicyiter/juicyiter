@@ -3,24 +3,62 @@
   
   <url>
     <loc>https://mengoreo.github.io/categories/</loc>
-    <lastmod>2019-08-24T15:39:15+08:00</lastmod>
+    <lastmod>2019-09-01T21:04:03+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/tags/interviews/</loc>
-    <lastmod>2019-08-24T15:39:15+08:00</lastmod>
+    <loc>https://mengoreo.github.io/tags/data-structures/</loc>
+    <lastmod>2019-09-01T21:04:03+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mengoreo.github.io/categories/epi/</loc>
+    <lastmod>2019-09-01T21:04:03+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mengoreo.github.io/</loc>
-    <lastmod>2019-08-24T15:39:15+08:00</lastmod>
+    <lastmod>2019-09-01T21:04:03+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mengoreo.github.io/post/</loc>
+    <lastmod>2019-09-01T21:04:03+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mengoreo.github.io/tags/python/</loc>
+    <lastmod>2019-09-01T21:04:03+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mengoreo.github.io/post/recursion/</loc>
+    <lastmod>2019-09-01T21:04:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://mengoreo.github.io/tags/</loc>
+    <lastmod>2019-09-01T21:04:03+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mengoreo.github.io/post/binary_search_trees/</loc>
+    <lastmod>2019-09-01T18:00:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://mengoreo.github.io/tags/interviews/</loc>
     <lastmod>2019-08-24T15:39:15+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -42,12 +80,6 @@
     <lastmod>2019-08-24T15:39:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/tags/</loc>
-    <lastmod>2019-08-24T15:39:15+08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -118,12 +150,6 @@
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/categories/epi/</loc>
-    <lastmod>2019-08-05T23:26:45+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://mengoreo.github.io/post/linked_lists/</loc>
     <lastmod>2019-08-06T00:00:50+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -146,12 +172,6 @@
   
   <url>
     <loc>https://mengoreo.github.io/categories/python/</loc>
-    <lastmod>2019-08-05T16:04:55+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/tags/python/</loc>
     <lastmod>2019-08-05T16:04:55+08:00</lastmod>
     <priority>0</priority>
   </url>

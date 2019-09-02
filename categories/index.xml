@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
-    <lastBuildDate>Tue, 20 Aug 2019 13:45:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 01 Sep 2019 20:53:00 +0800</lastBuildDate>
     
 	<atom:link href="https://mengoreo.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>EPI</title>
+      <link>https://mengoreo.github.io/categories/epi/</link>
+      <pubDate>Sun, 01 Sep 2019 20:53:00 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/categories/epi/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>SLAM</title>
@@ -27,15 +36,6 @@
       <pubDate>Tue, 06 Aug 2019 15:17:00 +0800</pubDate>
       
       <guid>https://mengoreo.github.io/categories/algorithm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>EPI</title>
-      <link>https://mengoreo.github.io/categories/epi/</link>
-      <pubDate>Mon, 05 Aug 2019 00:00:00 +0800</pubDate>
-      
-      <guid>https://mengoreo.github.io/categories/epi/</guid>
       <description></description>
     </item>
     
