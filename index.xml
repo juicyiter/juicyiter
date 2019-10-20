@@ -6370,7 +6370,7 @@ words?&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Erase the lowest set bit (Set the right most \(1\) to \(0\)).&lt;/p&gt;
 
-&lt;p&gt;\(x &amp;amp; (x - 1)\) equals \(x\) with its lowest set bit erased.&lt;/p&gt;
+&lt;p&gt;$x&amp;amp;(x - 1)$ equals \(x\) with its lowest set bit erased.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -6503,7 +6503,7 @@ perform the \(XORs\) does not change the result.&lt;/p&gt;
 
 &lt;h1 id=&#34;swap-bits&#34;&gt;Swap Bits&lt;/h1&gt;
 
-&lt;p&gt;A $64​$-bit integer can be viewed as an array of \(64​\) bits, with the
+&lt;p&gt;A $64$-bit integer can be viewed as an array of \(64​\) bits, with the
 bit at index \(0​\) corresponding to the least significant bit (LSB), and
 the bit at index \(63​\) corresponding to the most significant bit (MSB).
 Implement code that takes as input a \(64​\) -bit integer and swaps the
@@ -6516,7 +6516,7 @@ with the LSB being at index \(0​\).&lt;/p&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;0&lt;/th&gt;
-&lt;th&gt;\(1\)&lt;/th&gt;
+&lt;th&gt;$1$&lt;/th&gt;
 &lt;th&gt;0&lt;/th&gt;
 &lt;th&gt;0&lt;/th&gt;
 &lt;th&gt;1&lt;/th&gt;
