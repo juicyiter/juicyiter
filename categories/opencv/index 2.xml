@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OpenCV on Mengoreo</title>
+    <link>https://mengoreo.github.io/categories/opencv/</link>
+    <description>Recent content in OpenCV on Mengoreo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Mengoreo is not an oreo</copyright>
+    <lastBuildDate>Thu, 30 May 2019 15:13:35 +0800</lastBuildDate>
+    
+	<atom:link href="https://mengoreo.github.io/categories/opencv/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Core Functionality of OpenCV4</title>
+      <link>https://mengoreo.github.io/post/learning_opencv/</link>
+      <pubDate>Thu, 30 May 2019 15:13:35 +0800</pubDate>
+      
+      <guid>https://mengoreo.github.io/post/learning_opencv/</guid>
+      <description>Mat - The Basic Image Container Mat is basically a class with two data parts: the matrix header (containing information such as the size of the matrix, the method used for storing, at which address is the matrix stored …) and a pointer to the matrix data containing the pixe values. The matrix header size is constant, but the size of the matrix itself may vary.
+OpenCV uses a reference counting system.</description>
+    </item>
+    
+  </channel>
+</rss>
