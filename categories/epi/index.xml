@@ -2,66 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>EPI on Mengoreo</title>
-    <link>https://mengoreo.github.io/categories/epi/</link>
+    <link>https://blog.mengoreo.cn/categories/epi/</link>
     <description>Recent content in EPI on Mengoreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
     <lastBuildDate>Sun, 01 Sep 2019 20:53:00 +0800</lastBuildDate>
     
-	<atom:link href="https://mengoreo.github.io/categories/epi/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.mengoreo.cn/categories/epi/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Recursion</title>
-      <link>https://mengoreo.github.io/post/recursion/</link>
+      <link>https://blog.mengoreo.cn/post/recursion/</link>
       <pubDate>Sun, 01 Sep 2019 20:53:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/recursion/</guid>
+      <guid>https://blog.mengoreo.cn/post/recursion/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Binary Search Trees</title>
-      <link>https://mengoreo.github.io/post/binary_search_trees/</link>
+      <link>https://blog.mengoreo.cn/post/binary_search_trees/</link>
       <pubDate>Sun, 01 Sep 2019 15:25:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/binary_search_trees/</guid>
+      <guid>https://blog.mengoreo.cn/post/binary_search_trees/</guid>
       <description>Libraries Excellent third-party modules: bintrees,1 sortedcontainers.2
 Test if a binary tree is a BST One approach is to check constrains on the values for each subtree. The basic idea generalises: if all nodes in a tree must have keys in the range [l, u], and the key at root is w (which is must be between [l, u], otherwise the requirement is violated at the root itself), then all nodes in the left subtree must be between [l, w], and all nodes in right subtree between [w, u].</description>
     </item>
     
     <item>
       <title>Strings</title>
-      <link>https://mengoreo.github.io/post/strings/</link>
+      <link>https://blog.mengoreo.cn/post/strings/</link>
       <pubDate>Mon, 05 Aug 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/strings/</guid>
+      <guid>https://blog.mengoreo.cn/post/strings/</guid>
       <description>&lt;p&gt;You should know &lt;strong&gt;how strings are represented in memory&lt;/strong&gt; and understand basic operations on strings such as comparison, copying, joining, splitting, matching, etc. Advanced string processing algorithm often use &lt;strong&gt;hash tables&lt;/strong&gt; and &lt;strong&gt;dynamic programming&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Arrays</title>
-      <link>https://mengoreo.github.io/post/arrays/</link>
+      <link>https://blog.mengoreo.cn/post/arrays/</link>
       <pubDate>Sun, 04 Aug 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/arrays/</guid>
+      <guid>https://blog.mengoreo.cn/post/arrays/</guid>
       <description>&lt;h2 id=&#34;libraries&#34;&gt;Libraries&lt;/h2&gt;
 
 &lt;p&gt;Arrays are provided in Python by &lt;code&gt;list&lt;/code&gt; type. ( &lt;code&gt;tuple&lt;/code&gt; is similar to &lt;code&gt;list&lt;/code&gt;, but immutable.);&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Checking if a value in an array has \(O(n)\) time complexity.&lt;/li&gt;
-&lt;li&gt;To understand how copy works check &lt;a href=&#34;https://mengoreo.github.io/post/python_questions/#shallow-and-deep-copy&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;To understand how copy works check &lt;a href=&#34;https://blog.mengoreo.cn/post/python_questions/#shallow-and-deep-copy&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     
     <item>
       <title>Primitive Types</title>
-      <link>https://mengoreo.github.io/post/primitive-types/</link>
+      <link>https://blog.mengoreo.cn/post/primitive-types/</link>
       <pubDate>Fri, 22 Feb 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/primitive-types/</guid>
+      <guid>https://blog.mengoreo.cn/post/primitive-types/</guid>
       <description>Be very comfortable with bitwise operators, particularly XOR.
 Understand how to use masks and create them in an machine independent way
 Know how fast ways to clear the lowermost set bit (and by extension, set the lowermost 0, get its index, etc.)

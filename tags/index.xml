@@ -2,148 +2,148 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Mengoreo</title>
-    <link>https://mengoreo.github.io/tags/</link>
+    <link>https://blog.mengoreo.cn/tags/</link>
     <description>Recent content in Tags on Mengoreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
     <lastBuildDate>Sun, 01 Sep 2019 20:53:00 +0800</lastBuildDate>
     
-	<atom:link href="https://mengoreo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.mengoreo.cn/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Data Structures</title>
-      <link>https://mengoreo.github.io/tags/data-structures/</link>
+      <link>https://blog.mengoreo.cn/tags/data-structures/</link>
       <pubDate>Sun, 01 Sep 2019 20:53:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/tags/data-structures/</guid>
+      <guid>https://blog.mengoreo.cn/tags/data-structures/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Python</title>
-      <link>https://mengoreo.github.io/tags/python/</link>
+      <link>https://blog.mengoreo.cn/tags/python/</link>
       <pubDate>Sun, 01 Sep 2019 20:53:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/tags/python/</guid>
+      <guid>https://blog.mengoreo.cn/tags/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Interviews</title>
-      <link>https://mengoreo.github.io/tags/interviews/</link>
+      <link>https://blog.mengoreo.cn/tags/interviews/</link>
       <pubDate>Tue, 20 Aug 2019 13:45:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/tags/interviews/</guid>
+      <guid>https://blog.mengoreo.cn/tags/interviews/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SLAM</title>
-      <link>https://mengoreo.github.io/tags/slam/</link>
+      <link>https://blog.mengoreo.cn/tags/slam/</link>
       <pubDate>Tue, 20 Aug 2019 13:45:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/tags/slam/</guid>
+      <guid>https://blog.mengoreo.cn/tags/slam/</guid>
       <description></description>
     </item>
     
     <item>
       <title>OpenCV</title>
-      <link>https://mengoreo.github.io/tags/opencv/</link>
+      <link>https://blog.mengoreo.cn/tags/opencv/</link>
       <pubDate>Tue, 06 Aug 2019 21:31:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/tags/opencv/</guid>
+      <guid>https://blog.mengoreo.cn/tags/opencv/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Algorithm</title>
-      <link>https://mengoreo.github.io/tags/algorithm/</link>
+      <link>https://blog.mengoreo.cn/tags/algorithm/</link>
       <pubDate>Tue, 06 Aug 2019 15:17:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/tags/algorithm/</guid>
+      <guid>https://blog.mengoreo.cn/tags/algorithm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>cv</title>
-      <link>https://mengoreo.github.io/tags/cv/</link>
+      <link>https://blog.mengoreo.cn/tags/cv/</link>
       <pubDate>Thu, 30 May 2019 15:13:35 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/tags/cv/</guid>
+      <guid>https://blog.mengoreo.cn/tags/cv/</guid>
       <description></description>
     </item>
     
     <item>
       <title>machine_learning</title>
-      <link>https://mengoreo.github.io/tags/machine_learning/</link>
+      <link>https://blog.mengoreo.cn/tags/machine_learning/</link>
       <pubDate>Sat, 04 May 2019 14:37:36 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/tags/machine_learning/</guid>
+      <guid>https://blog.mengoreo.cn/tags/machine_learning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>周志华</title>
-      <link>https://mengoreo.github.io/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/</link>
+      <link>https://blog.mengoreo.cn/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/</link>
       <pubDate>Sat, 04 May 2019 14:37:36 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/</guid>
+      <guid>https://blog.mengoreo.cn/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/</guid>
       <description></description>
     </item>
     
     <item>
       <title>LSTM</title>
-      <link>https://mengoreo.github.io/tags/lstm/</link>
+      <link>https://blog.mengoreo.cn/tags/lstm/</link>
       <pubDate>Sat, 20 Apr 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/tags/lstm/</guid>
+      <guid>https://blog.mengoreo.cn/tags/lstm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>filters</title>
-      <link>https://mengoreo.github.io/tags/filters/</link>
+      <link>https://blog.mengoreo.cn/tags/filters/</link>
       <pubDate>Fri, 19 Apr 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/tags/filters/</guid>
+      <guid>https://blog.mengoreo.cn/tags/filters/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CNN</title>
-      <link>https://mengoreo.github.io/tags/cnn/</link>
+      <link>https://blog.mengoreo.cn/tags/cnn/</link>
       <pubDate>Thu, 18 Apr 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/tags/cnn/</guid>
+      <guid>https://blog.mengoreo.cn/tags/cnn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>voice</title>
-      <link>https://mengoreo.github.io/tags/voice/</link>
+      <link>https://blog.mengoreo.cn/tags/voice/</link>
       <pubDate>Fri, 05 Oct 2018 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/tags/voice/</guid>
+      <guid>https://blog.mengoreo.cn/tags/voice/</guid>
       <description></description>
     </item>
     
     <item>
       <title>C</title>
-      <link>https://mengoreo.github.io/tags/c/</link>
+      <link>https://blog.mengoreo.cn/tags/c/</link>
       <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/tags/c/</guid>
+      <guid>https://blog.mengoreo.cn/tags/c/</guid>
       <description></description>
     </item>
     
     <item>
       <title>PAT</title>
-      <link>https://mengoreo.github.io/tags/pat/</link>
+      <link>https://blog.mengoreo.cn/tags/pat/</link>
       <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/tags/pat/</guid>
+      <guid>https://blog.mengoreo.cn/tags/pat/</guid>
       <description></description>
     </item>
     

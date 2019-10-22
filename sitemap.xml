@@ -1,482 +1,512 @@
-<?xml-stylesheet type="text/xsl" href="https://mengoreo.github.io/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="https://blog.mengoreo.cn/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://mengoreo.github.io/categories/</loc>
-    <lastmod>2019-09-01T21:04:03+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/tags/data-structures/</loc>
-    <lastmod>2019-09-01T21:04:03+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/categories/epi/</loc>
-    <lastmod>2019-09-01T21:04:03+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/</loc>
-    <lastmod>2019-09-01T21:04:03+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/post/</loc>
-    <lastmod>2019-09-01T21:04:03+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/tags/python/</loc>
-    <lastmod>2019-09-01T21:04:03+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/post/recursion/</loc>
+    <loc>https://blog.mengoreo.cn/categories/</loc>
     <lastmod>2019-09-01T21:04:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/tags/</loc>
+    <loc>https://blog.mengoreo.cn/tags/data-structures/</loc>
     <lastmod>2019-09-01T21:04:03+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/binary_search_trees/</loc>
+    <loc>https://blog.mengoreo.cn/categories/epi/</loc>
+    <lastmod>2019-09-01T21:04:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mengoreo.cn/</loc>
+    <lastmod>2019-09-01T21:04:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mengoreo.cn/post/</loc>
+    <lastmod>2019-09-01T21:04:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mengoreo.cn/tags/python/</loc>
+    <lastmod>2019-09-01T21:04:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mengoreo.cn/post/recursion/</loc>
+    <lastmod>2019-09-01T21:04:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mengoreo.cn/tags/</loc>
+    <lastmod>2019-09-01T21:04:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mengoreo.cn/post/binary_search_trees/</loc>
     <lastmod>2019-09-01T18:00:25+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/tags/interviews/</loc>
-    <lastmod>2019-08-24T15:39:15+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/categories/slam/</loc>
-    <lastmod>2019-08-24T15:39:15+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/tags/slam/</loc>
-    <lastmod>2019-08-24T15:39:15+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/post/slam/</loc>
+    <loc>https://blog.mengoreo.cn/tags/interviews/</loc>
     <lastmod>2019-08-24T15:39:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/vo_single/</loc>
+    <loc>https://blog.mengoreo.cn/tags/slam/</loc>
+    <lastmod>2019-08-24T15:39:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mengoreo.cn/categories/slam/</loc>
+    <lastmod>2019-08-24T15:39:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mengoreo.cn/post/slam/</loc>
+    <lastmod>2019-08-24T15:39:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mengoreo.cn/post/vo_single/</loc>
     <lastmod>2019-08-09T21:17:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/feature_detection/</loc>
+    <loc>https://blog.mengoreo.cn/post/feature_detection/</loc>
     <lastmod>2019-08-06T22:35:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/tags/opencv/</loc>
+    <loc>https://blog.mengoreo.cn/tags/opencv/</loc>
     <lastmod>2019-08-06T22:35:01+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/categories/algorithm/</loc>
-    <lastmod>2019-08-06T21:00:15+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/tags/algorithm/</loc>
-    <lastmod>2019-08-06T21:00:15+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/post/hash_tables/</loc>
+    <loc>https://blog.mengoreo.cn/categories/algorithm/</loc>
     <lastmod>2019-08-06T21:00:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/searching/</loc>
+    <loc>https://blog.mengoreo.cn/tags/algorithm/</loc>
+    <lastmod>2019-08-06T21:00:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mengoreo.cn/post/hash_tables/</loc>
+    <lastmod>2019-08-06T21:00:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mengoreo.cn/post/searching/</loc>
     <lastmod>2019-08-06T15:16:42+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/heaps/</loc>
+    <loc>https://blog.mengoreo.cn/post/heaps/</loc>
     <lastmod>2019-08-06T14:12:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/binary_trees/</loc>
+    <loc>https://blog.mengoreo.cn/post/binary_trees/</loc>
     <lastmod>2019-08-06T13:29:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/stacks_and_queues/</loc>
+    <loc>https://blog.mengoreo.cn/post/stacks_and_queues/</loc>
     <lastmod>2019-08-06T13:16:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/linked_lists/</loc>
+    <loc>https://blog.mengoreo.cn/post/linked_lists/</loc>
     <lastmod>2019-08-06T00:00:50+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/strings/</loc>
+    <loc>https://blog.mengoreo.cn/post/strings/</loc>
     <lastmod>2019-08-05T23:17:28+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/arrays/</loc>
+    <loc>https://blog.mengoreo.cn/post/arrays/</loc>
     <lastmod>2019-08-05T23:26:45+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/categories/python/</loc>
-    <lastmod>2019-08-05T16:04:55+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/post/python_questions/</loc>
+    <loc>https://blog.mengoreo.cn/categories/python/</loc>
     <lastmod>2019-08-05T16:04:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/categories/vslam/</loc>
-    <lastmod>2019-08-05T11:06:58+08:00</lastmod>
-    <priority>0</priority>
+    <loc>https://blog.mengoreo.cn/post/python_questions/</loc>
+    <lastmod>2019-08-05T16:04:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/vslam_ch7/</loc>
+    <loc>https://blog.mengoreo.cn/categories/vslam/</loc>
     <lastmod>2019-08-05T11:06:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/vslam_ch5/</loc>
+    <loc>https://blog.mengoreo.cn/post/vslam_ch7/</loc>
+    <lastmod>2019-08-05T11:06:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mengoreo.cn/post/vslam_ch5/</loc>
     <lastmod>2019-08-01T19:20:27+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/vslam_ch6/</loc>
+    <loc>https://blog.mengoreo.cn/post/vslam_ch6/</loc>
     <lastmod>2019-08-01T20:26:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/vslam_ch3/</loc>
+    <loc>https://blog.mengoreo.cn/post/vslam_ch3/</loc>
     <lastmod>2019-07-17T19:35:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/vslam_ch4/</loc>
+    <loc>https://blog.mengoreo.cn/post/vslam_ch4/</loc>
     <lastmod>2019-07-21T15:13:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/categories/v-slam/</loc>
-    <lastmod>2019-07-16T16:47:54+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/post/vslam_ch1/</loc>
+    <loc>https://blog.mengoreo.cn/categories/v-slam/</loc>
     <lastmod>2019-07-16T16:47:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/learning_opencv/</loc>
+    <loc>https://blog.mengoreo.cn/post/vslam_ch1/</loc>
+    <lastmod>2019-07-16T16:47:54+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mengoreo.cn/post/learning_opencv/</loc>
     <lastmod>2019-05-30T15:13:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/categories/opencv/</loc>
+    <loc>https://blog.mengoreo.cn/tags/cv/</loc>
     <lastmod>2019-05-30T15:13:35+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/tags/cv/</loc>
+    <loc>https://blog.mengoreo.cn/categories/opencv/</loc>
     <lastmod>2019-05-30T15:13:35+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/categories/notes/</loc>
-    <lastmod>2019-05-04T14:37:36+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/tags/machine_learning/</loc>
-    <lastmod>2019-05-04T14:37:36+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/</loc>
-    <lastmod>2019-05-04T14:37:36+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%91%A8%E5%BF%97%E5%8D%8E/</loc>
+    <loc>https://blog.mengoreo.cn/tags/machine_learning/</loc>
     <lastmod>2019-05-04T14:37:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/tags/lstm/</loc>
+    <loc>https://blog.mengoreo.cn/categories/notes/</loc>
+    <lastmod>2019-05-04T14:37:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mengoreo.cn/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/</loc>
+    <lastmod>2019-05-04T14:37:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mengoreo.cn/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%91%A8%E5%BF%97%E5%8D%8E/</loc>
+    <lastmod>2019-05-04T14:37:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mengoreo.cn/post/rnn-lstm-in-org-subtree-export/</loc>
     <lastmod>2019-04-22T22:32:31+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/rnn-lstm-in-org-subtree-export/</loc>
+    <loc>https://blog.mengoreo.cn/tags/lstm/</loc>
     <lastmod>2019-04-22T22:32:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/categories/autonomous/</loc>
-    <lastmod>2019-04-22T20:54:37+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/post/recursive-bayesian-esitimation-in-org-subtree-export/</loc>
+    <loc>https://blog.mengoreo.cn/categories/autonomous/</loc>
     <lastmod>2019-04-22T20:54:37+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/robot-localisation-in-org-subtree-export/</loc>
+    <loc>https://blog.mengoreo.cn/tags/filters/</loc>
+    <lastmod>2019-04-22T20:54:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mengoreo.cn/post/recursive-bayesian-esitimation-in-org-subtree-export/</loc>
+    <lastmod>2019-04-22T20:54:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mengoreo.cn/post/robot-localisation-in-org-subtree-export/</loc>
     <lastmod>2019-04-22T20:53:59+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/histogram-in-org-subtree-export/</loc>
+    <loc>https://blog.mengoreo.cn/post/histogram-in-org-subtree-export/</loc>
     <lastmod>2019-04-22T20:51:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/tags/filters/</loc>
-    <lastmod>2019-04-22T20:54:37+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/tags/cnn/</loc>
-    <lastmod>2019-04-22T20:52:09+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mengoreo.github.io/post/cnn-in-org-subtree-export/</loc>
+    <loc>https://blog.mengoreo.cn/tags/cnn/</loc>
     <lastmod>2019-04-22T20:52:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/deep-learning-book-in-org-subtree-export/</loc>
+    <loc>https://blog.mengoreo.cn/post/cnn-in-org-subtree-export/</loc>
+    <lastmod>2019-04-22T20:52:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.mengoreo.cn/post/deep-learning-book-in-org-subtree-export/</loc>
     <lastmod>2019-04-22T20:53:28+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/primitive-types/</loc>
+    <loc>https://blog.mengoreo.cn/post/primitive-types/</loc>
     <lastmod>2019-04-22T19:58:49+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/phonetic-signs-in-org-subtree-export/</loc>
+    <loc>https://blog.mengoreo.cn/post/phonetic-signs-in-org-subtree-export/</loc>
     <lastmod>2019-04-22T22:42:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/categories/uncategorised/</loc>
+    <loc>https://blog.mengoreo.cn/categories/uncategorised/</loc>
     <lastmod>2019-04-22T22:42:11+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/tags/voice/</loc>
+    <loc>https://blog.mengoreo.cn/tags/voice/</loc>
     <lastmod>2019-04-22T22:42:11+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/my-voice-in-org-subtree-export/</loc>
+    <loc>https://blog.mengoreo.cn/post/my-voice-in-org-subtree-export/</loc>
     <lastmod>2019-04-22T21:00:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/tags/c/</loc>
+    <loc>https://blog.mengoreo.cn/tags/c/</loc>
     <lastmod>2019-04-22T20:50:47+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/categories/pat/</loc>
+    <loc>https://blog.mengoreo.cn/categories/pat/</loc>
     <lastmod>2019-04-22T20:50:47+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/tags/pat/</loc>
+    <loc>https://blog.mengoreo.cn/tags/pat/</loc>
     <lastmod>2019-04-22T20:50:47+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/pata1001-in-org-subtree-export/</loc>
+    <loc>https://blog.mengoreo.cn/post/pata1001-in-org-subtree-export/</loc>
     <lastmod>2019-04-22T20:50:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/pata1002-in-org-subtree-export/</loc>
+    <loc>https://blog.mengoreo.cn/post/pata1002-in-org-subtree-export/</loc>
     <lastmod>2019-04-22T20:50:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/pata1003-in-org-subtree-export/</loc>
+    <loc>https://blog.mengoreo.cn/post/pata1003-in-org-subtree-export/</loc>
     <lastmod>2019-04-22T20:50:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/pata1004-in-org-subtree-export/</loc>
+    <loc>https://blog.mengoreo.cn/post/pata1004-in-org-subtree-export/</loc>
     <lastmod>2019-04-22T20:50:47+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/pata1005-in-org-subtree-export/</loc>
+    <loc>https://blog.mengoreo.cn/post/pata1005-in-org-subtree-export/</loc>
     <lastmod>2019-04-22T20:50:45+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/pata1006-in-org-subtree-export/</loc>
+    <loc>https://blog.mengoreo.cn/post/pata1006-in-org-subtree-export/</loc>
     <lastmod>2019-04-22T20:50:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/pata1009-in-org-subtree-export/</loc>
+    <loc>https://blog.mengoreo.cn/post/pata1009-in-org-subtree-export/</loc>
     <lastmod>2019-04-22T20:50:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/pata1014-in-org-subtree-export/</loc>
+    <loc>https://blog.mengoreo.cn/post/pata1014-in-org-subtree-export/</loc>
     <lastmod>2019-04-22T20:50:37+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/pata1015-in-org-subtree-export/</loc>
+    <loc>https://blog.mengoreo.cn/post/pata1015-in-org-subtree-export/</loc>
     <lastmod>2019-04-22T20:50:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/pata1022-in-org-subtree-export/</loc>
+    <loc>https://blog.mengoreo.cn/post/pata1022-in-org-subtree-export/</loc>
     <lastmod>2019-04-22T20:50:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/pata1028-in-org-subtree-export/</loc>
+    <loc>https://blog.mengoreo.cn/post/pata1028-in-org-subtree-export/</loc>
     <lastmod>2019-04-22T20:50:28+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mengoreo.github.io/post/pata1098-in-org-subtree-export/</loc>
+    <loc>https://blog.mengoreo.cn/post/pata1098-in-org-subtree-export/</loc>
     <lastmod>2019-04-22T20:50:25+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

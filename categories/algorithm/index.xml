@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Algorithm on Mengoreo</title>
-    <link>https://mengoreo.github.io/categories/algorithm/</link>
+    <link>https://blog.mengoreo.cn/categories/algorithm/</link>
     <description>Recent content in Algorithm on Mengoreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
     <lastBuildDate>Tue, 06 Aug 2019 15:17:00 +0800</lastBuildDate>
     
-	<atom:link href="https://mengoreo.github.io/categories/algorithm/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.mengoreo.cn/categories/algorithm/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Hash Tables</title>
-      <link>https://mengoreo.github.io/post/hash_tables/</link>
+      <link>https://blog.mengoreo.cn/post/hash_tables/</link>
       <pubDate>Tue, 06 Aug 2019 15:17:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/hash_tables/</guid>
+      <guid>https://blog.mengoreo.cn/post/hash_tables/</guid>
       <description>&lt;p&gt;Hash tables have the &lt;strong&gt;best theoretical and real-world performance&lt;/strong&gt; for lookup, insert and delete. Each of these operations has \(O(1)\) time complexity. The \(O(1)\) time complexity for insertion is for the average case &amp;ndash; a single insert can take \(O(n)\) if the hash table to has to be resized.&lt;/p&gt;
 
 &lt;p&gt;Consider using a hash code as a &lt;strong&gt;signature&lt;/strong&gt; to enhance performance, e.g. to filter out candidates.&lt;/p&gt;</description>
@@ -25,10 +25,10 @@
     
     <item>
       <title>Searching</title>
-      <link>https://mengoreo.github.io/post/searching/</link>
+      <link>https://blog.mengoreo.cn/post/searching/</link>
       <pubDate>Tue, 06 Aug 2019 14:15:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/searching/</guid>
+      <guid>https://blog.mengoreo.cn/post/searching/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Binary search&lt;/strong&gt; is an effective search tool. It is applicable to more than just searching in sorted arrays, e.g., it can be used to search an &lt;strong&gt;interval of real numbers or integers&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;If your solution uses sorting, and the computation performed after sorting is faster than sorting e.g., \(O(n)\) or \(O(\log n)\) , &lt;strong&gt;look for solutions that do not perform a complete sort&lt;/strong&gt;.&lt;/p&gt;
@@ -38,10 +38,10 @@
     
     <item>
       <title>Heaps</title>
-      <link>https://mengoreo.github.io/post/heaps/</link>
+      <link>https://blog.mengoreo.cn/post/heaps/</link>
       <pubDate>Tue, 06 Aug 2019 13:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/heaps/</guid>
+      <guid>https://blog.mengoreo.cn/post/heaps/</guid>
       <description>&lt;h2 id=&#34;libraries&#34;&gt;Libraries&lt;/h2&gt;
 
 &lt;p&gt;Heap functionality is provided by the &lt;code&gt;heapq&lt;/code&gt; module.&lt;/p&gt;
@@ -60,10 +60,10 @@
     
     <item>
       <title>Binary Trees</title>
-      <link>https://mengoreo.github.io/post/binary_trees/</link>
+      <link>https://blog.mengoreo.cn/post/binary_trees/</link>
       <pubDate>Tue, 06 Aug 2019 10:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/binary_trees/</guid>
+      <guid>https://blog.mengoreo.cn/post/binary_trees/</guid>
       <description>&lt;h2 id=&#34;test-if-a-binary-tree-is-heigh-balanced&#34;&gt;Test If A Binary Tree Is Heigh-Balanced&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -117,10 +117,10 @@
     
     <item>
       <title>Stacks and Queues</title>
-      <link>https://mengoreo.github.io/post/stacks_and_queues/</link>
+      <link>https://blog.mengoreo.cn/post/stacks_and_queues/</link>
       <pubDate>Tue, 06 Aug 2019 08:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/stacks_and_queues/</guid>
+      <guid>https://blog.mengoreo.cn/post/stacks_and_queues/</guid>
       <description>&lt;h2 id=&#34;implement-a-stack-with-max-api&#34;&gt;Implement A Stack with Max API&lt;/h2&gt;
 
 &lt;p&gt;If we use a single auxiliary variable, \(M\) to record the element that is maximum in the stack, updating \(M\) on pushes is easy, but not on pops. For this reason, we cache the maximum stored at or below that entry. When we pop, we simply evict the corresponding cached value.&lt;/p&gt;</description>
@@ -128,10 +128,10 @@
     
     <item>
       <title>Linked Lists</title>
-      <link>https://mengoreo.github.io/post/linked_lists/</link>
+      <link>https://blog.mengoreo.cn/post/linked_lists/</link>
       <pubDate>Mon, 05 Aug 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/linked_lists/</guid>
+      <guid>https://blog.mengoreo.cn/post/linked_lists/</guid>
       <description>&lt;p&gt;Inserting and deleting elements in a list has time complexity \(O(1)\) , while obtaining $k$-th element in a list has time complexity \(O(n)\) .&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;A &lt;code&gt;list&lt;/code&gt; object is an array not a list.&lt;/strong&gt;&lt;/p&gt;

@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data Structures on Mengoreo</title>
-    <link>https://mengoreo.github.io/tags/data-structures/</link>
+    <link>https://blog.mengoreo.cn/tags/data-structures/</link>
     <description>Recent content in Data Structures on Mengoreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
     <lastBuildDate>Sun, 01 Sep 2019 20:53:00 +0800</lastBuildDate>
     
-	<atom:link href="https://mengoreo.github.io/tags/data-structures/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.mengoreo.cn/tags/data-structures/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Recursion</title>
-      <link>https://mengoreo.github.io/post/recursion/</link>
+      <link>https://blog.mengoreo.cn/post/recursion/</link>
       <pubDate>Sun, 01 Sep 2019 20:53:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/recursion/</guid>
+      <guid>https://blog.mengoreo.cn/post/recursion/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Binary Search Trees</title>
-      <link>https://mengoreo.github.io/post/binary_search_trees/</link>
+      <link>https://blog.mengoreo.cn/post/binary_search_trees/</link>
       <pubDate>Sun, 01 Sep 2019 15:25:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/binary_search_trees/</guid>
+      <guid>https://blog.mengoreo.cn/post/binary_search_trees/</guid>
       <description>Libraries Excellent third-party modules: bintrees,1 sortedcontainers.2
 Test if a binary tree is a BST One approach is to check constrains on the values for each subtree. The basic idea generalises: if all nodes in a tree must have keys in the range [l, u], and the key at root is w (which is must be between [l, u], otherwise the requirement is violated at the root itself), then all nodes in the left subtree must be between [l, w], and all nodes in right subtree between [w, u].</description>
     </item>

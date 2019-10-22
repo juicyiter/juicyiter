@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on Mengoreo</title>
-    <link>https://mengoreo.github.io/categories/python/</link>
+    <link>https://blog.mengoreo.cn/categories/python/</link>
     <description>Recent content in Python on Mengoreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
     <lastBuildDate>Sun, 04 Aug 2019 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="https://mengoreo.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.mengoreo.cn/categories/python/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Python Questions</title>
-      <link>https://mengoreo.github.io/post/python_questions/</link>
+      <link>https://blog.mengoreo.cn/post/python_questions/</link>
       <pubDate>Sun, 04 Aug 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/python_questions/</guid>
+      <guid>https://blog.mengoreo.cn/post/python_questions/</guid>
       <description>&lt;h2 id=&#34;garbage-collection&#34;&gt;Garbage Collection&lt;/h2&gt;
 
 &lt;p&gt;Garbage collection is the process of &lt;strong&gt;finding data objects&lt;/strong&gt; in a running programe that cannot be accessed in the future, and &lt;strong&gt;to reclaim resources&lt;/strong&gt;, particularly memory, used by those objects.

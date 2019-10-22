@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://mengoreo.github.io/sitemap.xml
+Sitemap: https://blog.mengoreo.cn/sitemap.xml

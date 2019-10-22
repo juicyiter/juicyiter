@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SLAM on Mengoreo</title>
-    <link>https://mengoreo.github.io/categories/slam/</link>
+    <link>https://blog.mengoreo.cn/categories/slam/</link>
     <description>Recent content in SLAM on Mengoreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
     <lastBuildDate>Tue, 20 Aug 2019 13:45:00 +0800</lastBuildDate>
     
-	<atom:link href="https://mengoreo.github.io/categories/slam/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.mengoreo.cn/categories/slam/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>SLAM</title>
-      <link>https://mengoreo.github.io/post/slam/</link>
+      <link>https://blog.mengoreo.cn/post/slam/</link>
       <pubDate>Tue, 20 Aug 2019 13:45:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/slam/</guid>
+      <guid>https://blog.mengoreo.cn/post/slam/</guid>
       <description>&lt;p&gt;SLAM interview questions&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>从零搭建「视觉里程计」 —— 单文件</title>
-      <link>https://mengoreo.github.io/post/vo_single/</link>
+      <link>https://blog.mengoreo.cn/post/vo_single/</link>
       <pubDate>Fri, 09 Aug 2019 20:50:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/vo_single/</guid>
+      <guid>https://blog.mengoreo.cn/post/vo_single/</guid>
       <description>&lt;p&gt;视觉里程计分为单目、双目和 RGB-D 三类，其中单目视觉相对复杂，而 RGB-D 最为简单，没有初始化，也没有尺度问题。本文从 RGB-D 做起，使用的数据来自 &lt;a href=&#34;https://vision.in.tum.de/data/datasets/rgbd-dataset/download&#34;&gt;TUM 数据集&lt;/a&gt; 。之所以先从单文件说起，是想先把视觉里程计的原理和流程搞明白，再去分模块搭建框架，要不然上来就分模块设计，难免会有些云里雾里。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Feature Detection</title>
-      <link>https://mengoreo.github.io/post/feature_detection/</link>
+      <link>https://blog.mengoreo.cn/post/feature_detection/</link>
       <pubDate>Tue, 06 Aug 2019 21:31:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/feature_detection/</guid>
+      <guid>https://blog.mengoreo.cn/post/feature_detection/</guid>
       <description>Harris-Shi-Tomasi Feature Detector cv::GFTTDetector()     If the image is shifted a small amount (\(\Delta x\) , \(\Delta y\) ), how similar is it to its original self?
 \begin{equation} c(x, y, \Delta x, \Delta y) = \displaystyle \sum_{(i, j) \in W(x, y)} w_{i, j}(I(i, j) - I(i + \Delta x, j + \Delta y))^2 \end{equation}
 \begin{equation} \boldsymbol{M}=\sum_{x, y} w(x, y)\left[\begin{array}{cc}{I_{x}^{2}} &amp;amp; {I_{x} I_{y}} \\

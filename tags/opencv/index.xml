@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>OpenCV on Mengoreo</title>
-    <link>https://mengoreo.github.io/tags/opencv/</link>
+    <link>https://blog.mengoreo.cn/tags/opencv/</link>
     <description>Recent content in OpenCV on Mengoreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
     <lastBuildDate>Tue, 06 Aug 2019 21:31:00 +0800</lastBuildDate>
     
-	<atom:link href="https://mengoreo.github.io/tags/opencv/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.mengoreo.cn/tags/opencv/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Feature Detection</title>
-      <link>https://mengoreo.github.io/post/feature_detection/</link>
+      <link>https://blog.mengoreo.cn/post/feature_detection/</link>
       <pubDate>Tue, 06 Aug 2019 21:31:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/feature_detection/</guid>
+      <guid>https://blog.mengoreo.cn/post/feature_detection/</guid>
       <description>Harris-Shi-Tomasi Feature Detector cv::GFTTDetector()     If the image is shifted a small amount (\(\Delta x\) , \(\Delta y\) ), how similar is it to its original self?
 \begin{equation} c(x, y, \Delta x, \Delta y) = \displaystyle \sum_{(i, j) \in W(x, y)} w_{i, j}(I(i, j) - I(i + \Delta x, j + \Delta y))^2 \end{equation}
 \begin{equation} \boldsymbol{M}=\sum_{x, y} w(x, y)\left[\begin{array}{cc}{I_{x}^{2}} &amp;amp; {I_{x} I_{y}} \\

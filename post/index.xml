@@ -2,59 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Mengoreo</title>
-    <link>https://mengoreo.github.io/post/</link>
+    <link>https://blog.mengoreo.cn/post/</link>
     <description>Recent content in Posts on Mengoreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
     <lastBuildDate>Sun, 01 Sep 2019 20:53:00 +0800</lastBuildDate>
     
-	<atom:link href="https://mengoreo.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.mengoreo.cn/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Recursion</title>
-      <link>https://mengoreo.github.io/post/recursion/</link>
+      <link>https://blog.mengoreo.cn/post/recursion/</link>
       <pubDate>Sun, 01 Sep 2019 20:53:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/recursion/</guid>
+      <guid>https://blog.mengoreo.cn/post/recursion/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Binary Search Trees</title>
-      <link>https://mengoreo.github.io/post/binary_search_trees/</link>
+      <link>https://blog.mengoreo.cn/post/binary_search_trees/</link>
       <pubDate>Sun, 01 Sep 2019 15:25:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/binary_search_trees/</guid>
+      <guid>https://blog.mengoreo.cn/post/binary_search_trees/</guid>
       <description>Libraries Excellent third-party modules: bintrees,1 sortedcontainers.2
 Test if a binary tree is a BST One approach is to check constrains on the values for each subtree. The basic idea generalises: if all nodes in a tree must have keys in the range [l, u], and the key at root is w (which is must be between [l, u], otherwise the requirement is violated at the root itself), then all nodes in the left subtree must be between [l, w], and all nodes in right subtree between [w, u].</description>
     </item>
     
     <item>
       <title>SLAM</title>
-      <link>https://mengoreo.github.io/post/slam/</link>
+      <link>https://blog.mengoreo.cn/post/slam/</link>
       <pubDate>Tue, 20 Aug 2019 13:45:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/slam/</guid>
+      <guid>https://blog.mengoreo.cn/post/slam/</guid>
       <description>&lt;p&gt;SLAM interview questions&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>从零搭建「视觉里程计」 —— 单文件</title>
-      <link>https://mengoreo.github.io/post/vo_single/</link>
+      <link>https://blog.mengoreo.cn/post/vo_single/</link>
       <pubDate>Fri, 09 Aug 2019 20:50:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/vo_single/</guid>
+      <guid>https://blog.mengoreo.cn/post/vo_single/</guid>
       <description>&lt;p&gt;视觉里程计分为单目、双目和 RGB-D 三类，其中单目视觉相对复杂，而 RGB-D 最为简单，没有初始化，也没有尺度问题。本文从 RGB-D 做起，使用的数据来自 &lt;a href=&#34;https://vision.in.tum.de/data/datasets/rgbd-dataset/download&#34;&gt;TUM 数据集&lt;/a&gt; 。之所以先从单文件说起，是想先把视觉里程计的原理和流程搞明白，再去分模块搭建框架，要不然上来就分模块设计，难免会有些云里雾里。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Feature Detection</title>
-      <link>https://mengoreo.github.io/post/feature_detection/</link>
+      <link>https://blog.mengoreo.cn/post/feature_detection/</link>
       <pubDate>Tue, 06 Aug 2019 21:31:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/feature_detection/</guid>
+      <guid>https://blog.mengoreo.cn/post/feature_detection/</guid>
       <description>Harris-Shi-Tomasi Feature Detector cv::GFTTDetector()     If the image is shifted a small amount (\(\Delta x\) , \(\Delta y\) ), how similar is it to its original self?
 \begin{equation} c(x, y, \Delta x, \Delta y) = \displaystyle \sum_{(i, j) \in W(x, y)} w_{i, j}(I(i, j) - I(i + \Delta x, j + \Delta y))^2 \end{equation}
 \begin{equation} \boldsymbol{M}=\sum_{x, y} w(x, y)\left[\begin{array}{cc}{I_{x}^{2}} &amp;amp; {I_{x} I_{y}} \\
@@ -63,10 +63,10 @@ Test if a binary tree is a BST One approach is to check constrains on the values
     
     <item>
       <title>Hash Tables</title>
-      <link>https://mengoreo.github.io/post/hash_tables/</link>
+      <link>https://blog.mengoreo.cn/post/hash_tables/</link>
       <pubDate>Tue, 06 Aug 2019 15:17:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/hash_tables/</guid>
+      <guid>https://blog.mengoreo.cn/post/hash_tables/</guid>
       <description>&lt;p&gt;Hash tables have the &lt;strong&gt;best theoretical and real-world performance&lt;/strong&gt; for lookup, insert and delete. Each of these operations has \(O(1)\) time complexity. The \(O(1)\) time complexity for insertion is for the average case &amp;ndash; a single insert can take \(O(n)\) if the hash table to has to be resized.&lt;/p&gt;
 
 &lt;p&gt;Consider using a hash code as a &lt;strong&gt;signature&lt;/strong&gt; to enhance performance, e.g. to filter out candidates.&lt;/p&gt;</description>
@@ -74,10 +74,10 @@ Test if a binary tree is a BST One approach is to check constrains on the values
     
     <item>
       <title>Searching</title>
-      <link>https://mengoreo.github.io/post/searching/</link>
+      <link>https://blog.mengoreo.cn/post/searching/</link>
       <pubDate>Tue, 06 Aug 2019 14:15:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/searching/</guid>
+      <guid>https://blog.mengoreo.cn/post/searching/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Binary search&lt;/strong&gt; is an effective search tool. It is applicable to more than just searching in sorted arrays, e.g., it can be used to search an &lt;strong&gt;interval of real numbers or integers&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;If your solution uses sorting, and the computation performed after sorting is faster than sorting e.g., \(O(n)\) or \(O(\log n)\) , &lt;strong&gt;look for solutions that do not perform a complete sort&lt;/strong&gt;.&lt;/p&gt;
@@ -87,10 +87,10 @@ Test if a binary tree is a BST One approach is to check constrains on the values
     
     <item>
       <title>Heaps</title>
-      <link>https://mengoreo.github.io/post/heaps/</link>
+      <link>https://blog.mengoreo.cn/post/heaps/</link>
       <pubDate>Tue, 06 Aug 2019 13:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/heaps/</guid>
+      <guid>https://blog.mengoreo.cn/post/heaps/</guid>
       <description>&lt;h2 id=&#34;libraries&#34;&gt;Libraries&lt;/h2&gt;
 
 &lt;p&gt;Heap functionality is provided by the &lt;code&gt;heapq&lt;/code&gt; module.&lt;/p&gt;
@@ -109,10 +109,10 @@ Test if a binary tree is a BST One approach is to check constrains on the values
     
     <item>
       <title>Binary Trees</title>
-      <link>https://mengoreo.github.io/post/binary_trees/</link>
+      <link>https://blog.mengoreo.cn/post/binary_trees/</link>
       <pubDate>Tue, 06 Aug 2019 10:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/binary_trees/</guid>
+      <guid>https://blog.mengoreo.cn/post/binary_trees/</guid>
       <description>&lt;h2 id=&#34;test-if-a-binary-tree-is-heigh-balanced&#34;&gt;Test If A Binary Tree Is Heigh-Balanced&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -166,10 +166,10 @@ Test if a binary tree is a BST One approach is to check constrains on the values
     
     <item>
       <title>Stacks and Queues</title>
-      <link>https://mengoreo.github.io/post/stacks_and_queues/</link>
+      <link>https://blog.mengoreo.cn/post/stacks_and_queues/</link>
       <pubDate>Tue, 06 Aug 2019 08:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/stacks_and_queues/</guid>
+      <guid>https://blog.mengoreo.cn/post/stacks_and_queues/</guid>
       <description>&lt;h2 id=&#34;implement-a-stack-with-max-api&#34;&gt;Implement A Stack with Max API&lt;/h2&gt;
 
 &lt;p&gt;If we use a single auxiliary variable, \(M\) to record the element that is maximum in the stack, updating \(M\) on pushes is easy, but not on pops. For this reason, we cache the maximum stored at or below that entry. When we pop, we simply evict the corresponding cached value.&lt;/p&gt;</description>
@@ -177,10 +177,10 @@ Test if a binary tree is a BST One approach is to check constrains on the values
     
     <item>
       <title>Linked Lists</title>
-      <link>https://mengoreo.github.io/post/linked_lists/</link>
+      <link>https://blog.mengoreo.cn/post/linked_lists/</link>
       <pubDate>Mon, 05 Aug 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/linked_lists/</guid>
+      <guid>https://blog.mengoreo.cn/post/linked_lists/</guid>
       <description>&lt;p&gt;Inserting and deleting elements in a list has time complexity \(O(1)\) , while obtaining $k$-th element in a list has time complexity \(O(n)\) .&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;A &lt;code&gt;list&lt;/code&gt; object is an array not a list.&lt;/strong&gt;&lt;/p&gt;
@@ -190,35 +190,35 @@ Test if a binary tree is a BST One approach is to check constrains on the values
     
     <item>
       <title>Strings</title>
-      <link>https://mengoreo.github.io/post/strings/</link>
+      <link>https://blog.mengoreo.cn/post/strings/</link>
       <pubDate>Mon, 05 Aug 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/strings/</guid>
+      <guid>https://blog.mengoreo.cn/post/strings/</guid>
       <description>&lt;p&gt;You should know &lt;strong&gt;how strings are represented in memory&lt;/strong&gt; and understand basic operations on strings such as comparison, copying, joining, splitting, matching, etc. Advanced string processing algorithm often use &lt;strong&gt;hash tables&lt;/strong&gt; and &lt;strong&gt;dynamic programming&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Arrays</title>
-      <link>https://mengoreo.github.io/post/arrays/</link>
+      <link>https://blog.mengoreo.cn/post/arrays/</link>
       <pubDate>Sun, 04 Aug 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/arrays/</guid>
+      <guid>https://blog.mengoreo.cn/post/arrays/</guid>
       <description>&lt;h2 id=&#34;libraries&#34;&gt;Libraries&lt;/h2&gt;
 
 &lt;p&gt;Arrays are provided in Python by &lt;code&gt;list&lt;/code&gt; type. ( &lt;code&gt;tuple&lt;/code&gt; is similar to &lt;code&gt;list&lt;/code&gt;, but immutable.);&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Checking if a value in an array has \(O(n)\) time complexity.&lt;/li&gt;
-&lt;li&gt;To understand how copy works check &lt;a href=&#34;https://mengoreo.github.io/post/python_questions/#shallow-and-deep-copy&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;To understand how copy works check &lt;a href=&#34;https://blog.mengoreo.cn/post/python_questions/#shallow-and-deep-copy&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     
     <item>
       <title>Python Questions</title>
-      <link>https://mengoreo.github.io/post/python_questions/</link>
+      <link>https://blog.mengoreo.cn/post/python_questions/</link>
       <pubDate>Sun, 04 Aug 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/python_questions/</guid>
+      <guid>https://blog.mengoreo.cn/post/python_questions/</guid>
       <description>&lt;h2 id=&#34;garbage-collection&#34;&gt;Garbage Collection&lt;/h2&gt;
 
 &lt;p&gt;Garbage collection is the process of &lt;strong&gt;finding data objects&lt;/strong&gt; in a running programe that cannot be accessed in the future, and &lt;strong&gt;to reclaim resources&lt;/strong&gt;, particularly memory, used by those objects.
@@ -227,55 +227,55 @@ Most garbage-collected language uses either &lt;strong&gt;reference counting&lt;
     
     <item>
       <title>视觉 SLAM 十四讲 —— 第七章习题</title>
-      <link>https://mengoreo.github.io/post/vslam_ch7/</link>
+      <link>https://blog.mengoreo.cn/post/vslam_ch7/</link>
       <pubDate>Thu, 01 Aug 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/vslam_ch7/</guid>
+      <guid>https://blog.mengoreo.cn/post/vslam_ch7/</guid>
       <description>&lt;p&gt;个人拙见，如有错误，欢迎评论指出 🤗。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>视觉 SLAM 十四讲 —— 第五章习题</title>
-      <link>https://mengoreo.github.io/post/vslam_ch5/</link>
+      <link>https://blog.mengoreo.cn/post/vslam_ch5/</link>
       <pubDate>Thu, 01 Aug 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/vslam_ch5/</guid>
+      <guid>https://blog.mengoreo.cn/post/vslam_ch5/</guid>
       <description>&lt;p&gt;本篇主要总结关于相机标定的问题，特别是相机的内参如何求。总结的还不全面，有待补充。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>视觉 SLAM 十四讲 —— 第六章习题</title>
-      <link>https://mengoreo.github.io/post/vslam_ch6/</link>
+      <link>https://blog.mengoreo.cn/post/vslam_ch6/</link>
       <pubDate>Thu, 01 Aug 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/vslam_ch6/</guid>
+      <guid>https://blog.mengoreo.cn/post/vslam_ch6/</guid>
       <description>&lt;p&gt;个人拙见，如有错误，欢迎评论指出 🤗。查找资料整理的时候，懒得翻译了。。。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>视觉 SLAM 十四讲 —— 第三章习题</title>
-      <link>https://mengoreo.github.io/post/vslam_ch3/</link>
+      <link>https://blog.mengoreo.cn/post/vslam_ch3/</link>
       <pubDate>Wed, 17 Jul 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/vslam_ch3/</guid>
+      <guid>https://blog.mengoreo.cn/post/vslam_ch3/</guid>
       <description>&lt;p&gt;个人拙见，如有错误，欢迎评论指出 🤗。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>视觉 SLAM 十四讲 —— 第四章习题</title>
-      <link>https://mengoreo.github.io/post/vslam_ch4/</link>
+      <link>https://blog.mengoreo.cn/post/vslam_ch4/</link>
       <pubDate>Wed, 17 Jul 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/vslam_ch4/</guid>
+      <guid>https://blog.mengoreo.cn/post/vslam_ch4/</guid>
       <description>&lt;p&gt;个人拙见，如有错误，欢迎评论指出 🤗。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>视觉 SLAM 十四讲 —— 第一章习题</title>
-      <link>https://mengoreo.github.io/post/vslam_ch1/</link>
+      <link>https://blog.mengoreo.cn/post/vslam_ch1/</link>
       <pubDate>Tue, 16 Jul 2019 16:47:54 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/vslam_ch1/</guid>
+      <guid>https://blog.mengoreo.cn/post/vslam_ch1/</guid>
       <description>&lt;p&gt;个人拙见，如有错误，欢迎评论指出 🤗。&lt;/p&gt;</description>
     </item>
     

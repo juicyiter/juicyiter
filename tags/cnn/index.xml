@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CNN on Mengoreo</title>
-    <link>https://mengoreo.github.io/tags/cnn/</link>
+    <link>https://blog.mengoreo.cn/tags/cnn/</link>
     <description>Recent content in CNN on Mengoreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
     <lastBuildDate>Thu, 18 Apr 2019 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="https://mengoreo.github.io/tags/cnn/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.mengoreo.cn/tags/cnn/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How does Convolutional Neural Network work?</title>
-      <link>https://mengoreo.github.io/post/cnn-in-org-subtree-export/</link>
+      <link>https://blog.mengoreo.cn/post/cnn-in-org-subtree-export/</link>
       <pubDate>Thu, 18 Apr 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/cnn-in-org-subtree-export/</guid>
+      <guid>https://blog.mengoreo.cn/post/cnn-in-org-subtree-export/</guid>
       <description>&lt;h2 id=&#34;x-s-and-o-s&#34;&gt;X&amp;rsquo;s and O&amp;rsquo;s&lt;/h2&gt;
 
 
@@ -26,9 +26,9 @@
 &lt;figure  itemprop=&#34;associatedMedia&#34;
   itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
     &lt;div class=&#34;img&#34;&gt;
-      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://mengoreo.github.io/images/xos.png&#34; alt=&#34;Figure 1: Determining whether an image is an X or an O&#34;/&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://blog.mengoreo.cn/images/xos.png&#34; alt=&#34;Figure 1: Determining whether an image is an X or an O&#34;/&gt;
     &lt;/div&gt;
-    &lt;a href=&#34;https://mengoreo.github.io/images/xos.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+    &lt;a href=&#34;https://blog.mengoreo.cn/images/xos.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
       &lt;figcaption&gt;
           &lt;p&gt;Figure 1: Determining whether an image is an X or an O&lt;/p&gt;
       &lt;/figcaption&gt;

@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>machine_learning on Mengoreo</title>
-    <link>https://mengoreo.github.io/tags/machine_learning/</link>
+    <link>https://blog.mengoreo.cn/tags/machine_learning/</link>
     <description>Recent content in machine_learning on Mengoreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Mengoreo is not an oreo</copyright>
     <lastBuildDate>Sat, 04 May 2019 14:37:36 +0800</lastBuildDate>
     
-	<atom:link href="https://mengoreo.github.io/tags/machine_learning/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.mengoreo.cn/tags/machine_learning/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>机器学习-周志华 课后习题</title>
-      <link>https://mengoreo.github.io/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%91%A8%E5%BF%97%E5%8D%8E/</link>
+      <link>https://blog.mengoreo.cn/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%91%A8%E5%BF%97%E5%8D%8E/</link>
       <pubDate>Sat, 04 May 2019 14:37:36 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%91%A8%E5%BF%97%E5%8D%8E/</guid>
+      <guid>https://blog.mengoreo.cn/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%91%A8%E5%BF%97%E5%8D%8E/</guid>
       <description>写在前面，因为没有标准答案，机友如果有不同见解欢迎评论交流，我会及时回复。 绪论 1.1 更改后的数据集为： 编号 色泽 根蒂 敲声 好瓜 1 青绿 蜷缩 浊响 是 4 乌黑</description>
     </item>
     
     <item>
       <title>Long-Short Time Memory</title>
-      <link>https://mengoreo.github.io/post/rnn-lstm-in-org-subtree-export/</link>
+      <link>https://blog.mengoreo.cn/post/rnn-lstm-in-org-subtree-export/</link>
       <pubDate>Sat, 20 Apr 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/rnn-lstm-in-org-subtree-export/</guid>
+      <guid>https://blog.mengoreo.cn/post/rnn-lstm-in-org-subtree-export/</guid>
       <description>colah&amp;rsquo;s blog</description>
     </item>
     
     <item>
       <title>How does Convolutional Neural Network work?</title>
-      <link>https://mengoreo.github.io/post/cnn-in-org-subtree-export/</link>
+      <link>https://blog.mengoreo.cn/post/cnn-in-org-subtree-export/</link>
       <pubDate>Thu, 18 Apr 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/cnn-in-org-subtree-export/</guid>
+      <guid>https://blog.mengoreo.cn/post/cnn-in-org-subtree-export/</guid>
       <description>&lt;h2 id=&#34;x-s-and-o-s&#34;&gt;X&amp;rsquo;s and O&amp;rsquo;s&lt;/h2&gt;
 
 
@@ -44,9 +44,9 @@
 &lt;figure  itemprop=&#34;associatedMedia&#34;
   itemscope itemtype=&#34;http://schema.org/ImageObject&#34; &gt;
     &lt;div class=&#34;img&#34;&gt;
-      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://mengoreo.github.io/images/xos.png&#34; alt=&#34;Figure 1: Determining whether an image is an X or an O&#34;/&gt;
+      &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://blog.mengoreo.cn/images/xos.png&#34; alt=&#34;Figure 1: Determining whether an image is an X or an O&#34;/&gt;
     &lt;/div&gt;
-    &lt;a href=&#34;https://mengoreo.github.io/images/xos.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
+    &lt;a href=&#34;https://blog.mengoreo.cn/images/xos.png&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
       &lt;figcaption&gt;
           &lt;p&gt;Figure 1: Determining whether an image is an X or an O&lt;/p&gt;
       &lt;/figcaption&gt;
@@ -56,10 +56,10 @@
     
     <item>
       <title>Deep Learning Book</title>
-      <link>https://mengoreo.github.io/post/deep-learning-book-in-org-subtree-export/</link>
+      <link>https://blog.mengoreo.cn/post/deep-learning-book-in-org-subtree-export/</link>
       <pubDate>Tue, 19 Mar 2019 00:00:00 +0800</pubDate>
       
-      <guid>https://mengoreo.github.io/post/deep-learning-book-in-org-subtree-export/</guid>
+      <guid>https://blog.mengoreo.cn/post/deep-learning-book-in-org-subtree-export/</guid>
       <description>&lt;h2 id=&#34;linear-algebra&#34;&gt;Linear Algebra&lt;/h2&gt;
 
 &lt;h3 id=&#34;basic-types&#34;&gt;Basic Types&lt;/h3&gt;
